@@ -1,0 +1,63 @@
+name: Build and publish updater release
+
+# Manual release: publishing code alone never runs installers/packaged binaries.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: a2pettracker-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Build and offline logic tests
+        shell: pwsh
+        run: |
+          dotnet build PetTracker.slnx -c Release
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          dotnet test PetTracker.slnx -c Release --no-build
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Publish self-contained application
+        shell: pwsh
+        run: |
+          dotnet publish src/PetTracker.App/PetTracker.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=embedded -o publish
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Install pinned packaging tool
+        shell: pwsh
+        run: dotnet tool install --global vpk --version 1.2.161
+      - name: Package and publish
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VPK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY_URL: https://github.com/${{ github.repository }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          [xml]$project = Get-Content src/PetTracker.App/PetTracker.App.csproj
+          $releaseVersion = @($project.Project.PropertyGroup.Version | Where-Object { $_ })[0]
+          if ($releaseVersion -notmatch '^\d+\.\d+\.\d+$') { throw 'Release version must be x.y.z' }
+          if ($env:GITHUB_REPOSITORY -ne 'keytftw/aion2pettracker') { throw 'Updater feed is bound to keytftw/aion2pettracker' }
+          $releaseCount = gh api "repos/$env:GITHUB_REPOSITORY/releases" --jq length
+          if ($LASTEXITCODE) { throw 'Cannot inspect current releases' }
+          if ([int]$releaseCount -gt 0) {
+            vpk download github --repoUrl $env:REPOSITORY_URL --outputDir update-releases
+            if ($LASTEXITCODE) { throw 'Cannot download the previous update feed' }
+          }
+          vpk pack --packId A2PetTracker --packVersion $releaseVersion --packDir publish --mainExe A2PetTracker.exe --packTitle A2PetTracker --outputDir update-releases
+          if ($LASTEXITCODE) { throw 'Packaging failed' }
+          $sourceArchive = "A2PetTracker-$releaseVersion-source.zip"
+          git archive --format=zip --output=$sourceArchive HEAD
+          if ($LASTEXITCODE) { throw 'Cannot create corresponding source archive' }
+          vpk upload github --repoUrl $env:REPOSITORY_URL --outputDir update-releases --tag "v$releaseVersion" --releaseName "Aion 2 Pet Tracker $releaseVersion" --publish
+          if ($LASTEXITCODE) { throw 'Release upload failed' }
+          gh release upload "v$releaseVersion" $sourceArchive --clobber
+          if ($LASTEXITCODE) { throw 'Source upload failed' }

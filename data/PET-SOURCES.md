@@ -1,0 +1,11 @@
+# Pet catalog, portraits and protocol provenance
+
+Offline catalog: 207 pet ids/names/genus from https://questlog.gg/aion-2/en/db/pets . Multi-region spawn associations and portraits are the Questlog game-data snapshot published by xCROv/aion2-pet-tracker (GPL-3.0), tree 93da8f0a4d672210eb455c20bbea7dcc9191cd5b, fetched 2026-10-10. Images were converted from WebP to 64px PNG without changing their artwork. Static spawn records do not establish a live spawn or guaranteed drop. All 207 pets have portraits; 160 have a recorded location. Pets without a recorded location remain explicitly unknown or special.
+
+Fallback region/subzone records: MartinLVila/aion2-pet-overlay (MIT), tree 211ab2aa7216813dd913f4d8521d860e9ccb3e0e, `data/pets.json`, extracted from https://metabot.gg/en/aion-2/mounts . Used only where the Questlog snapshot has no recorded region. Original map tiles are not bundled.
+
+Collection and soul packet layouts: https://github.com/elkaida/AION2-pet-tracker/blob/main/docs/PROTOCOL.md (MIT), tree 7a8afb636c0516f07cc45918687142d77c94bd5a; corroborated by https://github.com/xCROv/aion2-pet-tracker/blob/main/aion2_tracker/protocol.py (GPL-3.0), tree above. Crystal message layout is documented by xCROv. The C# readers are implemented in PetPackets.cs with strict shape, bounds and completeness checks. Only server-to-client messages are consumed; no game input, injection, memory access or messages to the game are added.
+
+00 90: complete login collection, level list plus within-stage soul list. 0d 90: actual soul gain with pet id and amount. 11 90: actual genus crystal gain; it does not carry a pet id or total wallet balance. Only captured genus codes 1=Fera and 2=Cogni are named; other codes retain an explicit numeric label. Shards are shown as observed session gains, never attributed to a guessed pet. Unknown baselines, missing frames and unsupported snapshots are not presented as live exact totals. Global star requirements are additive 5, 25, 75 (105 total).
+
+Names, game art and underlying game data remain the property of their respective owners. AION 2 Alerts is an independent community application, not endorsed by the game company, Questlog, MetaBot or the source tracker authors. License notices are distributed in licenses/ and THIRD_PARTY_NOTICES.txt.

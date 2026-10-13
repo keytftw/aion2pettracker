@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <!-- Keep the live milestone build separate from an already running milestone-1 demo. -->
+    <BaseOutputPath>bin\premium\</BaseOutputPath>
+  </PropertyGroup>
+</Project>

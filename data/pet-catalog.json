@@ -1,0 +1,6951 @@
+[
+ {
+  "Id": 1001,
+  "Name": "Black Dragon",
+  "Genus": "Special",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1002,
+  "Name": "Krall Laborer",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Verteron Fortress Ruins"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Destroyed Abyss Gate"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Scarlet Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100075,
+    "Name": "Krall Armed Soldier",
+    "Level": 21
+   },
+   {
+    "NpcCode": 2100480,
+    "Name": "Krall Sentinel",
+    "Level": 21
+   },
+   {
+    "NpcCode": 2100914,
+    "Name": "Mutated Krall Laborer",
+    "Level": 41
+   }
+  ]
+ },
+ {
+  "Id": 1003,
+  "Name": "Forest Specter",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Altamia Canyon"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100601,
+    "Name": "Canyon Vine Spirit",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100662,
+    "Name": "Tainted Vine Specter",
+    "Level": 44
+   }
+  ]
+ },
+ {
+  "Id": 1004,
+  "Name": "Fossa",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Tolbas Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Uruthumheim"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Basfelt Ruins"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100163,
+    "Name": "Patrolling Fossa",
+    "Level": 25
+   },
+   {
+    "NpcCode": 2400254,
+    "Name": "Daeva Renegade Fossa",
+    "Level": 24
+   },
+   {
+    "NpcCode": 2400414,
+    "Name": "Tamed Beast",
+    "Level": 34
+   }
+  ]
+ },
+ {
+  "Id": 1005,
+  "Name": "Klaw",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Destroyed Abyss Gate"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Sulfur Tree Island"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100078,
+    "Name": "Wandering Klaw",
+    "Level": 19
+   },
+   {
+    "NpcCode": 2600029,
+    "Name": "Abyss Klaw Mutant",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600429,
+    "Name": "Abyss Mutated Klaw",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600504,
+    "Name": "Abyss Mutated Klaw",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600538,
+    "Name": "Abyss Mutated Klaw",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600558,
+    "Name": "Abyss Mutated Klaw",
+    "Level": 52
+   }
+  ]
+ },
+ {
+  "Id": 1006,
+  "Name": "Sparkie",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Altamia Highland"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Western Altamia Highland"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Aullaeu Village"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100273,
+    "Name": "Wild Sparkie",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100305,
+    "Name": "Meadow Sparkie",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100753,
+    "Name": "Highland Odyle Sparkie",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100795,
+    "Name": "Highland Odyle Sparkie",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2100986,
+    "Name": "Aullaeu Forest Sparkie",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2100992,
+    "Name": "Highland Sparkie",
+    "Level": 30
+   }
+  ]
+ },
+ {
+  "Id": 1007,
+  "Name": "Potcrab",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Marsh"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Altamia Canyon"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dranactus"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100032,
+    "Name": "Marsh Moss Potcrab",
+    "Level": 14
+   },
+   {
+    "NpcCode": 2100610,
+    "Name": "Flat Potcrab",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2101098,
+    "Name": "Eternal Moss Crab",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400363,
+    "Name": "Moss Crab",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400755,
+    "Name": "Coastal Moss Crab",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2400812,
+    "Name": "Coastal Moss Crab",
+    "Level": 49
+   }
+  ]
+ },
+ {
+  "Id": 1008,
+  "Name": "Baby Odyle Spider",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Spirit's Rest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100034,
+    "Name": "Coastal Odyle Spider",
+    "Level": 16
+   }
+  ]
+ },
+ {
+  "Id": 1009,
+  "Name": "Kernon",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1010,
+  "Name": "Manduri Fighter",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Crimson Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Black Claw Village"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2110506,
+    "Name": "Crimson Manduri Fighter",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2400617,
+    "Name": "Black Claw Manduri Combatant",
+    "Level": 42
+   }
+  ]
+ },
+ {
+  "Id": 1011,
+  "Name": "Skyray",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Spirit's Rest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Tolbas Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pilgrim's Ridge"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Altamia Canyon"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Western Cantas Valley"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Altamia Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Tranein Pond"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Idun's Lake"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100047,
+    "Name": "Small Forest Skyray",
+    "Level": 16
+   },
+   {
+    "NpcCode": 2100048,
+    "Name": "Ellun River Falls Skyray",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100182,
+    "Name": "Tolbas Forest Lake Skyray",
+    "Level": 25
+   },
+   {
+    "NpcCode": 2100556,
+    "Name": "Ridge Skyray",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2100607,
+    "Name": "Canyon Skyray",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100613,
+    "Name": "Canyon Lake Skyray",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100832,
+    "Name": "Pond Skyray",
+    "Level": 39
+   },
+   {
+    "NpcCode": 2101123,
+    "Name": "Ellun River Lake Skyray",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2101124,
+    "Name": "Cantas Valley Skyray",
+    "Level": 10
+   },
+   {
+    "NpcCode": 2101132,
+    "Name": "Lake Skyray",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2400163,
+    "Name": "Tranein Skyray",
+    "Level": 20
+   },
+   {
+    "NpcCode": 2400945,
+    "Name": "Lake Skyray",
+    "Level": 40
+   }
+  ]
+ },
+ {
+  "Id": 1012,
+  "Name": "Fungie",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Cantas Valley"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100041,
+    "Name": "Red Cap Fungie",
+    "Level": 12
+   }
+  ]
+ },
+ {
+  "Id": 1013,
+  "Name": "Swarm",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Calderon Canyon"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Devastated Remnants"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Black Fragments Area"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Sulfur Tree Island"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Steel Titan's Grave"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Eroded Fragment Area"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Contaminated Marsh"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400080,
+    "Name": "Contaminated Swarm",
+    "Level": 11
+   },
+   {
+    "NpcCode": 2400456,
+    "Name": "Giant Ore Insectoid",
+    "Level": 35
+   },
+   {
+    "NpcCode": 2600001,
+    "Name": "Abyss Swarm",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2600011,
+    "Name": "Abyss Aberrant Swarn",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2600021,
+    "Name": "Abyss Swarm Mutant",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600401,
+    "Name": "Abyss Swarm",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600411,
+    "Name": "Abyss Swarm",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600421,
+    "Name": "Abyss Swarm",
+    "Level": 50
+   }
+  ]
+ },
+ {
+  "Id": 1014,
+  "Name": "Drakan Guard Dog",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Nahid Brigade Fortress"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dranactus"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Eastern Gribade Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Lagta Fortress"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Archipelago of Siel's Wings"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101002,
+    "Name": "Drakan Guard Dog",
+    "Level": 43
+   },
+   {
+    "NpcCode": 2101009,
+    "Name": "Nahid Drakan Guard Dog",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2400359,
+    "Name": "Drakan Guard Dog",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400587,
+    "Name": "Drakan Patrol Armed Beast",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2400655,
+    "Name": "Lagta Brigade Guard Dog",
+    "Level": 43
+   },
+   {
+    "NpcCode": 2600052,
+    "Name": "Abyss Drakan Scout Beast",
+    "Level": 47
+   }
+  ]
+ },
+ {
+  "Id": 1015,
+  "Name": "Kailin",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Tranein Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Battlescar Mound"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101021,
+    "Name": "Ellun River Kailin",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2400736,
+    "Name": "Unstable Kailin",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2400905,
+    "Name": "Kailin",
+    "Level": 20
+   },
+   {
+    "NpcCode": 2400934,
+    "Name": "Kailin",
+    "Level": 32
+   }
+  ]
+ },
+ {
+  "Id": 1016,
+  "Name": "Slink",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Tolbas Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Western Gribade Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Tranein Pond"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Southern Gribade Highland"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Archipelago of Siel's Wings"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Distorted Old Growth Forest"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100165,
+    "Name": "Tolbas Slink",
+    "Level": 25
+   },
+   {
+    "NpcCode": 2100188,
+    "Name": "Wetland Slink",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2101097,
+    "Name": "Eternal Slink",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400520,
+    "Name": "Coastal Slink",
+    "Level": 37
+   },
+   {
+    "NpcCode": 2400819,
+    "Name": "Coastal Slink",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400909,
+    "Name": "Slink",
+    "Level": 20
+   },
+   {
+    "NpcCode": 2400943,
+    "Name": "Slink",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2600048,
+    "Name": "Abyss Slink",
+    "Level": 47
+   },
+   {
+    "NpcCode": 2600448,
+    "Name": "Abyss Slink",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2600576,
+    "Name": "Abyss Slink",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2600586,
+    "Name": "Abyss Slink",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1017,
+  "Name": "Krall Warshaman",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Verteron Fortress Ruins"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Drana Processing Area"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100074,
+    "Name": "Krall Warshaman",
+    "Level": 21
+   },
+   {
+    "NpcCode": 2100855,
+    "Name": "Modified Krall Healer",
+    "Level": 41
+   }
+  ]
+ },
+ {
+  "Id": 1018,
+  "Name": "Varg Berserker",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dranactus"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Black Claw Village"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Distorted Old Growth Forest"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400385,
+    "Name": "Varg Berserker",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400609,
+    "Name": "Chief's Bodyguard",
+    "Level": 42
+   },
+   {
+    "NpcCode": 2600105,
+    "Name": "Varg Berserker",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2600135,
+    "Name": "Varg Berserker",
+    "Level": 54
+   },
+   {
+    "NpcCode": 2600455,
+    "Name": "Varg Berserker",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600515,
+    "Name": "Varg Berserker",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600580,
+    "Name": "Varg Berserker",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600590,
+    "Name": "Varg Berserker",
+    "Level": 53
+   }
+  ]
+ },
+ {
+  "Id": 1021,
+  "Name": "Aberrant Odyle Spider",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1022,
+  "Name": "Crasaur",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Altamia Canyon"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100215,
+    "Name": "Aquascale Crasaur",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100608,
+    "Name": "Docile Crasaur",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2101083,
+    "Name": "Eternal Crasaur",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400327,
+    "Name": "Sensitive Crasaur",
+    "Level": 29
+   },
+   {
+    "NpcCode": 2400809,
+    "Name": "Crasaur",
+    "Level": 49
+   }
+  ]
+ },
+ {
+  "Id": 1025,
+  "Name": "Mutated Aberrant Odyle Spider",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Altamia Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100030,
+    "Name": "Marsh Odyle Spider",
+    "Level": 15
+   },
+   {
+    "NpcCode": 2100663,
+    "Name": "Garden Spider",
+    "Level": 44
+   },
+   {
+    "NpcCode": 2100745,
+    "Name": "Highland Odyle Spider",
+    "Level": 35
+   },
+   {
+    "NpcCode": 2400744,
+    "Name": "Unstable Ashen Spider",
+    "Level": 48
+   }
+  ]
+ },
+ {
+  "Id": 1026,
+  "Name": "Krall Warrior",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Verteron Fortress Ruins"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Scarlet Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Nahid Brigade Fortress"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100073,
+    "Name": "Krall Assault Trooper",
+    "Level": 21
+   },
+   {
+    "NpcCode": 2100910,
+    "Name": "Modified Krall Warrior",
+    "Level": 41
+   },
+   {
+    "NpcCode": 2101005,
+    "Name": "Krall Test Subject",
+    "Level": 43
+   }
+  ]
+ },
+ {
+  "Id": 1027,
+  "Name": "Withered Agrint",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Altamia Canyon"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Sulfur Tree Island"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100612,
+    "Name": "Withered Canyon Agrint",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100652,
+    "Name": "Thin Agrint",
+    "Level": 44
+   },
+   {
+    "NpcCode": 2600026,
+    "Name": "Withered Sulfur Agrint",
+    "Level": 46
+   }
+  ]
+ },
+ {
+  "Id": 1028,
+  "Name": "Krao Mutant",
+  "Genus": "Varian",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1029,
+  "Name": "Klaw Scout",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Devastated Remnants"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Black Fragments Area"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Steel Titan's Grave"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Eroded Fragment Area"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400313,
+    "Name": "Consumed Klaw",
+    "Level": 30
+   },
+   {
+    "NpcCode": 2600002,
+    "Name": "Abyss Klaw",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2600012,
+    "Name": "Abyss Aberrant Klaw",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2600402,
+    "Name": "Abyss Klaw",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600412,
+    "Name": "Abyss Klaw",
+    "Level": 53
+   }
+  ]
+ },
+ {
+  "Id": 1030,
+  "Name": "Nagarant Guardian Warrior",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Sulfur Tree Island"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2600036,
+    "Name": "Abyss Nagarant Brawler",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2600041,
+    "Name": "Abyss Nagarant Warrior",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2600436,
+    "Name": "Abyss Nagarant Brawler",
+    "Level": 54
+   },
+   {
+    "NpcCode": 2600441,
+    "Name": "Abyss Nagarant Brawler",
+    "Level": 54
+   },
+   {
+    "NpcCode": 2600537,
+    "Name": "Abyss Nagarant Brawler",
+    "Level": 54
+   },
+   {
+    "NpcCode": 2600557,
+    "Name": "Abyss Nagarant Brawler",
+    "Level": 54
+   }
+  ]
+ },
+ {
+  "Id": 1031,
+  "Name": "Konutin Worker",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Northern Tolbas Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100157,
+    "Name": "Tolbas Konutin Worker",
+    "Level": 24
+   }
+  ]
+ },
+ {
+  "Id": 1032,
+  "Name": "Elite Keneire",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1033,
+  "Name": "Elite Manduri Fighter",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pilgrim's Ridge"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Black Claw Village"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100557,
+    "Name": "Wandering Manduri Fighter",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2100569,
+    "Name": "Wandering Manduri Fighter",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2400605,
+    "Name": "Black Claw Manduri Fighter",
+    "Level": 41
+   }
+  ]
+ },
+ {
+  "Id": 1034,
+  "Name": "Giant Sparkie",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Cantas Valley"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Altamia Highland"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Aullaeu Village"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100015,
+    "Name": "Splendent Hill Sparkie",
+    "Level": 13
+   },
+   {
+    "NpcCode": 2100796,
+    "Name": "Highland Giant Odyle Sparkie",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100987,
+    "Name": "Aullaeu Forest Giant Sparkie",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2100993,
+    "Name": "Highland Giant Sparkie",
+    "Level": 30
+   },
+   {
+    "NpcCode": 2400341,
+    "Name": "Withered Branch Odyle Sparkie",
+    "Level": 30
+   },
+   {
+    "NpcCode": 2400466,
+    "Name": "Fafnite Luminous Sparkie",
+    "Level": 35
+   }
+  ]
+ },
+ {
+  "Id": 1035,
+  "Name": "Skama",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Scarlet Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100031,
+    "Name": "Foul Skama",
+    "Level": 14
+   },
+   {
+    "NpcCode": 2100376,
+    "Name": "Lake Skama",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100907,
+    "Name": "Drana Mutated Skama",
+    "Level": 41
+   }
+  ]
+ },
+ {
+  "Id": 1036,
+  "Name": "Lupyllini",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Altamia Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100746,
+    "Name": "Tail Feather Lupyllini",
+    "Level": 34
+   }
+  ]
+ },
+ {
+  "Id": 1037,
+  "Name": "Male Crestlich",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Altamia Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100151,
+    "Name": "Ellun River Crestlich Male",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100750,
+    "Name": "Highland Crestlich Male",
+    "Level": 33
+   }
+  ]
+ },
+ {
+  "Id": 1038,
+  "Name": "Airon",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Altamia Canyon"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Western Altamia Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Eastern Gribade Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100144,
+    "Name": "Smallbeak Airon",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100216,
+    "Name": "Pointbeak Airon",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100609,
+    "Name": "Hardbeak Airon",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100741,
+    "Name": "Longbeak Highland Airon",
+    "Level": 34
+   },
+   {
+    "NpcCode": 2400567,
+    "Name": "Canyon Airon",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2400568,
+    "Name": "Baby Canyon Airon",
+    "Level": 40
+   }
+  ]
+ },
+ {
+  "Id": 1039,
+  "Name": "Crestlich",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Western Cantas Valley"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Altamia Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100037,
+    "Name": "Stonebeak Crestlich",
+    "Level": 11
+   },
+   {
+    "NpcCode": 2100150,
+    "Name": "Ellun River Crestlich Female",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100799,
+    "Name": "Highland Crestlich Female",
+    "Level": 33
+   }
+  ]
+ },
+ {
+  "Id": 1040,
+  "Name": "Aullaeu Shaman",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Aullaeu Village"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100950,
+    "Name": "Aullaeu Apprentice Shaman",
+    "Level": 27
+   }
+  ]
+ },
+ {
+  "Id": 1041,
+  "Name": "Cave Bat",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Scarlet Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100911,
+    "Name": "Drana Mutated Bat",
+    "Level": 41
+   }
+  ]
+ },
+ {
+  "Id": 1042,
+  "Name": "Ursus",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Tolbas Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pilgrim's Ridge"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Battlescar Mound"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Silent Hill"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100172,
+    "Name": "Hardhorn Ursus",
+    "Level": 25
+   },
+   {
+    "NpcCode": 2100552,
+    "Name": "Ridge Ursus",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2100560,
+    "Name": "Ridge Violent Ursus",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2100655,
+    "Name": "Confused Ursus",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2100817,
+    "Name": "Hill Ursus",
+    "Level": 39
+   },
+   {
+    "NpcCode": 2400376,
+    "Name": "Ursus",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400916,
+    "Name": "Ursus",
+    "Level": 17
+   }
+  ]
+ },
+ {
+  "Id": 1043,
+  "Name": "Elite Ursus",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1044,
+  "Name": "Aultross's Doppelganger",
+  "Genus": "Cogni",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1045,
+  "Name": "Sylphen",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Western Cantas Valley"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Tolbas Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pilgrim's Ridge"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Altamia Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Battlescar Mound"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100004,
+    "Name": "Highland Sylphen",
+    "Level": 13
+   },
+   {
+    "NpcCode": 2100023,
+    "Name": "Ellun River Sylphen",
+    "Level": 14
+   },
+   {
+    "NpcCode": 2100219,
+    "Name": "Ellun River Sylphen",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100472,
+    "Name": "Aberrant Sylphen",
+    "Level": 26
+   },
+   {
+    "NpcCode": 2100565,
+    "Name": "Ridge Sylphen",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2100743,
+    "Name": "Highland Sylphen",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400362,
+    "Name": "Sylphen",
+    "Level": 32
+   }
+  ]
+ },
+ {
+  "Id": 1046,
+  "Name": "Armadon",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dredgion Crash Site"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Moslan Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400002,
+    "Name": "Red Shell Mole",
+    "Level": 10
+   },
+   {
+    "NpcCode": 2400249,
+    "Name": "Withered Armadon",
+    "Level": 21
+   }
+  ]
+ },
+ {
+  "Id": 1047,
+  "Name": "Aberrant Armadon",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Cantas Valley"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Altamia Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100453,
+    "Name": "Splendent Armadon",
+    "Level": 12
+   },
+   {
+    "NpcCode": 2100751,
+    "Name": "Highland Wild Armadon",
+    "Level": 33
+   }
+  ]
+ },
+ {
+  "Id": 1048,
+  "Name": "Forest Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Marsh"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pilgrim's Ridge"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Altamia Canyon"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100022,
+    "Name": "Marsh Vine Spirit",
+    "Level": 13
+   },
+   {
+    "NpcCode": 2100142,
+    "Name": "Contaminated Vine Spirit",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100555,
+    "Name": "Ridge Forest Spirit",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2100611,
+    "Name": "Deep Canyon Forest Spirit",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2400337,
+    "Name": "Forest Spirit",
+    "Level": 26
+   }
+  ]
+ },
+ {
+  "Id": 1049,
+  "Name": "Mutated Forest Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Sanctum"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Nameless Cemetery"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100711,
+    "Name": "Mutated Vine Bundle",
+    "Level": 36
+   },
+   {
+    "NpcCode": 2100715,
+    "Name": "Contaminated Vine Bundle",
+    "Level": 37
+   },
+   {
+    "NpcCode": 2400061,
+    "Name": "Condensed Specter",
+    "Level": 14
+   }
+  ]
+ },
+ {
+  "Id": 1050,
+  "Name": "Gravi",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Northern Tolbas Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100650,
+    "Name": "Red Stalk Gravi",
+    "Level": 44
+   },
+   {
+    "NpcCode": 2101125,
+    "Name": "Tolbas Gravi",
+    "Level": 24
+   },
+   {
+    "NpcCode": 2400307,
+    "Name": "Pink Gravi",
+    "Level": 28
+   }
+  ]
+ },
+ {
+  "Id": 1051,
+  "Name": "Magic Gravi",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Northern Tolbas Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100659,
+    "Name": "Illusion Magic Gravi",
+    "Level": 44
+   },
+   {
+    "NpcCode": 2101126,
+    "Name": "Tolbas Magic Gravi",
+    "Level": 24
+   },
+   {
+    "NpcCode": 2400329,
+    "Name": "Purifying Forest Magic Gravi",
+    "Level": 29
+   },
+   {
+    "NpcCode": 2400731,
+    "Name": "Unstable Gravi",
+    "Level": 46
+   }
+  ]
+ },
+ {
+  "Id": 1052,
+  "Name": "Large Leaf Gravi",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100285,
+    "Name": "Ellun River Hill Gravi",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100651,
+    "Name": "Large Leaf Gravi",
+    "Level": 44
+   },
+   {
+    "NpcCode": 2400342,
+    "Name": "Large Leaf Gravi",
+    "Level": 30
+   }
+  ]
+ },
+ {
+  "Id": 1053,
+  "Name": "Aberrant Potcrab",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Scarlet Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Crimson Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100908,
+    "Name": "Drana Mutated Potcrab",
+    "Level": 41
+   },
+   {
+    "NpcCode": 2110512,
+    "Name": "Eternal Moss Crab",
+    "Level": 46
+   }
+  ]
+ },
+ {
+  "Id": 1054,
+  "Name": "Mumu Warrior",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dranactus"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Eastern Gribade Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Black Claw Village"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400350,
+    "Name": "Mumu Watcher",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400570,
+    "Name": "Gribade Mumu Warrior",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2400606,
+    "Name": "Mumu Watcher",
+    "Level": 41
+   }
+  ]
+ },
+ {
+  "Id": 1055,
+  "Name": "Grave Rat",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1056,
+  "Name": "Drakan Probe",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Drana Processing Area"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Nahid Brigade Fortress"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Sanctum Outpost"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Tranein Pond"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dranactus"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Lagta Fortress"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100866,
+    "Name": "Drana Processing Maintenance Machine",
+    "Level": 41
+   },
+   {
+    "NpcCode": 2101014,
+    "Name": "Intruder Seeker",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2400143,
+    "Name": "Outpost Probe",
+    "Level": 19
+   },
+   {
+    "NpcCode": 2400162,
+    "Name": "Drakan Probe",
+    "Level": 20
+   },
+   {
+    "NpcCode": 2400382,
+    "Name": "Drana Processing Maintenance Machine",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400658,
+    "Name": "Lagta Brigade Seeker",
+    "Level": 43
+   }
+  ]
+ },
+ {
+  "Id": 1057,
+  "Name": "Coradon",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1058,
+  "Name": "Black Smoke Murute",
+  "Genus": "Natura",
+  "Places": [],
+  "Droppers": [
+   {
+    "NpcCode": 2300312,
+    "Name": "Black Smoke Murute",
+    "Level": 63
+   },
+   {
+    "NpcCode": 2310312,
+    "Name": "Black Smoke Murute",
+    "Level": 37
+   },
+   {
+    "NpcCode": 2320312,
+    "Name": "Black Smoke Murute",
+    "Level": 74
+   }
+  ]
+ },
+ {
+  "Id": 1059,
+  "Name": "Giant Bee",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pilgrim's Ridge"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100551,
+    "Name": "Giant Stripe Bee",
+    "Level": 27
+   }
+  ]
+ },
+ {
+  "Id": 1060,
+  "Name": "Starturtle",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Marsh"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dranactus"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Western Gribade Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100033,
+    "Name": "Coastal Starturtle",
+    "Level": 14
+   },
+   {
+    "NpcCode": 2100808,
+    "Name": "Pond Starturtle",
+    "Level": 39
+   },
+   {
+    "NpcCode": 2101082,
+    "Name": "Eternal Starturtle",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400374,
+    "Name": "Beach Starturtle",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400519,
+    "Name": "Starturtle",
+    "Level": 37
+   },
+   {
+    "NpcCode": 2400808,
+    "Name": "Starturtle",
+    "Level": 49
+   }
+  ]
+ },
+ {
+  "Id": 1061,
+  "Name": "Slime",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400320,
+    "Name": "Unruly Slime",
+    "Level": 29
+   }
+  ]
+ },
+ {
+  "Id": 1062,
+  "Name": "Contaminated Slime",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Marsh"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Sanctum"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Sulfur Tree Island"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100025,
+    "Name": "Marsh Slime",
+    "Level": 13
+   },
+   {
+    "NpcCode": 2100717,
+    "Name": "Contaminated Poison Slime",
+    "Level": 36
+   },
+   {
+    "NpcCode": 2600023,
+    "Name": "Abyss Sulfur Slime",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600423,
+    "Name": "Abyss Sulfur Slime",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2600539,
+    "Name": "Abyss Sulfur Slime",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2600559,
+    "Name": "Abyss Sulfur Slime",
+    "Level": 50
+   }
+  ]
+ },
+ {
+  "Id": 1063,
+  "Name": "Vigilant Oculazen",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dranactus"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400364,
+    "Name": "Vigilant Oculazen",
+    "Level": 32
+   }
+  ]
+ },
+ {
+  "Id": 1064,
+  "Name": "Oculazen",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Drana Cultivation Area"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Impetusium Square"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100854,
+    "Name": "Labor Manager Oculazen",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2400711,
+    "Name": "Oculazen",
+    "Level": 44
+   }
+  ]
+ },
+ {
+  "Id": 1065,
+  "Name": "Biruta",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Tolbas Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Nameless Cemetery"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100183,
+    "Name": "Biruta Wanderer",
+    "Level": 26
+   },
+   {
+    "NpcCode": 2400920,
+    "Name": "Biruta Wanderer",
+    "Level": 17
+   }
+  ]
+ },
+ {
+  "Id": 1066,
+  "Name": "Papis",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Silent Hill"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Moslan Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Uruthumheim"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Tranein Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Basfelt Ruins"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Western Cantas Valley"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Eastern Gribade Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Safe Haven"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Sanctum Outpost"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Southern Gribade Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Mahindel River"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2000926,
+    "Name": "Faded Papis",
+    "Level": 17
+   },
+   {
+    "NpcCode": 2000927,
+    "Name": "Faded Papis",
+    "Level": 21
+   },
+   {
+    "NpcCode": 2000928,
+    "Name": "Faded Papis",
+    "Level": 24
+   },
+   {
+    "NpcCode": 2000929,
+    "Name": "Faded Papis",
+    "Level": 19
+   },
+   {
+    "NpcCode": 2000951,
+    "Name": "Faded Papis",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100009,
+    "Name": "Gentle Papis",
+    "Level": 10
+   },
+   {
+    "NpcCode": 2100220,
+    "Name": "Ellun River Papis",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100654,
+    "Name": "Garden Papis",
+    "Level": 44
+   },
+   {
+    "NpcCode": 2400594,
+    "Name": "Faded Papis",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2400903,
+    "Name": "Faded Papis",
+    "Level": 11
+   },
+   {
+    "NpcCode": 2400938,
+    "Name": "Faded Papis",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2400940,
+    "Name": "Faded Papis",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2400947,
+    "Name": "Faded Papis",
+    "Level": 34
+   }
+  ]
+ },
+ {
+  "Id": 1067,
+  "Name": "Scorpion",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Sanctum"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100709,
+    "Name": "Contaminated Scorpion",
+    "Level": 36
+   },
+   {
+    "NpcCode": 2400470,
+    "Name": "Ore Scorpion",
+    "Level": 35
+   }
+  ]
+ },
+ {
+  "Id": 1068,
+  "Name": "Krao Test Subject",
+  "Genus": "Varian",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1069,
+  "Name": "Stone Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Archipelago of Siel's Wings"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100812,
+    "Name": "Hill Stone Spirit",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2400301,
+    "Name": "Faded Stone Spirit",
+    "Level": 26
+   },
+   {
+    "NpcCode": 2600056,
+    "Name": "Abyss Rock Spirit",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2600118,
+    "Name": "Twilight Odyle Stone Spirit",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600128,
+    "Name": "Temple Zaigolem",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600148,
+    "Name": "Twilight Odyle Stone Spirit",
+    "Level": 55
+   }
+  ]
+ },
+ {
+  "Id": 1071,
+  "Name": "Cadaver Insectoid",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dredgion Crash Site"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400018,
+    "Name": "Drana Cadaver Insectoid",
+    "Level": 12
+   }
+  ]
+ },
+ {
+  "Id": 1072,
+  "Name": "Tog",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Silent Hill"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400912,
+    "Name": "Tog",
+    "Level": 18
+   }
+  ]
+ },
+ {
+  "Id": 1073,
+  "Name": "Nepenthes",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Northern Tolbas Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Altamia Highland"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Archipelago of Siel's Wings"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Distorted Old Growth Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100160,
+    "Name": "Tolbas Nepenthes",
+    "Level": 24
+   },
+   {
+    "NpcCode": 2100744,
+    "Name": "Scarlet Highland Nepenthes",
+    "Level": 35
+   },
+   {
+    "NpcCode": 2600049,
+    "Name": "Abyss Nasty Nepenthes",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600449,
+    "Name": "Abyss Nasty Nepenthes",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2600511,
+    "Name": "Abyss Nasty Nepenthes",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1074,
+  "Name": "Kuru Worker",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Tolbas Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Forest of Exiles"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100180,
+    "Name": "Tolbas Kuru Worker",
+    "Level": 26
+   },
+   {
+    "NpcCode": 2100964,
+    "Name": "Harsh Kuru Tinkerer",
+    "Level": 28
+   },
+   {
+    "NpcCode": 2101133,
+    "Name": "Eternal Kuru Worker",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2101136,
+    "Name": "Eternal Kuru Worker",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2400831,
+    "Name": "Kuru Worker",
+    "Level": 50
+   }
+  ]
+ },
+ {
+  "Id": 1075,
+  "Name": "Kuru Tinkerer",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Tolbas Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100181,
+    "Name": "Tolbas Kuru Tinkerer",
+    "Level": 26
+   },
+   {
+    "NpcCode": 2101134,
+    "Name": "Eternal Kuru Tinkerer",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2101137,
+    "Name": "Eternal Kuru Tinkerer",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2400832,
+    "Name": "Kuru Tinkerer",
+    "Level": 50
+   }
+  ]
+ },
+ {
+  "Id": 1077,
+  "Name": "Harcon",
+  "Genus": "Varian",
+  "Places": [],
+  "Droppers": [
+   {
+    "NpcCode": 2300104,
+    "Name": "Enhanced Harcon",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2310104,
+    "Name": "Enhanced Harcon",
+    "Level": 22
+   },
+   {
+    "NpcCode": 2320104,
+    "Name": "Enhanced Harcon",
+    "Level": 70
+   }
+  ]
+ },
+ {
+  "Id": 1078,
+  "Name": "Urugugu Brawler",
+  "Genus": "Cogni",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1079,
+  "Name": "Ultimate Wind Spirit",
+  "Genus": "Natura",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1080,
+  "Name": "Sentinel K'nash",
+  "Genus": "Cogni",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1081,
+  "Name": "Dionae",
+  "Genus": "Natura",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1082,
+  "Name": "Ultimate Fire Spirit",
+  "Genus": "Natura",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1083,
+  "Name": "Spider",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Archipelago of Siel's Wings"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Distorted Old Growth Forest"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2600046,
+    "Name": "Abyss Odyle Mutated Insectoid",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600446,
+    "Name": "Abyss Odyle Mutated Insectoid",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2600578,
+    "Name": "Abyss Odyle Mutated Insectoid",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2600588,
+    "Name": "Abyss Odyle Mutated Insectoid",
+    "Level": 50
+   }
+  ]
+ },
+ {
+  "Id": 1084,
+  "Name": "Kalgolem",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Western Cantas Valley"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Destroyed Temple Site"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Reshanta's Root"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Corroded Heart"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100002,
+    "Name": "Hard Kalgolem",
+    "Level": 10
+   },
+   {
+    "NpcCode": 2100700,
+    "Name": "Ashen Kalgolem",
+    "Level": 34
+   },
+   {
+    "NpcCode": 2400328,
+    "Name": "Angry Kalgolem",
+    "Level": 29
+   },
+   {
+    "NpcCode": 2600070,
+    "Name": "Root Kalgolem",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2600470,
+    "Name": "Abyss Kalgolem",
+    "Level": 53
+   }
+  ]
+ },
+ {
+  "Id": 1086,
+  "Name": "Fungen",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Cantas Valley"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100456,
+    "Name": "Red Cap Fungen",
+    "Level": 12
+   }
+  ]
+ },
+ {
+  "Id": 1087,
+  "Name": "Pino",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Aullaeu Village"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100953,
+    "Name": "Pino Worker",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2100954,
+    "Name": "Pino Laborer",
+    "Level": 27
+   }
+  ]
+ },
+ {
+  "Id": 1088,
+  "Name": "Pino Worker",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Aullaeu Village"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100955,
+    "Name": "Harsh Pino Worker",
+    "Level": 28
+   }
+  ]
+ },
+ {
+  "Id": 1089,
+  "Name": "Aberrant Skama",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Sanctum"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Sulfur Tree Island"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100710,
+    "Name": "Yellow-Tailed Skama",
+    "Level": 36
+   },
+   {
+    "NpcCode": 2600024,
+    "Name": "Abyss Sulfur Skama",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600424,
+    "Name": "Abyss Sulfur Skama",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2600535,
+    "Name": "Abyss Sulfur Skama",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2600555,
+    "Name": "Abyss Sulfur Skama",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1090,
+  "Name": "Ultimate Water Spirit",
+  "Genus": "Natura",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1091,
+  "Name": "Red Spark Ignus",
+  "Genus": "Natura",
+  "Places": [],
+  "Droppers": [
+   {
+    "NpcCode": 2300311,
+    "Name": "Red Spark Ignus",
+    "Level": 63
+   },
+   {
+    "NpcCode": 2310311,
+    "Name": "Red Spark Ignus",
+    "Level": 37
+   },
+   {
+    "NpcCode": 2320311,
+    "Name": "Red Spark Ignus",
+    "Level": 74
+   }
+  ]
+ },
+ {
+  "Id": 1092,
+  "Name": "Lesser Wind Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Altamia Canyon"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100605,
+    "Name": "Air Spirit",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2101096,
+    "Name": "Eternal Wind Spirit",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2400324,
+    "Name": "Soft Breeze Spirit",
+    "Level": 26
+   }
+  ]
+ },
+ {
+  "Id": 1093,
+  "Name": "Phantasmal Lakshmi",
+  "Genus": "Cogni",
+  "Places": [],
+  "Droppers": [
+   {
+    "NpcCode": 2300401,
+    "Name": "Phantasmal Lakshmi",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2310401,
+    "Name": "Phantasmal Lakshmi",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2320401,
+    "Name": "Phantasmal Lakshmi",
+    "Level": 70
+   }
+  ]
+ },
+ {
+  "Id": 1094,
+  "Name": "Intermediate Wind Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100658,
+    "Name": "Wandering Wind Spirit",
+    "Level": 44
+   },
+   {
+    "NpcCode": 2101103,
+    "Name": "Violent Wind Spirit",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2400824,
+    "Name": "Immortal Wind Spirit",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1095,
+  "Name": "Superior Wind Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100666,
+    "Name": "Brisk Spirit",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2400302,
+    "Name": "Whirlwind Spirit",
+    "Level": 26
+   },
+   {
+    "NpcCode": 2400818,
+    "Name": "Immortal Wind Spirit Guardian",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1096,
+  "Name": "Superior Fire Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100664,
+    "Name": "Hellfire Spirit",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2400303,
+    "Name": "Flame Spirit",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2400749,
+    "Name": "Unstable Superior Fire Spirit",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2400815,
+    "Name": "Immortal Fire Spirit Guardian",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1097,
+  "Name": "Karnif",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Tolbas Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Northern Tolbas Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Western Altamia Highland"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Altamia Highland"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100174,
+    "Name": "Ferocious Karnif",
+    "Level": 25
+   },
+   {
+    "NpcCode": 2100348,
+    "Name": "Tolbas Karnif",
+    "Level": 24
+   },
+   {
+    "NpcCode": 2100349,
+    "Name": "Ferocious Tolbas Karnif",
+    "Level": 24
+   },
+   {
+    "NpcCode": 2100742,
+    "Name": "Toughmane Highland Karnif",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2100752,
+    "Name": "Highland Karnif",
+    "Level": 34
+   },
+   {
+    "NpcCode": 2100802,
+    "Name": "Tamed Karnif",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2100805,
+    "Name": "Tamed Karnif",
+    "Level": 40
+   }
+  ]
+ },
+ {
+  "Id": 1098,
+  "Name": "Modified Karnif",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Verteron Fortress Ruins"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Destroyed Abyss Gate"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Devastated Remnants"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Black Fragments Area"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Steel Titan's Grave"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Eroded Fragment Area"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100070,
+    "Name": "Scouting Karnif",
+    "Level": 21
+   },
+   {
+    "NpcCode": 2100096,
+    "Name": "Unruly Karnif",
+    "Level": 19
+   },
+   {
+    "NpcCode": 2100130,
+    "Name": "Trained Karnif",
+    "Level": 20
+   },
+   {
+    "NpcCode": 2100481,
+    "Name": "Sensitive Karnif",
+    "Level": 21
+   },
+   {
+    "NpcCode": 2600004,
+    "Name": "Abyss Karnif",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600014,
+    "Name": "Abyss Search Party Karnif",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600404,
+    "Name": "Abyss Search Party Karnif",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600414,
+    "Name": "Abyss Search Party Karnif",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600482,
+    "Name": "Abyss Search Party Karnif",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600483,
+    "Name": "Abyss Search Party Karnif",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600492,
+    "Name": "Abyss Search Party Karnif",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600493,
+    "Name": "Abyss Search Party Karnif",
+    "Level": 53
+   }
+  ]
+ },
+ {
+  "Id": 1099,
+  "Name": "Elite Karnif",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1111,
+    "Region": "Morheim",
+    "Area": "Nephra Snowfield"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2406071,
+    "Name": "Crimson Blizzard Renulf",
+    "Level": 80
+   }
+  ]
+ },
+ {
+  "Id": 1100,
+  "Name": "Ultimate Earth Spirit",
+  "Genus": "Natura",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1101,
+  "Name": "Forest Guardian",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Distorted Old Growth Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100660,
+    "Name": "Garden Guardian",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2600103,
+    "Name": "Enraged Forest Guardian",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2600133,
+    "Name": "Enraged Forest Guardian",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600454,
+    "Name": "Enraged Forest Guardian",
+    "Level": 53
+   }
+  ]
+ },
+ {
+  "Id": 1102,
+  "Name": "Dried Up Forest Guardian",
+  "Genus": "Natura",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1103,
+  "Name": "Pretor Veil Administrator",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1011,
+    "Region": "Eltnen",
+    "Area": "Eltnen Barrier Tower Ruins"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101278,
+    "Name": "Gluttonous Egetis",
+    "Level": 80
+   }
+  ]
+ },
+ {
+  "Id": 1104,
+  "Name": "Manduri Trebuchet Worker",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Crimson Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Black Claw Village"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100816,
+    "Name": "Hill Manduri",
+    "Level": 39
+   },
+   {
+    "NpcCode": 2110507,
+    "Name": "Crimson Manduri Slinger",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2400615,
+    "Name": "Black Claw Manduri Scout",
+    "Level": 41
+   }
+  ]
+ },
+ {
+  "Id": 1105,
+  "Name": "Biruta Herbalist",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Nameless Cemetery"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400919,
+    "Name": "Biruta Herbalist",
+    "Level": 17
+   }
+  ]
+ },
+ {
+  "Id": 1106,
+  "Name": "Tayga",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Eastern Gribade Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Black Claw Village"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400564,
+    "Name": "Search Party Tayga",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2400583,
+    "Name": "Guard Troopers Tayga",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2400611,
+    "Name": "Tamed Tayga",
+    "Level": 41
+   }
+  ]
+ },
+ {
+  "Id": 1107,
+  "Name": "Krao Seal Guardian",
+  "Genus": "Varian",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1108,
+  "Name": "Enhanced Krall Combatant",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Verteron Fortress Ruins"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100097,
+    "Name": "Enhanced Krall Combatant",
+    "Level": 22
+   }
+  ]
+ },
+ {
+  "Id": 1109,
+  "Name": "Enhanced Krall Sentry",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Verteron Fortress Ruins"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100072,
+    "Name": "Enhanced Krall Sentry",
+    "Level": 22
+   }
+  ]
+ },
+ {
+  "Id": 1110,
+  "Name": "Blue Kalgolem",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Cantas Valley"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Archipelago of Siel's Wings"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Distorted Old Growth Forest"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100454,
+    "Name": "Splendent Kalgolem",
+    "Level": 12
+   },
+   {
+    "NpcCode": 2400471,
+    "Name": "Blue Kalgolem",
+    "Level": 36
+   },
+   {
+    "NpcCode": 2600051,
+    "Name": "Abyssal Kalgolem",
+    "Level": 47
+   },
+   {
+    "NpcCode": 2600451,
+    "Name": "Abyss Blue Kalgolem",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600513,
+    "Name": "Abyss Blue Kalgolem",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600575,
+    "Name": "Abyss Blue Kalgolem",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600585,
+    "Name": "Abyss Blue Kalgolem",
+    "Level": 52
+   }
+  ]
+ },
+ {
+  "Id": 1111,
+  "Name": "Swift Lugi",
+  "Genus": "Special",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1112,
+  "Name": "Wandering Merchant Lugi",
+  "Genus": "Special",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1114,
+  "Name": "Ashen Spider",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Anguish Hill"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Moslan Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100283,
+    "Name": "White Shell Octaside",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2400230,
+    "Name": "Ashen Spider",
+    "Level": 21
+   }
+  ]
+ },
+ {
+  "Id": 1115,
+  "Name": "Kuru Overseer",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101139,
+    "Name": "Eternal Kuru Overseer",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2400833,
+    "Name": "Kuru Overseer",
+    "Level": 50
+   }
+  ]
+ },
+ {
+  "Id": 1116,
+  "Name": "Withered Branch Spider",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Nameless Cemetery"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Silent Hill"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Basfelt Ruins"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Mahindel Cliff"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Southern Gribade Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2000956,
+    "Name": "Withered Branch Spider",
+    "Level": 13
+   },
+   {
+    "NpcCode": 2000957,
+    "Name": "Withered Branch Spider",
+    "Level": 11
+   },
+   {
+    "NpcCode": 2400902,
+    "Name": "Withered Branch Spider",
+    "Level": 13
+   },
+   {
+    "NpcCode": 2400933,
+    "Name": "Withered Branch Spider",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2400939,
+    "Name": "Withered Branch Spider",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2400946,
+    "Name": "Withered Branch Spider",
+    "Level": 34
+   },
+   {
+    "NpcCode": 2400948,
+    "Name": "Withered Branch Spider",
+    "Level": 40
+   }
+  ]
+ },
+ {
+  "Id": 1117,
+  "Name": "Unstable Spider",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Forest of Exiles"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Crimson Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Archipelago of Siel's Wings"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101023,
+    "Name": "Aullaeu Forest Odyle Spider",
+    "Level": 30
+   },
+   {
+    "NpcCode": 2110509,
+    "Name": "Crimson Spider",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2400319,
+    "Name": "Flame Rock Spider",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2400745,
+    "Name": "Unstable Poison Blood Spider",
+    "Level": 47
+   },
+   {
+    "NpcCode": 2600045,
+    "Name": "Abyss Red Mutated Insectoid",
+    "Level": 46
+   }
+  ]
+ },
+ {
+  "Id": 1118,
+  "Name": "Aberrant Bee",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Basfelt Ruins"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pamos Farm"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pilgrim's Ridge"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Nameless Cemetery"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2000955,
+    "Name": "Black Armor Bee",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100286,
+    "Name": "Black Pattern Bee",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100550,
+    "Name": "Stripe Bee",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2400900,
+    "Name": "Black Armor Bee",
+    "Level": 13
+   },
+   {
+    "NpcCode": 2400930,
+    "Name": "Black Armor Bee",
+    "Level": 17
+   }
+  ]
+ },
+ {
+  "Id": 1119,
+  "Name": "Aberrant Coradon",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Basfelt Ruins"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Tranein Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2000952,
+    "Name": "Aberrant Coradon",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100699,
+    "Name": "Garden Coradon",
+    "Level": 44
+   },
+   {
+    "NpcCode": 2100821,
+    "Name": "Hill Coradon",
+    "Level": 39
+   },
+   {
+    "NpcCode": 2100828,
+    "Name": "Hill Coradon",
+    "Level": 39
+   },
+   {
+    "NpcCode": 2400907,
+    "Name": "Aberrant Coradon",
+    "Level": 20
+   }
+  ]
+ },
+ {
+  "Id": 1120,
+  "Name": "Young Kailin",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Tranein Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Battlescar Mound"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101022,
+    "Name": "Ellun River Young Kailin",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2400737,
+    "Name": "Unstable Young Kailin",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2400906,
+    "Name": "Young Kailin",
+    "Level": 20
+   },
+   {
+    "NpcCode": 2400935,
+    "Name": "Young Kailin",
+    "Level": 32
+   }
+  ]
+ },
+ {
+  "Id": 1121,
+  "Name": "Young Slink",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Tolbas Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Tranein Pond"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Idun's Lake"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Archipelago of Siel's Wings"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Distorted Old Growth Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100189,
+    "Name": "Young Wetland Slink",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100473,
+    "Name": "Tolbas Young Slink",
+    "Level": 23
+   },
+   {
+    "NpcCode": 2400910,
+    "Name": "Young Slink",
+    "Level": 20
+   },
+   {
+    "NpcCode": 2400950,
+    "Name": "Young Slink",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2600047,
+    "Name": "Abyss Young Slink",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600447,
+    "Name": "Abyss Young Slink",
+    "Level": 50
+   }
+  ]
+ },
+ {
+  "Id": 1122,
+  "Name": "Young Tog",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1123,
+  "Name": "Young Ursus",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Tolbas Forest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Battlescar Mound"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Silent Hill"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100173,
+    "Name": "Baby Horn Ursus",
+    "Level": 25
+   },
+   {
+    "NpcCode": 2100818,
+    "Name": "Hill Young Ursus",
+    "Level": 39
+   },
+   {
+    "NpcCode": 2400377,
+    "Name": "Young Ursus",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400917,
+    "Name": "Young Ursus",
+    "Level": 17
+   }
+  ]
+ },
+ {
+  "Id": 1124,
+  "Name": "Zaif",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Rock Tomb Hill"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Altamia Highland"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Altamia Highland"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100573,
+    "Name": "Rock Hill Zaif",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2100748,
+    "Name": "Highland Forest Zaif",
+    "Level": 35
+   },
+   {
+    "NpcCode": 2100797,
+    "Name": "Highland Zaif",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100813,
+    "Name": "Hill Zaif",
+    "Level": 40
+   }
+  ]
+ },
+ {
+  "Id": 1125,
+  "Name": "Aberrant Zaif",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pilgrim's Ridge"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Eastern Gribade Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100558,
+    "Name": "Yellow-Maned Zaif",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2400578,
+    "Name": "Golden Zaif",
+    "Level": 40
+   }
+  ]
+ },
+ {
+  "Id": 1126,
+  "Name": "Aberrant Tog",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Cantas Valley"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pamos Farm"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Altamia Highland"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Battlescar Mound"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100006,
+    "Name": "Cairn Tog",
+    "Level": 13
+   },
+   {
+    "NpcCode": 2100145,
+    "Name": "Hungry Tog",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100288,
+    "Name": "Field Tog",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100793,
+    "Name": "Wild Stripe Tog",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100819,
+    "Name": "Hill Tog",
+    "Level": 39
+   },
+   {
+    "NpcCode": 2400936,
+    "Name": "Aberrant Tog",
+    "Level": 32
+   }
+  ]
+ },
+ {
+  "Id": 1127,
+  "Name": "Odyle Stone Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400734,
+    "Name": "Faded Odyle Spirit",
+    "Level": 46
+   }
+  ]
+ },
+ {
+  "Id": 1128,
+  "Name": "Drana Slime",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dredgion Crash Site"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400015,
+    "Name": "Drana Slime",
+    "Level": 11
+   }
+  ]
+ },
+ {
+  "Id": 1129,
+  "Name": "Drana Swarm",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Crimson Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2110501,
+    "Name": "Crimson Drana Swarm",
+    "Level": 46
+   }
+  ]
+ },
+ {
+  "Id": 1130,
+  "Name": "Mutated Cadaver Insectoid",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pilgrim's Ridge"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100554,
+    "Name": "Ridge Spider",
+    "Level": 27
+   }
+  ]
+ },
+ {
+  "Id": 1131,
+  "Name": "Drana Spore",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Crimson Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2110502,
+    "Name": "Crimson Mutated Spore",
+    "Level": 47
+   }
+  ]
+ },
+ {
+  "Id": 1132,
+  "Name": "Ashen Lupyllini",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1133,
+  "Name": "Forest Dionae",
+  "Genus": "Natura",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1134,
+  "Name": "Eternal Coradon",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Southern Gribade Highland"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Archipelago of Siel's Wings"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Distorted Old Growth Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400941,
+    "Name": "Eternal Coradon",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2600061,
+    "Name": "Abyss Coradon",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2600461,
+    "Name": "Abyss Eternal Coradon",
+    "Level": 52
+   }
+  ]
+ },
+ {
+  "Id": 1135,
+  "Name": "Ashen Dionae",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Moslan Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400248,
+    "Name": "Ashen Dionae",
+    "Level": 21
+   }
+  ]
+ },
+ {
+  "Id": 1136,
+  "Name": "Rafflesia",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Sanctum Outpost"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Crimson Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Nameless Cemetery"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Southern Gribade Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2000925,
+    "Name": "Rafflesia",
+    "Level": 20
+   },
+   {
+    "NpcCode": 2110513,
+    "Name": "Crimson Rafflesia",
+    "Level": 47
+   },
+   {
+    "NpcCode": 2400056,
+    "Name": "Rafflesia",
+    "Level": 14
+   },
+   {
+    "NpcCode": 2400735,
+    "Name": "Unstable Rafflesia",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2400813,
+    "Name": "Rafflesia",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400949,
+    "Name": "Rafflesia",
+    "Level": 40
+   }
+  ]
+ },
+ {
+  "Id": 1137,
+  "Name": "Mumu Worker",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dranactus"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Battlescar Mound"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400351,
+    "Name": "Mumu Worker",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400390,
+    "Name": "Escaped Mumu Worker",
+    "Level": 33
+   }
+  ]
+ },
+ {
+  "Id": 1138,
+  "Name": "Mumu Overseer",
+  "Genus": "Cogni",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1139,
+  "Name": "Swamp Monster",
+  "Genus": "Varian",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1140,
+  "Name": "Forest Monster",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Northern Tolbas Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Moslan Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100350,
+    "Name": "Tolbas Forest Targon",
+    "Level": 24
+   },
+   {
+    "NpcCode": 2400225,
+    "Name": "Burned Forester",
+    "Level": 21
+   }
+  ]
+ },
+ {
+  "Id": 1141,
+  "Name": "Marsh Targon",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Marsh"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100021,
+    "Name": "Marsh Targon",
+    "Level": 14
+   },
+   {
+    "NpcCode": 2600426,
+    "Name": "Abyss Marsh Targon",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600502,
+    "Name": "Abyss Marsh Targon",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600532,
+    "Name": "Abyss Marsh Targon",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600552,
+    "Name": "Abyss Marsh Targon",
+    "Level": 52
+   }
+  ]
+ },
+ {
+  "Id": 1142,
+  "Name": "Distorted Mutant",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400312,
+    "Name": "Consumed Spirit Guardian",
+    "Level": 30
+   }
+  ]
+ },
+ {
+  "Id": 1143,
+  "Name": "Mutated Ursus",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Moslan Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400217,
+    "Name": "Ashen Ursus",
+    "Level": 21
+   }
+  ]
+ },
+ {
+  "Id": 1144,
+  "Name": "Mutated Forest Guardian",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Moslan Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400214,
+    "Name": "Mutated Forest Guardian",
+    "Level": 22
+   },
+   {
+    "NpcCode": 2400751,
+    "Name": "Unstable Forest Guardian",
+    "Level": 48
+   }
+  ]
+ },
+ {
+  "Id": 1145,
+  "Name": "Mutated Insectoid Valka",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1146,
+  "Name": "Gatekeeper Pinopi",
+  "Genus": "Varian",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1147,
+  "Name": "Dratona",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Scarlet Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Sanctum Outpost"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Tranein Pond"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dranactus"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100901,
+    "Name": "Scarlet Forest Dratona",
+    "Level": 41
+   },
+   {
+    "NpcCode": 2400116,
+    "Name": "Dratona Tinkerer",
+    "Level": 19
+   },
+   {
+    "NpcCode": 2400161,
+    "Name": "Dratona Supporter",
+    "Level": 20
+   },
+   {
+    "NpcCode": 2400380,
+    "Name": "Dratona",
+    "Level": 32
+   }
+  ]
+ },
+ {
+  "Id": 1148,
+  "Name": "Drakana Kalgolem",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dredgion Crash Site"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400014,
+    "Name": "Crash Site Kalgolem",
+    "Level": 11
+   }
+  ]
+ },
+ {
+  "Id": 1153,
+  "Name": "Drana Mutant Brute",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Crimson Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101135,
+    "Name": "Eternal Drana Mutant",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2110503,
+    "Name": "Crimson Drana Mutant",
+    "Level": 47
+   },
+   {
+    "NpcCode": 2400834,
+    "Name": "Drana Mutant",
+    "Level": 50
+   }
+  ]
+ },
+ {
+  "Id": 1154,
+  "Name": "Faded Mutant Brute",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400476,
+    "Name": "Faded Mutant Brute",
+    "Level": 35
+   },
+   {
+    "NpcCode": 2600432,
+    "Name": "Abyss Giant Mutant",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600541,
+    "Name": "Abyss Giant Mutant",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600561,
+    "Name": "Abyss Giant Mutant",
+    "Level": 53
+   }
+  ]
+ },
+ {
+  "Id": 1155,
+  "Name": "Superior Water Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100665,
+    "Name": "Torrent Spirit",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2400306,
+    "Name": "Water Mist Spirit",
+    "Level": 29
+   },
+   {
+    "NpcCode": 2400739,
+    "Name": "Unstable Superior Water Spirit",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2400816,
+    "Name": "Immortal Water Spirit Guardian",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1156,
+  "Name": "Elite Klaw",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Destroyed Abyss Gate"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100079,
+    "Name": "Bodyguard Teegant",
+    "Level": 45
+   }
+  ]
+ },
+ {
+  "Id": 1157,
+  "Name": "Cadaver Cleaner",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Uruthumheim"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Basfelt Ruins"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400275,
+    "Name": "Ruins Corpse Cleaner",
+    "Level": 24
+   },
+   {
+    "NpcCode": 2400412,
+    "Name": "Ferocious Cadaver Cleaner",
+    "Level": 34
+   },
+   {
+    "NpcCode": 2400418,
+    "Name": "Ferocious Cadaver Cleaner",
+    "Level": 34
+   },
+   {
+    "NpcCode": 2600119,
+    "Name": "Temple Cadaver Cleaner",
+    "Level": 52
+   }
+  ]
+ },
+ {
+  "Id": 1158,
+  "Name": "Venomous Insect Sram",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1159,
+  "Name": "Parasite Swarm",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400473,
+    "Name": "Giant Ore Insectoid Adult",
+    "Level": 36
+   }
+  ]
+ },
+ {
+  "Id": 1160,
+  "Name": "Drana Contaminant",
+  "Genus": "Varian",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1161,
+  "Name": "Faded Floater",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400479,
+    "Name": "Faded Floater",
+    "Level": 35
+   }
+  ]
+ },
+ {
+  "Id": 1162,
+  "Name": "Kerubar",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101075,
+    "Name": "Eternal Kerubar",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2101079,
+    "Name": "Eternal Kerubar",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400801,
+    "Name": "Kerubar",
+    "Level": 49
+   }
+  ]
+ },
+ {
+  "Id": 1163,
+  "Name": "Basilisk",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Moslan Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400240,
+    "Name": "Black Ash Basilisk",
+    "Level": 21
+   }
+  ]
+ },
+ {
+  "Id": 1164,
+  "Name": "Lesser Earth Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101089,
+    "Name": "Eternal Earth Spirit",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1165,
+  "Name": "Intermediate Earth Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100653,
+    "Name": "Wandering Earth Spirit",
+    "Level": 44
+   },
+   {
+    "NpcCode": 2101102,
+    "Name": "Violent Earth Spirit",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2400823,
+    "Name": "Immortal Earth Spirit",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1166,
+  "Name": "Superior Earth Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100667,
+    "Name": "Peculiar Rock Spirit",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2400310,
+    "Name": "Corroded Soil Spirit",
+    "Level": 28
+   },
+   {
+    "NpcCode": 2400817,
+    "Name": "Immortal Earth Spirit Guardian",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1167,
+  "Name": "Flame Stone Guardian Statue",
+  "Genus": "Varian",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1168,
+  "Name": "Lesser Water Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Spirit's Rest"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100231,
+    "Name": "Water Spirit",
+    "Level": 16
+   },
+   {
+    "NpcCode": 2101088,
+    "Name": "Eternal Water Spirit",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1169,
+  "Name": "Intermediate Water Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100657,
+    "Name": "Wandering Water Spirit",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2101101,
+    "Name": "Violent Water Spirit",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2400738,
+    "Name": "Unstable Intermediate Water Spirit",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2400822,
+    "Name": "Immortal Water Spirit",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1170,
+  "Name": "Kerubian",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101076,
+    "Name": "Eternal Kerubian",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2101080,
+    "Name": "Eternal Kerubian",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400802,
+    "Name": "Kerubian",
+    "Level": 49
+   }
+  ]
+ },
+ {
+  "Id": 1171,
+  "Name": "Kerubiel",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101077,
+    "Name": "Eternal Kerubiel",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400803,
+    "Name": "Kerubiel",
+    "Level": 49
+   }
+  ]
+ },
+ {
+  "Id": 1172,
+  "Name": "Duduka Worker",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Black Claw Village"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400612,
+    "Name": "Duduka Worker",
+    "Level": 41
+   }
+  ]
+ },
+ {
+  "Id": 1173,
+  "Name": "Duduka Trebuchet Worker",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Black Claw Village"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400613,
+    "Name": "Duduka Slinger",
+    "Level": 42
+   }
+  ]
+ },
+ {
+  "Id": 1174,
+  "Name": "Drana Predator",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Crimson Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dredgion Crash Site"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2110505,
+    "Name": "Crimson Drana Predator",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2400010,
+    "Name": "Drana Predator",
+    "Level": 12
+   }
+  ]
+ },
+ {
+  "Id": 1175,
+  "Name": "Faded Predator",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400480,
+    "Name": "Faded Predator",
+    "Level": 35
+   }
+  ]
+ },
+ {
+  "Id": 1176,
+  "Name": "Mudthorn",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Impetusium Square"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400481,
+    "Name": "Addicted Mudthorn",
+    "Level": 36
+   },
+   {
+    "NpcCode": 2400707,
+    "Name": "Remnant of Subspace",
+    "Level": 44
+   }
+  ]
+ },
+ {
+  "Id": 1177,
+  "Name": "Ancient Spirit",
+  "Genus": "Natura",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1178,
+  "Name": "Spirit King's Bodyguard Warrior",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Archipelago of Siel's Wings"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Distorted Old Growth Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2600066,
+    "Name": "Old Tree Spirit Warrior",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2600466,
+    "Name": "Spirit King's Bodyguard Warrior",
+    "Level": 54
+   }
+  ]
+ },
+ {
+  "Id": 1179,
+  "Name": "Drana Mutant",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dredgion Crash Site"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400001,
+    "Name": "Twisted Mutant",
+    "Level": 10
+   }
+  ]
+ },
+ {
+  "Id": 1180,
+  "Name": "Faded Mutant",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400477,
+    "Name": "Faded Mutant",
+    "Level": 35
+   },
+   {
+    "NpcCode": 2600430,
+    "Name": "Abyss Drana Mutant",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600505,
+    "Name": "Abyss Drana Mutant",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600534,
+    "Name": "Abyss Drana Mutant",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600540,
+    "Name": "Abyss Drana Mutant",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600554,
+    "Name": "Abyss Drana Mutant",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600560,
+    "Name": "Abyss Drana Mutant",
+    "Level": 53
+   }
+  ]
+ },
+ {
+  "Id": 1181,
+  "Name": "Brax",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Basfelt Ruins"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Meadow"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Western Altamia Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Battlescar Mound"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Sanctum Outpost"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2000954,
+    "Name": "Brax",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100217,
+    "Name": "Field Brax",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100303,
+    "Name": "Hungry Brax",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100740,
+    "Name": "Docile Highland Brax",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400375,
+    "Name": "Brax",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400914,
+    "Name": "Brax",
+    "Level": 20
+   }
+  ]
+ },
+ {
+  "Id": 1182,
+  "Name": "Elite Soulless Corpse Gnat",
+  "Genus": "Varian",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1183,
+  "Name": "Soulless Corpse Gnat",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Basfelt Ruins"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400413,
+    "Name": "Soulless Corpse Gnat",
+    "Level": 33
+   }
+  ]
+ },
+ {
+  "Id": 1184,
+  "Name": "Drakan Watcher",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Drana Processing Area"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dranactus"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Eastern Gribade Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100872,
+    "Name": "Processing Facility Drakan Scout",
+    "Level": 42
+   },
+   {
+    "NpcCode": 2400384,
+    "Name": "Drakan Manager",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400591,
+    "Name": "Drakan Patrol Watcher",
+    "Level": 40
+   }
+  ]
+ },
+ {
+  "Id": 1185,
+  "Name": "Dratona Tinkerer",
+  "Genus": "Cogni",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1186,
+  "Name": "Poison Blood",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400311,
+    "Name": "Cursed Poison Blood",
+    "Level": 29
+   },
+   {
+    "NpcCode": 2400743,
+    "Name": "Unstable Poison Blood",
+    "Level": 47
+   }
+  ]
+ },
+ {
+  "Id": 1187,
+  "Name": "Intermediate Fire Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101100,
+    "Name": "Violent Fire Spirit",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2400748,
+    "Name": "Unstable Intermediate Fire Spirit",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2400821,
+    "Name": "Immortal Fire Spirit",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1188,
+  "Name": "Vivel",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Western Altamia Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Nameless Cemetery"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100583,
+    "Name": "Highland Vivel",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400057,
+    "Name": "Vampire Vivel",
+    "Level": 14
+   }
+  ]
+ },
+ {
+  "Id": 1189,
+  "Name": "Tamed Zaif",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Pilgrim's Ridge"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Distorted Old Growth Forest"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100566,
+    "Name": "Marauders Zaif",
+    "Level": 27
+   },
+   {
+    "NpcCode": 2600102,
+    "Name": "Twilight Zaif",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2600132,
+    "Name": "Twilight Zaif",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600452,
+    "Name": "Tamed Zaif",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600579,
+    "Name": "Tamed Zaif",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600589,
+    "Name": "Tamed Zaif",
+    "Level": 52
+   }
+  ]
+ },
+ {
+  "Id": 1190,
+  "Name": "Elite Poisonous Spore Fungen",
+  "Genus": "Natura",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1191,
+  "Name": "Furious Feruk",
+  "Genus": "Cogni",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1192,
+  "Name": "Silver Blade Rotan",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Devastated Remnants"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Black Fragments Area"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Steel Titan's Grave"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Eroded Fragment Area"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2300310,
+    "Name": "Silver Blade Rotan",
+    "Level": 63
+   },
+   {
+    "NpcCode": 2310310,
+    "Name": "Silver Blade Rotan",
+    "Level": 37
+   },
+   {
+    "NpcCode": 2320310,
+    "Name": "Silver Blade Rotan",
+    "Level": 74
+   },
+   {
+    "NpcCode": 2600003,
+    "Name": "Abyss Rusty Rotan",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600013,
+    "Name": "Abyss Old Blade Rotan",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600403,
+    "Name": "Abyss Silver Blade Rotan",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600413,
+    "Name": "Abyss Silver Blade Rotan",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600481,
+    "Name": "Abyss Silver Blade Rotan",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600491,
+    "Name": "Abyss Silver Blade Rotan",
+    "Level": 53
+   }
+  ]
+ },
+ {
+  "Id": 1193,
+  "Name": "Addicted Shulak Cart Worker",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400455,
+    "Name": "Rampaging Shulak Cart Worker",
+    "Level": 36
+   }
+  ]
+ },
+ {
+  "Id": 1194,
+  "Name": "Guardite",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Sanctum"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100712,
+    "Name": "Uncontrollable Guardite",
+    "Level": 36
+   }
+  ]
+ },
+ {
+  "Id": 1195,
+  "Name": "Dracuni Herbalist",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Drana Processing Area"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100867,
+    "Name": "Dracuni Processing Laborer",
+    "Level": 41
+   },
+   {
+    "NpcCode": 2400746,
+    "Name": "Poison Blood Gatherer",
+    "Level": 47
+   }
+  ]
+ },
+ {
+  "Id": 1196,
+  "Name": "Elite Dratona",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1111,
+    "Region": "Morheim",
+    "Area": "Patamor Plains"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2406035,
+    "Name": "Predator Colossus Balakh",
+    "Level": 80
+   }
+  ]
+ },
+ {
+  "Id": 1197,
+  "Name": "Watcher Guardite",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Sanctum"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100716,
+    "Name": "Contaminated Guardite",
+    "Level": 37
+   }
+  ]
+ },
+ {
+  "Id": 1198,
+  "Name": "Ashen Basilisk",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1199,
+  "Name": "Flame Barghest",
+  "Genus": "Fera",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1200,
+  "Name": "Naga Elite Priest",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Sulfur Tree Island"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2600042,
+    "Name": "Abyss Naga Dark Mage",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2600442,
+    "Name": "Abyss Naga Dark Mage",
+    "Level": 54
+   },
+   {
+    "NpcCode": 2600536,
+    "Name": "Abyss Naga Dark Mage",
+    "Level": 54
+   },
+   {
+    "NpcCode": 2600556,
+    "Name": "Abyss Naga Dark Mage",
+    "Level": 54
+   }
+  ]
+ },
+ {
+  "Id": 1201,
+  "Name": "Modified Lupyllini",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100815,
+    "Name": "Lupyllini Test Subject",
+    "Level": 40
+   },
+   {
+    "NpcCode": 2101086,
+    "Name": "Eternal Lupyllini",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400814,
+    "Name": "Modified Lupyllini",
+    "Level": 49
+   }
+  ]
+ },
+ {
+  "Id": 1202,
+  "Name": "Decomposed Lupyllini",
+  "Genus": "Cogni",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eastern Altamia Highland"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dredgion Crash Site"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Battlescar Mound"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Basfelt Ruins"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Tranein Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100747,
+    "Name": "Contaminated Highland Lupyllini",
+    "Level": 35
+   },
+   {
+    "NpcCode": 2400004,
+    "Name": "Decomposed Lupyllini",
+    "Level": 10
+   },
+   {
+    "NpcCode": 2400378,
+    "Name": "Decomposed Lupyllini",
+    "Level": 32
+   },
+   {
+    "NpcCode": 2400391,
+    "Name": "Ferocious Lupyllini",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2400911,
+    "Name": "Decomposed Lupyllini",
+    "Level": 20
+   }
+  ]
+ },
+ {
+  "Id": 1203,
+  "Name": "Tamed Karnif",
+  "Genus": "Fera",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Uruthumheim"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Western Gribade Highland"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400257,
+    "Name": "Blades Karnif",
+    "Level": 24
+   },
+   {
+    "NpcCode": 2400503,
+    "Name": "Tamed Blades Beast",
+    "Level": 37
+   }
+  ]
+ },
+ {
+  "Id": 1204,
+  "Name": "Pagati",
+  "Genus": "Special",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1206,
+  "Name": "Elite Guardite",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Sanctum"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100718,
+    "Name": "Divine Ansas",
+    "Level": 45
+   }
+  ]
+ },
+ {
+  "Id": 1207,
+  "Name": "Agrint",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Midstream"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Sanctum"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Moslan Forest"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Basfelt Ruins"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Sulfur Tree Island"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Reshanta's Root"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Corroded Heart"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100143,
+    "Name": "Decaying Agrint",
+    "Level": 18
+   },
+   {
+    "NpcCode": 2100698,
+    "Name": "Old Agrint",
+    "Level": 44
+   },
+   {
+    "NpcCode": 2100714,
+    "Name": "Contaminated Agrint",
+    "Level": 37
+   },
+   {
+    "NpcCode": 2101099,
+    "Name": "Eternal Agrint",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400221,
+    "Name": "Mutated Elim",
+    "Level": 22
+   },
+   {
+    "NpcCode": 2400415,
+    "Name": "Ruin Agrint",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2400825,
+    "Name": "Island Agrint",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2600027,
+    "Name": "Sulfur Agrint",
+    "Level": 47
+   },
+   {
+    "NpcCode": 2600071,
+    "Name": "Root Agrint",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2600427,
+    "Name": "Sulfur Agrint",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600471,
+    "Name": "Abyss Agrint",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600571,
+    "Name": "Abyss Agrint",
+    "Level": 53
+   },
+   {
+    "NpcCode": 2600581,
+    "Name": "Abyss Agrint",
+    "Level": 53
+   }
+  ]
+ },
+ {
+  "Id": 1208,
+  "Name": "Ashen Agrint",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Spirit Isle"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400750,
+    "Name": "Unstable Agrint",
+    "Level": 48
+   }
+  ]
+ },
+ {
+  "Id": 1209,
+  "Name": "Thin Agrint",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Crimson Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Nameless Cemetery"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Sulfur Tree Island"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2110508,
+    "Name": "Crimson Agrint",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2400054,
+    "Name": "Red Eye Agrint",
+    "Level": 13
+   },
+   {
+    "NpcCode": 2600028,
+    "Name": "Thin Sulfur Agrint",
+    "Level": 47
+   },
+   {
+    "NpcCode": 2600428,
+    "Name": "Thin Sulfur Agrint",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600503,
+    "Name": "Thin Sulfur Agrint",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600531,
+    "Name": "Thin Sulfur Agrint",
+    "Level": 52
+   },
+   {
+    "NpcCode": 2600551,
+    "Name": "Thin Sulfur Agrint",
+    "Level": 52
+   }
+  ]
+ },
+ {
+  "Id": 1210,
+  "Name": "Dry Leaf Agrint",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Southern Tolbas Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100179,
+    "Name": "Forest Agrint",
+    "Level": 25
+   },
+   {
+    "NpcCode": 2600113,
+    "Name": "Twilight Dry Leaf Agrint",
+    "Level": 50
+   },
+   {
+    "NpcCode": 2600143,
+    "Name": "Twilight Dry Leaf Agrint",
+    "Level": 53
+   }
+  ]
+ },
+ {
+  "Id": 1213,
+  "Name": "Lesser Fire Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Purifying Forest"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2101087,
+    "Name": "Eternal Fire Spirit",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2400325,
+    "Name": "Burning Ember Spirit",
+    "Level": 27
+   }
+  ]
+ },
+ {
+  "Id": 1214,
+  "Name": "Black Spirit",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Contaminated Marsh"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Kraka Footpath"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Impetusium Square"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Reshanta's Root"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Corroded Heart"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100460,
+    "Name": "Contaminated Spirit",
+    "Level": 15
+   },
+   {
+    "NpcCode": 2100807,
+    "Name": "Distorted Spirit",
+    "Level": 39
+   },
+   {
+    "NpcCode": 2400708,
+    "Name": "Black Spirit",
+    "Level": 44
+   },
+   {
+    "NpcCode": 2600069,
+    "Name": "Abyss Corrupted Spirit",
+    "Level": 48
+   },
+   {
+    "NpcCode": 2600469,
+    "Name": "Abyss Corrupted Spirit",
+    "Level": 52
+   }
+  ]
+ },
+ {
+  "Id": 1215,
+  "Name": "Predator Saraswati",
+  "Genus": "Cogni",
+  "Places": [],
+  "Droppers": [
+   {
+    "NpcCode": 2300403,
+    "Name": "Predator Saraswati",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2310403,
+    "Name": "Predator Saraswati",
+    "Level": 45
+   },
+   {
+    "NpcCode": 2320403,
+    "Name": "Predator Saraswati",
+    "Level": 70
+   }
+  ]
+ },
+ {
+  "Id": 1216,
+  "Name": "Dark Spirit",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Altamia Canyon"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Garden of the Illusion God"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100600,
+    "Name": "Corrupted Spirit",
+    "Level": 33
+   },
+   {
+    "NpcCode": 2100656,
+    "Name": "Wandering Dark Spirit",
+    "Level": 45
+   }
+  ]
+ },
+ {
+  "Id": 1217,
+  "Name": "Congealed Drana",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Dredgion Crash Site"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400009,
+    "Name": "Congealed Drana",
+    "Level": 12
+   }
+  ]
+ },
+ {
+  "Id": 1218,
+  "Name": "Faded Drana",
+  "Genus": "Varian",
+  "Places": [
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Fafnite Deposit"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2400478,
+    "Name": "Faded Chunk",
+    "Level": 35
+   }
+  ]
+ },
+ {
+  "Id": 1219,
+  "Name": "Zelophi",
+  "Genus": "Natura",
+  "Places": [
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Ellun River Marsh"
+   },
+   {
+    "MapId": 1010,
+    "Region": "Verteron",
+    "Area": "Eternal Isle"
+   },
+   {
+    "MapId": 1110,
+    "Region": "Altgard",
+    "Area": "Immortal Isle"
+   },
+   {
+    "MapId": 20,
+    "Region": "Chaotic Lower Reshanta",
+    "Area": "Archipelago of Siel's Wings"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Distorted Old Growth Forest"
+   },
+   {
+    "MapId": 22,
+    "Region": "Chaotic Middle Reshanta",
+    "Area": "Bölge ayrıntısı yok"
+   }
+  ],
+  "Droppers": [
+   {
+    "NpcCode": 2100458,
+    "Name": "Coastal Zelophi",
+    "Level": 14
+   },
+   {
+    "NpcCode": 2101085,
+    "Name": "Eternal Zelophi",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2400811,
+    "Name": "Zelophi",
+    "Level": 49
+   },
+   {
+    "NpcCode": 2600050,
+    "Name": "Abyss Zelophi",
+    "Level": 46
+   },
+   {
+    "NpcCode": 2600450,
+    "Name": "Abyss Zelophi",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2600512,
+    "Name": "Abyss Zelophi",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2600574,
+    "Name": "Abyss Zelophi",
+    "Level": 51
+   },
+   {
+    "NpcCode": 2600584,
+    "Name": "Abyss Zelophi",
+    "Level": 51
+   }
+  ]
+ },
+ {
+  "Id": 1240,
+  "Name": "White Bunny",
+  "Genus": "Special",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1278,
+  "Name": "Chonky Hamster",
+  "Genus": "Special",
+  "Places": [],
+  "Droppers": []
+ },
+ {
+  "Id": 1299,
+  "Name": "Two",
+  "Genus": "Special",
+  "Places": [],
+  "Droppers": []
+ }
+]

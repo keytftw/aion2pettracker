@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/PetTracker.App/PetTracker.App.csproj" />
+    <Project Path="src/PetTracker.Capture/PetTracker.Capture.csproj" />
+    <Project Path="src/PetTracker.Core/PetTracker.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PetTracker.Tests/PetTracker.Tests.csproj" />
+  </Folder>
+</Solution>
