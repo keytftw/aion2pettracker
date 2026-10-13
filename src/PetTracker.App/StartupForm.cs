@@ -20,7 +20,7 @@ public sealed class StartupForm : Form
     private CheckBox? consent;
     private PremiumButton? accept,retry;
     private Label? message;
-    private bool handedOff,closing,mayClose;
+    private bool handedOff,closing,mayClose,resourcesDisposed;
     private double stepStart,lastPump;private double? previewTime;
     private string? failure;
     private bool demoCheck;
@@ -258,5 +258,13 @@ public sealed class StartupForm : Form
         PremiumDialogMotion.ShowForPreview(this);using var bitmap=new Bitmap(Width,Height);DrawToBitmap(bitmap,ClientRectangle);bitmap.Save(path);Hide();timer.Stop();
     }
     protected override void Dispose(bool disposing)
-    {if(disposing){updateCancellation.Cancel();updateCancellation.Dispose();timer.Dispose();cursor.Dispose();hoverCursor.Dispose();Icon?.Dispose();}base.Dispose(disposing);}
+    {
+        // Close disposes the form; Program's using scope may dispose it again.
+        if(disposing&&!resourcesDisposed)
+        {
+            resourcesDisposed=true;closing=true;
+            updateCancellation.Cancel();updateCancellation.Dispose();timer.Dispose();cursor.Dispose();hoverCursor.Dispose();Icon?.Dispose();
+        }
+        base.Dispose(disposing);
+    }
 }

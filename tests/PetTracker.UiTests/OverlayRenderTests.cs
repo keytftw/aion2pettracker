@@ -9,6 +9,20 @@ namespace PetTracker.UiTests;
 
 public sealed class OverlayRenderTests(ITestOutputHelper output)
 {
+    [Fact]
+    public void StartupCloseAndScopeCleanupCanDisposeTheFormAgain()
+    {
+        OnSta(()=>
+        {
+            using var form=new StartupForm(demo:true);
+            form.StartPosition=FormStartPosition.Manual;form.Location=new(-5000,-5000);
+            form.Shown+=(_,_)=>form.BeginInvoke(()=>form.Close());
+            Application.Run(form);
+            Assert.True(form.IsDisposed);
+            form.Dispose();
+        });
+    }
+
     private static void OnSta(Action action)
     {
         Exception? failure=null;
