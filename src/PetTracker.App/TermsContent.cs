@@ -4,7 +4,7 @@ namespace PetTracker.App;
 // Legal enforceability depends on the user's jurisdiction. Review before public distribution.
 public static class TermsContent
 {
-    public const string Version="2026-10-13 / 1.0";
+    public const string Version="2026-10-13 / 1.1";
     public const string PublisherPolicy="https://www.plaync.com/policy/operation/aion2global/en";
     private static readonly Dictionary<string,string> Bodies=new()
     {
@@ -379,6 +379,89 @@ Aion 2 Pet Tracker 是非官方社区工具。Keyt 及贡献者与 NC 或 AION 2
 勾选并点击接受，表示您已阅读、理解永久封号等风险、自愿继续并有权接受。如无法理解或接受风险，请勿继续。发行商规则具有决定性作用且可能改变。
 """
     };
-    public static bool Complete=>UiText.Languages.All(l=>Bodies.TryGetValue(l.Code,out var body)&&body.Contains("12.")&&body.Length>700);
-    public static string Get(string language)=>Version+"\n\n"+Bodies[language]+"\n\n"+PublisherPolicy;
+    private static readonly Dictionary<string,string> CaptureReview=new()
+    {
+        ["en"]="""
+13. Passive capture and compatibility review
+The existing Npcap layer was inspected for receive-only operation and clearly identifiable resource-management issues. It passively reads supported server-to-client traffic; it does not inject, transmit, modify, block or replay game packets. It does not access game memory, inject DLLs, modify the game client or automate gameplay.
+
+The review found no clearly necessary, safely fixable resource issue, so no capture-layer optimization was applied. Existing filters, packet handling, callbacks, event order, threading, permissions, initialization and Npcap configuration were preserved. Build and existing offline tests passed after the review. Future cleanup should be limited to confirmed, non-breaking corrections, followed by appropriate tests.
+
+This describes implementation behavior and a technical review, not publisher approval, an independent security certification or a promise of zero account risk. Passive capture does not override the game's current rules or guarantee protection from sanctions. The risk and legal limitations described elsewhere in these terms still apply.
+""",
+        ["tr"]="""
+13. Pasif okuma ve uyumluluk incelemesi
+Mevcut Npcap katmanı yalnızca alıcı çalışma ve açık kaynak yönetimi sorunları açısından incelendi. Desteklenen sunucu→istemci trafiğini pasif okur; oyun paketlerini enjekte etmez, göndermez, değiştirmez, engellemez veya yeniden oynatmaz. Oyun belleğine erişmez, DLL enjekte etmez, istemciyi değiştirmez ve oyun otomasyonu yapmaz.
+
+İncelemede açıkça gerekli ve güvenle düzeltilebilir bir kaynak sorunu bulunmadığından capture katmanında optimizasyon değişikliği yapılmadı. Filtreler, paket işleme, callback'ler, olay sırası, thread davranışı, izinler, başlangıç işlemleri ve Npcap yapılandırması korundu. İnceleme sonrası build ve mevcut çevrimdışı testler geçti. Gelecekteki temizlik yalnızca doğrulanmış, davranışı bozmayan düzeltmelerle ve uygun testlerle sınırlı olmalıdır.
+
+Bu açıklama uygulamanın davranışını ve teknik incelemeyi anlatır; yayıncı onayı, bağımsız güvenlik sertifikası veya sıfır hesap riski sözü değildir. Pasif okuma güncel oyun kurallarını geçersiz kılmaz veya yaptırımlardan korunmayı garanti etmez. Koşulların diğer bölümlerindeki risk ve hukuki sınırlar geçerlidir.
+""",
+        ["de"]="""
+13. Passive Erfassung und Kompatibilitätsprüfung
+Die bestehende Npcap-Schicht wurde auf rein empfangenden Betrieb und eindeutig erkennbare Ressourcenprobleme geprüft. Sie liest unterstützten Server-zu-Client-Verkehr passiv; Spielpakete werden nicht injiziert, gesendet, verändert, blockiert oder erneut abgespielt. Kein Zugriff auf Spielspeicher, keine DLL-Injection, Clientänderung oder Spielautomatisierung.
+
+Es wurde kein eindeutig notwendiges, sicher behebbares Ressourcenproblem festgestellt; daher erfolgte keine Optimierung der Erfassungsschicht. Filter, Paketverarbeitung, Callbacks, Ereignisreihenfolge, Threads, Berechtigungen, Initialisierung und Npcap-Konfiguration blieben erhalten. Build und bestehende Offline-Tests bestanden. Künftige Bereinigung sollte nur bestätigte, verhaltenswahrende Korrekturen mit passenden Tests umfassen.
+
+Dies beschreibt Implementierung und technische Prüfung, keine Herausgeberfreigabe, unabhängige Sicherheitszertifizierung oder Risikofreiheit. Passive Erfassung hebt Spielregeln nicht auf und garantiert keinen Schutz vor Sanktionen. Die übrigen Risiko- und Rechtsgrenzen gelten weiter.
+""",
+        ["ru"]="""
+13. Пассивное чтение и проверка совместимости
+Существующий слой Npcap проверен на работу только на приём и очевидные проблемы управления ресурсами. Он пассивно читает поддерживаемый трафик сервер→клиент; не внедряет, не отправляет, не изменяет, не блокирует и не повторяет игровые пакеты. Нет доступа к памяти игры, внедрения DLL, изменения клиента или автоматизации игры.
+
+Явно необходимой и безопасно исправляемой проблемы ресурсов не найдено, поэтому оптимизация слоя захвата не применялась. Фильтры, обработка пакетов, callbacks, порядок событий, потоки, разрешения, инициализация и настройки Npcap сохранены. Сборка и существующие офлайн-тесты прошли. Будущие исправления должны быть подтверждёнными, не менять поведение и проверяться тестами.
+
+Это описание реализации и технической проверки, не одобрение издателя, независимый сертификат безопасности или обещание отсутствия риска. Пассивное чтение не отменяет правила игры и не гарантирует защиту от санкций. Остальные положения о рисках и правовых ограничениях сохраняются.
+""",
+        ["es"]="""
+13. Captura pasiva y revisión de compatibilidad
+La capa Npcap existente se revisó para comprobar funcionamiento solo de recepción y problemas evidentes de recursos. Lee pasivamente tráfico compatible del servidor al cliente; no inyecta, transmite, modifica, bloquea ni reproduce paquetes de juego. No accede a memoria del juego, inyecta DLL, modifica el cliente ni automatiza acciones.
+
+No se encontró un problema de recursos claramente necesario y seguro de corregir; no se aplicó una optimización de captura. Se conservaron filtros, procesamiento, callbacks, orden de eventos, hilos, permisos, inicialización y configuración Npcap. La compilación y las pruebas existentes sin conexión pasaron. Toda limpieza futura debe limitarse a correcciones confirmadas que preserven el comportamiento y se prueben.
+
+Esto describe implementación y revisión técnica, no aprobación del editor, certificación independiente ni ausencia de riesgo. La captura pasiva no anula las reglas del juego ni garantiza protección frente a sanciones. Siguen vigentes los demás riesgos y límites legales.
+""",
+        ["fr"]="""
+13. Capture passive et vérification de compatibilité
+La couche Npcap existante a été examinée pour vérifier la réception seule et les problèmes évidents de gestion des ressources. Elle lit passivement le trafic serveur→client compatible ; elle n’injecte, n’envoie, ne modifie, ne bloque ni ne rejoue les paquets de jeu. Aucun accès à la mémoire du jeu, injection DLL, modification du client ou automatisation.
+
+Aucun problème de ressources clairement nécessaire et corrigeable sans risque n’a été trouvé ; aucune optimisation de capture n’a donc été appliquée. Filtres, traitement, callbacks, ordre des événements, threads, permissions, initialisation et configuration Npcap ont été conservés. La compilation et les tests hors ligne existants ont réussi. Toute correction future doit être confirmée, préserver le comportement et être testée.
+
+Il s’agit d’une description technique, pas d’une autorisation de l’éditeur, certification indépendante ou promesse de risque nul. La capture passive ne remplace pas les règles du jeu et ne garantit pas l’absence de sanctions. Les autres risques et limites juridiques restent applicables.
+""",
+        ["pt"]="""
+13. Captura passiva e revisão de compatibilidade
+A camada Npcap existente foi examinada quanto à operação somente de recepção e problemas claros de recursos. Lê passivamente tráfego compatível servidor→cliente; não injeta, transmite, altera, bloqueia ou repete pacotes de jogo. Não acessa memória do jogo, injeta DLL, modifica o cliente ou automatiza ações.
+
+Não foi encontrado problema de recursos claramente necessário e seguro de corrigir; nenhuma otimização de captura foi aplicada. Filtros, processamento, callbacks, ordem dos eventos, threads, permissões, inicialização e configuração Npcap foram preservados. Compilação e testes existentes offline passaram. Limpeza futura deve se limitar a correções confirmadas que preservem o comportamento, com testes adequados.
+
+Isto descreve implementação e revisão técnica, não aprovação da editora, certificação independente ou promessa de risco zero. Captura passiva não substitui regras do jogo nem garante proteção contra sanções. Os demais riscos e limites legais continuam válidos.
+""",
+        ["ar"]="""
+13. القراءة السلبية ومراجعة التوافق
+تم فحص طبقة Npcap الحالية للتأكد من عملها للاستقبال فقط ومن مشكلات الموارد الواضحة. تقرأ حركة الخادم إلى العميل المدعومة بشكل سلبي؛ ولا تحقن حزم اللعبة أو ترسلها أو تغيّرها أو تحظرها أو تعيد تشغيلها. لا تصل إلى ذاكرة اللعبة ولا تحقن DLL ولا تغيّر العميل ولا تؤتمت اللعب.
+
+لم توجد مشكلة موارد ضرورية بوضوح ويمكن تصحيحها بأمان، لذلك لم يُطبَّق تحسين على طبقة الالتقاط. حُفظت المرشحات والمعالجة والاستدعاءات وترتيب الأحداث والخيوط والأذونات والتهيئة وإعدادات Npcap. نجح البناء والاختبارات الحالية دون اتصال. يجب أن تقتصر التنقيحات المستقبلية على تصحيحات مثبتة لا تغيّر السلوك مع اختبارات مناسبة.
+
+هذا وصف للتنفيذ ومراجعة تقنية، وليس موافقة الناشر أو شهادة أمن مستقلة أو ضمان انعدام المخاطر. القراءة السلبية لا تلغي قواعد اللعبة ولا تضمن الحماية من العقوبات. تبقى المخاطر والحدود القانونية الأخرى سارية.
+""",
+        ["hi"]="""
+13. निष्क्रिय कैप्चर और संगतता समीक्षा
+मौजूदा Npcap परत की केवल प्राप्त करने वाली कार्यप्रणाली और स्पष्ट संसाधन समस्याओं के लिए जाँच की गई। यह समर्थित सर्वर से क्लाइंट ट्रैफिक निष्क्रिय रूप से पढ़ती है; गेम पैकेट इंजेक्ट, भेजती, बदलती, रोकती या दोहराती नहीं है। गेम मेमोरी तक पहुँच, DLL इंजेक्शन, क्लाइंट बदलाव या गेम ऑटोमेशन नहीं होता।
+
+कोई स्पष्ट आवश्यक और सुरक्षित सुधार योग्य संसाधन समस्या नहीं मिली, इसलिए कैप्चर परत में ऑप्टिमाइज़ेशन बदलाव नहीं किया गया। फिल्टर, पैकेट प्रोसेसिंग, callbacks, घटना क्रम, threads, अनुमतियाँ, आरंभ और Npcap सेटिंग सुरक्षित रखे गए। बिल्ड और मौजूदा ऑफलाइन टेस्ट सफल रहे। भविष्य की सफाई केवल पुष्टि किए गए, व्यवहार सुरक्षित रखने वाले सुधारों और उचित टेस्ट तक सीमित होनी चाहिए।
+
+यह कार्यप्रणाली और तकनीकी समीक्षा का विवरण है, प्रकाशक की अनुमति, स्वतंत्र सुरक्षा प्रमाणपत्र या शून्य जोखिम का वादा नहीं। निष्क्रिय कैप्चर गेम नियम नहीं हटाता और कार्रवाई से सुरक्षा की गारंटी नहीं देता। अन्य जोखिम और कानूनी सीमाएँ लागू हैं।
+""",
+        ["zh"]="""
+13. 被动捕获与兼容性检查
+现有 Npcap 层已针对仅接收行为及明确的资源管理问题进行检查。它被动读取支持的服务器到客户端流量，不注入、发送、修改、阻止或重放游戏数据包。不访问游戏内存，不注入 DLL，不修改客户端，也不自动操作游戏。
+
+检查没有发现明确必要且可安全修复的资源问题，因此未对捕获层实施优化修改。现有过滤器、数据包处理、回调、事件顺序、线程、权限、初始化及 Npcap 配置均保留。检查后构建和现有离线测试通过。后续清理应限于已确认、不改变行为的修复，并进行适当测试。
+
+此说明描述实现行为及技术检查，不代表发行商批准、独立安全认证或零账号风险承诺。被动捕获不会取代游戏规则，也不保证免于处罚。其他风险及法律限制仍然适用。
+"""
+    };
+    public static bool Complete=>UiText.Languages.All(l=>Bodies.TryGetValue(l.Code,out var body)&&body.Contains("12.")&&body.Length>700&&CaptureReview.TryGetValue(l.Code,out var review)&&review.Contains("13."));
+    public static string Get(string language)=>Version+"\n\n"+Bodies[language]+"\n\n"+CaptureReview[language]+"\n\n"+PublisherPolicy;
 }
