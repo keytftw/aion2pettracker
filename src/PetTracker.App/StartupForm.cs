@@ -171,7 +171,7 @@ public sealed class StartupForm : Form
             g.Restore(state);using var glow=new Pen(Color.FromArgb((int)(25+18*(.5+.5*Math.Sin(now*2))),PremiumTheme.Gold),4);g.DrawPath(glow,path);
             var detail=updateFailed?updateError:updateProgress.Phase==UpdatePhase.Downloading?$"{updateProgress.Percent}% · {updateProgress.Version}":"GitHub · keytftw/aion2pettracker";
             PremiumTheme.Text(g,detail??"",new(35,360,630,85),11,PremiumTheme.Muted,language,align:StringAlignment.Center);
-            PremiumTheme.Text(g,"Designed & Developed by Keyt",new(20,583,660,16),7,PremiumTheme.Muted,"en",align:StringAlignment.Center);
+            DrawStartupCredit(g);
             PremiumTheme.Text(g,"×",new(656,12,28,28),18,PremiumTheme.Muted,"en",align:StringAlignment.Center);return;
         }
         var intro=gate.Stage==StartupStage.Intro;var reveal=(float)Math.Clamp((now-introStart)/1.1,0,1);
@@ -185,6 +185,7 @@ public sealed class StartupForm : Form
             var y=285+(1-reveal)*22;for(var glow=3;glow>0;glow--)PremiumTheme.Text(g,"Aion 2 Pet Tracker",new(20-glow,y-glow,660+glow*2,65+glow*2),28,Color.FromArgb((int)(10*reveal),PremiumTheme.Gold),"en",FontStyle.Bold,StringAlignment.Center);
             PremiumTheme.Text(g,"Aion 2 Pet Tracker",new(20,y,660,65),28,Color.FromArgb((int)(255*reveal),PremiumTheme.Gold),"en",FontStyle.Bold,StringAlignment.Center);
             PremiumTheme.Text(g,"Designed & Developed by Keyt",new(20,359,660,38),11,Color.FromArgb((int)(210*reveal),PremiumTheme.Ink),"en",align:StringAlignment.Center);
+            PremiumTheme.Text(g,"Support on Patreon",new(20,399,660,24),9,Color.FromArgb((int)(160*reveal),PremiumTheme.Gold),"en",align:StringAlignment.Center);
             using var track=new SolidBrush(Color.FromArgb(35,PremiumTheme.Gold));g.FillRectangle(track,190,438,320,2);using var progress=new SolidBrush(PremiumTheme.Gold);g.FillRectangle(progress,190,438,320*(float)Math.Min((now-introStart)/3.5,1),2);
         }
         else if(gate.Stage==StartupStage.Language)
@@ -200,8 +201,13 @@ public sealed class StartupForm : Form
             PremiumTheme.Text(g,demo?S("demoRelog"):controller?.Listening==true||previewTime.HasValue?S("relog"):S("connecting"),new(35,150,630,140),23,PremiumTheme.Gold,language,FontStyle.Bold,StringAlignment.Center);
             using var pen=new Pen(Color.FromArgb(150,PremiumTheme.Gold),2.5f);g.DrawArc(pen,337,305,26,26,(float)(now*120),240);
         }
-        if(!intro)PremiumTheme.Text(g,"Designed & Developed by Keyt",new(20,583,660,16),7,PremiumTheme.Muted,"en",align:StringAlignment.Center);
+        if(!intro)DrawStartupCredit(g);
         if(gate.Stage is StartupStage.Intro or StartupStage.Language)PremiumTheme.Text(g,"×",new(656,12,28,28),18,PremiumTheme.Muted,"en",align:StringAlignment.Center);
+    }
+    private static void DrawStartupCredit(Graphics g)
+    {
+        PremiumTheme.Text(g,"Designed & Developed by Keyt",new(20,577,660,12),7,PremiumTheme.Muted,"en",align:StringAlignment.Center);
+        PremiumTheme.Text(g,"Support on Patreon",new(20,593,660,12),7,Color.FromArgb(175,PremiumTheme.Gold),"en",align:StringAlignment.Center);
     }
     protected override void OnMouseMove(MouseEventArgs e)
     {

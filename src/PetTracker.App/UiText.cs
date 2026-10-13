@@ -6,6 +6,8 @@ public static class UiText
     [("tr","Türkçe"),("en","English"),("de","Deutsch"),("ru","Русский"),("es","Español"),("fr","Français"),("pt","Português"),("ar","العربية"),("hi","हिन्दी"),("zh","简体中文")];
     private static readonly Dictionary<string,string[]> Strings = new()
     {
+        ["support"]=["Patreon'dan destek ol","Support on Patreon","Auf Patreon unterstützen","Поддержать на Patreon","Apoyar en Patreon","Soutenir sur Patreon","Apoiar no Patreon","ادعم عبر Patreon","Patreon पर समर्थन करें","在 Patreon 上支持"],
+        ["browserFailed"]=["Tarayıcı açılamadı. Varsayılan tarayıcını kontrol et.","Could not open your default browser. Check your browser settings.","Browser konnte nicht geöffnet werden. Standardbrowser prüfen.","Не удалось открыть браузер. Проверьте браузер по умолчанию.","No se pudo abrir el navegador. Revisa el navegador predeterminado.","Impossible d’ouvrir le navigateur. Vérifiez le navigateur par défaut.","Não foi possível abrir o navegador. Verifique o navegador padrão.","تعذر فتح المتصفح. تحقق من المتصفح الافتراضي.","ब्राउज़र नहीं खुला। डिफ़ॉल्ट ब्राउज़र जाँचें।","无法打开浏览器，请检查默认浏览器设置。"],
         ["incompletePets"]=["Tamamlanmamış petler","Incomplete pets","Nicht maximierte Pets","Незавершённые питомцы","Pets sin completar","Pets non terminés","Pets incompletos","حيوانات غير مكتملة","अधूरे पेट","未满级宠物"],
         ["maxedPets"]=["MAX petler","Maxed pets","Maximierte Pets","Питомцы MAX","Pets al máximo","Pets au maximum","Pets no máximo","حيوانات بالمستوى الأقصى","अधिकतम स्तर के पेट","满级宠物"],
         ["start"]=["Başlat","Start","Starten","Старт","Iniciar","Démarrer","Iniciar","ابدأ","शुरू","开始"],

@@ -1,4 +1,4 @@
-# Aion 2 Pet Tracker — 0.7.0 / GitHub Updates
+# Aion 2 Pet Tracker — 0.7.1 / GitHub Updates
 
 Windows x64 pet soul tracker, licensed under GPL-3.0. Public update feed: https://github.com/keytftw/aion2pettracker
 
@@ -13,6 +13,10 @@ Open this repository's Actions → Build and publish updater release → Run wor
 The workflow builds and runs offline tests on Windows, produces a self-contained application, uses vpk 1.2.161 to create the portable ZIP/Setup and update feed, and publishes them to GitHub Releases. A source ZIP is also attached. Ordinary code pushes do not trigger publication. Before a new release, increment the Version value in src/PetTracker.App/PetTracker.App.csproj. Do not publish the same version twice.
 
 No installer or packaged binary was executed locally. If the first GitHub release has not been created yet, automatic updating is not live; release packaging and an update/restart test between two consecutive versions on another computer are required. If GitHub becomes unavailable, the current version can still be used. User records are preserved under %LOCALAPPDATA%/Aion2PetTracker; a fresh collection is still required after an update. Code signing and publisher identification should be considered separately before wider distribution.
+
+## Support
+
+The startup credits display “Support on Patreon.” A separate button in Settings opens https://www.patreon.com/cw/keytftw in your default browser. The main tracker view does not contain a support link. Support is optional and does not change tracking functionality.
 
 ## Development
 

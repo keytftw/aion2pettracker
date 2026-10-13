@@ -14,7 +14,7 @@ public sealed class OverlaySettingsForm : Form
     protected override void OnMouseCaptureChanged(EventArgs e){base.OnMouseCaptureChanged(e);if(!Capture)dragging=false;}
     public OverlaySettingsForm(OverlayPreferences preferences,Cursor cursor,int maximumHeight,Action changed,Action logs)
     {
-        ClientSize=new(340,423);FormBorderStyle=FormBorderStyle.None;StartPosition=FormStartPosition.CenterParent;TopMost=true;ShowInTaskbar=false;
+        ClientSize=new(340,461);FormBorderStyle=FormBorderStyle.None;StartPosition=FormStartPosition.CenterParent;TopMost=true;ShowInTaskbar=false;
         BackColor=PremiumTheme.Background;ForeColor=PremiumTheme.Ink;Cursor=cursor;
         var title=new Label { Location=new(18,15),AutoSize=true,ForeColor=PremiumTheme.Gold,Font=new("Segoe UI",13,FontStyle.Bold) };
         var opacityLabel=new Label { Location=new(19,60),AutoSize=true };
@@ -28,8 +28,14 @@ public sealed class OverlaySettingsForm : Form
         var languageLabel=new Label { Location=new(19,274),AutoSize=true };
         var languages=new PremiumButton { Location=new(18,299),Size=new(305,29),Cursor=cursor };
         languageButton=languages;
-        var diagnostic=new PremiumButton { Location=new(18,357),Size=new(145,29),Cursor=cursor };
-        var done=new PremiumButton { Location=new(177,357),Size=new(146,29),Cursor=cursor };
+        var support=new PremiumButton { Location=new(18,339),Size=new(305,31),Cursor=cursor };
+        support.Click+=(_,_)=>
+        {
+            try{using var browser=System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://www.patreon.com/cw/keytftw"){UseShellExecute=true});}
+            catch(System.ComponentModel.Win32Exception){MessageBox.Show(this,UiText.Get(preferences.Language,"browserFailed"),"Aion 2 Pet Tracker",MessageBoxButtons.OK,MessageBoxIcon.Information);}
+        };
+        var diagnostic=new PremiumButton { Location=new(18,395),Size=new(145,29),Cursor=cursor };
+        var done=new PremiumButton { Location=new(177,395),Size=new(146,29),Cursor=cursor };
         // The settings form owns this reusable menu. Closed fires inside WinForms' click
         // handling; disposing there invalidates the menu before that handling finishes.
         languageMenu=new ContextMenuStrip(components) { ShowImageMargin=false,BackColor=PremiumTheme.Panel,ForeColor=PremiumTheme.Ink,Cursor=cursor,Renderer=new DarkMenuRenderer() };
@@ -42,7 +48,7 @@ public sealed class OverlaySettingsForm : Form
         diagnostic.Click+=(_,_)=>logs();
         done.Click+=(_,_)=>Close();
         var close=new PremiumButton { Text="×",Location=new(302,12),Size=new(22,23),Cursor=cursor };close.Click+=(_,_)=>Close();
-        var credit=new Label { Text="Designed & Developed by Keyt",ForeColor=PremiumTheme.Muted,Font=new("Segoe UI",6),Location=new(19,398),Size=new(305,15),TextAlign=ContentAlignment.MiddleCenter };
+        var credit=new Label { Text="Designed & Developed by Keyt",ForeColor=PremiumTheme.Muted,Font=new("Segoe UI",6),Location=new(19,436),Size=new(305,15),TextAlign=ContentAlignment.MiddleCenter };
         foreach(var label in new[]{title,opacityLabel,opacityValue,heightLabel,heightValue,languageLabel,credit})
         {label.Cursor=Cursors.SizeAll;label.MouseDown+=(_,e)=>{if(e.Button==MouseButtons.Left)BeginDrag(label.PointToScreen(e.Location));};}
         void RefreshStrings()
@@ -52,11 +58,12 @@ public sealed class OverlaySettingsForm : Form
             top.Text=UiText.Get(lang,"top");locked.Text=UiText.Get(lang,"lock");languageLabel.Text=UiText.Get(lang,"language");
             diagnostic.Text=UiText.Get(lang,"logs");done.Text=UiText.Get(lang,"done");diagnostic.TextLanguage=lang;done.TextLanguage=lang;top.TextLanguage=lang;locked.TextLanguage=lang;Invalidate();
             languages.Text=UiText.Languages.First(l=>l.Code==lang).Name+"  ▾";languages.TextLanguage=lang;
+            support.Text=UiText.Get(lang,"support");support.TextLanguage=lang;
         }
         opacity.ValueChanged+=(_,_)=>{preferences.OpacityPercent=opacity.Value;opacityValue.Text=opacity.Value+"%";changed();};
         height.ValueChanged+=(_,_)=>{preferences.Height=height.Value;heightValue.Text=height.Value.ToString();changed();};
         top.CheckedChanged+=(_,_)=>{preferences.AlwaysOnTop=top.Checked;changed();};locked.CheckedChanged+=(_,_)=>{preferences.Locked=locked.Checked;changed();};
-        Controls.AddRange([title,opacityLabel,opacityValue,opacity,heightLabel,heightValue,height,top,locked,languageLabel,languages,diagnostic,done,close,credit]);RefreshStrings();PremiumDialogMotion.Attach(this);
+        Controls.AddRange([title,opacityLabel,opacityValue,opacity,heightLabel,heightValue,height,top,locked,languageLabel,languages,support,diagnostic,done,close,credit]);RefreshStrings();PremiumDialogMotion.Attach(this);
     }
     protected override void OnPaint(PaintEventArgs e){base.OnPaint(e);using var p=new Pen(Color.FromArgb(100,PremiumTheme.Gold));e.Graphics.DrawRectangle(p,0,0,Width-1,Height-1);}
     protected override bool ProcessCmdKey(ref Message message,Keys key){if(key==Keys.Escape){Close();return true;}return base.ProcessCmdKey(ref message,key);}
