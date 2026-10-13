@@ -215,6 +215,7 @@ public sealed class StartupForm : Form
         else if(gate.Stage==StartupStage.Synchronizing)
         {
             PremiumTheme.Text(g,demo?S("demoRelog"):controller?.Listening==true||previewTime.HasValue?S("relog"):S("connecting"),new(35,150,630,140),23,PremiumTheme.Gold,language,FontStyle.Bold,StringAlignment.Center);
+            if(!demo)PremiumTheme.Text(g,S("relogWhy"),new(55,455,590,55),10,PremiumTheme.Muted,language,align:StringAlignment.Center);
             using var pen=new Pen(Color.FromArgb(150,PremiumTheme.Gold),2.5f);g.DrawArc(pen,337,305,26,26,(float)(now*120),240);
         }
         if(!intro)DrawStartupCredit(g);
