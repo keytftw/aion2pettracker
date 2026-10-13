@@ -18,7 +18,9 @@ public sealed record SoulEvent(CharacterScope Scope, string StreamId, long Frame
 public sealed class UIPreferences
 {
     public HashSet<int> Pinned { get; set; } = [];
+    public HashSet<int> RetainedCards { get; set; } = [];
     public HashSet<int> Dismissed { get; set; } = [];
+    public List<int> CardOrder { get; set; } = [];
 }
 public sealed class ProfileState
 {

@@ -6,6 +6,18 @@ public static class UiText
     [("tr","Türkçe"),("en","English"),("de","Deutsch"),("ru","Русский"),("es","Español"),("fr","Français"),("pt","Português"),("ar","العربية"),("hi","हिन्दी"),("zh","简体中文")];
     private static readonly Dictionary<string,string[]> Strings = new()
     {
+        ["moveUp"]=["Kartı yukarı taşı","Move card up","Karte nach oben","Поднять карточку","Subir tarjeta","Monter la carte","Mover cartão para cima","نقل البطاقة للأعلى","कार्ड ऊपर ले जाएँ","上移卡片"],
+        ["moveDown"]=["Kartı aşağı taşı","Move card down","Karte nach unten","Опустить карточку","Bajar tarjeta","Descendre la carte","Mover cartão para baixo","نقل البطاقة للأسفل","कार्ड नीचे ले जाएँ","下移卡片"],
+        ["visibleCards"]=["Görünen pet sayısı","Visible pets","Sichtbare Pets","Видимые питомцы","Pets visibles","Pets visibles","Pets visíveis","الحيوانات الظاهرة","दिखने वाले पेट","显示宠物数量"],
+        ["lockHeight"]=["Yüksekliği kilitle","Lock height","Höhe sperren","Зафиксировать высоту","Bloquear altura","Verrouiller la hauteur","Bloquear altura","قفل الارتفاع","ऊँचाई लॉक करें","锁定高度"],
+        ["unlockHeight"]=["Otomatik büyümeye izin ver","Allow automatic growth","Automatisches Wachstum zulassen","Разрешить автоматический рост","Permitir crecimiento automático","Autoriser l’agrandissement automatique","Permitir crescimento automático","السماح بالزيادة التلقائية","अपने आप बढ़ने दें","允许自动增高"],
+        ["compact"]=["Küçült","Compact","Kompakt","Компактно","Compactar","Réduire","Compactar","تصغير","छोटा करें","收起"],
+        ["expand"]=["Tam pencereyi aç","Expand tracker","Tracker vergrößern","Развернуть трекер","Ampliar tracker","Agrandir le tracker","Expandir o tracker","تكبير المتتبع","ट्रैकर बड़ा करें","展开追踪器"],
+        ["hideHotkey"]=["Gizle / göster kısayolu","Hide / show shortcut","Tastenkürzel Ausblenden / Anzeigen","Скрыть / показать","Atajo ocultar / mostrar","Raccourci masquer / afficher","Atalho ocultar / mostrar","اختصار إخفاء / إظهار","छिपाएँ / दिखाएँ शॉर्टकट","隐藏 / 显示快捷键"],
+        ["compactHotkey"]=["Küçült / büyüt kısayolu","Compact / expand shortcut","Tastenkürzel Kompakt / Erweitern","Свернуть / развернуть","Atajo compactar / ampliar","Raccourci réduire / agrandir","Atalho compactar / expandir","اختصار تصغير / تكبير","छोटा / बड़ा शॉर्टकट","收起 / 展开快捷键"],
+        ["pressKey"]=["Bir tuş kombinasyonuna bas…","Press a key combination…","Tastenkombination drücken…","Нажмите сочетание клавиш…","Pulsa una combinación…","Appuyez sur une combinaison…","Pressione uma combinação…","اضغط مجموعة مفاتيح…","कुंजी संयोजन दबाएँ…","请按下快捷键…"],
+        ["hotkeysDifferent"]=["İki kısayol farklı olmalı.","The shortcuts must be different.","Die Tastenkürzel müssen verschieden sein.","Сочетания клавиш должны различаться.","Los atajos deben ser distintos.","Les raccourcis doivent être différents.","Os atalhos devem ser diferentes.","يجب أن يكون الاختصاران مختلفين.","दोनों शॉर्टकट अलग होने चाहिए।","两个快捷键必须不同。"],
+        ["hotkeyBusy"]=["Bu kısayol başka bir uygulama tarafından kullanılıyor. Başka bir kombinasyon seç.","Another app already uses this shortcut. Choose a different combination.","Diese Tastenkombination wird bereits verwendet. Wähle eine andere.","Это сочетание уже используется. Выберите другое.","Otra app ya usa este atajo. Elige otro.","Ce raccourci est déjà utilisé. Choisissez-en un autre.","Este atalho já está em uso. Escolha outro.","هذا الاختصار مستخدم بالفعل. اختر مجموعة أخرى.","यह शॉर्टकट पहले से उपयोग में है। दूसरा चुनें।","此快捷键已被占用，请换一个。"],
         ["support"]=["Patreon'dan destek ol","Support on Patreon","Auf Patreon unterstützen","Поддержать на Patreon","Apoyar en Patreon","Soutenir sur Patreon","Apoiar no Patreon","ادعم عبر Patreon","Patreon पर समर्थन करें","在 Patreon 上支持"],
         ["browserFailed"]=["Tarayıcı açılamadı. Varsayılan tarayıcını kontrol et.","Could not open your default browser. Check your browser settings.","Browser konnte nicht geöffnet werden. Standardbrowser prüfen.","Не удалось открыть браузер. Проверьте браузер по умолчанию.","No se pudo abrir el navegador. Revisa el navegador predeterminado.","Impossible d’ouvrir le navigateur. Vérifiez le navigateur par défaut.","Não foi possível abrir o navegador. Verifique o navegador padrão.","تعذر فتح المتصفح. تحقق من المتصفح الافتراضي.","ब्राउज़र नहीं खुला। डिफ़ॉल्ट ब्राउज़र जाँचें।","无法打开浏览器，请检查默认浏览器设置。"],
         ["incompletePets"]=["Tamamlanmamış petler","Incomplete pets","Nicht maximierte Pets","Незавершённые питомцы","Pets sin completar","Pets non terminés","Pets incompletos","حيوانات غير مكتملة","अधूरे पेट","未满级宠物"],
@@ -22,11 +34,11 @@ public static class UiText
         ["waiting"]=["Sayı bekleniyor","Waiting for count","Zahl erwartet","Ожидание данных","Esperando datos","Valeur attendue","Aguardando dados","بانتظار العدد","गिनती की प्रतीक्षा","等待数据"],
         ["complete"]=["Tamamlandı","Completed","Abgeschlossen","Завершено","Completado","Terminé","Concluído","مكتمل","पूर्ण","已完成"],
         ["target"]=["hedef","target","Ziel","цель","objetivo","cible","alvo","هدف","लक्ष्य","目标"],
-        ["exact"]=["Senkronize · kesin","Synced · exact","Synchronisiert · exakt","Синхронизировано","Sincronizado · exacto","Synchronisé · exact","Sincronizado · exato","متزامن · دقيق","सिंक · सटीक","已同步 · 精确"],
+        ["exact"]=["Synced","Synced","Synced","Synced","Synced","Synced","Synced","Synced","Synced","Synced"],
         ["uncertain"]=["Son bilinen · doğrula","Last known · verify","Letzter Stand · prüfen","Последние данные · проверьте","Último dato · verifica","Dernier état · vérifier","Último dado · verificar","آخر قيمة · تحقق","अंतिम ज्ञात · जाँचें","上次数据 · 请验证"],
         ["snapshot"]=["Kimlik / collection bekleniyor","Waiting for identity / collection","Identität / Sammlung erwartet","Ожидание персонажа / коллекции","Esperando identidad / colección","Identité / collection attendue","Aguardando identidade / coleção","بانتظار الهوية / المجموعة","पहचान / संग्रह की प्रतीक्षा","等待身份 / 收藏"],
         ["settings"]=["Ayarlar","Settings","Einstellungen","Настройки","Ajustes","Réglages","Configurações","الإعدادات","सेटिंग्स","设置"],
-        ["opacity"]=["Görünürlük","Opacity","Deckkraft","Непрозрачность","Opacidad","Opacité","Opacidade","العتامة","दृश्यता","不透明度"],
+        ["opacity"]=["Opaklık","Opacity","Deckkraft","Непрозрачность","Opacidad","Opacité","Opacidade","العتامة","दृश्यता","不透明度"],
         ["height"]=["Yükseklik","Height","Höhe","Высота","Altura","Hauteur","Altura","الارتفاع","ऊँचाई","高度"],
         ["top"]=["Her zaman üstte","Always on top","Immer im Vordergrund","Поверх всех окон","Siempre encima","Toujours au-dessus","Sempre no topo","دائماً في الأعلى","हमेशा ऊपर","始终置顶"],
         ["lock"]=["Konumu kilitle","Lock position","Position sperren","Закрепить позицию","Bloquear posición","Verrouiller la position","Travar posição","تثبيت الموضع","स्थान लॉक","锁定位置"],
@@ -52,5 +64,12 @@ public static class UiText
     }
     public static bool IsSupported(string? language)=>Languages.Any(l=>l.Code==language);
     public static bool Complete=>Strings.Values.All(v=>v.Length==Languages.Length&&v.All(s=>!string.IsNullOrWhiteSpace(s)));
-    public static string FontFamily(string language)=>language switch { "zh"=>"Microsoft YaHei UI","hi"=>"Nirmala UI",_=>"Segoe UI" };
+    public static string FontFamily(string language)
+    {
+#if UI_FONTS
+        return FontAssets.BodyName(language);
+#else
+        return language switch { "zh"=>"Microsoft YaHei UI","hi"=>"Nirmala UI",_=>"Segoe UI" };
+#endif
+    }
 }

@@ -12,7 +12,7 @@ public class StartupGateTests
     [Theory] [InlineData(false,DataQuality.Exact,true)] [InlineData(true,DataQuality.Uncertain,true)] [InlineData(true,DataQuality.Exact,false)]
     public void IncompleteOrCachedDataCannotOpenTracker(bool identity,DataQuality quality,bool fresh)
     {var gate=Waiting();Assert.False(gate.Observe(identity,quality,fresh));Assert.Equal(StartupStage.Synchronizing,gate.Stage);}
-    [Fact] public void NewProcessAlwaysRequiresEveryStepAgain()
+    [Fact] public void UnconfiguredProcessRequiresOnboarding()
     {var old=Waiting();Assert.True(old.Observe(true,DataQuality.Exact,true));Assert.Equal(StartupStage.Ready,old.Stage);Assert.Equal(StartupStage.Intro,new StartupGate().Stage);}
     [Fact] public void ClosingPreventsAdmission()
     {var gate=Waiting();gate.Close();Assert.False(gate.Observe(true,DataQuality.Exact,true));}

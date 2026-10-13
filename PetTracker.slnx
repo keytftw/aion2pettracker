@@ -3,8 +3,10 @@
     <Project Path="src/PetTracker.App/PetTracker.App.csproj" />
     <Project Path="src/PetTracker.Capture/PetTracker.Capture.csproj" />
     <Project Path="src/PetTracker.Core/PetTracker.Core.csproj" />
+    <Project Path="src/PetTracker.Setup/PetTracker.Setup.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/PetTracker.Tests/PetTracker.Tests.csproj" />
+    <Project Path="tests/PetTracker.UiTests/PetTracker.UiTests.csproj" />
   </Folder>
 </Solution>

@@ -1,14 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\Fonts\*.ttf" LogicalName="Fonts.%(Filename)%(Extension)" />
     <ProjectReference Include="..\PetTracker.Core\PetTracker.Core.csproj" />
-    <Content Include="..\..\data\servers.json" Link="data\servers.json" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="..\..\data\pet-catalog.json" Link="data\pet-catalog.json" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="..\..\data\pets\*.png" Link="data\pets\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="..\..\LICENSE" Link="LICENSE" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="..\..\THIRD_PARTY_NOTICES.md" Link="THIRD_PARTY_NOTICES.md" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="..\..\data\PET-SOURCES.md" Link="data\PET-SOURCES.md" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="..\..\licenses\*" Link="licenses\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\..\data\servers.json" Link="data\servers.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="..\..\data\pet-catalog.json" Link="data\pet-catalog.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="..\..\data\pets\*.png" Link="data\pets\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="..\..\data\maps\*.png" Link="data\maps\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="..\..\data\maps\spawns.json" Link="data\maps\spawns.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="..\..\LICENSE" Link="LICENSE" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="..\..\THIRD_PARTY_NOTICES.md" Link="THIRD_PARTY_NOTICES.md" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="..\..\data\PET-SOURCES.md" Link="data\PET-SOURCES.md" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="..\..\licenses\*" Link="licenses\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,12 +20,13 @@
   </ItemGroup>
 
   <PropertyGroup>
+    <DefineConstants>$(DefineConstants);UI_FONTS</DefineConstants>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>0.7.2</Version>
+    <Version>0.9.14</Version>
     <AssemblyTitle>Aion 2 Pet Tracker</AssemblyTitle>
     <AssemblyName>A2PetTracker</AssemblyName>
     <Product>Aion 2 Pet Tracker</Product>

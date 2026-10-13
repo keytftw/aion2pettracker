@@ -1,4 +1,4 @@
-namespace PetTracker.App;
+﻿namespace PetTracker.App;
 
 static class Program
 {
@@ -12,6 +12,7 @@ static class Program
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
+        Application.SetDefaultFont(new System.Drawing.Font(PetTracker.App.UiText.FontFamily("en"),9f));
         if(args.Contains("--startup-drag-check"))
         {try{using var startup=new StartupForm(demo:true);startup.VerifyDragging();}catch(Exception ex){Console.Error.WriteLine(ex);Environment.ExitCode=1;}return;}
         if(args.Contains("--language-check"))
@@ -80,9 +81,29 @@ static class Program
         }
         try
         {
+            if(!args.Contains("--demo"))
+            {
+                var manager=new Velopack.UpdateManager(GitHubUpdater.Repository);
+                if(!manager.IsInstalled||manager.IsPortable||InstallationProfile.Load(InstallationProfile.ReceiptPath) is null)
+                {
+                    MessageBox.Show("Please install Aion 2 Pet Tracker using the new Setup. Language and terms are configured during installation.\n\nLütfen yeni Setup ile kurulum yapın. Dil ve kullanım koşulları kurulum sırasında seçilir.","Aion 2 Pet Tracker — Setup required",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    return;
+                }
+            }
             using var instance=new Mutex(true,"Local\\Aion2PetTracker-"+(args.Contains("--demo")?"Demo":"Live"),out var first);
-            if(!first){MessageBox.Show("Aion 2 Pet Tracker is already running. / Uygulama zaten açık.","Aion 2 Pet Tracker");return;}
-            try{Application.Run(new StartupForm(demo:args.Contains("--demo")));}finally{instance.ReleaseMutex();}
+            if(!first){ExistingInstanceActivation.Notify(args.Contains("--demo"));return;}
+            try
+            {
+                using var startup=new StartupForm(demo:args.Contains("--demo"),installedOnboarding:!args.Contains("--demo"));
+                using var activation=new ExistingInstanceActivation(args.Contains("--demo"),()=>
+                {
+                    var overlay=Application.OpenForms.OfType<OverlayForm>().FirstOrDefault(form=>!form.IsDisposed);
+                    if(overlay is not null)overlay.RestoreFromShortcut();
+                    else if(!startup.IsDisposed){startup.Show();startup.WindowState=FormWindowState.Normal;startup.BringToFront();startup.Activate();}
+                });
+                Application.Run(startup);
+            }
+            finally{instance.ReleaseMutex();}
         }
         catch (Exception ex) { MessageBox.Show(ex.Message, "Pet Tracker başlatılamadı", MessageBoxButtons.OK, MessageBoxIcon.Error); }
     }    

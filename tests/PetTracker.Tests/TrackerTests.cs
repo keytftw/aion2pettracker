@@ -49,7 +49,7 @@ public sealed class TrackerTests
     public void DismissDoesNotChangeProgressAndNextGainReactivates()
     {
         var t = Create(); Sync(t); Gain(t, 1); t.Pin(1002, true); t.Dismiss(1002);
-        Assert.Contains(1002, t.VisibleIds); t.Pin(1002, false); Assert.Empty(t.VisibleIds);
+        Assert.Empty(t.VisibleIds);Assert.DoesNotContain(1002,t.Current.Preferences.Pinned);t.Pin(1002, false); Assert.Empty(t.VisibleIds);
         Assert.Equal(1L, t.KnownTotal(1002)); Gain(t, 2); Assert.Contains(1002, t.VisibleIds);
         Assert.DoesNotContain(1002, t.Current.Preferences.Dismissed); Assert.Equal(2L, t.KnownTotal(1002));
     }
@@ -156,7 +156,7 @@ public sealed class TrackerTests
         Assert.Equal(new Progress(0, 0, 5, 5), Progress.FromTotal(t.KnownTotal(1124)!.Value));
         Assert.Contains(1124, t.VisibleIds); Assert.Empty(t.Current.LastKnownTotals); Assert.Empty(t.Session.Events);
         Assert.Equal(DataQuality.Exact, t.Quality);
-        t.Pin(1124, false); Assert.Empty(t.VisibleIds); Assert.Equal(0L, t.KnownTotal(1124));
+        t.Pin(1124, false); Assert.Contains(1124,t.VisibleIds); Assert.DoesNotContain(1124,t.Current.Preferences.Pinned); Assert.Equal(0L, t.KnownTotal(1124));
     }
     [Fact]
     public void PinnedZeroBaselineBecomesLastKnownOnGapAndReconcilesOnNextSnapshot()

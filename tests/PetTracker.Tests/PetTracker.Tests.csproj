@@ -16,7 +16,13 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
+    <Compile Include="..\..\src\PetTracker.App\UiText.cs" Link="SharedText\UiText.cs" />
+    <Compile Include="..\..\src\PetTracker.App\StartupText.cs" Link="SharedText\StartupText.cs" />
+    <Compile Include="..\..\src\PetTracker.App\TermsContent.cs" Link="SharedText\TermsContent.cs" />
+    <Compile Include="..\..\src\PetTracker.Setup\InstallerText.cs" Link="SharedText\InstallerText.cs" />
+    <Compile Include="..\..\src\PetTracker.App\MapText.cs" Link="SharedText\MapText.cs" />
     <Content Include="..\..\data\pet-catalog.json" Link="data\pet-catalog.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\..\data\maps\spawns.json" Link="data\maps\spawns.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>

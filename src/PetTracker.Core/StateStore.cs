@@ -43,9 +43,11 @@ public sealed class StateStore(string path, Action<string> log)
         foreach (var (key, p) in state.Profiles)
         {
             p.Scope.Validate();
-            if (key != p.Scope.Key || p.LastKnownTotals is null || p.Preferences?.Pinned is null || p.Preferences.Dismissed is null ||
-                p.LastKnownTotals.Any(v => v.Key <= 0 || v.Value < 0) || p.Preferences.Pinned.Concat(p.Preferences.Dismissed).Any(id => id <= 0))
+            if (key != p.Scope.Key || p.LastKnownTotals is null || p.Preferences?.Pinned is null || p.Preferences.Dismissed is null || p.Preferences.CardOrder is null || p.Preferences.RetainedCards is null ||
+                p.LastKnownTotals.Any(v => v.Key <= 0 || v.Value < 0) || p.Preferences.Pinned.Concat(p.Preferences.Dismissed).Concat(p.Preferences.RetainedCards).Any(id => id <= 0))
                 throw new InvalidDataException("Karakter kaydı geçersiz.");
+            if(p.Preferences.CardOrder.Any(id=>id<=0)||p.Preferences.CardOrder.Distinct().Count()!=p.Preferences.CardOrder.Count)
+                throw new InvalidDataException("Pet kart sırası geçersiz.");
             if (p.Snapshot is { } s)
             {
                 if (s.Scope != p.Scope || string.IsNullOrWhiteSpace(s.StreamId) || s.FrameId < 0 || s.Entries.Count > 512)

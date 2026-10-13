@@ -8,7 +8,7 @@ public sealed class StartupForm : Form
 {
     private readonly StartupGate gate=new();
     private readonly Stopwatch clock=Stopwatch.StartNew();
-    private readonly System.Windows.Forms.Timer timer=new(){Interval=16};
+    private readonly System.Windows.Forms.Timer timer=new(){Interval=8};
     private readonly CrystalCursor cursor=new(),hoverCursor=new(true);
     private readonly bool demo;
     private readonly string? folder;
@@ -34,9 +34,17 @@ public sealed class StartupForm : Form
     private Point dragOffset;
     private void BeginDrag(Point screenPoint){dragOffset=new(screenPoint.X-Left,screenPoint.Y-Top);dragging=true;Capture=true;Cursor=Cursors.SizeAll;}
     private void MoveDrag(Point screenPoint){if(dragging)Location=new(screenPoint.X-dragOffset.X,screenPoint.Y-dragOffset.Y);}
-    public StartupForm(bool demo=false,string? stateFolder=null)
+    public StartupForm(bool demo=false,string? stateFolder=null,bool installedOnboarding=false)
     {
         this.demo=demo;folder=stateFolder;
+        if(installedOnboarding)
+        {
+            var preferencesPath=Path.Combine(stateFolder??Path.Combine(InstallationProfile.DataFolder,"Live"),"overlay-preferences.json");
+            var failed=false;
+            language=OverlayPreferences.Load(preferencesPath,_=>failed=true).Language;
+            if((failed||!File.Exists(preferencesPath))&&InstallationProfile.Load(InstallationProfile.ReceiptPath) is { } installation)language=installation.Language;
+            gate.ConfigureInstallation(language);
+        }
         updateDone=demo;
         AutoScaleMode=AutoScaleMode.Dpi;FormBorderStyle=FormBorderStyle.None;ClientSize=new(700,610);MinimumSize=ClientSize;MaximumSize=ClientSize;KeyPreview=true;
         FormBorderStyle=FormBorderStyle.None;StartPosition=FormStartPosition.CenterScreen;DoubleBuffered=true;
@@ -81,7 +89,12 @@ public sealed class StartupForm : Form
     {
         var now=previewTime??clock.Elapsed.TotalSeconds;
         if(!updateDone){downloadShown+=(updateProgress.Percent-downloadShown)*.14f;Invalidate();return;}
-        if(gate.Stage==StartupStage.Intro){gate.FinishIntro(now-introStart);if(gate.Stage==StartupStage.Language)stepStart=now;}
+        if(gate.Stage==StartupStage.Intro)
+        {
+            gate.FinishIntro(now-introStart);
+            if(gate.Stage==StartupStage.Language)stepStart=now;
+            else if(gate.Stage==StartupStage.Synchronizing)ShowSynchronization();
+        }
         foreach(var (_,code) in languageBoxes)languageGlow[code]=languageGlow.GetValueOrDefault(code)+((hovered==code?1:0)-languageGlow.GetValueOrDefault(code))*.13f;
         if(gate.Stage==StartupStage.Synchronizing && now-lastPump>=.08)
         {
@@ -132,13 +145,16 @@ public sealed class StartupForm : Form
     }
     private void OpenTracker()
     {
+        var overlay=new OverlayForm(liveMode:!demo,stateFolder:folder,sharedController:controller,selectedLanguage:language);
+        // Hiding a modal form ends ShowDialog. Keep the message loop alive until
+        // the tracker actually closes, so hide/show hotkeys preserve capture.
+        overlay.FormClosed+=(_,_)=>Close();
         timer.Stop();handedOff=true;Hide();
-        using var overlay=new OverlayForm(liveMode:!demo,stateFolder:folder,sharedController:controller,selectedLanguage:language);
         if(demoCheck)
         {
             overlay.Shown+=(_,_)=>{File.WriteAllText(Path.Combine(folder!,"flow-result.txt"),"PASS: consent -> synthetic fresh snapshot -> same controller handed to overlay; no capture.");overlay.BeginInvoke(()=>overlay.Close());};
         }
-        overlay.ShowDialog();Close();
+        overlay.Show();
     }
     public void BeginDemoCheck()
     {
@@ -160,7 +176,7 @@ public sealed class StartupForm : Form
         if(!updateDone)
         {
             var key=updateProgress.Phase switch{UpdatePhase.Downloading=>"downloading",UpdatePhase.Applying=>"applyingUpdate",UpdatePhase.NoUpdate=>"upToDate",UpdatePhase.Failed=>"updateError",_=>"checkingUpdates"};
-            PremiumTheme.Text(g,"Aion 2 Pet Tracker",new(25,130,650,55),26,PremiumTheme.Gold,"en",FontStyle.Bold,StringAlignment.Center);
+            PremiumTheme.Text(g,"Aion 2 Pet Tracker",new(25,130,650,55),26,PremiumTheme.Gold,"en",FontStyle.Bold,StringAlignment.Center,heading:true);
             PremiumTheme.Text(g,S(key),new(30,222,640,70),21,PremiumTheme.Ink,language,FontStyle.Bold,StringAlignment.Center);
             var bar=new RectangleF(110,330,480,9);using var path=PremiumTheme.Round(bar,4);using var track=new SolidBrush(Color.FromArgb(37,39,48));g.FillPath(track,path);
             var state=g.Save();g.SetClip(path);
@@ -182,15 +198,15 @@ public sealed class StartupForm : Form
         {g.DrawPolygon(pen,new PointF[]{new(350,cy-radius),new(350+radius,cy),new(350,cy+radius),new(350-radius,cy)});g.DrawLines(pen,new PointF[]{new(350-radius*.4f,cy+radius*.25f),new(350,cy-radius*.45f),new(350+radius*.4f,cy+radius*.25f)});g.DrawArc(pen,350-radius-12,cy-radius-12,2*radius+24,2*radius+24,(float)(now*48),70);}
         if(intro)
         {
-            var y=285+(1-reveal)*22;for(var glow=3;glow>0;glow--)PremiumTheme.Text(g,"Aion 2 Pet Tracker",new(20-glow,y-glow,660+glow*2,65+glow*2),28,Color.FromArgb((int)(10*reveal),PremiumTheme.Gold),"en",FontStyle.Bold,StringAlignment.Center);
-            PremiumTheme.Text(g,"Aion 2 Pet Tracker",new(20,y,660,65),28,Color.FromArgb((int)(255*reveal),PremiumTheme.Gold),"en",FontStyle.Bold,StringAlignment.Center);
+            var y=285+(1-reveal)*22;for(var glow=3;glow>0;glow--)PremiumTheme.Text(g,"Aion 2 Pet Tracker",new(20-glow,y-glow,660+glow*2,65+glow*2),28,Color.FromArgb((int)(10*reveal),PremiumTheme.Gold),"en",FontStyle.Bold,StringAlignment.Center,heading:true);
+            PremiumTheme.Text(g,"Aion 2 Pet Tracker",new(20,y,660,65),28,Color.FromArgb((int)(255*reveal),PremiumTheme.Gold),"en",FontStyle.Bold,StringAlignment.Center,heading:true);
             PremiumTheme.Text(g,"Designed & Developed by Keyt",new(20,359,660,38),11,Color.FromArgb((int)(210*reveal),PremiumTheme.Ink),"en",align:StringAlignment.Center);
             PremiumTheme.Text(g,"Support on Patreon",new(20,399,660,24),9,Color.FromArgb((int)(160*reveal),PremiumTheme.Gold),"en",align:StringAlignment.Center);
             using var track=new SolidBrush(Color.FromArgb(35,PremiumTheme.Gold));g.FillRectangle(track,190,438,320,2);using var progress=new SolidBrush(PremiumTheme.Gold);g.FillRectangle(progress,190,438,320*(float)Math.Min((now-introStart)/3.5,1),2);
         }
         else if(gate.Stage==StartupStage.Language)
         {
-            PremiumTheme.Text(g,"Select Language",new(25,85,650,40),22,PremiumTheme.Gold,"en",FontStyle.Bold,StringAlignment.Center);
+            PremiumTheme.Text(g,"Select Language",new(25,85,650,40),22,PremiumTheme.Gold,"en",FontStyle.Bold,StringAlignment.Center,heading:true);
             foreach(var (box,code) in languageBoxes)
             {var h=languageGlow.GetValueOrDefault(code);var entry=(float)Math.Clamp((now-stepStart-languageBoxes.FindIndex(b=>b.Code==code)*.025)/.35,0,1);entry=1-MathF.Pow(1-entry,3);var r=new RectangleF(box.X,box.Y-h*2+(1-entry)*17,box.Width,box.Height);using var shape=PremiumTheme.Round(r,9);using var fill=new SolidBrush(Color.FromArgb((int)(24+h*45),PremiumTheme.Gold));g.FillPath(fill,shape);using var edge=new Pen(Color.FromArgb((int)(65+h*150),PremiumTheme.Gold),1+h);g.DrawPath(edge,shape);PremiumTheme.Text(g,UiText.Languages.First(l=>l.Code==code).Name,r,13,Color.FromArgb(237,(int)(225+h*9),202),code,FontStyle.Bold,StringAlignment.Center);}
         }

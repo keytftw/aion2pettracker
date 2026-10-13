@@ -22,14 +22,9 @@ jobs:
       - name: Build and offline logic tests
         shell: pwsh
         run: |
-          dotnet build PetTracker.slnx -c Release
+          dotnet build PetTracker.slnx -c Release -m:1
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
-          dotnet test PetTracker.slnx -c Release --no-build
-          if ($LASTEXITCODE) { exit $LASTEXITCODE }
-      - name: Publish self-contained application
-        shell: pwsh
-        run: |
-          dotnet publish src/PetTracker.App/PetTracker.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=embedded -o publish
+          dotnet test PetTracker.slnx -c Release --no-build --no-restore -m:1
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Install pinned packaging tool
         shell: pwsh
@@ -52,7 +47,7 @@ jobs:
             vpk download github --repoUrl $env:REPOSITORY_URL --outputDir update-releases
             if ($LASTEXITCODE) { throw 'Cannot download the previous update feed' }
           }
-          vpk pack --packId A2PetTracker --packVersion $releaseVersion --packDir publish --mainExe A2PetTracker.exe --packTitle A2PetTracker --outputDir update-releases
+          ./tools/Build-Setup.ps1 -VpkPath (Get-Command vpk).Source -OutputDirectory (Join-Path $PWD 'update-releases')
           if ($LASTEXITCODE) { throw 'Packaging failed' }
           $sourceArchive = "A2PetTracker-$releaseVersion-source.zip"
           git archive --format=zip --output=$sourceArchive HEAD

@@ -11,7 +11,7 @@ public sealed class GitHubUpdater:IApplicationUpdater
     public async Task<string?> CheckAsync(CancellationToken cancellation)
     {
         manager=new UpdateManager(new GithubSource(Repository,null,false,new TimedDownloader()));
-        if(!manager.IsInstalled)throw new NotSupportedException("Updates require the new updater-enabled portable ZIP or Setup package.");
+        if(!manager.IsInstalled||manager.IsPortable)throw new NotSupportedException("Updates require the installed Setup distribution.");
         available=await manager.CheckForUpdatesAsync().WaitAsync(TimeSpan.FromSeconds(25),cancellation);
         return available?.TargetFullRelease.Version.ToString();
     }

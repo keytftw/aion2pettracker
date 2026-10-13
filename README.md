@@ -1,77 +1,67 @@
-# Aion 2 Pet Tracker — 0.7.2 / GitHub Updates
+# Aion 2 Pet Tracker — 0.9.14
 
-Windows x64 pet soul tracker, licensed under GPL-3.0. Public update feed: https://github.com/keytftw/aion2pettracker
+A Windows x64 pet-soul tracker for Aion 2 Global, developed by Keyt and licensed under GPL-3.0.
 
-Startup sequence: Checking Updates → download an available update (with percentage progress) and restart automatically → 3.5-second introduction → choose from 10 languages → accept the terms → return to Character Select and log in again to retrieve the current collection. If no update is available, normal startup continues. Internet, GitHub, or package errors are not presented as "no updates"; choose Retry or Continue Current Version. Game traffic is not read before the terms are accepted.
+[Download the Windows Setup](https://github.com/keytftw/aion2pettracker/releases/latest/download/A2PetTracker-win-Setup.exe) · [Website and full guide](https://aion2-pet-tracker.lovelymacaw4.chatgpt.site/) · [Support on Patreon](https://www.patreon.com/cw/keytftw)
 
-Automatic updates work only with the new Velopack portable ZIP / Setup distribution from Releases. Previous ordinary ZIP packages and the standalone EXE in the root folder do not contain Update.exe/sq.version; users must switch to the new package once. GitHub updates require no token and follow stable releases only. The SDK checks package integrity; downloaded executables are not launched directly, but handled through the Velopack update process. The .NET runtime is included. Users must install Npcap separately.
+## Install and start
 
-## Publishing a New Release
+1. Install [Npcap](https://npcap.com/#download) separately. It is not bundled.
+2. Run `A2PetTracker-win-Setup.exe`. Choose a language, accept the terms, select an installation folder and optionally create a desktop shortcut. The .NET runtime is included.
+3. Open the installed tracker. Startup checks stable GitHub releases and shows download progress for available updates.
+4. Return to Aion 2 Character Select and log in again. The overlay opens after a valid fresh character and collection snapshot.
 
-Open this repository's Actions → Build and publish updater release → Run workflow.
+Language and terms are configured during installation. Preferences persist; cached counters are reset at every launch and require a fresh game snapshot. Users of earlier portable distributions must run the new Setup once. This release provides Setup only; it does not produce a portable ZIP.
 
-The workflow builds and runs offline tests on Windows, produces a self-contained application, uses vpk 1.2.161 to create the portable ZIP/Setup and update feed, and publishes them to GitHub Releases. A source ZIP is also attached. Ordinary code pushes do not trigger publication. Before a new release, increment the Version value in src/PetTracker.App/PetTracker.App.csproj. Do not publish the same version twice.
+## Tracker controls
 
-No installer or packaged binary was executed locally. If the first GitHub release has not been created yet, automatic updating is not live; release packaging and an update/restart test between two consecutive versions on another computer are required. If GitHub becomes unavailable, the current version can still be used. User records are preserved under %LOCALAPPDATA%/Aion2PetTracker; a fresh collection is still required after an update. Code signing and publisher identification should be considered separately before wider distribution.
+- Pet portraits, three level stars, within-level soul progress and remaining goals. Lv 0/1/2 goals are 5/25/75; total 105 reaches Lv 3 MAX.
+- Real soul events increment by numeric Pet ID. Attacking a non-MAX target can display its card without increasing souls. Already-MAX pets require manual addition.
+- Searchable Add Pet menu with incomplete/maxed tabs. Pinning fixes a card; unpinning removes only its pin and keeps the card, including after restarting. Delete/Clear removes the card and pin without deleting progress. A later real soul gain can reactivate it.
+- Up/down arrows reorder cards with animation. Pins, manually retained cards and order are scoped to character/server and persist independently of counters.
+- Fixed width; 1–7 visible cards. New cards automatically grow the full window to seven slots, after which scrolling settles at card boundaries. Position lock is separate from height.
+- 30–100% opacity, Always on top, a movable compact box and a separately movable Settings window. Opening the desktop shortcut again restores the running instance rather than starting a new session.
+- Ctrl+P hides/restores; Ctrl+U compacts/expands. Settings can change both shortcuts to Ctrl/Alt/Shift plus a letter, digit or F1–F24. Held keys do not repeatedly toggle; conflicting combinations are rejected.
+- New MAX transitions play a subtle sound. MAX cards remain visible; hover and click CLEAR to remove one.
+- Ten languages: Turkish, English, German, Russian, Spanish, French, Portuguese, Arabic, Hindi and Simplified Chinese. Changes apply immediately and are saved.
 
-## Terms and Passive Capture
+## Interactive Pet Atlas
 
-The consent checkbox reads “I accept terms & conditions” (localized in all 10 languages). The terms include a technical explanation of receive-only Npcap capture and its compatibility review. No capture-layer optimization was required or applied during that review; existing filters, configuration and behavior were preserved. This is not publisher approval or a zero-risk guarantee. Account-risk information remains in the terms. Terms revision: 2026-10-13 / 1.1.
+Use the gold globe beside Add Pet to open a separate map window, or the globe on a card to focus that pet's locations. Six regions, farmable/maxed filters, search, a draggable carousel, animated focus, map dragging, a zoom slider and mouse-wheel zoom are included. Locations appear as red dots with black outlines. Click a marker to focus it.
 
-## Support
+Terrain and data are bundled; there is no WebView2 or online map dependency. The source snapshot contains six maps, 200 catalog IDs and coordinates for 160 pets. Missing locations are shown explicitly. These are recorded guides, not live spawn information or player-position tracking. The current bitmap is disposed on region changes; map region, size and position persist.
 
-The startup credits display “Support on Patreon.” A separate button in Settings opens https://www.patreon.com/cw/keytftw in your default browser. The main tracker view does not contain a support link. Support is optional and does not change tracking functionality.
+## Data integrity and capture
 
-## Development
+Full validated collection snapshots, soul events, session activity and UI preferences are separate. New snapshots reconcile counts without losing stable preferences. A gap or reconnect keeps last-known values and marks them uncertain until resynchronization; uncertain values are never displayed as exact. Identical legitimate gains are not deduplicated merely by ID and amount. Shard/crystal messages are not counted as attributable souls.
 
-.NET 10 SDK, Windows x64:
+Npcap capture is receive-only and server-to-client. There is no packet injection, replay, game-memory access, DLL injection, game-client modification or gameplay automation. The passive-capture review required no capture-layer optimization. Review the setup terms and game rules; this independent community tool is not publisher approval or a zero-risk guarantee. Terms revision: 2026-10-13 / 1.1.
 
-```powershell
-dotnet build PetTracker.slnx -c Release
-dotnet test PetTracker.slnx -c Release --no-build
-dotnet publish src/PetTracker.App/PetTracker.App.csproj -p:PublishProfile=Portable
-```
+## Development and verification
 
-PublishProfile only produces build output; an updater-enabled distribution is created through vpk packaging in CI. Demo and maintenance options do not access GitHub or start capture. Source, portrait, and server-data attribution is provided in THIRD_PARTY_NOTICES.md, data/PET-SOURCES.md, and licenses/. Further details about state, protocol handling, and usage follow below.
-
-## Data and Logic
-
-- `AuthoritativeCollectionSnapshot`: the last validated full collection; subsequent gains do not modify this object.
-- `LastKnownTotals`: the last known totals derived from the snapshot and reliable gains.
-- `SessionActivity` / `SoulEvent`: new session gains and active pets. The session list starts empty when the application is reopened.
-- `UIPreferences`: pinned and dismissed IDs are stored per character; a snapshot does not erase them.
-- `DataQuality`: waiting for a snapshot / exact / uncertain. Reopened records are not considered exact without a fresh snapshot.
-
-Lv0 covers total souls 0–4; Lv1 5–29; Lv2 30–104; Lv3 105+ MAX. Within-stage goals are 5/25/75. A soul event observed after MAX requires verification. Shard messages do not count; attacks only affect card visibility, and there is no kill counter.
-
-Events carry a character/server scope, stream ID, and monotonically increasing frame ID. The same frame is not applied twice; two different frames containing the same Pet ID and amount both count. Stale frames are logged. An ordered stream is expected; gaps in frame numbers alone do not prove lost souls because other messages may occur between them. Actual loss is reported through a separate Gap signal. Live mode creates frame identities after TCP reassembly.
-
-IDs absent from generic, cached, or incomplete snapshots are not assumed to be zero. Global's validated full collection is sparse: a pet absent from the level/soul lists starts at zero (the reference PetTracker.cs uses the same rule). This rule is applied only to a known catalog Pet ID that gains a real soul in the same uninterrupted stream. The 207 catalog entries are not all populated with zero counters. Unknown IDs, packet loss, or reconnection do not create a zero baseline. `AuthoritativeCollectionSnapshot.OmittedEntriesAreZero` is enabled only for this validated full protocol snapshot; old records and generic snapshots default to disabled.
-
-The catalog contains 207 unique entries, including 7 Special entries; there is no validated mapping to the game's 200-entry list. All catalog names are retained for selection. IDs receiving new souls, activated by the player's own attacks, or pinned by the user appear in the list.
-
-A pinned regular catalog pet absent from both lists of a complete, sparse collection is shown as Lv0 0/5 (5 remaining). This is a read-only interpretation of the snapshot: pinning does not write to counters or session soul events. After data loss or reopening, the same value is only "Last known." The 7 Special entries and IDs outside the catalog that have not yet been observed in a game snapshot or soul event are not automatically treated as zero; they remain unknown.
-
-Demo records: `%LOCALAPPDATA%\Aion2PetTracker\Demo\state.json`, backup `state.json.bak`, and a readable `tracker.log`. State is saved after each operation and on shutdown using an atomic temporary-file-and-replace operation; live events are processed and saved in batches at 250 ms intervals. Corrupt records are not silently reset or overwritten; the application displays an explanatory error. Back up and rename the file to start a clean demo. Demo and live profiles are stored in separate folders.
-
-## Files
-
-`src/PetTracker.Core`: independent logic and JSON persistence. `src/PetTracker.Capture`: passive live connections and the pet protocol. `src/PetTracker.App`: Turkish live/demo WinForms UI. `tests/PetTracker.Tests`: automated offline tests. `data`: pet name catalog and source notes. `LICENSE`, `THIRD_PARTY_NOTICES.md`, and `licenses/`: GPL-3.0 and source attribution.
-
-The reference source was not modified. The live phase was authorized by the user. Only the required TCP/frame/wire components and the pet/identity reader subset were adapted with their licenses; no DPS, Alerts, or boss logic was added. Details are provided in THIRD_PARTY_NOTICES.md.
-
-## Validation and Limitations
-
-`dotnet build` and `dotnet test` are validated with deterministic synthetic streams. Tests cover TCP retransmission, out-of-order delivery and loss; split and LZ4 frames; malformed collections; ignoring shards and ensuring attacks do not count as souls; buffering before identity; character/server isolation; pinning/dismissal; and JSON persistence. UI startup is also checked with `PetTracker.App.exe --smoke-check`, which creates live and demo forms. This check does not start capture and writes test files to the `smoke-check` folder beside the EXE.
-
-Validation against real Global game traffic has not yet been performed. Correct operation therefore needs to be checked in-game by observing a full collection and a real soul gain. If "Waiting for identity/collection" persists, share the relevant log message; do not transfer old or demo counters into live mode merely to make them appear exact.
-
-## Collection Diagnostics
-
-`Collection-Tani.cmd` is a separate, manually started diagnostic tool created only to investigate collection-format errors. It reads passively for 120 seconds; log into your character again during that time. Up to 8 message bodies containing only `0x0090` collection data, together with rejection reasons, are saved under `workspace/diagnostics/collection-local/`. Full network traffic, identity information, and game inputs are not recorded; counter/profile files are unchanged. This recording is disabled in the main application. Collection data contains your pet progress and is kept locally; you do not need to share it. Diagnostic output is personal and must not be committed to version control.
-
-Rebuild the diagnostic tool:
+.NET 10 SDK and Windows x64:
 
 ```powershell
-dotnet build tools\PetTracker.Diagnostics\PetTracker.Diagnostics.csproj -c Release -p:BaseOutputPath=bin/diagnostics/
+dotnet build PetTracker.slnx -c Release -m:1
+dotnet test PetTracker.slnx -c Release --no-build --no-restore -m:1
+dotnet tool install vpk --version 1.2.161 --tool-path .tools/vpk
+./tools/Build-Setup.ps1
 ```
+
+Offline tests cover state reconciliation, identity isolation, pin/delete retention, saved order, installer consent/location, localization, map data/camera and elapsed-time animation easing. Source-based UI tests render demo forms without live capture, check clipping and compact sizing, and measure native timer cadence and seven-card rendering. They never launch the packaged tracker or installer. Current verification: 361 logic tests plus 6 UI tests passed.
+
+Rendering caches final-size text and portraits. Active animation uses an 8 ms UI timer and elapsed-time easing; idle/hidden windows use lower timer rates. Settings changes apply immediately and are saved after a short debounce. In the local 96-DPI benchmark, seven-card paint median decreased from 10.31 ms to 4.19 ms and allocations/frame from 354,984 to 36,216 bytes. These are offline measurements, not guaranteed in-game FPS.
+
+Manual checks still include gaming-load fluidity, real installation/update/restart behavior and a no-auto-loot session after a data gap. Source instructions prohibit executing installers or packaged application binaries during local development.
+
+## Release packaging
+
+Actions → **Build and publish updater release** → **Run workflow** builds/tests on Windows and packages the installed Velopack feed. Increment Version in both App and Setup projects before release.
+
+`tools/Build-Setup.ps1` publishes the app, verifies required data/portraits/maps/licenses, disables portable generation and skips Velopack's app-execution probe. Our localized setup wizard embeds the matching installer and a SHA-256 integrity check. It runs installation only after the user explicitly accepts terms and clicks Install. Only successful installation writes consent and preferences.
+
+A release includes the public Setup, necessary updater packages/feed and corresponding source ZIP. GitHub updates require no token. If GitHub is unavailable, Retry or Continue current version remains available. User preferences remain under `%LOCALAPPDATA%/Aion2PetTracker`; fresh collection data is required after updating. Code signing remains a separate distribution task.
+
+## Attribution
+
+Only required capture/protocol/catalog components were reused with GPL attribution; this application has its own tracker state and UI. Portrait, font, map and server-data sources and licenses are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [data/PET-SOURCES.md](data/PET-SOURCES.md) and `licenses/`.

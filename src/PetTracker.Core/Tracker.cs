@@ -26,7 +26,24 @@ public sealed class Tracker
         Quality = profile.Snapshot is null ? DataQuality.WaitingForSnapshot : DataQuality.Uncertain;
         log($"Karakter seçildi: {scope.Character} / {scope.Server}. Yeni tam snapshot bekleniyor.");
     }
-    public IEnumerable<int> VisibleIds => Current.Preferences.Pinned.Union(Session.Active.Union(Session.Attacked.Where(id=>KnownTotal(id) is not >=105)).Where(id => !Current.Preferences.Dismissed.Contains(id))).Order();
+    public IEnumerable<int> VisibleIds
+    {
+        get
+        {
+            var order=Current.Preferences.CardOrder.Select((id,index)=>(id,index)).GroupBy(pair=>pair.id).ToDictionary(group=>group.Key,group=>group.First().index);
+            return Current.Preferences.Pinned.Union(Current.Preferences.RetainedCards.Union(Session.Active).Union(Session.Attacked.Where(id=>KnownTotal(id) is not >=105)).Where(id => !Current.Preferences.Dismissed.Contains(id)))
+                .OrderBy(id=>order.GetValueOrDefault(id,int.MaxValue)).ThenBy(id=>id);
+        }
+    }
+    public bool MoveCard(int id,int direction)
+    {
+        if(direction is not (-1 or 1))throw new ArgumentOutOfRangeException(nameof(direction));
+        var visible=VisibleIds.ToArray();var index=Array.IndexOf(visible,id);var target=index+direction;
+        if(index<0||target<0||target>=visible.Length)return false;
+        var order=Current.Preferences.CardOrder.Concat(visible).Distinct().ToList();
+        var from=order.IndexOf(id);var to=order.IndexOf(visible[target]);
+        (order[from],order[to])=(order[to],order[from]);Current.Preferences.CardOrder=order;return true;
+    }
     public void ObservePetAttack(int id)
     {
         if (!catalog.Pets.ContainsKey(id)) { ReportUnknown(id); return; }
@@ -48,10 +65,16 @@ public sealed class Tracker
     public void Pin(int id, bool pinned)
     {
         if (id <= 0) throw new ArgumentException("Pet ID pozitif olmalı.");
-        if (pinned) Current.Preferences.Pinned.Add(id); else Current.Preferences.Pinned.Remove(id);
+        if (pinned)
+        {
+            Current.Preferences.Pinned.Add(id);Current.Preferences.RetainedCards.Add(id);
+            Current.Preferences.Dismissed.Remove(id);
+        }
+        else if(Current.Preferences.Pinned.Remove(id)&&!Current.Preferences.Dismissed.Contains(id))
+            Current.Preferences.RetainedCards.Add(id);
     }
     public void Dismiss(int id)
-    { Current.Preferences.Dismissed.Add(id); Session.Active.Remove(id); }
+    { Current.Preferences.Pinned.Remove(id);Current.Preferences.RetainedCards.Remove(id);Current.Preferences.Dismissed.Add(id); Session.Active.Remove(id); }
     public void Gap(string reason)
     { Quality = DataQuality.Uncertain; log($"Doğrulama gerekiyor: {reason}. Son bilinen sayaçlar korundu."); }
     public void Reconnect()

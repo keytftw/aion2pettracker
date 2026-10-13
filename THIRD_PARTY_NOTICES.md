@@ -1,4 +1,4 @@
-# Kaynak ve lisanslar
+﻿# Kaynak ve lisanslar
 
 Bu bağımsız Pet Tracker GPL-3.0 altında sunulur; tam karşılık gelen kaynak workspace/ içindedir. Core, kayıt, WinForms canlı/demo arayüzü, canlı bağlantı yönetimi ve testler bu proje için yazıldı. Referans uygulamanın arayüzü, DPS, Alerts veya boss mantığı alınmadı.
 
@@ -25,3 +25,11 @@ Overlay 0.3.0: koyu/altın WinForms arayüzü bu proje için yeniden yazıldı. 
 Server-name lookup: data/servers.json copied unchanged from AION 2 Alerts reference data/servers.json; reference data/NOTICE.md attributes taengu/A2Tools-DPS-Meter src/data commit e32dc5e (2026-10-05), GPL-3.0, https://github.com/taengu/A2Tools-DPS-Meter . Game names and underlying data copyright NCSOFT. No DPS code was copied. AppBrand emblem, crystal cursor, startup effects and synthesized MaxChime are original code for this project.
 
 Velopack 1.2.161 (MIT, Caelan Sayler / Velopack Ltd.), GitHub https://github.com/velopack/velopack commit 92d6a1c91716729d449034df5c50307dcce39493. SDK is used unchanged for GitHub release discovery, verified package downloads and restart/update. License: licenses/Velopack-MIT.txt. Publishing workflow uses matching vpk packaging tool. Updater traffic is HTTPS to GitHub; game capture remains passive and unchanged.
+
+Interactive map assets and coordinates: xCROv/aion2-pet-tracker (GPL-3.0), commit 93da8f0a4d672210eb455c20bbea7dcc9191cd5b, https://github.com/xCROv/aion2-pet-tracker/tree/93da8f0a4d672210eb455c20bbea7dcc9191cd5b/app/src/renderer/public/maps . The sector bounds and normalized Y-axis projection follow the source `app/src/renderer/src/lib/spawns.ts`. Its GPL text is in licenses/xCROv-pet-tracker-GPL-3.0.txt. PNG assets are pixel-preserving format conversions of the original game map WebPs, which remain in the source tree. Map UI and camera are independently implemented in C#/WinForms; no Vue, PeakPathing frontend, DPS or Alerts UI code was incorporated. The underlying game images and data remain the property of NCSOFT and respective owners. Full provenance is in data/PET-SOURCES.md.
+
+## Bundled UI fonts
+
+Instrument Sans Regular/Bold by The Instrument Sans Project Authors, from https://github.com/Instrument/instrument-sans (revision in src/PetTracker.App/Assets/Fonts/InstrumentSans-source.txt). SIL Open Font License 1.1: licenses/InstrumentSans-OFL.txt.
+
+Bebas Neue Regular V2.000 by Dharma Type, supplied by the user. SIL Open Font License 1.1: licenses/BebasNeue-OFL.txt. Fonts remain under their original licenses and are registered privately for this process only. Coolvetica, Akira Expanded Demo and Brunson are not bundled.

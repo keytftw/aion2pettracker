@@ -42,7 +42,8 @@ public sealed class PetPickerList : Control
 {
     private readonly PetCatalog catalog;private readonly IReadOnlyDictionary<int,Image> images;private readonly string language;
     private readonly Func<int,long?> knownTotal;
-    private PetDefinition[] matches=[];private readonly System.Windows.Forms.Timer timer=new(){Interval=16};
+    private PetDefinition[] matches=[];private readonly System.Windows.Forms.Timer timer=new(){Interval=8};
+    private readonly AnimationClock animationClock=new();
     private float scroll,target;private bool dragging;private int selected=-1;
     public int Count=>matches.Length;
     public event Action<int>? PinRequested;
@@ -52,7 +53,7 @@ public sealed class PetPickerList : Control
         this.catalog=catalog;this.images=images;this.language=language;
         this.knownTotal=knownTotal??(_=>null);
         SetStyle(ControlStyles.UserPaint|ControlStyles.AllPaintingInWmPaint|ControlStyles.OptimizedDoubleBuffer,true);BackColor=PremiumTheme.Background;
-        timer.Tick+=(_,_)=>{scroll+=(target-scroll)*.23f;if(Math.Abs(target-scroll)<.1f){scroll=target;timer.Stop();}Invalidate();};
+        timer.Tick+=(_,_)=>{scroll=FrameSmoothing.Approach(scroll,target,animationClock.Step(),18,.1f);if(Math.Abs(target-scroll)<.1f){scroll=target;timer.Stop();}Invalidate();};
     }
     public void Filter(string query,bool maxed=false)
     {
@@ -70,6 +71,7 @@ public sealed class PetPickerList : Control
     }
     protected override void OnMouseMove(MouseEventArgs e){base.OnMouseMove(e);if(dragging)DragScroll(e.Y);var next=(int)((e.Y+scroll)/Stride);if(next!=selected){selected=next;Invalidate();}}
     protected override void OnMouseUp(MouseEventArgs e){base.OnMouseUp(e);dragging=false;Capture=false;}
+    protected override void OnMouseCaptureChanged(EventArgs e){base.OnMouseCaptureChanged(e);if(!Capture)dragging=false;}
     protected override void OnMouseLeave(EventArgs e){base.OnMouseLeave(e);selected=-1;Invalidate();}
     protected override void OnPaint(PaintEventArgs e)
     {
