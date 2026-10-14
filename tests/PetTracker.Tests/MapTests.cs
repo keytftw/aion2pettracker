@@ -20,6 +20,23 @@ public class MapTests
         Assert.Equal(new MapPoint(0,0),points[0].Point);Assert.Equal(new MapPoint(1,1),points[1].Point);
         Assert.Equal(new MapPoint(.5,.5),data.Locations(1114,1110)[0].Point);
     }
+    [Fact] public void RegionFilterIncludesOnlyLocalPetsAndOptionalUnlocatedPets()
+    {
+        var data=MapData.Parse(Synthetic);
+        var catalog=new PetCatalog([new(1114,"A","Fera"),new(1124,"B","Fera"),new(1001,"Unknown","Fera")]);
+        Assert.Equal(new[]{1114,1001},MapPetQuery.Filter(catalog,data,1110,"",false,false,_=>0).Select(p=>p.Id));
+        Assert.Equal(1114,Assert.Single(MapPetQuery.Filter(catalog,data,1110,"",false,true,_=>0)).Id);
+        Assert.Empty(MapPetQuery.Filter(catalog,data,1110,"B",false,false,_=>0));
+    }
+    [Fact] public void AllFarmableMarkersExcludeMaxedPetsAndOtherRegions()
+    {
+        var data=MapData.Parse(Synthetic);
+        var catalog=new PetCatalog([new(1114,"A","Fera"),new(1124,"B","Fera"),new(1001,"Unknown","Fera")]);
+        var markers=MapPetQuery.FarmableLocations(catalog,data,1010,id=>id==1114?105:0);
+        Assert.Equal(1124,Assert.Single(markers).PetId);
+        Assert.Empty(MapPetQuery.FarmableLocations(catalog,data,1110,id=>id==1114?105:0));
+        Assert.Equal(3,MapPetQuery.FarmableLocations(catalog,data,1010,_=>null).Length);
+    }
     [Fact] public void SelectionUsesNumericPetIdAndPreservesPreferredRegion()
     {
         var data=MapData.Parse(Synthetic);Assert.Equal(1110,data.BestWorld(1114,1110));Assert.Equal(1010,data.BestWorld(1114,999));

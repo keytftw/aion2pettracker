@@ -1,4 +1,4 @@
-﻿using System.Drawing.Drawing2D;
+using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 namespace PetTracker.App;
 
@@ -16,6 +16,7 @@ public sealed class PetMapForm : Form
     private PremiumButton regions=null!;
     private Panel worldMenu=null!;
     private TextBox search=null!;
+    private CheckBox showAll=null!,hideUnlocated=null!;
     private Panel searchFrame=null!;
     private PremiumButton farmable=null!,maxedButton=null!,previous=null!,next=null!,minus=null!,plus=null!,focus=null!,close=null!,minimize=null!;
     private PremiumSlider zoom=null!;
@@ -68,31 +69,47 @@ public sealed class PetMapForm : Form
         foreach(var world in data.Worlds.Values.OrderBy(world=>world.Id))
         {
             var choice=new PremiumButton{Text=world.Name,TextLanguage=language,DpiAwareText=true,TextSize=10,Cursor=pointer.Pointer};
-            choice.Click+=(_,_)=>Try(()=>{worldMenu.Hide();worldId=world.Id;regions.Text=world.Name+"  ▾";LoadWorld();UpdateSelection(true);});
+            choice.Click+=(_,_)=>Try(()=>{worldMenu.Hide();worldId=world.Id;regions.Text=world.Name+"  ▾";LoadWorld();Filter();UpdateSelection(true);});
             worldMenu.Controls.Add(choice);
         }
         searchFrame=new(){BackColor=PremiumTheme.Panel};search=new(){BorderStyle=BorderStyle.None,BackColor=PremiumTheme.Panel,ForeColor=PremiumTheme.Ink,Font=new(UiText.FontFamily(language),10),PlaceholderText=UiText.Get(language,"search"),Cursor=Cursors.IBeam,RightToLeft=language=="ar"?RightToLeft.Yes:RightToLeft.No};
-        search.TextChanged+=(_,_)=>Filter();searchFrame.Controls.Add(search);Controls.Add(searchFrame);
+        search.TextChanged+=(_,_)=>{Filter();if(selectionLabel is not null)UpdateSelection(false);};searchFrame.Controls.Add(search);Controls.Add(searchFrame);
+        showAll=Option(M("showAll"),preferences.MapShowAllFarmable,value=>{preferences.MapShowAllFarmable=value;save();UpdateSelection(true);});
+        hideUnlocated=Option(M("hideUnlocated"),preferences.MapHideUnlocated,value=>{preferences.MapHideUnlocated=value;save();Filter();UpdateSelection(false);});
         previous=Button("‹",()=>carousel.ScrollBy(-1));next=Button("›",()=>carousel.ScrollBy(1));
-        minus=Button("−",()=>canvas.ChangeZoom(.8));plus=Button("+",()=>canvas.ChangeZoom(1.25));focus=Button(M("focus"),()=>canvas.FocusLocations());
+        minus=Button("−",()=>canvas.ChangeZoom(.8));plus=Button("+",()=>canvas.ChangeZoom(1.25));focus=Button(M("focus"),()=>FocusSelectedLocations());
         zoom=new(){Minimum=0,Maximum=100,Value=0,Cursor=pointer.Pointer,AccessibleName=M("zoom")};zoom.ValueChanged+=(_,_)=>{if(!updatingZoom)canvas.SetZoom(Math.Pow(MapCamera.MaximumZoom,zoom.Value/100d));};Controls.Add(zoom);
         zoomLabel=Label("1.0×",10);selectionLabel=Label(M("select"),10);selectionLabel.ForeColor=PremiumTheme.Gold;status=Label(M("static"),8);
         minimize=Button("−",()=>WindowState=FormWindowState.Minimized);close=Button("×",()=>Close());
         Filter();OnZoomChanged(canvas.Zoom);LayoutChrome();worldMenu.BringToFront();
     }
+    private CheckBox Option(string text,bool value,Action<bool> changed)
+    {
+        var box=new CheckBox{Text=text,Checked=value,AutoSize=false,ForeColor=PremiumTheme.Ink,BackColor=PremiumTheme.Background,Font=new(UiText.FontFamily(language),9),Cursor=pointer.Pointer,AccessibleName=text};
+        box.CheckedChanged+=(_,_)=>Try(()=>changed(box.Checked));Controls.Add(box);return box;
+    }
+    private void FocusSelectedLocations()
+    {
+        var selected=data.Locations(selectedId,worldId);
+        if(selected.Count>0)canvas.FocusLocations(selected);else canvas.FocusLocations();
+    }
     private void SelectTab(bool value)
     {
-        maxed=value;Filter();
+        maxed=value;Filter();UpdateSelection(false);
         if(!matches.Any(pet=>pet.Id==selectedId)){selectedId=0;carousel.SetPets(matches,selectedId);UpdateSelection(false);}
     }
     private void Filter()
     {
-        matches=PetPickerQuery.Filter(controller.Catalog,search.Text,maxed,Total);carousel.SetPets(matches,selectedId);
+        matches=MapPetQuery.Filter(controller.Catalog,data,worldId,search.Text,maxed,!maxed&&preferences.MapHideUnlocated,Total);
+        if(selectedId>0&&!matches.Any(pet=>pet.Id==selectedId))selectedId=0;
+        carousel.SetPets(matches,selectedId);showAll.Visible=hideUnlocated.Visible=!maxed;
         farmable.ForeColor=maxed?PremiumTheme.Muted:PremiumTheme.Gold;maxedButton.ForeColor=maxed?PremiumTheme.Gold:PremiumTheme.Muted;farmable.Invalidate();maxedButton.Invalidate();Invalidate();
     }
     public void FocusPet(int petId)
     {
-        selectedId=petId;maxed=Total(petId) is >=105;search.Text="";
+        maxed=Total(petId) is >=105;search.Text="";
+        if(!maxed&&data.WorldsForPet(petId).Count==0)hideUnlocated.Checked=false;
+        selectedId=petId;
         if(data.BestWorld(petId,worldId) is { } best&&worldId!=best)
         {worldId=best;worldMenu.Hide();regions.Text=data.Worlds[worldId].Name+"  ▾";LoadWorld();}
         Filter();UpdateSelection(true);carousel.EnsureSelectedVisible();
@@ -103,10 +120,11 @@ public sealed class PetMapForm : Form
     {
         var locations=selectedId>0?data.Locations(selectedId,worldId):[];
         var empty=selectedId<=0?M("select"):data.WorldsForPet(selectedId).Count==0?M("noLocations"):M("noRegionLocations");
-        canvas.SetLocations(locations,empty);
-        selectionLabel.Text=selectedId<=0?M("select"):controller.Catalog.Name(selectedId)+"  ·  "+M("locations",locations.Count);
-        focus.Enabled=locations.Count>0;focus.ForeColor=focus.Enabled?PremiumTheme.Gold:PremiumTheme.Muted;
-        if(animate)canvas.FocusLocations();RefreshStatus();
+        var displayed=!maxed&&preferences.MapShowAllFarmable?MapPetQuery.FarmableLocations(controller.Catalog,data,worldId,Total):locations;
+        canvas.SetLocations(displayed,empty);
+        selectionLabel.Text=selectedId<=0?data.Worlds[worldId].Name+"  ·  "+(!maxed&&preferences.MapShowAllFarmable?M("locations",displayed.Count):M("select")):controller.Catalog.Name(selectedId)+"  ·  "+M("locations",locations.Count);
+        focus.Enabled=displayed.Count>0;focus.ForeColor=focus.Enabled?PremiumTheme.Gold:PremiumTheme.Muted;
+        if(animate)FocusSelectedLocations();RefreshStatus();
     }
     private void RefreshStatus()
     {
@@ -126,7 +144,7 @@ public sealed class PetMapForm : Form
         {
             lastFingerprint=fingerprint;
             if(selectedId>0&&matches.Any(pet=>pet.Id==selectedId))maxed=Total(selectedId) is >=105;
-            Filter();
+            Filter();UpdateSelection(false);
         }
         carousel.Invalidate();RefreshStatus();
     }
@@ -143,8 +161,9 @@ public sealed class PetMapForm : Form
         regions.Bounds=Scaled(new(432,70,245,32));worldMenu.Bounds=Scaled(new(432,104,245,224));
         foreach(var pair in worldMenu.Controls.Cast<Control>().Select((control,index)=>(control,index)))pair.control.Bounds=Scaled(new(4,4+pair.index*36,237,32));
         searchFrame.Bounds=Scaled(new(22,114,width-44,35));search.Bounds=Scaled(new(12,7,width-68,24));
-        previous.Bounds=Scaled(new(22,160,26,74));next.Bounds=Scaled(new(width-48,160,26,74));carousel.Bounds=Scaled(new(57,157,width-114,82));
-        selectionLabel.Bounds=Scaled(new(23,247,width-46,27));canvas.Bounds=Scaled(new(22,283,width-44,Math.Max(100,height-373)));
+        showAll.Bounds=Scaled(new(22,152,(width-44)/2,28));hideUnlocated.Bounds=Scaled(new(22+(width-44)/2,152,(width-44)/2,28));
+        previous.Bounds=Scaled(new(22,192,26,74));next.Bounds=Scaled(new(width-48,192,26,74));carousel.Bounds=Scaled(new(57,189,width-114,82));
+        selectionLabel.Bounds=Scaled(new(23,279,width-46,27));canvas.Bounds=Scaled(new(22,315,width-44,Math.Max(100,height-405)));
         var footer=height-73;minus.Bounds=Scaled(new(width-365,footer,29,29));zoom.Bounds=Scaled(new(width-325,footer,185,29));plus.Bounds=Scaled(new(width-127,footer,29,29));zoomLabel.Bounds=Scaled(new(width-86,footer+4,64,24));
         focus.Bounds=Scaled(new(22,footer,210,29));status.Bounds=Scaled(new(23,height-30,width-46,20));
         minimize.Bounds=Scaled(new(width-85,17,27,27));close.Bounds=Scaled(new(width-49,17,27,27));Invalidate();
@@ -181,3 +200,5 @@ public sealed class PetMapForm : Form
     [DllImport("user32.dll")]private static extern bool ReleaseCapture();
     [DllImport("user32.dll")]private static extern IntPtr SendMessage(IntPtr window,int message,IntPtr wParam,IntPtr lParam);
 }
+
+

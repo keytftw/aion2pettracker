@@ -39,7 +39,9 @@ public sealed class PetMapCanvas : Control
     public void SetLocations(IReadOnlyList<MapLocation> locations,string emptyMessage)
     {markers=terrain is null?[]:locations.ToArray();message=terrain is null?MapText.Get(Language,"loadFailed"):markers.Length==0?emptyMessage:"";hovered=null;tooltip.SetToolTip(this,null);Invalidate();}
     public void FocusLocations()
-    {ResizeCamera();if(camera.Focus(markers.Select(marker=>marker.Point),Now)){focusStart=Now;Animate();}}
+        =>FocusLocations(markers);
+    public void FocusLocations(IReadOnlyList<MapLocation> locations)
+    {ResizeCamera();if(camera.Focus(locations.Select(marker=>marker.Point),Now)){focusStart=Now;Animate();}}
     public void SetZoom(double zoom){ResizeCamera();camera.ZoomAt(new(Width/2d,Height/2d),zoom,Now);Animate();}
     public void ChangeZoom(double factor)=>SetZoom(camera.Target.Zoom*factor);
     private void ResizeCamera(){if(terrain is not null&&Width>0&&Height>0)camera.Resize(Width,Height,terrain.Width,terrain.Height);}

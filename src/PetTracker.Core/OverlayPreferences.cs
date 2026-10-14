@@ -18,6 +18,8 @@ public sealed class OverlayPreferences
     public int? Left { get; set; }
     public int? Top { get; set; }
     public int MapWorldId { get; set; } = 1010;
+    public bool MapShowAllFarmable { get; set; }
+    public bool MapHideUnlocated { get; set; }
     public int MapWidth { get; set; } = 1100;
     public int MapHeight { get; set; } = 800;
     public int? MapLeft { get; set; }

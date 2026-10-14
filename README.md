@@ -1,4 +1,4 @@
-# Aion 2 Pet Tracker — 1.0.0
+# Aion 2 Pet Tracker — 1.1.0
 
 A Windows x64 pet-soul tracker for Aion 2 Global, developed by Keyt and licensed under GPL-3.0.
 
@@ -65,3 +65,8 @@ A release includes the public Setup, necessary updater packages/feed and corresp
 ## Attribution
 
 Only required capture/protocol/catalog components were reused with GPL attribution; this application has its own tracker state and UI. Portrait, font, map and server-data sources and licenses are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [data/PET-SOURCES.md](data/PET-SOURCES.md) and `licenses/`.
+
+### Pet Atlas in 1.1.0
+
+Pets are grouped by the selected map. In Farmable pets, enable **Show all farmable locations** to display every non-MAX pet location in that region. **Hide pets without locations** removes unlocated pets from the list. Both options are saved between launches. Selecting a pet still animates the map to its locations.
+

@@ -26,7 +26,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <AssemblyTitle>Aion 2 Pet Tracker</AssemblyTitle>
     <AssemblyName>A2PetTracker</AssemblyName>
     <Product>Aion 2 Pet Tracker</Product>
@@ -34,3 +34,4 @@
   </PropertyGroup>
 
 </Project>
+

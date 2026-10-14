@@ -10,6 +10,33 @@ namespace PetTracker.UiTests;
 public sealed class OverlayRenderTests(ITestOutputHelper output)
 {
     [Fact]
+    public void AtlasRegionAndFarmableTogglesUpdateMarkersAndPersistPreferences()
+    {
+        OnSta(()=>
+        {
+            var folder=Path.Combine(Path.GetTempPath(),"A2AtlasUi-"+Guid.NewGuid());Directory.CreateDirectory(folder);
+            try
+            {
+                using var tracker=new OverlayForm(false,folder,preview:true);
+                var prefs=new OverlayPreferences{Language="tr"};var saves=0;
+                using var map=new PetMapForm(tracker.Controller,new Dictionary<int,Image>(),prefs,()=>saves++);
+                T Field<T>(object obj,string name)=>(T)obj.GetType().GetField(name,BindingFlags.Instance|BindingFlags.NonPublic)!.GetValue(obj)!;
+                var data=Field<MapData>(map,"data");var world=Field<int>(map,"worldId");
+                var hide=Field<CheckBox>(map,"hideUnlocated");Assert.Equal("Konumu olmayan petleri gizle",hide.Text);
+                hide.Checked=true;Assert.True(prefs.MapHideUnlocated);
+                Assert.All(Field<PetDefinition[]>(map,"matches"),pet=>Assert.NotEmpty(data.Locations(pet.Id,world)));
+                var all=Field<CheckBox>(map,"showAll");all.Checked=true;Assert.True(prefs.MapShowAllFarmable);
+                var canvas=Field<PetMapCanvas>(map,"canvas");
+                Assert.Equal(MapPetQuery.FarmableLocations(tracker.Controller.Catalog,data,world,tracker.Controller.Tracker.KnownTotal).Length,Field<MapLocation[]>(canvas,"markers").Length);
+                map.FocusPet(1114);all.Checked=false;
+                Assert.Equal(data.Locations(1114,Field<int>(map,"worldId")).Count,Field<MapLocation[]>(canvas,"markers").Length);
+                Assert.True(saves>=3);
+            }
+            finally{Directory.Delete(folder,true);}
+        });
+    }
+
+    [Fact]
     public void StartupCloseAndScopeCleanupCanDisposeTheFormAgain()
     {
         OnSta(()=>
