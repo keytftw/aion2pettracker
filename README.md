@@ -88,3 +88,10 @@ The reported 17-byte type-02 variant remains unverified: candidate pet/amount pa
 Setup displays completed-work progress and cannot finish before six seconds or before all installation steps complete. It includes localized appearance, guide and contact information. Pet Atlas has animated custom checkboxes and a separate, movable five-page screenshot handbook in all ten languages. The portrait checkbox controls markers in every map view. Settings and the handbook link to https://keytdev.com/pettracker/ and support@keytdev.com through the default browser/mail client.
 
 Automatic bug submission is deferred until a working mail backend is available. Diagnostics remains available; no report is silently sent. Map rendering reuses marker pens/brushes and ordering, avoids sorting during hover hit testing and idles animation timers when movement completes.
+
+## 1.2.8
+
+- Fixed multi-pet and repeated-entry soul batches from AoE/auto-loot, with whole-frame replay protection and atomic validation. The user verified both affected pets against the game.
+- Expanded the illustrated handbook to eight pages, including farmable pets, regions, acquisition sources and map portraits. Open it from the tracker, Atlas or Setup progress screen.
+- Rift alerts default to enabled; an explicitly saved opt-out remains respected.
+- Uncertain counts keep the red warning while readable gains continue; a validated collection reconciles totals.

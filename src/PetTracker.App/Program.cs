@@ -1,4 +1,4 @@
-﻿namespace PetTracker.App;
+namespace PetTracker.App;
 
 static class Program
 {
@@ -8,7 +8,9 @@ static class Program
     [STAThread]
     static void Main(string[] args)
     {
+#if !LOCAL_TEST
         Velopack.VelopackApp.Build().SetAutoApplyOnStartup(false).Run();
+#endif
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
@@ -81,6 +83,7 @@ static class Program
         }
         try
         {
+#if !LOCAL_TEST
             if(!args.Contains("--demo"))
             {
                 var manager=new Velopack.UpdateManager(GitHubUpdater.Repository);
@@ -90,11 +93,23 @@ static class Program
                     return;
                 }
             }
+#endif
             using var instance=new Mutex(true,"Local\\Aion2PetTracker-"+(args.Contains("--demo")?"Demo":"Live"),out var first);
-            if(!first){ExistingInstanceActivation.Notify(args.Contains("--demo"));return;}
+            if(!first){
+#if LOCAL_TEST
+                MessageBox.Show("Önce açık tracker’ı kapat, ardından test sürümünü çalıştır.","Pet Tracker · LOCAL TEST");
+#else
+                ExistingInstanceActivation.Notify(args.Contains("--demo"));
+#endif
+                return;}
             try
             {
+#if LOCAL_TEST
+                var testFolder=Path.Combine(InstallationProfile.DataFolder,"LocalTest");
+                using var startup=new StartupForm(demo:args.Contains("--demo"),stateFolder:testFolder,localTest:true);
+#else
                 using var startup=new StartupForm(demo:args.Contains("--demo"),installedOnboarding:!args.Contains("--demo"));
+#endif
                 using var activation=new ExistingInstanceActivation(args.Contains("--demo"),()=>
                 {
                     var overlay=Application.OpenForms.OfType<OverlayForm>().FirstOrDefault(form=>!form.IsDisposed);

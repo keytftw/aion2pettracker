@@ -11,6 +11,8 @@ public sealed record OwnIdentity(string StreamId, long FrameId, uint ActorId, Ch
 public sealed record OwnActor(string StreamId, uint ActorId) : LiveMessage;
 public sealed record CollectionReceived(string StreamId, long FrameId, List<CollectionEntry> Entries, int IgnoredTrailingBytes = 0, bool OmittedEntriesAreZero = false) : LiveMessage;
 public sealed record SoulReceived(string StreamId, long FrameId, int PetId, int Amount) : LiveMessage;
+public sealed record SoulGain(int PetId,int Amount);
+public sealed record SoulBatchReceived(string StreamId,long FrameId,IReadOnlyList<SoulGain> Entries):LiveMessage;
 public sealed record NpcObserved(string StreamId, uint ActorId, int NpcCode) : LiveMessage;
 public sealed record TargetObserved(string StreamId, uint ActorId, uint TargetId) : LiveMessage;
 public sealed record EntityGone(string StreamId, uint ActorId) : LiveMessage;

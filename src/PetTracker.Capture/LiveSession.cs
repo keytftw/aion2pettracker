@@ -14,6 +14,9 @@ public sealed class LiveSession(Tracker tracker, Action<string> log, PetCatalog?
     private readonly Dictionary<uint, int> npcs = [];
     private readonly HashSet<uint> ownTargets = [];
     public bool IdentityKnown => identity is not null;
+    public long CollectionsReceived {get;private set;}
+    public long CollectionsApplied {get;private set;}
+    public string CollectionStatus {get;private set;}="Henüz collection gelmedi.";
     public string Status { get; private set; } = "Canlı okuma durduruldu";
     public void Accept(LiveMessage message)
     {
@@ -52,6 +55,7 @@ public sealed class LiveSession(Tracker tracker, Action<string> log, PetCatalog?
                 pendingActor = actor.ActorId;
                 return;
             case OwnIdentity own when own.StreamId == stream:
+                log($"[COLLECTION TEST] Güncel kimlik geldi: frame={own.FrameId}, actor={own.ActorId}.");
                 if (pendingActor is { } awaited && awaited != own.ActorId) ClearPending("Beklenen actor ile kimlik uyuşmadı");
                 if (identity is { } old && old.ActorId != own.ActorId)
                     ClearPending("Karakter kimliği değişti");
@@ -66,6 +70,9 @@ public sealed class LiveSession(Tracker tracker, Action<string> log, PetCatalog?
                 Status = "Karakter algılandı: " + own.Scope.Character + " / " + own.Scope.Server;
                 return;
             case CollectionReceived full when full.StreamId == stream:
+                CollectionsReceived++;
+                CollectionStatus=$"Collection alındı: frame={full.FrameId}, pet={full.Entries.Count}; kimlik güncel={identityFresh}.";
+                log("[COLLECTION RX] "+CollectionStatus);
                 if (!identityFresh)
                 {
                     tracker.Gap("Collection için güncel karakter kimliği bekleniyor"); identity = null; pendingActor = null;
@@ -74,6 +81,9 @@ public sealed class LiveSession(Tracker tracker, Action<string> log, PetCatalog?
                 Apply(full); return;
             case SoulReceived soul when soul.StreamId == stream:
                 if (identity is null) Queue(soul); else Apply(soul);
+                return;
+            case SoulBatchReceived batch when batch.StreamId==stream:
+                if(identity is null)Queue(batch);else Apply(batch);
                 return;
             case NpcObserved npc when npc.StreamId == stream:
                 if (npcs.Count > 4096) ClearScene();
@@ -101,9 +111,26 @@ public sealed class LiveSession(Tracker tracker, Action<string> log, PetCatalog?
             case CollectionReceived full:
                 if (full.IgnoredTrailingBytes > 0)
                     log($"Collection pet listeleri doğrulandı; sondaki {full.IgnoredTrailingBytes} bayt ek alan soul hesabına katılmadı.");
-                tracker.Synchronize(new(identity.Scope, full.StreamId, full.FrameId, full.Entries, full.OmittedEntriesAreZero)); identityFresh = false; break;
+                var prior=tracker.Current.Snapshot;
+                var oldTotals=tracker.Current.LastKnownTotals.ToDictionary(pair=>pair.Key,pair=>pair.Value);
+                tracker.Synchronize(new(identity.Scope, full.StreamId, full.FrameId, full.Entries, full.OmittedEntriesAreZero)); identityFresh = false;
+                if(!ReferenceEquals(prior,tracker.Current.Snapshot))
+                {
+                    CollectionsApplied++;
+                    CollectionStatus=$"Tam collection uygulandı: frame={full.FrameId}, pet={full.Entries.Count}; kesinlik={tracker.Quality}.";
+                    log("[COLLECTION APPLY] "+CollectionStatus);
+                    foreach(var pair in tracker.Current.LastKnownTotals.Where(pair=>!oldTotals.TryGetValue(pair.Key,out var before)||before!=pair.Value).Take(12))
+                        log($"[COLLECTION DIFF] Pet ID {pair.Key}: {(oldTotals.TryGetValue(pair.Key,out var old)?old.ToString():"bilinmiyor")} -> {pair.Value}.");
+                }
+                else {CollectionStatus=$"Eski/tekrar collection uygulanmadı: frame={full.FrameId}.";log("[COLLECTION SKIP] "+CollectionStatus);}
+                break;
             case SoulReceived soul:
                 tracker.Gain(new(identity.Scope, soul.StreamId, soul.FrameId, soul.PetId, soul.Amount)); break;
+            case SoulBatchReceived batch:
+                var eventsBeforeBatch=tracker.Session.Events.Count;
+                tracker.GainBatch(batch.Entries.Select((entry,index)=>new SoulEvent(identity.Scope,batch.StreamId,batch.FrameId,entry.PetId,entry.Amount,index)).ToArray());
+                log($"[SOUL BATCH {(tracker.Session.Events.Count>eventsBeforeBatch?"APPLY":"SKIP")}] frame={batch.FrameId}; kayıt={batch.Entries.Count}; "+string.Join("; ",batch.Entries.Select(entry=>$"Pet ID {entry.PetId} +{entry.Amount}")));
+                break;
             case IntegrityLost gap: tracker.Gap(gap.Reason); break;
         }
     }
@@ -113,6 +140,7 @@ public sealed class LiveSession(Tracker tracker, Action<string> log, PetCatalog?
         { ClearPending("Kimlik bekleme tamponu doldu"); pending.Add(new IntegrityLost("Kimlik beklerken veri kaybı")); }
         pending.Add(message);
         if (message is SoulReceived soul) log($"Kimlik bekleyen soul: Pet ID {soul.PetId}, +{soul.Amount}; başka karaktere yazılmadı.");
+        if(message is SoulBatchReceived batch)log($"Kimlik bekleyen toplu soul: frame={batch.FrameId}, kayıt={batch.Entries.Count}; başka karaktere yazılmadı.");
         Status = "Karakter kimliği bekleniyor; oyunda karaktere tekrar giriş gerekebilir";
     }
     private void ClearPending(string reason)

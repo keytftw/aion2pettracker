@@ -21,6 +21,7 @@ public sealed class OverlayController : IAsyncDisposable
     public LiveSession Session { get; }
     public string Folder { get; }
     public List<string> Logs { get; } = [];
+    public Queue<string> SoulDiagnostics {get;}=new();
     public OverlayController(bool live, string? folder = null)
     {
         LiveMode = live;
@@ -38,6 +39,8 @@ public sealed class OverlayController : IAsyncDisposable
     {
         var line = $"{DateTimeOffset.Now:yyyy-MM-dd HH:mm:ss zzz} {text}";
         Logs.Add(line); if (Logs.Count > 500) Logs.RemoveAt(0);
+        if(text.Contains("soulBodyHex=",StringComparison.Ordinal))
+        {SoulDiagnostics.Enqueue(line);while(SoulDiagnostics.Count>128)SoulDiagnostics.Dequeue();}
         try { File.AppendAllText(logPath, line + Environment.NewLine); }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException) { Logs.Add("LOG HATASI: " + ex.Message); }
     }
@@ -49,7 +52,7 @@ public sealed class OverlayController : IAsyncDisposable
         capture = new(message =>
         {
             if (message is OwnIdentity own) Volatile.Write(ref observedActor, own.ActorId);
-            if (message is StreamBegan or StreamEnded or IntegrityLost) Volatile.Write(ref observedActor, 0);
+            if (message is StreamBegan or StreamEnded || message is IntegrityLost {IdentityMayBeLost:true}) Volatile.Write(ref observedActor, 0);
             if (message is TargetObserved target && target.ActorId != Volatile.Read(ref observedActor)) return;
             if (queue.Count >= 2048) { Interlocked.Exchange(ref overflow, 1); capture?.RequestStop(); return; }
             queue.Enqueue(message);

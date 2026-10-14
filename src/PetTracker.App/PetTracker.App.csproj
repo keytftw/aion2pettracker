@@ -28,11 +28,14 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>1.2.4</Version>
+    <Version>1.2.8</Version>
     <AssemblyTitle>Aion 2 Pet Tracker</AssemblyTitle>
     <AssemblyName>A2PetTracker</AssemblyName>
     <Product>Aion 2 Pet Tracker</Product>
     <ApplicationIcon>Assets\App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(LocalTestBuild)' == 'true'">
+    <DefineConstants>$(DefineConstants);LOCAL_TEST</DefineConstants>
   </PropertyGroup>
 
 </Project>

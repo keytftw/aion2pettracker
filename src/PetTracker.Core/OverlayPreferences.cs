@@ -23,7 +23,7 @@ public sealed class OverlayPreferences
     public bool MapUnlocatedCategory { get; set; }
     public bool MapAllPetsCategory { get; set; }
     public bool MapPortraitMarkers { get; set; } = true;
-    public bool RiftAlertsEnabled { get; set; }
+    public bool RiftAlertsEnabled { get; set; } = true;
     public bool RiftSoundEnabled { get; set; } = true;
     public int RiftLeadMinutes { get; set; } = 5;
     public List<string> RiftDelivered { get; set; } = [];

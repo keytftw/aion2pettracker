@@ -15,28 +15,33 @@ public static class PetProtocol
                 return ReadCollection(body, out var reason, out var trailingBytes) is { } entries ? new CollectionReceived(stream, frame, entries, trailingBytes, OmittedEntriesAreZero: true)
                     : new IntegrityLost($"Collection reddedildi ({body.Length} bayt): {reason}; sayaçlar korunuyor");
             case 0x0D90:
-                // Record only shape/frame metadata, never the raw packet. A rejected
-                // shape must remain uncertain until its meaning is verified.
-                var soulShape=$"opcode=0x0D90, uzunluk={body.Length}, tür="+(body.IsEmpty?"yok":$"0x{body[0]:X2}")+$", frame={frame}";
-                // The reported type-02, 17-byte variant may contain two entries.
-                // Record bounded game-data candidates only, never raw bytes or
-                // inferred gains. Its semantics still require live corroboration.
-                if(body.Length==17&&body[0]==2)
+                // Live sample 2026-10-15: 02 + (1038,1) + (1125,1), confirmed
+                // against both in-game counts. 01 is the same one-entry layout.
+                // Support the verified one-byte count range; reject unverified
+                // extended prefixes and any incomplete/trailing/invalid record.
+                if(!body.IsEmpty&&body[0] is >=1 and <=127&&body.Length==1+8*body[0])
                 {
-                    var firstId=Wire.U32(body,1);var firstAmount=Wire.U32(body,5);
-                    var secondId=Wire.U32(body,9);var secondAmount=Wire.U32(body,13);
-                    if(firstId is >=1000 and <=9999&&secondId is >=1000 and <=9999&&firstAmount is >0 and <1000&&secondAmount is >0 and <1000)
-                        soulShape+=$", toplu soul adayı: Pet ID {firstId} +{firstAmount}; Pet ID {secondId} +{secondAmount} (doğrulanmadı; sayaca uygulanmadı)";
-                    else soulShape+=", iki geçerli Pet ID/miktar çiftiyle eşleşmedi";
+                    var soulEntries=new SoulGain[body[0]];var valid=true;
+                    for(var index=0;index<soulEntries.Length;index++)
+                    {
+                        var byteOffset=1+index*8;var petId=Wire.U32(body,byteOffset);var gained=Wire.U32(body,byteOffset+4);
+                        if(petId==0||petId>int.MaxValue||gained is 0 or >=1000){valid=false;break;}
+                        soulEntries[index]=new((int)petId,(int)gained);
+                    }
+                    if(valid)return soulEntries.Length==1?new SoulReceived(stream,frame,soulEntries[0].PetId,soulEntries[0].Amount):new SoulBatchReceived(stream,frame,soulEntries);
                 }
-                if (body.Length >= 9 && body[0] == 1)
+                // Diagnostics retain only the bounded payload of
+                // this soul opcode on rejection, never TCP frames/other opcodes.
+                // Unverified layouts are diagnostic only, not inferred gains.
+                var soulShape=$"opcode=0x0D90, uzunluk={body.Length}, tür="+(body.IsEmpty?"yok":$"0x{body[0]:X2}")+$", frame={frame}";
+                if (body.Length == 9 && body[0] == 1)
                 {
                     var id = Wire.U32(body, 1); var amount = Wire.U32(body, 5);
                     if (id > 0 && id <= int.MaxValue && amount is > 0 and < 1000)
                         return new SoulReceived(stream, frame, (int)id, (int)amount);
-                    return new IntegrityLost($"Geçersiz soul: Pet ID {id}, miktar {amount} ({soulShape})",IdentityMayBeLost:false);
+                    return new IntegrityLost($"Geçersiz soul: Pet ID {id}, miktar {amount} ({soulShape}; {SoulDiagnosticBytes(body)})",IdentityMayBeLost:false);
                 }
-                return new IntegrityLost($"Soul mesajı biçimi geçersiz/eksik ({soulShape}); yeni tam collection gerekiyor",IdentityMayBeLost:false);
+                return new IntegrityLost($"Soul mesajı biçimi geçersiz/eksik ({soulShape}; {SoulDiagnosticBytes(body)}); yeni tam collection gerekiyor",IdentityMayBeLost:false);
             case 0x3336:
                 return (LiveMessage?)ReadIdentity(stream, frame, body) ?? new IntegrityLost("Kendi karakter kimliği okunamadı; karakter eşlemesi durduruldu");
             case 0x4A36:
@@ -49,6 +54,8 @@ public static class PetProtocol
                 return opcode is 0x4136 or 0x4236 or 0x0238 or 0x0338 ? PetTargetProtocol.Decode(stream, opcode, body) : null;
         }
     }
+    private static string SoulDiagnosticBytes(ReadOnlySpan<byte> body)
+        =>"soulBodyHex="+Convert.ToHexString(body[..Math.Min(64,body.Length)])+(body.Length>64?" (ilk 64 bayt; kesildi)":"");
     public static List<CollectionEntry>? ReadCollection(ReadOnlySpan<byte> body) => ReadCollection(body, out _);
     public static List<CollectionEntry>? ReadCollection(ReadOnlySpan<byte> body, out string error) => ReadCollection(body, out error, out _);
     public static List<CollectionEntry>? ReadCollection(ReadOnlySpan<byte> body, out string error, out int trailingBytes)

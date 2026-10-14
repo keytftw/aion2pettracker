@@ -4,14 +4,14 @@ namespace PetTracker.App;
 public sealed class HandbookForm:Form
 {
     private readonly string language;
-    private readonly string[] sections=["identity","cards","atlas","keys","rift"];
+    private readonly string[] sections=["identity","cards","atlas","farm","regions","portraitsHelp","keys","rift"];
     private readonly Dictionary<string,Image> photos=[];
     private readonly PremiumButton previous,next;
     private int page;
     public HandbookForm(string language)
     {
         this.language=language;AutoScaleMode=AutoScaleMode.Dpi;AutoScaleDimensions=new(96,96);
-        ClientSize=new(580,600);FormBorderStyle=FormBorderStyle.SizableToolWindow;MinimumSize=new(520,540);
+        ClientSize=new(580,650);FormBorderStyle=FormBorderStyle.SizableToolWindow;MinimumSize=new(520,540);
         Text=HelpText.Get(language,"handbook");BackColor=PremiumTheme.Background;ForeColor=PremiumTheme.Ink;StartPosition=FormStartPosition.CenterParent;
         DoubleBuffered=true;Icon=AppBrand.CreateIcon();
         foreach(var name in new[]{"tracker","atlas","settings","compact","uncertain"})
@@ -28,6 +28,7 @@ public sealed class HandbookForm:Form
         void LayoutButtons(){var s=DeviceDpi/96f;var w=ClientSize.Width;var h=ClientSize.Height;previous.Bounds=new((int)(20*s),h-(int)(49*s),(int)(35*s),(int)(30*s));next.Bounds=new(w-(int)(55*s),previous.Top,previous.Width,previous.Height);guide.Bounds=new((int)(65*s),previous.Top,(w-(int)(140*s))/2,previous.Height);contact.Bounds=new(guide.Right+(int)(10*s),previous.Top,guide.Width,previous.Height);Invalidate();}
         Resize+=(_,_)=>LayoutButtons();LayoutButtons();SelectPage(0);
     }
+    public int PageCount=>sections.Length;
     public void SelectPage(int index){page=Math.Clamp(index,0,sections.Length-1);previous.Enabled=page>0;next.Enabled=page<sections.Length-1;Invalidate();}
     protected override void OnPaint(PaintEventArgs e)
     {
@@ -35,11 +36,11 @@ public sealed class HandbookForm:Form
         var w=ClientSize.Width/scale;var h=ClientSize.Height/scale;var key=sections[page];
         PremiumTheme.Text(g,HelpText.Get(language,key+"Title"),new(24,20,w-100,35),20,PremiumTheme.Gold,language);
         PremiumTheme.Text(g,$"{page+1} / {sections.Length}",new(w-75,25,50,25),10,PremiumTheme.Muted,language);
-        var photo=page==0?"uncertain":page==2?"atlas":page==3?"compact":page==4?"settings":"tracker";
-        var area=new RectangleF(24,75,w-48,h-275);
+        var photo=key=="identity"?"uncertain":key is "atlas" or "farm" or "regions" or "portraitsHelp"?"atlas":key=="keys"?"compact":key=="rift"?"settings":"tracker";
+        var area=new RectangleF(24,75,w-48,h-310);
         if(photos.TryGetValue(photo,out var image))
         {var fit=Math.Min(area.Width/image.Width,area.Height/image.Height);var iw=image.Width*fit;var ih=image.Height*fit;g.DrawImage(image,area.X+(area.Width-iw)/2,area.Y+(area.Height-ih)/2,iw,ih);}
-        PremiumTheme.Text(g,HelpText.Get(language,key),new(24,h-177,w-48,112),11,PremiumTheme.Ink,language);
+        PremiumTheme.Text(g,HelpText.Get(language,key),new(24,h-212,w-48,147),11,PremiumTheme.Ink,language);
     }
     protected override bool ProcessCmdKey(ref Message msg,Keys keyData)
     {if(keyData==Keys.Escape){Close();return true;}if(keyData==Keys.Right){SelectPage(page+1);return true;}if(keyData==Keys.Left){SelectPage(page-1);return true;}return base.ProcessCmdKey(ref msg,keyData);}

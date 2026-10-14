@@ -4,15 +4,23 @@ using PetTracker.Core;
 namespace PetTracker.Tests;
 public class SoulShapeDiagnosticsTests
 {
-    [Fact] public void TwoEntryCandidateIsDiagnosticOnlyAndNeverInventsSoulEvents()
+    [Fact]public void UnsupportedSoulDiagnosticsKeepExactBoundedBytesWithoutCountingThem()
+    {
+        var body=Enumerable.Range(0,200).Select(i=>(byte)i).ToArray();body[0]=2;
+        var rejected=Assert.IsType<IntegrityLost>(PetProtocol.Decode("s",1,0x0D90,body));
+        Assert.Contains("soulBodyHex="+Convert.ToHexString(body.AsSpan(0,64)),rejected.Reason);
+        Assert.Contains("kesildi",rejected.Reason);Assert.False(rejected.IdentityMayBeLost);
+        var normal=new byte[]{1,15,4,0,0,1,0,0,0};Assert.IsType<SoulReceived>(PetProtocol.Decode("s",2,0x0D90,normal));
+    }
+    [Fact] public void TwoEntryMessageDecodesBothValidatedRecordsAndRejectsAnInvalidSecondRecord()
     {
         var body=new byte[17];body[0]=2;
         System.Buffers.Binary.BinaryPrimitives.WriteUInt32LittleEndian(body.AsSpan(1),1039);
         System.Buffers.Binary.BinaryPrimitives.WriteUInt32LittleEndian(body.AsSpan(5),1);
         System.Buffers.Binary.BinaryPrimitives.WriteUInt32LittleEndian(body.AsSpan(9),1037);
         System.Buffers.Binary.BinaryPrimitives.WriteUInt32LittleEndian(body.AsSpan(13),2);
-        var rejected=Assert.IsType<IntegrityLost>(PetProtocol.Decode("s",81068,0x0D90,body));
-        Assert.Contains("Pet ID 1039 +1",rejected.Reason);Assert.Contains("Pet ID 1037 +2",rejected.Reason);Assert.Contains("sayaca uygulanmadı",rejected.Reason);
+        var batch=Assert.IsType<SoulBatchReceived>(PetProtocol.Decode("s",81068,0x0D90,body));
+        Assert.Equal(new[]{new SoulGain(1039,1),new SoulGain(1037,2)},batch.Entries);
         body[13]=0;Assert.DoesNotContain("toplu soul adayı:",Assert.IsType<IntegrityLost>(PetProtocol.Decode("s",81069,0x0D90,body)).Reason);
     }
     [Theory] [InlineData(0,"yok")] [InlineData(1,"0x01")] [InlineData(8,"0x01")]

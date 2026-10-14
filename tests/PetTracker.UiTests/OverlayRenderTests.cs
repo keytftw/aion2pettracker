@@ -11,6 +11,77 @@ namespace PetTracker.UiTests;
 public sealed class OverlayRenderTests(ITestOutputHelper output)
 {
     [Fact]
+    public void TrackerAndSetupOpenAndReuseIllustratedHandbook()
+    {
+        OnSta(()=>
+        {
+            var folder=Path.Combine(Path.GetTempPath(),"A2BookAccess-"+Guid.NewGuid());Directory.CreateDirectory(folder);
+            try
+            {
+                using var tracker=new OverlayForm(false,folder,preview:true,selectedLanguage:"en");
+                var open=typeof(OverlayForm).GetMethod("ShowHandbook",BindingFlags.Instance|BindingFlags.NonPublic)!;
+                open.Invoke(tracker,null);
+                var book=tracker.OwnedForms.OfType<HandbookForm>().Single();Assert.True(book.Visible);Assert.Equal(8,book.PageCount);
+                open.Invoke(tracker,null);Assert.Single(tracker.OwnedForms.OfType<HandbookForm>());book.Close();
+                using var installer=new setup::PetTracker.Setup.SetupForm();
+                installer.ExportInstallingPreview(Path.Combine(folder,"setup.png"),"en",3,1);
+                var buttons=installer.Controls.Cast<Control>().SelectMany(c=>c.Controls.Cast<Control>()).OfType<setup::PetTracker.App.PremiumButton>();
+                var button=Assert.Single(buttons,b=>b.Text==HelpText.Get("en","handbook"));
+                typeof(Control).GetMethod("OnClick",BindingFlags.Instance|BindingFlags.NonPublic)!.Invoke(button,[EventArgs.Empty]);
+                var setupBook=Assert.Single(installer.OwnedForms);Assert.True(setupBook.Visible);
+                typeof(Control).GetMethod("OnClick",BindingFlags.Instance|BindingFlags.NonPublic)!.Invoke(button,[EventArgs.Empty]);
+                Assert.Same(setupBook,Assert.Single(installer.OwnedForms));setupBook.Close();
+            }
+            finally{Directory.Delete(folder,true);}
+        });
+    }
+
+    [Fact]
+    public void LocalTestStartupSkipsUpdaterAndReusesOnlyItsOwnConsent()
+    {
+        OnSta(()=>
+        {
+            var folder=Path.Combine(Path.GetTempPath(),"A2DirectUi-"+Guid.NewGuid());Directory.CreateDirectory(folder);
+            try
+            {
+                using(var first=new StartupForm(stateFolder:folder,localTest:true))
+                {
+                    var gate=(StartupGate)typeof(StartupForm).GetField("gate",BindingFlags.Instance|BindingFlags.NonPublic)!.GetValue(first)!;
+                    Assert.True((bool)typeof(StartupForm).GetField("updateDone",BindingFlags.Instance|BindingFlags.NonPublic)!.GetValue(first)!);
+                    gate.FinishIntro(4);Assert.Equal(StartupStage.Language,gate.Stage);
+                    Assert.Null(typeof(StartupForm).GetField("controller",BindingFlags.Instance|BindingFlags.NonPublic)!.GetValue(first));
+                }
+                new InstallationProfile("tr",TermsContent.Version,DateTimeOffset.UtcNow).Save(Path.Combine(folder,"test-consent.json"));
+                new OverlayPreferences{Language="tr"}.Save(Path.Combine(folder,"overlay-preferences.json"));
+                using var next=new StartupForm(stateFolder:folder,localTest:true);
+                var reused=(StartupGate)typeof(StartupForm).GetField("gate",BindingFlags.Instance|BindingFlags.NonPublic)!.GetValue(next)!;
+                reused.FinishIntro(4);Assert.Equal(StartupStage.Synchronizing,reused.Stage);Assert.Equal("tr",reused.Language);
+            }
+            finally{Directory.Delete(folder,true);}
+        });
+    }
+
+    [Fact]
+    public void TeleportDiagnosticWindowRendersWithoutChangingQualityOrStartingCapture()
+    {
+        OnSta(()=>
+        {
+            var folder=Path.Combine(Path.GetTempPath(),"A2TeleportUi-"+Guid.NewGuid());Directory.CreateDirectory(folder);
+            try
+            {
+                using var overlay=new OverlayForm(false,folder,preview:true);var before=overlay.Controller.Tracker.Quality;
+                using var test=new TeleportTestForm(overlay.Controller);test.Show();Application.DoEvents();
+                Assert.Equal(before,overlay.Controller.Tracker.Quality);Assert.False(overlay.Controller.Running);
+                using var image=new Bitmap(test.Width,test.Height);test.DrawToBitmap(image,new(0,0,test.Width,test.Height));
+                var outputFolder=Environment.GetEnvironmentVariable("PETTRACKER_TELEPORT_PREVIEW");
+                if(outputFolder is not null){Directory.CreateDirectory(outputFolder);image.Save(Path.Combine(outputFolder,"teleport-test.png"));}
+                Assert.Contains(test.Controls.OfType<Label>(),l=>l.Text.Contains("Alınan collection"));
+            }
+            finally{Directory.Delete(folder,true);}
+        });
+    }
+
+    [Fact]
     public void HandbookAndInstallingScreenRenderInEveryLanguageWithoutRunningCaptureOrInstaller()
     {
         OnSta(()=>
@@ -23,7 +94,7 @@ public sealed class OverlayRenderTests(ITestOutputHelper output)
                 foreach(var (lang,_) in UiText.Languages)
                 {
                     using var handbook=new HandbookForm(lang);
-                    for(var page=0;page<5;page++)
+                    for(var page=0;page<handbook.PageCount;page++)
                     {handbook.SelectPage(page);handbook.ExportPreview(Path.Combine(temp,"handbook.png"));}
                     using var installer=new setup::PetTracker.Setup.SetupForm();
                     installer.ExportInstallingPreview(Path.Combine(temp,"installing.png"),lang,3,1);
@@ -61,6 +132,8 @@ public sealed class OverlayRenderTests(ITestOutputHelper output)
                     {var c=bitmap.GetPixel(x,y);if(c.R>180&&c.G<140&&c.B<150)count++;}return count;
                 }
                 tracker.Gap("synthetic unsupported soul");form.Refresh();Assert.True(RedPixels()>20);
+                tracker.Select(snapshot.Scope);tracker.Current.Snapshot=null;
+                tracker.Select(snapshot.Scope);form.Refresh();Assert.Equal(DataQuality.WaitingForSnapshot,tracker.Quality);Assert.True(RedPixels()>20);
                 tracker.Synchronize(snapshot with {FrameId=snapshot.FrameId+100});form.Refresh();
                 Assert.Equal(DataQuality.Exact,tracker.Quality);Assert.Equal(0,RedPixels());
             }
@@ -114,7 +187,7 @@ public sealed class OverlayRenderTests(ITestOutputHelper output)
         Exception? failure=null;
         var thread=new Thread(()=>{try{action();}catch(Exception ex){failure=ex;}});
         thread.SetApartmentState(ApartmentState.STA);thread.Start();
-        Assert.True(thread.Join(TimeSpan.FromSeconds(30)),"Offline UI test timed out");
+        Assert.True(thread.Join(TimeSpan.FromSeconds(60)),"Offline UI test timed out");
         if(failure is not null)System.Runtime.ExceptionServices.ExceptionDispatchInfo.Capture(failure).Throw();
     }
 

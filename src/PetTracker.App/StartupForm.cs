@@ -11,11 +11,16 @@ public sealed class StartupForm : Form
     private readonly System.Windows.Forms.Timer timer=new(){Interval=8};
     private readonly CrystalCursor cursor=new(),hoverCursor=new(true);
     private readonly bool demo;
+    private readonly bool localTest;
     private readonly string? folder;
     private readonly List<(Rectangle Bounds,string Code)> languageBoxes=[];
     private readonly Dictionary<string,float> languageGlow=[];
     private string hovered="",language="en";
     private OverlayController? controller;
+
+#if LOCAL_TEST
+    private TeleportTestForm? teleportTest;
+#endif
     private TermsView? terms;
     private CheckBox? consent;
     private PremiumButton? accept,retry;
@@ -34,9 +39,16 @@ public sealed class StartupForm : Form
     private Point dragOffset;
     private void BeginDrag(Point screenPoint){dragOffset=new(screenPoint.X-Left,screenPoint.Y-Top);dragging=true;Capture=true;Cursor=Cursors.SizeAll;}
     private void MoveDrag(Point screenPoint){if(dragging)Location=new(screenPoint.X-dragOffset.X,screenPoint.Y-dragOffset.Y);}
-    public StartupForm(bool demo=false,string? stateFolder=null,bool installedOnboarding=false)
+    public StartupForm(bool demo=false,string? stateFolder=null,bool installedOnboarding=false,bool localTest=false)
     {
-        this.demo=demo;folder=stateFolder;
+        this.demo=demo;folder=stateFolder;this.localTest=localTest;
+        if(localTest)
+        {
+            if(folder is null)throw new ArgumentException("Local tests require an isolated state folder.");
+            var receipt=InstallationProfile.Load(Path.Combine(folder,"test-consent.json"));
+            if(receipt?.AcceptedTermsVersion==TermsContent.Version)
+            {language=OverlayPreferences.Load(Path.Combine(folder,"overlay-preferences.json"),_=>{}).Language;gate.ConfigureInstallation(language);}
+        }
         if(installedOnboarding)
         {
             var preferencesPath=Path.Combine(stateFolder??Path.Combine(InstallationProfile.DataFolder,"Live"),"overlay-preferences.json");
@@ -45,7 +57,7 @@ public sealed class StartupForm : Form
             if((failed||!File.Exists(preferencesPath))&&InstallationProfile.Load(InstallationProfile.ReceiptPath) is { } installation)language=installation.Language;
             gate.ConfigureInstallation(language);
         }
-        updateDone=demo;
+        updateDone=demo||localTest;
         AutoScaleMode=AutoScaleMode.Dpi;FormBorderStyle=FormBorderStyle.None;ClientSize=new(700,610);MinimumSize=ClientSize;MaximumSize=ClientSize;KeyPreview=true;
         FormBorderStyle=FormBorderStyle.None;StartPosition=FormStartPosition.CenterScreen;DoubleBuffered=true;
         BackColor=PremiumTheme.Background;ForeColor=PremiumTheme.Ink;Cursor=cursor.Pointer;Text="Aion 2 Pet Tracker";Icon=AppBrand.CreateIcon();TopMost=true;
@@ -119,7 +131,12 @@ public sealed class StartupForm : Form
         accept=new PremiumButton {Location=new(362,537),Size=new(300,36),Text=S("accept"),TextLanguage=language,Enabled=false,Cursor=cursor.Pointer};
         var close=new PremiumButton {Location=new(38,537),Size=new(300,36),Text=UiText.Get(language,"close"),TextLanguage=language,Cursor=cursor.Pointer};
         consent.CheckedChanged+=(_,_)=>{accept.Enabled=consent.Checked;accept.ForeColor=consent.Checked?PremiumTheme.Gold:PremiumTheme.Muted;accept.Invalidate();};
-        close.Click+=(_,_)=>Close();accept.Click+=(_,_)=>{if(!gate.Accept(consent.Checked))return;ShowSynchronization();};
+        close.Click+=(_,_)=>Close();accept.Click+=(_,_)=>
+        {
+            if(!gate.Accept(consent.Checked))return;
+            if(localTest)new InstallationProfile(language,TermsContent.Version,DateTimeOffset.UtcNow).Save(Path.Combine(folder!,"test-consent.json"));
+            ShowSynchronization();
+        };
         Controls.AddRange([terms,consent,accept,close]);accept.ForeColor=PremiumTheme.Muted;
     }
     private void ShowSynchronization(bool startCapture=true)
@@ -128,8 +145,13 @@ public sealed class StartupForm : Form
         stepStart=clock.Elapsed.TotalSeconds;
         message=new Label{Location=new(45,352),Size=new(610,100),Font=new(UiText.FontFamily(language),11),TextAlign=ContentAlignment.MiddleCenter,ForeColor=PremiumTheme.Muted,Text=S("waiting")+"\n"+S("automatic")};
         message.Cursor=Cursors.SizeAll;message.MouseDown+=(_,e)=>{if(e.Button==MouseButtons.Left)BeginDrag(message.PointToScreen(e.Location));};
-        retry=new PremiumButton{Location=new(362,527),Size=new(300,37),Text=S("retry"),TextLanguage=language,Cursor=cursor.Pointer};
-        var close=new PremiumButton{Location=new(38,527),Size=new(300,37),Text=UiText.Get(language,"close"),TextLanguage=language,Cursor=cursor.Pointer};
+        retry=new PremiumButton{Location=new(472,527),Size=new(190,37),Text=S("retry"),TextLanguage=language,Cursor=cursor.Pointer};
+        var close=new PremiumButton{Location=new(38,527),Size=new(190,37),Text=UiText.Get(language,"close"),TextLanguage=language,Cursor=cursor.Pointer};
+#if LOCAL_TEST
+        var test=new PremiumButton{Location=new(243,527),Size=new(214,37),Text="Teleport / Collection Test",TextLanguage=language,Cursor=cursor.Pointer};
+        test.Click+=(_,_)=>{if(controller is null)return;if(teleportTest is null||teleportTest.IsDisposed){teleportTest=new(controller);teleportTest.Show();}else{teleportTest.Show();teleportTest.Activate();}};
+        Controls.Add(test);
+#endif
         close.Click+=(_,_)=>Close();retry.Click+=async(_,_)=>{retry.Enabled=false;try{if(controller is not null)await controller.Stop();if(closing||IsDisposed)return;failure=null;if(controller is null)InitializeController();else controller.Start();}catch(Exception ex){failure=ex.Message;}finally{if(!retry.IsDisposed)retry.Enabled=true;}};
         Controls.AddRange([message,retry,close]);
         if(!startCapture){retry.Enabled=false;return;}
@@ -264,6 +286,9 @@ public sealed class StartupForm : Form
         if(disposing&&!resourcesDisposed)
         {
             resourcesDisposed=true;closing=true;
+#if LOCAL_TEST
+            teleportTest?.Dispose();
+#endif
             updateCancellation.Cancel();updateCancellation.Dispose();timer.Dispose();cursor.Dispose();hoverCursor.Dispose();Icon?.Dispose();
         }
         base.Dispose(disposing);

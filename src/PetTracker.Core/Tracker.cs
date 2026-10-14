@@ -115,15 +115,20 @@ public sealed class Tracker
         { log($"Tekrar/eski frame uygulanmadı: {gain.StreamId}/{gain.FrameId}."); return; }
         if (stream != gain.StreamId) { Gap("Yeni akış için snapshot yok"); stream = gain.StreamId; }
         lastFrame = gain.FrameId;
-        for(var index=0;index<gains.Count;index++)ApplyGain(gains[index] with {RecordIndex=index});
+        var remaining=gains.GroupBy(entry=>entry.PetId).ToDictionary(group=>group.Key,group=>group.Count());
+        var amounts=gains.GroupBy(entry=>entry.PetId).ToDictionary(group=>group.Key,group=>group.Sum(entry=>entry.Amount));
+        // Update each pet's counter once for the whole batch. Two legitimate
+        // records reaching MAX together must behave like one +2 soul message.
+        for(var index=0;index<gains.Count;index++)
+        {var entry=gains[index] with {RecordIndex=index};ApplyGain(entry,--remaining[entry.PetId]==0?amounts[entry.PetId]:0);}
     }
-    private void ApplyGain(SoulEvent gain)
+    private void ApplyGain(SoulEvent gain,int counterAmount)
     {
         Session.Events.Add(gain);
         Session.Souls[gain.PetId] = checked(Session.Souls.GetValueOrDefault(gain.PetId) + gain.Amount);
         Session.Active.Add(gain.PetId); Current.Preferences.Dismissed.Remove(gain.PetId);
         ReportUnknown(gain.PetId);
-        if (Current.Snapshot is not null)
+        if (counterAmount>0&&Current.Snapshot is not null)
         {
             // Continue observed gains from the last collection baseline even after
             // uncertainty. Missing gains are never guessed and Quality stays Uncertain
@@ -140,7 +145,7 @@ public sealed class Tracker
             else if (total >= 105) Gap($"MAX pet {gain.PetId} için soul olayı; snapshot ile doğrulayın");
             else
             {
-                var observed=checked(total + gain.Amount);Current.LastKnownTotals[gain.PetId]=observed;
+                var observed=checked(total + counterAmount);Current.LastKnownTotals[gain.PetId]=observed;
                 if(Quality==DataQuality.Exact&&total<105 && observed>=105)ReachedMax?.Invoke(gain.PetId);
             }
         }

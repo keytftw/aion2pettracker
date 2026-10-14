@@ -33,6 +33,8 @@ public sealed class OverlayForm : Form
     private readonly ServerNames serverNames=new(Path.Combine(AppContext.BaseDirectory,"data","servers.json"));
     private readonly NotifyIcon tray;
     private readonly ToolTip tips=new();
+    private HandbookForm? handbook;
+    private string? handbookLanguage;
     private float scroll,scrollTarget;
     private int wheelDelta;
     private HashSet<int> lastVisible=[];
@@ -241,8 +243,8 @@ public sealed class OverlayForm : Form
         var identity=controller.Tracker.HasCurrent?controller.Tracker.Current.Scope.Character+" · "+serverNames.Name(controller.Tracker.Current.Scope.Server,Language):T("character");
         DrawText(g,"SOUL COLLECTION",new(39,32,180,15),6.8f,PremiumTheme.Muted,language:"en");
         IconButton(g,new(220,13,16,22),"lock",preferences.Locked);IconButton(g,new(239,13,16,22),"compact");IconButton(g,new(258,13,16,22),"settings");IconButton(g,new(277,13,16,22),"minimize");IconButton(g,new(296,13,16,22),"close");
-        DrawText(g,identity,new(12,52,188,24),8.8f,PremiumTheme.Gold,FontStyle.Bold,language:"en");
-        IconButton(g,new(204,53,18,21),"map");
+        DrawText(g,identity,new(12,52,168,24),8.8f,PremiumTheme.Gold,FontStyle.Bold,language:"en");
+        IconButton(g,new(184,53,18,21),"handbook");IconButton(g,new(204,53,18,21),"map");
         ActionButton(g,new(226,54,84,20),"+ "+T("add"),"add");
         
         using var line=new Pen(Color.FromArgb(48,PremiumTheme.Gold));g.DrawLine(line,10,78,DesignWidth-10,78);
@@ -265,7 +267,7 @@ public sealed class OverlayForm : Form
         }
         var footer=LogicalHeight-FooterHeight;using var footerBrush=new SolidBrush(PremiumTheme.Background);g.FillRectangle(footerBrush,1,footer,DesignWidth-2,FooterHeight-1);g.DrawLine(line,10,footer,DesignWidth-10,footer);
         var exact=controller.Tracker.Quality==DataQuality.Exact&&(!controller.LiveMode||controller.Session.IdentityKnown);
-        var warning=controller.Tracker.Quality==DataQuality.Uncertain;
+        var warning=!exact;
         var warningColor=Color.FromArgb(255,102,105);
         using var dot=new SolidBrush(warning?warningColor:exact?Color.FromArgb(139,192,154):PremiumTheme.Gold);g.FillEllipse(dot,12,footer+11,4,4);
         var status=!controller.LiveMode?T("demo"):exact?T("exact"):controller.Session.IdentityKnown?T("uncertain"):T("snapshot");
@@ -349,6 +351,7 @@ public sealed class OverlayForm : Form
         {
             case "moveUp":g.DrawLines(p,new PointF[]{new(cx-3,cy+2),new(cx,cy-2),new(cx+3,cy+2)});break;
             case "moveDown":g.DrawLines(p,new PointF[]{new(cx-3,cy-2),new(cx,cy+2),new(cx+3,cy-2)});break;
+            case "handbook":g.DrawRectangle(p,cx-5,cy-5,10,10);g.DrawLine(p,cx,cy-5,cx,cy+5);g.DrawLine(p,cx-4,cy-2,cx-1,cy-2);g.DrawLine(p,cx+1,cy-2,cx+4,cy-2);break;
             case "map":g.DrawEllipse(p,cx-5,cy-5,10,10);g.DrawEllipse(p,cx-2.3f,cy-5,4.6f,10);g.DrawLine(p,cx-5,cy,cx+5,cy);g.DrawArc(p,cx-4.6f,cy-2.7f,9.2f,3.2f,0,180);break;
             case "pin":g.DrawLine(p,cx-3.5f,cy-5,cx+3.5f,cy-5);g.DrawLines(p,new PointF[]{new(cx-2,cy-5),new(cx-2,cy),new(cx-4,cy+2),new(cx+4,cy+2),new(cx+2,cy),new(cx+2,cy-5)});g.DrawLine(p,cx,cy+2,cx,cy+6);break;
             case "dismiss":g.DrawLine(p,cx-5,cy-4,cx+5,cy-4);g.DrawRectangle(p,cx-2,cy-6,4,2);g.DrawRectangle(p,cx-3.5f,cy-3,7,9);g.DrawLine(p,cx,cy-1,cx,cy+4);break;
@@ -385,7 +388,7 @@ public sealed class OverlayForm : Form
         {
             timer.Interval=8;
             hovered=next;Cursor=next.Length>0?brightCrystal.Pointer:crystal.Pointer;
-            var tip=hit.Action switch{"moveUp"=>T("moveUp"),"moveDown"=>T("moveDown"),"map"=>MapText.Get(Language,"title"),"lock"=>T(preferences.Locked?"unlock":"lock"),"compact"=>T("compact"),"settings"=>T("settings"),"pin"=>T("pin"),"dismiss"=>T("remove"),"minimize"=>T("minimize"),"close"=>T("close"),"clear"=>"CLEAR · "+T("remove"),"expand"=>T("expand"),_=>""};tips.SetToolTip(this,tip);
+            var tip=hit.Action switch{"moveUp"=>T("moveUp"),"moveDown"=>T("moveDown"),"map"=>MapText.Get(Language,"title"),"handbook"=>HelpText.Get(Language,"handbook"),"lock"=>T(preferences.Locked?"unlock":"lock"),"compact"=>T("compact"),"settings"=>T("settings"),"pin"=>T("pin"),"dismiss"=>T("remove"),"minimize"=>T("minimize"),"close"=>T("close"),"clear"=>"CLEAR · "+T("remove"),"expand"=>T("expand"),_=>""};tips.SetToolTip(this,tip);
         }
     }
     protected override void OnMouseLeave(EventArgs e){base.OnMouseLeave(e);hoveredCard=-1;hovered="";}
@@ -404,6 +407,7 @@ public sealed class OverlayForm : Form
                 case "expand":ToggleCompact();break;
                 case "settings":ShowSettings();break;
                 case "map":ShowMap(hit.Id);break;
+                case "handbook":ShowHandbook();break;
                 case "minimize":WindowState=FormWindowState.Minimized;break;
                 case "close":Close();break;
                 case "add":ShowPetPicker();break;
@@ -435,10 +439,20 @@ public sealed class OverlayForm : Form
         }
         finally{appearanceSave.Stop();ApplyGlobalHotkeys();SaveAppearance();}
     }
+    private void ShowHandbook()
+    {
+        if(handbookLanguage!=Language){handbook?.Dispose();handbook=null;}
+        if(handbook is null||handbook.IsDisposed){handbook=new(Language);handbookLanguage=Language;handbook.TopMost=preferences.AlwaysOnTop;handbook.Show(this);}
+        else {handbook.Show();handbook.Activate();}
+    }
     private void ShowLogs()
     {
+#if LOCAL_TEST
+        using var dialog=new TeleportTestForm(controller){TopMost=preferences.AlwaysOnTop};dialog.ShowDialog(this);
+#else
         using var dialog=new Form{Text=T("logs"),Size=new(720,420),StartPosition=FormStartPosition.CenterParent,TopMost=true,Cursor=crystal.Pointer};
         dialog.Controls.Add(new TextBox{Dock=DockStyle.Fill,Multiline=true,ReadOnly=true,ScrollBars=ScrollBars.Both,WordWrap=false,BackColor=PremiumTheme.Background,ForeColor=PremiumTheme.Ink,Font=new("Consolas",9),Text=string.Join(Environment.NewLine,controller.Logs)});dialog.ShowDialog(this);
+#endif
     }
     private void ShowPetPicker()
     {
@@ -472,7 +486,7 @@ public sealed class OverlayForm : Form
     {using var settings=new RiftSettingsForm(preferences,()=>rift.Region,SaveAppearance,rift.ShowNotice);settings.ShowDialog(Application.OpenForms.OfType<OverlaySettingsForm>().LastOrDefault(f=>f.Visible) is {} activeSettings?activeSettings:map is {IsDisposed:false,Visible:true}?map:this);}
     protected override void Dispose(bool disposing)
     {
-        if(disposing){rift?.Dispose();map?.Dispose();controller.Tracker.ReachedMax-=PlayMaxChime;timer.Dispose();appearanceSave.Dispose();tray?.Dispose();tips.Dispose();chime.Dispose();Icon?.Dispose();foreach(var image in portraits.Values)image.Dispose();foreach(var image in cardPortraits.Values)image.Dispose();crystal.Dispose();brightCrystal.Dispose();}base.Dispose(disposing);
+        if(disposing){rift?.Dispose();handbook?.Dispose();map?.Dispose();controller.Tracker.ReachedMax-=PlayMaxChime;timer.Dispose();appearanceSave.Dispose();tray?.Dispose();tips.Dispose();chime.Dispose();Icon?.Dispose();foreach(var image in portraits.Values)image.Dispose();foreach(var image in cardPortraits.Values)image.Dispose();crystal.Dispose();brightCrystal.Dispose();}base.Dispose(disposing);
     }
     [DllImport("user32.dll")]private static extern bool ReleaseCapture();
     [DllImport("user32.dll")]private static extern IntPtr SendMessage(IntPtr window,int message,IntPtr wp,IntPtr lp);

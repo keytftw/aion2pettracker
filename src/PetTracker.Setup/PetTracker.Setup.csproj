@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms>
-    <Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><Version>1.2.4</Version>
+    <Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><Version>1.2.8</Version>
     <AssemblyName>A2PetTracker-win-Setup</AssemblyName><Product>Aion 2 Pet Tracker Setup</Product>
     <DefineConstants>$(DefineConstants);SETUP_UI;UI_FONTS</DefineConstants>
     <ApplicationIcon>..\PetTracker.App\Assets\App.ico</ApplicationIcon>
@@ -9,6 +9,9 @@
   <ItemGroup>
     <EmbeddedResource Include="..\PetTracker.App\Assets\Fonts\*.ttf" LogicalName="Fonts.%(Filename)%(Extension)" />
     <EmbeddedResource Include="..\..\licenses\*-OFL.txt" LogicalName="FontLicenses.%(Filename)%(Extension)" />
+    <EmbeddedResource Include="..\PetTracker.App\Assets\Handbook\*.png" LogicalName="Handbook.%(Filename)%(Extension)" />
+    <Compile Include="..\PetTracker.App\HandbookForm.cs" Link="Shared\HandbookForm.cs" />
+    <Compile Include="..\PetTracker.App\HelpText.cs" Link="Shared\HelpText.cs" />
     <Compile Include="..\PetTracker.App\FontAssets.cs" Link="Shared\FontAssets.cs" />
     <ProjectReference Include="..\PetTracker.Core\PetTracker.Core.csproj" />
     <Compile Include="..\PetTracker.App\PremiumControls.cs" Link="Shared\PremiumControls.cs" />

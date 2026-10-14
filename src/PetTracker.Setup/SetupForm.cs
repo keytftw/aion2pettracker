@@ -15,6 +15,7 @@ public sealed class SetupForm : Form
     private Stopwatch installClock=new();
     private InstallationProgress installProgress=new();
     private Panel? progressBar;
+    private HandbookForm? handbook;
     private readonly CrystalCursor cursor=new();
     private PremiumButton? back,next;
     private readonly PremiumButton close;
@@ -108,6 +109,8 @@ public sealed class SetupForm : Form
                 using var path=PremiumTheme.Round(r,4*DeviceDpi/96f);using var track=new SolidBrush(PremiumTheme.Panel);using var fill=new SolidBrush(PremiumTheme.Gold);
                 g.FillPath(track,path);g.SetClip(path);g.FillRectangle(fill,0,0,r.Width*(float)installProgress.Displayed(previewElapsed??installClock.Elapsed),r.Height);
             };content.Controls.Add(progressBar);
+            Button(HelpText.Get(language,"handbook"),new(15,95,180,42),OpenHandbook,content);
+            Label(HelpText.Get(language,"setupHandbook"),new(210,98,285,40),10);
             Label(T("installAppearance"),new(0,145,505,60),11);
             var guideLabel=Label(T("installGuide"),new(0,225,505,80),11);guideLabel.Cursor=Cursors.Hand;guideLabel.Click+=(_,_)=>OpenLink(Website);
             var contactLabel=Label(T("installContact"),new(0,320,505,50),11);contactLabel.Cursor=Cursors.Hand;contactLabel.Click+=(_,_)=>OpenLink("mailto:support@keytdev.com");
@@ -120,6 +123,11 @@ public sealed class SetupForm : Form
             Button(T("launch"),new(426,550,349,38),()=>{try{InstallEngine.Launch();Close();}catch(Exception ex){MessageBox.Show(this,ex.Message,Text,MessageBoxButtons.OK,MessageBoxIcon.Error);}});
         }
         Invalidate();
+    }
+    private void OpenHandbook()
+    {
+        if(handbook is null||handbook.IsDisposed){handbook=new(language);handbook.Show(this);}
+        else {handbook.Show();handbook.Activate();}
     }
     private CheckBox Option(string text,Rectangle bounds,bool value)
     {
@@ -185,5 +193,5 @@ public sealed class SetupForm : Form
     protected override void OnMouseMove(MouseEventArgs e){base.OnMouseMove(e);if(dragging){var point=PointToScreen(e.Location);Location=new(point.X-dragOffset.X,point.Y-dragOffset.Y);}}
     protected override void OnMouseUp(MouseEventArgs e){base.OnMouseUp(e);dragging=false;Capture=false;Cursor=cursor.Pointer;}
     protected override void OnMouseCaptureChanged(EventArgs e){base.OnMouseCaptureChanged(e);if(!Capture)dragging=false;}
-    protected override void Dispose(bool disposing){if(disposing){animation.Dispose();cursor.Dispose();Icon?.Dispose();}base.Dispose(disposing);}
+    protected override void Dispose(bool disposing){if(disposing){handbook?.Dispose();animation.Dispose();cursor.Dispose();Icon?.Dispose();}base.Dispose(disposing);}
 }
