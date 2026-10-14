@@ -127,7 +127,7 @@ public sealed class PetMapForm : Form
     }
     private CheckBox Option(string text,bool value,Action<bool> changed)
     {
-        var box=new CheckBox{Text=text,Checked=value,AutoSize=false,FlatStyle=FlatStyle.Flat,ForeColor=value?PremiumTheme.Gold:PremiumTheme.Ink,BackColor=PremiumTheme.Panel,Font=new(UiText.FontFamily(language),10),Cursor=pointer.Pointer,AccessibleName=text};
+        var box=new AtlasCheckBox(language){Text=text,Checked=value,AutoSize=false,FlatStyle=FlatStyle.Flat,ForeColor=value?PremiumTheme.Gold:PremiumTheme.Ink,BackColor=PremiumTheme.Panel,Font=new(UiText.FontFamily(language),10),Cursor=pointer.Pointer,AccessibleName=text};
         box.FlatAppearance.BorderColor=PremiumTheme.Gold;
         box.CheckedChanged+=(_,_)=>box.ForeColor=box.Checked?PremiumTheme.Gold:PremiumTheme.Ink;
         box.CheckedChanged+=(_,_)=>Try(()=>changed(box.Checked));Controls.Add(box);return box;
@@ -250,3 +250,9 @@ public sealed class PetMapForm : Form
     [DllImport("user32.dll")]private static extern bool ReleaseCapture();
     [DllImport("user32.dll")]private static extern IntPtr SendMessage(IntPtr window,int message,IntPtr wParam,IntPtr lParam);
 }
+
+
+
+
+
+
