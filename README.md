@@ -1,4 +1,4 @@
-# Aion 2 Pet Tracker — 0.9.16
+# Aion 2 Pet Tracker — 1.0.0
 
 A Windows x64 pet-soul tracker for Aion 2 Global, developed by Keyt and licensed under GPL-3.0.
 
