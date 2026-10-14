@@ -19,7 +19,7 @@ internal static class InstallEngine
         if(File.Exists(Path.Combine(previous,"Update.exe"))&&!string.Equals(root,previous,StringComparison.OrdinalIgnoreCase))
             throw new IOException("The tracker is already installed in "+previous+". Uninstall it before moving to another folder.");
     }
-    internal static async Task InstallAsync(string root,bool desktopShortcut)
+    internal static async Task InstallAsync(string root,bool desktopShortcut,IProgress<double>? progress=null)
     {
         ValidateDestination(root);root=InstallationLocation.Normalize(root);
         Directory.CreateDirectory(root);
@@ -33,20 +33,27 @@ internal static class InstallEngine
         Directory.CreateDirectory(folder);var executable=Path.Combine(folder,"Install.exe");
         try
         {
-            await using(var destination=new FileStream(executable,FileMode.CreateNew,FileAccess.Write,FileShare.None))await payload.CopyToAsync(destination);
+            await using(var destination=new FileStream(executable,FileMode.CreateNew,FileAccess.Write,FileShare.None))
+            {
+                var buffer=new byte[131072];long copied=0;int length;
+                while((length=await payload.ReadAsync(buffer))>0)
+                {await destination.WriteAsync(buffer.AsMemory(0,length));copied+=length;progress?.Report(.3*copied/payload.Length);}
+            }
             await using(var stream=File.OpenRead(executable))
                 if(!string.Equals(Convert.ToHexString(await SHA256.HashDataAsync(stream)),expected,StringComparison.OrdinalIgnoreCase))throw new InvalidDataException("Setup integrity check failed.");
+            progress?.Report(.4);
             // Only the embedded, hash-verified Velopack installer is run. No downloads, game access, or Npcap installation.
             var start=new ProcessStartInfo(executable){UseShellExecute=false,CreateNoWindow=true};start.ArgumentList.Add("--silent");
             start.ArgumentList.Add("--installto");start.ArgumentList.Add(root);
             using var process=Process.Start(start)??throw new IOException("Could not start the installer.");
             await process.WaitForExitAsync();if(process.ExitCode!=0)throw new IOException("Installer exit code: "+process.ExitCode);
+            progress?.Report(.85);
             var installedExe=Path.Combine(root,"current","A2PetTracker.exe");
             if(!File.Exists(installedExe)||!File.Exists(Path.Combine(root,"Update.exe")))throw new IOException("Installed application was not found.");
             var version=FileVersionInfo.GetVersionInfo(installedExe).ProductVersion;
             var expectedVersion=assembly.GetName().Version!.ToString(3);
             if(version is null||!(version==expectedVersion||version.StartsWith(expectedVersion+"+",StringComparison.Ordinal)))throw new IOException("Installed application version does not match this Setup.");
-            ConfigureDesktopShortcut(root,desktopShortcut);
+            ConfigureDesktopShortcut(root,desktopShortcut);progress?.Report(.95);
         }
         finally
         {

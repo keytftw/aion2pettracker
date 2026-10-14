@@ -14,7 +14,7 @@ public sealed record CharacterScope(string Character, string Server)
 }
 public sealed record CollectionEntry(int PetId, int Level, int WithinLevel);
 public sealed record AuthoritativeCollectionSnapshot(CharacterScope Scope, string StreamId, long FrameId, List<CollectionEntry> Entries, bool OmittedEntriesAreZero = false);
-public sealed record SoulEvent(CharacterScope Scope, string StreamId, long FrameId, int PetId, int Amount);
+public sealed record SoulEvent(CharacterScope Scope, string StreamId, long FrameId, int PetId, int Amount, int RecordIndex = 0);
 public sealed class UIPreferences
 {
     public HashSet<int> Pinned { get; set; } = [];

@@ -82,6 +82,12 @@ public sealed class OverlaySettingsForm : Form
             rift.Click+=(_,_)=>riftSettings();Controls.Add(rift);
         }
         Controls.AddRange([title,opacityLabel,opacityValue,opacity,heightLabel,heightValue,height,top,locked,languageLabel,languages,support,hideHotkeyButton,compactHotkeyButton,diagnostic,done,close,credit]);RefreshStrings();PremiumDialogMotion.Attach(this);
+        var linkTop=credit.Bottom+10;
+        var guideLink=new PremiumButton{Text="keytdev.com/pettracker",AccessibleName=HelpText.Get(preferences.Language,"guide"),Location=new(18,linkTop),Size=new(305,29),DpiAwareText=true,TextSize=10};
+        var contactLink=new PremiumButton{Text=AppLinks.Email,AccessibleName=HelpText.Get(preferences.Language,"contact"),Location=new(18,linkTop+36),Size=new(305,29),DpiAwareText=true,TextSize=10};
+        guideLink.Click+=(_,_)=>AppLinks.Open(this,AppLinks.Guide,preferences.Language);
+        contactLink.Click+=(_,_)=>AppLinks.Open(this,"mailto:"+AppLinks.Email,preferences.Language);
+        Controls.AddRange([guideLink,contactLink]);ClientSize=new(340,linkTop+78);
     }
     private static int Modifiers(Keys keys)=>((keys&Keys.Control)!=0?2:0)|((keys&Keys.Alt)!=0?1:0)|((keys&Keys.Shift)!=0?4:0);
     private static string Chord(int modifiers,int key)

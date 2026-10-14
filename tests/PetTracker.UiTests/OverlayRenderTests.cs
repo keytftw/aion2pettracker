@@ -1,3 +1,4 @@
+extern alias setup;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -9,6 +10,64 @@ namespace PetTracker.UiTests;
 
 public sealed class OverlayRenderTests(ITestOutputHelper output)
 {
+    [Fact]
+    public void HandbookAndInstallingScreenRenderInEveryLanguageWithoutRunningCaptureOrInstaller()
+    {
+        OnSta(()=>
+        {
+            Assert.True(HelpText.Complete);
+            var target=Environment.GetEnvironmentVariable("PETTRACKER_REVIEW_IMAGES");
+            var temp=Path.Combine(Path.GetTempPath(),"A2HelpUi-"+Guid.NewGuid());Directory.CreateDirectory(temp);
+            try
+            {
+                foreach(var (lang,_) in UiText.Languages)
+                {
+                    using var handbook=new HandbookForm(lang);
+                    for(var page=0;page<5;page++)
+                    {handbook.SelectPage(page);handbook.ExportPreview(Path.Combine(temp,"handbook.png"));}
+                    using var installer=new setup::PetTracker.Setup.SetupForm();
+                    installer.ExportInstallingPreview(Path.Combine(temp,"installing.png"),lang,3,1);
+                    if(target is not null&&lang is "en" or "tr")
+                    {Directory.CreateDirectory(target);File.Copy(Path.Combine(temp,"installing.png"),Path.Combine(target,"installing-"+lang+".png"),true);handbook.SelectPage(2);handbook.ExportPreview(Path.Combine(target,"handbook-"+lang+".png"));}
+                }
+                if(target is not null)
+                {
+                    using var form=new OverlayForm(false,temp,preview:true,selectedLanguage:"en");form.Show();form.ExportPreview(Path.Combine(target,"tracker.png"));
+                    form.ExportDialogs(target);
+                    var portraits=(IReadOnlyDictionary<int,Image>)typeof(OverlayForm).GetField("portraits",BindingFlags.Instance|BindingFlags.NonPublic)!.GetValue(form)!;
+                    using var atlas=new PetMapForm(form.Controller,portraits,new(){Language="en",MapPortraitMarkers=true,MapShowAllFarmable=true},()=>{});
+                    atlas.Show();using var bitmap=new Bitmap(atlas.Width,atlas.Height);atlas.DrawToBitmap(bitmap,atlas.ClientRectangle);bitmap.Save(Path.Combine(target,"atlas.png"));
+                    form.Controller.Tracker.Gap("synthetic unsupported soul");form.Refresh();form.ExportPreview(Path.Combine(target,"uncertain.png"));
+                }
+            }
+            finally{Directory.Delete(temp,true);}
+        });
+    }
+
+    [Fact]
+    public void UncertainCounterShowsRedFooterAndSnapshotClearsIt()
+    {
+        OnSta(()=>
+        {
+            var folder=Path.Combine(Path.GetTempPath(),"A2WarningUi-"+Guid.NewGuid());Directory.CreateDirectory(folder);
+            try
+            {
+                using var form=new OverlayForm(false,folder,preview:true,selectedLanguage:"en");
+                form.Show();var tracker=form.Controller.Tracker;var snapshot=tracker.Current.Snapshot!;
+                int RedPixels()
+                {
+                    using var bitmap=new Bitmap(form.Width,form.Height);form.DrawToBitmap(bitmap,new(0,0,form.Width,form.Height));
+                    var count=0;for(var y=Math.Max(0,bitmap.Height-60);y<bitmap.Height;y++)for(var x=15;x<bitmap.Width-30;x++)
+                    {var c=bitmap.GetPixel(x,y);if(c.R>180&&c.G<140&&c.B<150)count++;}return count;
+                }
+                tracker.Gap("synthetic unsupported soul");form.Refresh();Assert.True(RedPixels()>20);
+                tracker.Synchronize(snapshot with {FrameId=snapshot.FrameId+100});form.Refresh();
+                Assert.Equal(DataQuality.Exact,tracker.Quality);Assert.Equal(0,RedPixels());
+            }
+            finally{Directory.Delete(folder,true);}
+        });
+    }
+
     [Fact]
     public void AtlasRegionAndFarmableTogglesUpdateMarkersAndPersistPreferences()
     {
@@ -22,8 +81,8 @@ public sealed class OverlayRenderTests(ITestOutputHelper output)
                 using var map=new PetMapForm(tracker.Controller,new Dictionary<int,Image>(),prefs,()=>saves++);
                 T Field<T>(object obj,string name)=>(T)obj.GetType().GetField(name,BindingFlags.Instance|BindingFlags.NonPublic)!.GetValue(obj)!;
                 var data=Field<MapData>(map,"data");var world=Field<int>(map,"worldId");
-                var hide=Field<CheckBox>(map,"hideUnlocated");Assert.Equal("Konumu olmayan petleri gizle",hide.Text);
-                hide.Checked=true;Assert.True(prefs.MapHideUnlocated);
+                Assert.DoesNotContain(map.Controls.Cast<Control>(),control=>control.Text=="Konumu olmayan petleri gizle");
+                var portrait=Field<CheckBox>(map,"portraitMarkers");portrait.Checked=false;Assert.False(prefs.MapPortraitMarkers);
                 Assert.All(Field<PetDefinition[]>(map,"matches"),pet=>Assert.NotEmpty(data.Locations(pet.Id,world)));
                 var all=Field<CheckBox>(map,"showAll");all.Checked=true;Assert.True(prefs.MapShowAllFarmable);
                 var canvas=Field<PetMapCanvas>(map,"canvas");

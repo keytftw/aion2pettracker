@@ -92,6 +92,8 @@ public sealed class PremiumButton : Control
     public float TextSize { get; set; }=8.8f;
     [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
     public bool? LockIcon { get; set; }
+    [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+    public bool BookIcon {get;set;}
     public PremiumButton()
     {
         SetStyle(ControlStyles.UserPaint|ControlStyles.AllPaintingInWmPaint|ControlStyles.OptimizedDoubleBuffer,true);
@@ -106,6 +108,12 @@ public sealed class PremiumButton : Control
         e.Graphics.SmoothingMode=SmoothingMode.AntiAlias;var r=new RectangleF(1,1,Width-2,Height-2);using var p=PremiumTheme.Round(r);
         using var b=new SolidBrush(Color.FromArgb((int)(22+blend*25),PremiumTheme.Gold));e.Graphics.FillPath(b,p);
         using var pen=new Pen(Color.FromArgb((int)(75+blend*75),PremiumTheme.Gold));e.Graphics.DrawPath(pen,p);
+        if(BookIcon)
+        {
+            var s=DeviceDpi/96f;var x=Width/2f;var y=Height/2f;using var book=new Pen(ForeColor,1.4f*s);
+            e.Graphics.DrawLines(book,new PointF[]{new(x-7*s,y-7*s),new(x,y-5*s),new(x+7*s,y-7*s),new(x+7*s,y+6*s),new(x,y+8*s),new(x-7*s,y+6*s),new(x-7*s,y-7*s)});
+            e.Graphics.DrawLine(book,x,y-5*s,x,y+8*s);return;
+        }
         if(LockIcon is { } locked)
         {
             var scale=DeviceDpi/96f;var cx=Width/2f;var cy=Height/2f;

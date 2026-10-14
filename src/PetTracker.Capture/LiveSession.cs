@@ -29,6 +29,16 @@ public sealed class LiveSession(Tracker tracker, Action<string> log, PetCatalog?
                 ClearPending("Bağlantı sonu"); identity = null; identityFresh = false; pendingActor = null; stream = null;
                 tracker.Gap(ended.Reason); Status = ended.Reason; return;
             case IntegrityLost gap:
+                if(!gap.IdentityMayBeLost)
+                {
+                    // A complete but unsupported soul message does not constitute
+                    // a connection or character change. Preserve the known binding
+                    // and subsequent verified activity, while totals remain uncertain.
+                    tracker.Gap(gap.Reason);
+                    if(identity is null)Queue(gap);
+                    else Status="Soul verisi doğrulama bekliyor; son bilinen sayaçlar korundu";
+                    return;
+                }
                 ClearScene();
                 // Identity itself may have been lost. Keep later gains unassigned until self info arrives.
                 tracker.Gap(gap.Reason); identity = null; identityFresh = false; pendingActor = null;

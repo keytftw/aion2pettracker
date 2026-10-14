@@ -1,4 +1,4 @@
-# Aion 2 Pet Tracker — 1.2.1
+# Aion 2 Pet Tracker — 1.2.4
 
 A Windows x64 pet-soul tracker for Aion 2 Global, developed by Keyt and licensed under GPL-3.0.
 
@@ -74,4 +74,17 @@ Open **Spacetime Rift** from Settings or Pet Atlas to enable reminders, change t
 
 ### Atlas usability fixes (1.2.1)
 
-Pet detail cards are smaller and stay below the pet carousel, with a scrolling information area. Selecting a specific map shows only pets recorded in that map. Use All pets to browse across regions and optionally hide unlocated pets; the dedicated Pets without locations category remains available. Multi-region pets have a Show on map dropdown that opens the chosen region and animates to its locations. Show pet portraits on map toggles circular portraits and red markers in either farmable or maxed views; the preference is saved.
+Pet detail cards are smaller and stay below the pet carousel, with a scrolling information area. Selecting a specific map shows only pets recorded in that map. Use All pets to browse across regions and see acquisition details for unlocated pets; the dedicated Pets without locations category remains available. Multi-region pets have a Show on map dropdown that opens the chosen region and animates to its locations. Show pet portraits on map toggles circular portraits and red markers in either farmable or maxed views; the preference is saved.
+
+### Counter integrity
+
+The unlocated-pet hide checkbox has been removed from Pet Atlas. When a soul message is unsupported, character identity is retained and subsequent readable gains continue updating provisional counters. A red footer warns that counts may be inaccurate and asks the player to return to Character Select to resync. A validated collection snapshot replaces provisional totals and clears the warning. Transport gaps still require character identity to be confirmed before attributing gains.
+
+The reported 17-byte type-02 variant remains unverified: candidate pet/amount pairs are diagnostic only, so gains inside that unreadable message may be missing. No raw packet data is recorded. Batch application validates all records before mutation and deduplicates by stream/frame rather than identical pet/amount values.
+
+
+### Setup and quick help (1.2.4)
+
+Setup displays completed-work progress and cannot finish before six seconds or before all installation steps complete. It includes localized appearance, guide and contact information. Pet Atlas has animated custom checkboxes and a separate, movable five-page screenshot handbook in all ten languages. The portrait checkbox controls markers in every map view. Settings and the handbook link to https://keytdev.com/pettracker/ and support@keytdev.com through the default browser/mail client.
+
+Automatic bug submission is deferred until a working mail backend is available. Diagnostics remains available; no report is silently sent. Map rendering reuses marker pens/brushes and ordering, avoids sorting during hover hit testing and idles animation timers when movement completes.

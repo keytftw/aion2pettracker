@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Drawing.Drawing2D;
 using PetTracker.App;
 using PetTracker.Core;
@@ -6,13 +6,15 @@ using PetTracker.Core;
 namespace PetTracker.Setup;
 public sealed class SetupForm : Form
 {
-    public const string Website="https://aion2-pet-tracker.lovelymacaw4.chatgpt.site";
+    public const string Website="https://keytdev.com/pettracker/";
     public const string Patreon="https://www.patreon.com/cw/keytftw";
     private readonly InstallationGate gate=new();
     private readonly OverlayPreferences preferences;
     private readonly Panel content=new(){Location=new(265,130),Size=new(510,405),BackColor=PremiumTheme.Background};
     private readonly System.Windows.Forms.Timer animation=new(){Interval=16};
-    private readonly Stopwatch clock=Stopwatch.StartNew();
+    private Stopwatch installClock=new();
+    private InstallationProgress installProgress=new();
+    private Panel? progressBar;
     private readonly CrystalCursor cursor=new();
     private PremiumButton? back,next;
     private readonly PremiumButton close;
@@ -38,7 +40,7 @@ public sealed class SetupForm : Form
         preferences=OverlayPreferences.Load(PreferencesPath,_=>{});
         Controls.Add(content);
         close=Button("×",new(770,18,28,28),()=>Close());close.ForeColor=PremiumTheme.Muted;
-        animation.Tick+=(_,_)=>Invalidate();animation.Start();
+        animation.Tick+=(_,_)=>{if(busy)progressBar?.Invalidate();};
         FormClosing+=(_,e)=>{if(busy)e.Cancel=true;};
         PremiumDialogMotion.Attach(this);RenderStep();
     }
@@ -49,12 +51,13 @@ public sealed class SetupForm : Form
     }
     private Label Label(string text,Rectangle bounds,float size=10)
     {
-        var label=new Label{Text=text,Bounds=Scaled(bounds),Font=new(UiText.FontFamily(language),size),ForeColor=PremiumTheme.Muted,BackColor=PremiumTheme.Background,AutoSize=false,RightToLeft=language=="ar"?RightToLeft.Yes:RightToLeft.No};
-        content.Controls.Add(label);label.MouseDown+=(_,e)=>{if(e.Button==MouseButtons.Left)BeginDrag(label.PointToScreen(e.Location));};return label;
+        var label=new PremiumLabel{Text=text,TextLanguage=language,Bounds=Scaled(bounds),Font=new(UiText.FontFamily(language),size),ForeColor=PremiumTheme.Ink,BackColor=PremiumTheme.Background,AutoSize=false,RightToLeft=language=="ar"?RightToLeft.Yes:RightToLeft.No};
+        content.Controls.Add(label);return label;
     }
     private void RenderStep()
     {
         content.Bounds=Scaled(new(265,130,510,405));
+        progressBar=null;
         foreach(var item in content.Controls.Cast<Control>().ToArray()){content.Controls.Remove(item);item.Dispose();}
         foreach(var item in Controls.OfType<PremiumButton>().Where(b=>b!=close).ToArray()){Controls.Remove(item);item.Dispose();}
         back=next=null;
@@ -97,7 +100,18 @@ public sealed class SetupForm : Form
             next=Button(T("install"),new(426,550,349,38),()=>_ = Install());
         }
         else if(gate.Stage==InstallationStage.Installing)
-            Label(T("locationHint"),new(0,200,505,110),11);
+        {
+            progressBar=new Panel{Bounds=Scaled(new(15,60,470,12)),BackColor=PremiumTheme.Background};
+            progressBar.Paint+=(_,e)=>
+            {
+                var g=e.Graphics;g.SmoothingMode=SmoothingMode.AntiAlias;var r=new RectangleF(0,0,progressBar.Width-1,progressBar.Height-1);
+                using var path=PremiumTheme.Round(r,4*DeviceDpi/96f);using var track=new SolidBrush(PremiumTheme.Panel);using var fill=new SolidBrush(PremiumTheme.Gold);
+                g.FillPath(track,path);g.SetClip(path);g.FillRectangle(fill,0,0,r.Width*(float)installProgress.Displayed(previewElapsed??installClock.Elapsed),r.Height);
+            };content.Controls.Add(progressBar);
+            Label(T("installAppearance"),new(0,145,505,60),11);
+            var guideLabel=Label(T("installGuide"),new(0,225,505,80),11);guideLabel.Cursor=Cursors.Hand;guideLabel.Click+=(_,_)=>OpenLink(Website);
+            var contactLabel=Label(T("installContact"),new(0,320,505,50),11);contactLabel.Cursor=Cursors.Hand;contactLabel.Click+=(_,_)=>OpenLink("mailto:support@keytdev.com");
+        }
         else
         {
             Label(T("readyHint"),new(0,95,505,140),12);
@@ -118,18 +132,21 @@ public sealed class SetupForm : Form
         if(open){MessageBox.Show(this,T("closeApp"),Text,MessageBoxButtons.OK,MessageBoxIcon.Information);return;}
         try{installDirectory=InstallationLocation.Normalize(installDirectory);InstallEngine.ValidateDestination(installDirectory);}
         catch(Exception ex){MessageBox.Show(this,T("failure")+"\n"+ex.Message,Text,MessageBoxButtons.OK,MessageBoxIcon.Error);return;}
-        gate.BeginInstall();busy=true;RenderStep();
+        gate.BeginInstall();busy=true;installClock=Stopwatch.StartNew();installProgress=new();RenderStep();animation.Start();
         try
         {
-            await InstallEngine.InstallAsync(installDirectory,desktopShortcut);
+            await InstallEngine.InstallAsync(installDirectory,desktopShortcut,new Progress<double>(value=>installProgress.Report(value)));
             preferences.Language=language;preferences.Save(PreferencesPath);
-            gate.Complete(true);(gate.CreateReceipt(TermsContent.Version,DateTimeOffset.UtcNow) with {InstallDirectory=installDirectory,DesktopShortcut=desktopShortcut}).Save(InstallationProfile.ReceiptPath);
-            busy=false;RenderStep();
+            new InstallationProfile(language,TermsContent.Version,DateTimeOffset.UtcNow){InstallDirectory=installDirectory,DesktopShortcut=desktopShortcut}.Save(InstallationProfile.ReceiptPath);
+            installProgress.Report(1);
+            while(!installProgress.CanFinish(installClock.Elapsed))await Task.Delay(16);
+            progressBar?.Invalidate();progressBar?.Update();await Task.Delay(120);gate.Complete(true);
+            busy=false;animation.Stop();RenderStep();
         }
         catch(Exception ex)
         {
             if(gate.Stage==InstallationStage.Installing)gate.Complete(false);
-            busy=false;
+            busy=false;animation.Stop();
             // If preference/receipt persistence failed after installing, require a new explicit setup attempt.
             if(gate.Stage==InstallationStage.Finished){MessageBox.Show(this,T("failure")+"\n"+ex.Message,Text,MessageBoxButtons.OK,MessageBoxIcon.Error);Close();return;}
             RenderStep();MessageBox.Show(this,T("failure")+"\n"+ex.Message,Text,MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -137,6 +154,13 @@ public sealed class SetupForm : Form
     }
     private void OpenLink(string url)
     {try{using var browser=Process.Start(new ProcessStartInfo(url){UseShellExecute=true});}catch(Exception ex) when(ex is System.ComponentModel.Win32Exception or InvalidOperationException){MessageBox.Show(this,U("browserFailed"),Text,MessageBoxButtons.OK,MessageBoxIcon.Information);}}
+    public void ExportInstallingPreview(string path,string selectedLanguage,double elapsedSeconds,double workCompleted)
+    {
+        gate.SelectLanguage(selectedLanguage);gate.Accept(true);gate.BeginInstall();language=selectedLanguage;busy=true;RenderStep();
+        installProgress.Report(workCompleted);previewElapsed=TimeSpan.FromSeconds(elapsedSeconds);
+        PremiumDialogMotion.ShowForPreview(this);using var bitmap=new Bitmap(ClientSize.Width,ClientSize.Height);DrawToBitmap(bitmap,ClientRectangle);bitmap.Save(path);Hide();
+    }
+    private TimeSpan? previewElapsed;
     protected override void OnPaint(PaintEventArgs e)
     {
         base.OnPaint(e);var g=e.Graphics;g.ScaleTransform(DeviceDpi/96f,DeviceDpi/96f);g.SmoothingMode=SmoothingMode.AntiAlias;
@@ -144,7 +168,7 @@ public sealed class SetupForm : Form
         using(var line=new Pen(Color.FromArgb(70,PremiumTheme.Gold))){g.DrawLine(line,232,0,232,640);g.DrawRectangle(line,1,1,818,638);}
         using(var emblem=AppBrand.Draw(90))g.DrawImage(emblem,68,40,90,90);
         PremiumTheme.Text(g,"Aion 2\nPet Tracker",new(20,142,190,76),19,PremiumTheme.Gold,"en",FontStyle.Bold,StringAlignment.Center,heading:true);
-        var stages=new[]{"Select Language",StartupText.Get(language,"terms"),T("location"),T("finished")};
+        var stages=new[]{"Select Language",StartupText.Get(language,"terms"),T("location"),T(gate.Stage==InstallationStage.Installing?"installing":"finished")};
         var step=gate.Stage switch{InstallationStage.Language=>0,InstallationStage.Terms=>1,InstallationStage.Location=>2,_=>3};
         for(var i=0;i<4;i++)
         {
@@ -154,14 +178,6 @@ public sealed class SetupForm : Form
         }
         var title=gate.Stage switch{InstallationStage.Language=>"Select Language",InstallationStage.Terms=>StartupText.Get(language,"terms"),InstallationStage.Location=>T("location"),InstallationStage.Installing=>T("installing"),_=>T("finished")};
         PremiumTheme.Text(g,title,new(265,57,505,59),22,PremiumTheme.Gold,language,FontStyle.Bold);
-        if(gate.Stage==InstallationStage.Installing)
-        {
-            var seconds=clock.Elapsed.TotalSeconds;
-            using var pen=new Pen(Color.FromArgb(155,PremiumTheme.Gold),3);g.DrawArc(pen,472,190,76,76,(float)(seconds*100),245);
-            using var track=new SolidBrush(Color.FromArgb(37,39,48));g.FillRectangle(track,280,485,470,6);
-            var state=g.Save();g.SetClip(new Rectangle(280,485,470,6));var x=160+(float)((seconds*.4)%1)*670;
-            using var shine=new LinearGradientBrush(new RectangleF(x,485,140,6),Color.Transparent,PremiumTheme.Gold,0f);g.FillRectangle(shine,x,485,140,6);g.Restore(state);
-        }
         PremiumTheme.Text(g,"Designed & Developed by Keyt",new(245,610,555,15),7,PremiumTheme.Muted,"en",align:StringAlignment.Center);
     }
     private void BeginDrag(Point point){dragOffset=new(point.X-Left,point.Y-Top);dragging=true;Capture=true;Cursor=Cursors.SizeAll;}

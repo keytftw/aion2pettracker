@@ -54,10 +54,10 @@ public sealed class TrackerTests
         Assert.DoesNotContain(1002, t.Current.Preferences.Dismissed); Assert.Equal(2L, t.KnownTotal(1002));
     }
     [Fact]
-    public void GapRetainsCountersAndRecordsGainsUntilSnapshot()
+    public void GapContinuesProvisionalCountersAndNewSnapshotReplacesThem()
     {
         var t = Create(); Sync(t, 2, 46); t.Gap("missing"); Gain(t, 1);
-        Assert.Equal(DataQuality.Uncertain, t.Quality); Assert.Equal(76L, t.KnownTotal(1002));
+        Assert.Equal(DataQuality.Uncertain, t.Quality); Assert.Equal(77L, t.KnownTotal(1002));
         Assert.Single(t.Session.Events); Assert.Equal(1L, t.Session.Souls[1002]);
         Sync(t, 2, 48, 2); Assert.Equal(78L, t.KnownTotal(1002)); Assert.Equal(DataQuality.Exact, t.Quality);
     }
@@ -89,7 +89,7 @@ public sealed class TrackerTests
     public void ReconnectAndNewStreamInvalidateExactness()
     {
         var t = Create(); Sync(t); Gain(t, 1); t.Reconnect(); Gain(t, 0, stream: "new");
-        Assert.Equal(1L, t.KnownTotal(1002)); Assert.Equal(2L, t.Session.Souls[1002]); Assert.Equal(DataQuality.Uncertain, t.Quality);
+        Assert.Equal(2L, t.KnownTotal(1002)); Assert.Equal(2L, t.Session.Souls[1002]); Assert.Equal(DataQuality.Uncertain, t.Quality);
         t.Synchronize(new(Scope, "new", 1, [new(1002, 0, 3)])); Gain(t, 2, stream: "new");
         Assert.Equal(4L, t.KnownTotal(1002));
     }
@@ -128,13 +128,13 @@ public sealed class TrackerTests
         Assert.Null(t.KnownTotal(1003)); Assert.Equal(DataQuality.Uncertain, t.Quality);
     }
     [Fact]
-    public void SparseSnapshotNeverInitializesUnknownIdOrMissingPetAfterGap()
+    public void SparseSnapshotSuppliesProvisionalZeroAfterGapButNeverInventsUnknownIds()
     {
         var t = Create(); t.Synchronize(new(Scope, "stream", 0, [], OmittedEntriesAreZero: true));
         Gain(t, 1, id: 99999); Assert.Null(t.KnownTotal(99999)); Assert.Equal(DataQuality.Uncertain, t.Quality);
         t.Synchronize(new(Scope, "stream", 2, [], OmittedEntriesAreZero: true));
         t.Gap("loss"); Gain(t, 3, id: 1003);
-        Assert.Equal(0L, t.KnownTotal(1003)); Assert.DoesNotContain(1003, t.Current.LastKnownTotals.Keys);
+        Assert.Equal(1L, t.KnownTotal(1003)); Assert.Contains(1003, t.Current.LastKnownTotals.Keys);
         Assert.Equal(DataQuality.Uncertain, t.Quality); Assert.Equal(1L, t.Session.Souls[1003]);
     }
     [Fact]
@@ -144,7 +144,7 @@ public sealed class TrackerTests
         t.Reconnect(); Gain(t, 0, id: 1003, stream: "new"); Assert.Equal(0L, t.KnownTotal(1003));
         Assert.DoesNotContain(1003, t.Current.LastKnownTotals.Keys);
         var loaded = Create(t.Saved); Gain(loaded, 1, id: 1003);
-        Assert.Equal(0L, loaded.KnownTotal(1003)); Assert.DoesNotContain(1003, loaded.Current.LastKnownTotals.Keys);
+        Assert.Equal(1L, loaded.KnownTotal(1003)); Assert.Contains(1003, loaded.Current.LastKnownTotals.Keys);
         Assert.Equal(DataQuality.Uncertain, loaded.Quality);
     }
     [Fact]
@@ -209,4 +209,25 @@ public sealed class TrackerTests
     [Theory]
     [InlineData(-1, 0)] [InlineData(0, 5)] [InlineData(1, 25)] [InlineData(2, 75)] [InlineData(3, 1)]
     public void InvalidLevelsRejected(int level, int count) => Assert.Throws<ArgumentException>(() => Progress.Total(new(1002, level, count)));
+
+    [Fact]
+    public void BatchCountsIdenticalRecordsAndDeduplicatesOnlyWholeFrame()
+    {
+        var t=Create(); Sync(t);
+        SoulEvent[] batch=[new(Scope,"stream",1,1002,1),new(Scope,"stream",1,1002,1)];
+        t.GainBatch(batch); t.GainBatch(batch);
+        Assert.Equal(2L,t.Session.Souls[1002]); Assert.Equal(2,t.Session.Events.Count);
+        Assert.Equal(new[]{0,1},t.Session.Events.Select(e=>e.RecordIndex));
+        t.Gap("unsupported payload"); Gain(t,2);
+        Assert.Equal(3L,t.Session.Souls[1002]); Assert.Equal(DataQuality.Uncertain,t.Quality);
+    }
+
+    [Fact]
+    public void InvalidBatchDoesNotPartiallyApplyOrConsumeFrame()
+    {
+        var t=Create(); Sync(t); var before=t.KnownTotal(1002);
+        Assert.Throws<ArgumentException>(()=>t.GainBatch([new(Scope,"stream",1,1002,1),new(Scope,"stream",1,1003,0)]));
+        Assert.Empty(t.Session.Events); Assert.Equal(before,t.KnownTotal(1002));
+        Gain(t,1); Assert.Single(t.Session.Events); Assert.Equal(before+1,t.KnownTotal(1002));
+    }
 }

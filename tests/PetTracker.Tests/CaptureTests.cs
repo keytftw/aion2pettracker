@@ -139,7 +139,8 @@ public sealed class CaptureTests
         Assert.Equal(DataQuality.Uncertain, t.Quality); Assert.Equal(4L, t.KnownTotal(1002)); Assert.False(session.IdentityKnown);
         Assert.Empty(t.Session.Events);
         stream.Push(sequence + (uint)afterGap.Length, Frame(0x3336, Identity()), 2100);
-        Assert.Single(t.Session.Events); Assert.Equal(4L, t.KnownTotal(1002));
+        Assert.Single(t.Session.Events); Assert.Equal(5L, t.KnownTotal(1002));
+        Assert.Equal(DataQuality.Uncertain, t.Quality);
     }
     [Fact]
     public void CompressedBundleDeliversOrderedDistinctFrames()
@@ -215,7 +216,7 @@ public sealed class CaptureTests
         session.Accept(new CollectionReceived("s", 2, [new(1002, 0, 1)])); session.Accept(new SoulReceived("s", 3, 1002, 1));
         session.Accept(new IntegrityLost("drop")); session.Accept(new SoulReceived("s", 4, 1002, 1));
         session.Accept(new OwnIdentity("s", 5, 15, scope));
-        Assert.Equal(2L, t.KnownTotal(1002)); Assert.Equal(2L, t.Session.Souls[1002]); Assert.Equal(DataQuality.Uncertain, t.Quality);
+        Assert.Equal(3L, t.KnownTotal(1002)); Assert.Equal(2L, t.Session.Souls[1002]); Assert.Equal(DataQuality.Uncertain, t.Quality);
     }
     [Fact]
     public void WrongStreamCannotChangeCounters()

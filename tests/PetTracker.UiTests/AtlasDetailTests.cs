@@ -18,6 +18,9 @@ public sealed class AtlasDetailTests
                 T Field<T>(object obj,string name)=>(T)obj.GetType().GetField(name,BindingFlags.Instance|BindingFlags.NonPublic)!.GetValue(obj)!;
                 void Click(Control control)=>typeof(Control).GetMethod("OnClick",BindingFlags.Instance|BindingFlags.NonPublic)!.Invoke(control,[EventArgs.Empty]);
                 var data=Field<MapData>(map,"data");
+                var handbookButton=Field<PremiumButton>(map,"handbookButton");Assert.True(handbookButton.BookIcon);
+                Click(handbookButton);var handbook=Field<HandbookForm>(map,"handbook");Assert.True(handbook.Visible);
+                Click(handbookButton);Assert.Same(handbook,Field<HandbookForm>(map,"handbook"));handbook.Close();
                 Assert.All(Field<PetDefinition[]>(map,"matches"),p=>Assert.Empty(data.WorldsForPet(p.Id)));
                 Assert.False(Field<CheckBox>(map,"showAll").Enabled);
                 typeof(PetMapForm).GetMethod("ShowPetCard",BindingFlags.Instance|BindingFlags.NonPublic)!.Invoke(map,[1001]);

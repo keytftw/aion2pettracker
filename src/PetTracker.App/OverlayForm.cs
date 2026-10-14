@@ -265,12 +265,14 @@ public sealed class OverlayForm : Form
         }
         var footer=LogicalHeight-FooterHeight;using var footerBrush=new SolidBrush(PremiumTheme.Background);g.FillRectangle(footerBrush,1,footer,DesignWidth-2,FooterHeight-1);g.DrawLine(line,10,footer,DesignWidth-10,footer);
         var exact=controller.Tracker.Quality==DataQuality.Exact&&(!controller.LiveMode||controller.Session.IdentityKnown);
-        using var dot=new SolidBrush(exact?Color.FromArgb(139,192,154):PremiumTheme.Gold);g.FillEllipse(dot,12,footer+11,4,4);
+        var warning=controller.Tracker.Quality==DataQuality.Uncertain;
+        var warningColor=Color.FromArgb(255,102,105);
+        using var dot=new SolidBrush(warning?warningColor:exact?Color.FromArgb(139,192,154):PremiumTheme.Gold);g.FillEllipse(dot,12,footer+11,4,4);
         var status=!controller.LiveMode?T("demo"):exact?T("exact"):controller.Session.IdentityKnown?T("uncertain"):T("snapshot");
-        DrawText(g,status,new(23,footer+4,DesignWidth-47,18),6.8f,exact?PremiumTheme.Ink:PremiumTheme.Gold);
+        DrawText(g,warning?T("resyncWarning"):status,new(23,footer+3,DesignWidth-40,warning?32:18),warning?7.5f:6.8f,warning?warningColor:exact?PremiumTheme.Ink:PremiumTheme.Gold);
         using(var grip=new Pen(Color.FromArgb(hovered=="resize"?210:110,PremiumTheme.Gold),1.4f)){var gx=DesignWidth/2f;g.DrawLine(grip,gx-12,LogicalHeight-4,gx+12,LogicalHeight-4);g.DrawLine(grip,gx-7,LogicalHeight-7,gx+7,LogicalHeight-7);}
-        using var creditRule=new Pen(Color.FromArgb(24,PremiumTheme.Gold));g.DrawLine(creditRule,43,footer+23,DesignWidth-43,footer+23);
-        PremiumTheme.Text(g,"Designed & Developed by Keyt",new(15,footer+24,DesignWidth-30,11),5.9f,Color.FromArgb(149,142,136),"en",align:StringAlignment.Center);
+        if(!warning){using var creditRule=new Pen(Color.FromArgb(24,PremiumTheme.Gold));g.DrawLine(creditRule,43,footer+23,DesignWidth-43,footer+23);
+        PremiumTheme.Text(g,"Designed & Developed by Keyt",new(15,footer+24,DesignWidth-30,11),5.9f,Color.FromArgb(149,142,136),"en",align:StringAlignment.Center);}
     }
     private void DrawCard(Graphics g,CardMotion.Row row,RectangleF box)
     {
@@ -307,7 +309,7 @@ public sealed class OverlayForm : Form
         var count=progress is null?"—":progress.Level==3?"MAX":$"{progress.WithinLevel}/{progress.Goal}";
         var countColor=progress?.Level==3?Color.FromArgb((int)(255*(1-hoverValue*.8f)),PremiumTheme.Gold):PremiumTheme.Ink;
         DrawText(g,count,new(box.X+195,box.Y+8,70,29),14,Fade(countColor),FontStyle.Bold,StringAlignment.Center,language:"en");
-        var caption=progress is null?T("waiting"):tracker.Quality!=DataQuality.Exact?T("last"):progress.Level==3?T("complete"):T("remaining",progress.Remaining);
+        var caption=progress is null?T("waiting"):tracker.Quality!=DataQuality.Exact?T("unverified"):progress.Level==3?T("complete"):T("remaining",progress.Remaining);
         DrawText(g,caption,new(box.X+193,box.Y+36,73,16),6.8f,Fade(PremiumTheme.Muted),align:StringAlignment.Center);
         if(progress is not null)
         {

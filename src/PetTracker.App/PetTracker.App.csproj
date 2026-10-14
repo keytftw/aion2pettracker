@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Assets\Fonts\*.ttf" LogicalName="Fonts.%(Filename)%(Extension)" />
+    <EmbeddedResource Include="Assets\Handbook\*.png" LogicalName="Handbook.%(Filename)%(Extension)" />
     <ProjectReference Include="..\PetTracker.Core\PetTracker.Core.csproj" />
     <Content Include="..\..\data\servers.json" Link="data\servers.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
     <Content Include="..\..\data\pet-catalog.json" Link="data\pet-catalog.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -27,7 +28,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>1.2.1</Version>
+    <Version>1.2.4</Version>
     <AssemblyTitle>Aion 2 Pet Tracker</AssemblyTitle>
     <AssemblyName>A2PetTracker</AssemblyName>
     <Product>Aion 2 Pet Tracker</Product>

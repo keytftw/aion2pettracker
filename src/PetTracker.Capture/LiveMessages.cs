@@ -6,7 +6,7 @@ public abstract record LiveMessage;
 public sealed record StreamBegan(string StreamId) : LiveMessage;
 public sealed record StreamEnded(string Reason) : LiveMessage;
 public sealed record CaptureNotice(string Text) : LiveMessage;
-public sealed record IntegrityLost(string Reason) : LiveMessage;
+public sealed record IntegrityLost(string Reason, bool IdentityMayBeLost = true) : LiveMessage;
 public sealed record OwnIdentity(string StreamId, long FrameId, uint ActorId, CharacterScope Scope) : LiveMessage;
 public sealed record OwnActor(string StreamId, uint ActorId) : LiveMessage;
 public sealed record CollectionReceived(string StreamId, long FrameId, List<CollectionEntry> Entries, int IgnoredTrailingBytes = 0, bool OmittedEntriesAreZero = false) : LiveMessage;

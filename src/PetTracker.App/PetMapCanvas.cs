@@ -6,6 +6,7 @@ public sealed class PetMapCanvas : Control
 {
     private Bitmap? terrain;
     private MapLocation[] markers=[];
+    private MapLocation[] paintMarkers=[];
     private IReadOnlyDictionary<int,Image> portraits=new Dictionary<int,Image>();
     private readonly Dictionary<(int Id,int Size),Bitmap> portraitMarkers=[];
     private bool showPortraits;
@@ -13,10 +14,11 @@ public sealed class PetMapCanvas : Control
     private List<MapLocation> drawnMarkers=[];
     public event Action<int>? MarkerSelected;
     public void SetPortraits(IReadOnlyDictionary<int,Image> images)=>portraits=images;
-    public void SetMarkerStyle(bool portraitStyle,int selectedId){showPortraits=portraitStyle;selectedPet=selectedId;Invalidate();}
+    public void SetMarkerStyle(bool portraitStyle,int selectedId)
+    {if(showPortraits==portraitStyle&&selectedPet==selectedId)return;showPortraits=portraitStyle;selectedPet=selectedId;paintMarkers=markers.OrderBy(marker=>marker.PetId==selectedPet).ToArray();Invalidate();}
     private readonly MapCamera camera=new();
     private readonly Stopwatch clock=Stopwatch.StartNew();
-    private readonly System.Windows.Forms.Timer animation=new(){Interval=8};
+    private readonly System.Windows.Forms.Timer animation=new(){Interval=16};
     private readonly ToolTip tooltip=new(){AutoPopDelay=10000,InitialDelay=180,ReshowDelay=100};
     private bool dragging,moved,active=true;
     private Point last,down;
@@ -45,7 +47,7 @@ public sealed class PetMapCanvas : Control
         ResizeCamera();camera.SetTarget(new(.5,.5,1),Now,0);hovered=null;tooltip.SetToolTip(this,null);Invalidate();
     }
     public void SetLocations(IReadOnlyList<MapLocation> locations,string emptyMessage)
-    {markers=terrain is null?[]:locations.ToArray();message=terrain is null?MapText.Get(Language,"loadFailed"):markers.Length==0?emptyMessage:"";hovered=null;tooltip.SetToolTip(this,null);Invalidate();}
+    {markers=terrain is null?[]:locations.ToArray();paintMarkers=markers.OrderBy(marker=>marker.PetId==selectedPet).ToArray();message=terrain is null?MapText.Get(Language,"loadFailed"):markers.Length==0?emptyMessage:"";hovered=null;tooltip.SetToolTip(this,null);Invalidate();}
     public void FocusLocations()
         =>FocusLocations(markers);
     public void FocusLocations(IReadOnlyList<MapLocation> locations)
@@ -61,8 +63,7 @@ public sealed class PetMapCanvas : Control
     {
         base.OnMouseMove(e);
         if(dragging){if(Math.Abs(e.X-down.X)+Math.Abs(e.Y-down.Y)>5*DpiScale)moved=true;camera.Pan(e.X-last.X,e.Y-last.Y,Now);last=e.Location;Animate();return;}
-        var nearest=(showPortraits?drawnMarkers:markers.AsEnumerable()).Select(marker=>(Marker:marker,Screen:camera.ToScreen(marker.Point))).Where(pair=>Math.Abs(pair.Screen.X-e.X)<12*DpiScale&&Math.Abs(pair.Screen.Y-e.Y)<12*DpiScale)
-            .OrderBy(pair=>Math.Pow(pair.Screen.X-e.X,2)+Math.Pow(pair.Screen.Y-e.Y,2)).Select(pair=>pair.Marker).FirstOrDefault();
+        var nearest=FindNearest(e.X,e.Y);
         if(nearest!=hovered){hovered=nearest;tooltip.SetToolTip(this,nearest is null?null:$"{nearest.NpcName} · Lv {nearest.Level}\n{nearest.Area??""}");Invalidate();}
     }
     protected override void OnMouseUp(MouseEventArgs e)
@@ -70,13 +71,19 @@ public sealed class PetMapCanvas : Control
         base.OnMouseUp(e);if(!dragging)return;dragging=false;Capture=false;Cursor=Cursors.Hand;
         if(!moved)
         {
-            var nearest=(showPortraits?drawnMarkers:markers.AsEnumerable()).Select(marker=>(Marker:marker,Screen:camera.ToScreen(marker.Point)))
-                .Where(pair=>Math.Abs(pair.Screen.X-e.X)<12*DpiScale&&Math.Abs(pair.Screen.Y-e.Y)<12*DpiScale)
-                .OrderBy(pair=>Math.Pow(pair.Screen.X-e.X,2)+Math.Pow(pair.Screen.Y-e.Y,2)).Select(pair=>pair.Marker).FirstOrDefault();
+            var nearest=FindNearest(e.X,e.Y);
             if(nearest is not null){hovered=nearest;camera.SetTarget(new(nearest.Point.X,nearest.Point.Y,Math.Max(6,camera.Target.Zoom)),Now,.5);focusStart=Now;Animate();MarkerSelected?.Invoke(nearest.PetId);}
         }
     }
     protected override void OnMouseCaptureChanged(EventArgs e){base.OnMouseCaptureChanged(e);if(!Capture)dragging=false;}
+    private MapLocation? FindNearest(int x,int y)
+    {
+        MapLocation? nearest=null;var best=double.MaxValue;var radius=12*DpiScale;
+        IEnumerable<MapLocation> candidates=showPortraits?drawnMarkers:markers;
+        foreach(var marker in candidates)
+        {var point=camera.ToScreen(marker.Point);var dx=point.X-x;var dy=point.Y-y;if(Math.Abs(dx)>=radius||Math.Abs(dy)>=radius)continue;var distance=dx*dx+dy*dy;if(distance<best){best=distance;nearest=marker;}}
+        return nearest;
+    }
     protected override void OnMouseLeave(EventArgs e){base.OnMouseLeave(e);hovered=null;Invalidate();}
     protected override bool IsInputKey(Keys keyData)=>keyData is Keys.Left or Keys.Right or Keys.Up or Keys.Down||base.IsInputKey(keyData);
     protected override void OnKeyDown(KeyEventArgs e)
@@ -93,7 +100,10 @@ public sealed class PetMapCanvas : Control
             using var shade=new SolidBrush(Color.FromArgb(24,PremiumTheme.Background));g.FillRectangle(shade,ClientRectangle);
         }
         drawnMarkers.Clear();var occupied=new HashSet<(int Pet,int X,int Y)>();
-        foreach(var marker in markers.OrderBy(marker=>marker.PetId==selectedPet))
+        using var markerFill=new SolidBrush(Color.FromArgb(239,49,53));using var hoverFill=new SolidBrush(Color.FromArgb(255,78,75));
+        using var outline=new Pen(Color.Black,2*DpiScale);using var selectedOutline=new Pen(PremiumTheme.Gold,2*DpiScale);
+        using var markerGlow=new SolidBrush(Color.FromArgb(36,239,49,53));using var hoverGlow=new SolidBrush(Color.FromArgb(80,239,49,53));
+        foreach(var marker in paintMarkers)
         {
             var point=camera.ToScreen(marker.Point);var x=(float)point.X;var y=(float)point.Y;if(x<-20||y<-20||x>Width+20||y>Height+20)continue;
             if(showPortraits)
@@ -105,14 +115,14 @@ public sealed class PetMapCanvas : Control
                 var icon=PortraitMarker(marker.PetId,pixels);
                 g.DrawImageUnscaled(icon,(int)Math.Round(x-pixels/2f),(int)Math.Round(y-pixels/2f));
                 if(marker.PetId==selectedPet||marker==hovered)
-                {using var selected=new Pen(PremiumTheme.Gold,2*DpiScale);g.DrawEllipse(selected,x-pixels/2f,y-pixels/2f,pixels,pixels);}
+                {g.DrawEllipse(selectedOutline,x-pixels/2f,y-pixels/2f,pixels,pixels);}
                 continue;
             }
             var radius=(marker==hovered?7f:5.5f)*DpiScale;
             if(Now-focusStart<2.8){var pulse=(float)(((Now-focusStart)*.8)%1);using var ripple=new Pen(Color.FromArgb((int)(70*(1-pulse)),Color.FromArgb(239,49,53)),1.5f*DpiScale);var r=(9+14*pulse)*DpiScale;g.DrawEllipse(ripple,x-r,y-r,r*2,r*2);}
-            using var glow=new SolidBrush(Color.FromArgb(marker==hovered?80:36,Color.FromArgb(239,49,53)));g.FillEllipse(glow,x-radius-3*DpiScale,y-radius-3*DpiScale,2*(radius+3*DpiScale),2*(radius+3*DpiScale));
-            using var fill=new SolidBrush(marker==hovered?Color.FromArgb(255,78,75):Color.FromArgb(239,49,53));g.FillEllipse(fill,x-radius,y-radius,radius*2,radius*2);
-            using var border=new Pen(Color.Black,2*DpiScale);g.DrawEllipse(border,x-radius,y-radius,radius*2,radius*2);
+            g.FillEllipse(marker==hovered?hoverGlow:markerGlow,x-radius-3*DpiScale,y-radius-3*DpiScale,2*(radius+3*DpiScale),2*(radius+3*DpiScale));
+            g.FillEllipse(marker==hovered?hoverFill:markerFill,x-radius,y-radius,radius*2,radius*2);
+            g.DrawEllipse(outline,x-radius,y-radius,radius*2,radius*2);
         }
         if(message.Length>0)
         {

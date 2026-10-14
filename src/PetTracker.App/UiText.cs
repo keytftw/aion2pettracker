@@ -6,6 +6,8 @@ public static class UiText
     [("tr","Türkçe"),("en","English"),("de","Deutsch"),("ru","Русский"),("es","Español"),("fr","Français"),("pt","Português"),("ar","العربية"),("hi","हिन्दी"),("zh","简体中文")];
     private static readonly Dictionary<string,string[]> Strings = new()
     {
+        ["resyncWarning"]=["Sayaç hatalı olabilir.\nDoğrulamak için karakter seçimine dön.","Pet Tracker may be inaccurate.\nReturn to Character Select to resync.","Zähler möglicherweise ungenau.\nZur Charakterauswahl zurückkehren.","Счётчик может быть неточным.\nВернитесь к выбору персонажа.","El contador puede ser inexacto.\nVuelve a seleccionar personaje.","Le compteur peut être inexact.\nRevenez à la sélection du personnage.","O contador pode estar incorreto.\nVolte à seleção de personagem.","قد تكون الأعداد غير دقيقة.\nعد إلى اختيار الشخصية للمزامنة.","गिनती गलत हो सकती है।\nदोबारा सिंक करने के लिए चरित्र चयन पर जाएँ।","计数可能不准确。\n请返回角色选择界面重新同步。"],
+        ["unverified"]=["Doğrulanmadı","Unverified","Unbestätigt","Не подтверждено","Sin verificar","Non vérifié","Não verificado","غير مؤكد","अपुष्ट","未验证"],
         ["moveUp"]=["Kartı yukarı taşı","Move card up","Karte nach oben","Поднять карточку","Subir tarjeta","Monter la carte","Mover cartão para cima","نقل البطاقة للأعلى","कार्ड ऊपर ले जाएँ","上移卡片"],
         ["moveDown"]=["Kartı aşağı taşı","Move card down","Karte nach unten","Опустить карточку","Bajar tarjeta","Descendre la carte","Mover cartão para baixo","نقل البطاقة للأسفل","कार्ड नीचे ले जाएँ","下移卡片"],
         ["visibleCards"]=["Görünen pet sayısı","Visible pets","Sichtbare Pets","Видимые питомцы","Pets visibles","Pets visibles","Pets visíveis","الحيوانات الظاهرة","दिखने वाले पेट","显示宠物数量"],

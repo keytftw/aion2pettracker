@@ -18,14 +18,25 @@ public static class PetProtocol
                 // Record only shape/frame metadata, never the raw packet. A rejected
                 // shape must remain uncertain until its meaning is verified.
                 var soulShape=$"opcode=0x0D90, uzunluk={body.Length}, tür="+(body.IsEmpty?"yok":$"0x{body[0]:X2}")+$", frame={frame}";
+                // The reported type-02, 17-byte variant may contain two entries.
+                // Record bounded game-data candidates only, never raw bytes or
+                // inferred gains. Its semantics still require live corroboration.
+                if(body.Length==17&&body[0]==2)
+                {
+                    var firstId=Wire.U32(body,1);var firstAmount=Wire.U32(body,5);
+                    var secondId=Wire.U32(body,9);var secondAmount=Wire.U32(body,13);
+                    if(firstId is >=1000 and <=9999&&secondId is >=1000 and <=9999&&firstAmount is >0 and <1000&&secondAmount is >0 and <1000)
+                        soulShape+=$", toplu soul adayı: Pet ID {firstId} +{firstAmount}; Pet ID {secondId} +{secondAmount} (doğrulanmadı; sayaca uygulanmadı)";
+                    else soulShape+=", iki geçerli Pet ID/miktar çiftiyle eşleşmedi";
+                }
                 if (body.Length >= 9 && body[0] == 1)
                 {
                     var id = Wire.U32(body, 1); var amount = Wire.U32(body, 5);
                     if (id > 0 && id <= int.MaxValue && amount is > 0 and < 1000)
                         return new SoulReceived(stream, frame, (int)id, (int)amount);
-                    return new IntegrityLost($"Geçersiz soul: Pet ID {id}, miktar {amount} ({soulShape})");
+                    return new IntegrityLost($"Geçersiz soul: Pet ID {id}, miktar {amount} ({soulShape})",IdentityMayBeLost:false);
                 }
-                return new IntegrityLost($"Soul mesajı biçimi geçersiz/eksik ({soulShape}); yeni tam collection gerekiyor");
+                return new IntegrityLost($"Soul mesajı biçimi geçersiz/eksik ({soulShape}); yeni tam collection gerekiyor",IdentityMayBeLost:false);
             case 0x3336:
                 return (LiveMessage?)ReadIdentity(stream, frame, body) ?? new IntegrityLost("Kendi karakter kimliği okunamadı; karakter eşlemesi durduruldu");
             case 0x4A36:

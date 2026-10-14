@@ -1,11 +1,14 @@
-﻿using PetTracker.App;
+using PetTracker.App;
 namespace PetTracker.Setup;
 internal static class InstallerText
 {
     private static readonly Dictionary<string,string[]> Texts = new()
     {
+        ["installAppearance"]=["Görünüm ayarlarını uygulama ayarlarından değiştirebilirsin.","You can change appearance in the app settings.","Die Darstellung kannst du in den App-Einstellungen ändern.","Оформление можно изменить в настройках приложения.","Puedes cambiar la apariencia en los ajustes de la aplicación.","Vous pouvez modifier l’apparence dans les paramètres.","Você pode mudar a aparência nas configurações do aplicativo.","يمكنك تغيير المظهر من إعدادات التطبيق.","ऐप की सेटिंग में रूप बदल सकते हैं।","可在应用设置中更改外观。"],
+        ["installGuide"]=["Pet Atlası ve uygulama hakkında detaylı bilgi için keytdev.com/pettracker linkini ziyaret et.","Visit keytdev.com/pettracker for Pet Atlas and app details.","Informationen zu Pet Atlas und der App: keytdev.com/pettracker.","Подробнее об Атласе и приложении: keytdev.com/pettracker.","Visita keytdev.com/pettracker para conocer el Atlas y la aplicación.","Détails sur l’Atlas et l’application : keytdev.com/pettracker.","Saiba mais sobre o Atlas e o aplicativo em keytdev.com/pettracker.","للمزيد عن الأطلس والتطبيق، زر keytdev.com/pettracker.","पेट एटलस और ऐप की जानकारी: keytdev.com/pettracker.","宠物图鉴及应用详情：keytdev.com/pettracker。"],
+        ["installContact"]=["Geribildirim için support@keytdev.com","Feedback: support@keytdev.com","Feedback: support@keytdev.com","Обратная связь: support@keytdev.com","Comentarios: support@keytdev.com","Vos retours : support@keytdev.com","Feedback: support@keytdev.com","للملاحظات: support@keytdev.com","प्रतिक्रिया: support@keytdev.com","反馈：support@keytdev.com"],
         ["install"]=["KUR","INSTALL","INSTALLIEREN","УСТАНОВИТЬ","INSTALAR","INSTALLER","INSTALAR","تثبيت","इंस्टॉल करें","安装"],
-        ["installing"]=["Kuruluyor…","Installing…","Installation läuft…","Установка…","Instalando…","Installation…","Instalando…","جارٍ التثبيت…","इंस्टॉल हो रहा है…","正在安装…"],
+        ["installing"]=["Pet Tracker Kuruluyor...","Installing Pet Tracker...","Pet Tracker wird installiert...","Установка Pet Tracker...","Instalando Pet Tracker...","Installation de Pet Tracker...","Instalando Pet Tracker...","جارٍ تثبيت Pet Tracker...","Pet Tracker इंस्टॉल हो रहा है...","正在安装 Pet Tracker..."],
         ["launch"]=["TRACKER’I AÇ","OPEN TRACKER","TRACKER ÖFFNEN","ОТКРЫТЬ ТРЕКЕР","ABRIR TRACKER","OUVRIR LE TRACKER","ABRIR TRACKER","افتح المتتبع","ट्रैकर खोलें","打开追踪器"],
         ["back"]=["Geri","Back","Zurück","Назад","Atrás","Retour","Voltar","رجوع","वापस","返回"],
         ["website"]=["Web sitesi","Website","Website","Веб-сайт","Sitio web","Site web","Site","الموقع","वेबसाइट","网站"],
