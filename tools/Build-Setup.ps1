@@ -1,4 +1,4 @@
-﻿param(
+param(
     [string]$VpkPath,
     [string]$OutputDirectory
 )
@@ -23,7 +23,7 @@ New-Item -ItemType Directory -Force -Path $buildRoot, $OutputDirectory | Out-Nul
 # A single MSBuild node avoids child-node failures in restricted Windows build environments.
 dotnet publish (Join-Path $projectRoot 'src/PetTracker.App/PetTracker.App.csproj') -c Release -r win-x64 --self-contained true -m:1 -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=embedded -o $appOutput
 if ($LASTEXITCODE) { throw 'Application publish failed.' }
-foreach ($required in @('data/pet-catalog.json','data/servers.json','data/PET-SOURCES.md','LICENSE','THIRD_PARTY_NOTICES.md')) {
+foreach ($required in @('data/pet-catalog.json','data/pet-sources.json','data/servers.json','data/PET-SOURCES.md','LICENSE','THIRD_PARTY_NOTICES.md')) {
     if (!(Test-Path -LiteralPath (Join-Path $appOutput $required))) { throw "Published application file is missing: $required" }
 }
 foreach ($assetDirectory in @('data/pets','licenses')) {

@@ -17,7 +17,7 @@ public sealed class OverlaySettingsForm : Form
     protected override void OnMouseMove(MouseEventArgs e){base.OnMouseMove(e);if(dragging){var point=PointToScreen(e.Location);Location=new(point.X-dragOffset.X,point.Y-dragOffset.Y);}else Cursor=Cursors.SizeAll;}
     protected override void OnMouseUp(MouseEventArgs e){base.OnMouseUp(e);dragging=false;Capture=false;}
     protected override void OnMouseCaptureChanged(EventArgs e){base.OnMouseCaptureChanged(e);if(!Capture)dragging=false;}
-    public OverlaySettingsForm(OverlayPreferences preferences,Cursor cursor,int maximumHeight,Action changed,Action logs,Func<bool>? hotkeysChanged=null)
+    public OverlaySettingsForm(OverlayPreferences preferences,Cursor cursor,int maximumHeight,Action changed,Action logs,Func<bool>? hotkeysChanged=null,Action? riftSettings=null)
     {
         AutoScaleMode=AutoScaleMode.Dpi;AutoScaleDimensions=new(96,96);ClientSize=new(340,540);FormBorderStyle=FormBorderStyle.None;StartPosition=FormStartPosition.CenterParent;TopMost=true;ShowInTaskbar=false;
         BackColor=PremiumTheme.Background;ForeColor=PremiumTheme.Ink;Cursor=cursor;KeyPreview=true;this.preferences=preferences;this.changed=changed;this.hotkeysChanged=hotkeysChanged??(()=>true);
@@ -75,6 +75,12 @@ public sealed class OverlaySettingsForm : Form
         opacity.ValueChanged+=(_,_)=>{preferences.OpacityPercent=opacity.Value;opacityValue.Text=opacity.Value+"%";changed();};
         height.ValueChanged+=(_,_)=>{preferences.VisibleCards=height.Value;heightValue.Text=height.Value.ToString();changed();};
         top.CheckedChanged+=(_,_)=>{preferences.AlwaysOnTop=top.Checked;changed();};locked.CheckedChanged+=(_,_)=>{preferences.Locked=locked.Checked;changed();};
+        if(riftSettings is not null)
+        {
+            ClientSize=new(340,585);diagnostic.Top+=42;done.Top+=42;credit.Top+=42;
+            var rift=new PremiumButton{Text="Spacetime Rift",Location=new(18,470),Size=new(305,31),Cursor=cursor,TextSize=10,DpiAwareText=true};
+            rift.Click+=(_,_)=>riftSettings();Controls.Add(rift);
+        }
         Controls.AddRange([title,opacityLabel,opacityValue,opacity,heightLabel,heightValue,height,top,locked,languageLabel,languages,support,hideHotkeyButton,compactHotkeyButton,diagnostic,done,close,credit]);RefreshStrings();PremiumDialogMotion.Attach(this);
     }
     private static int Modifiers(Keys keys)=>((keys&Keys.Control)!=0?2:0)|((keys&Keys.Alt)!=0?1:0)|((keys&Keys.Shift)!=0?4:0);

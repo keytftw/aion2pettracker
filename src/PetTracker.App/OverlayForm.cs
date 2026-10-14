@@ -46,6 +46,7 @@ public sealed class OverlayForm : Form
     private bool hideHotkeyRegistered,compactHotkeyRegistered;
     private readonly bool preview;
     private PetMapForm? map;
+    private readonly RiftAlertService rift;
     private float ScaleFactor=>DeviceDpi/96f*4f/3f;
     private float LogicalHeight=>ClientSize.Height/ScaleFactor;
     private double Now=>clock.Elapsed.TotalSeconds;
@@ -90,6 +91,7 @@ public sealed class OverlayForm : Form
             if(visible)Invalidate();
         };
         appearanceSave.Tick+=(_,_)=>{appearanceSave.Stop();try{SaveAppearance();}catch(Exception ex){Error(ex);}};
+        rift=new(controller,preferences,SaveAppearance,!preview);
         timer.Start();
         FormClosing+=async(_,e)=>
         {
@@ -426,7 +428,7 @@ public sealed class OverlayForm : Form
                 ApplyAppearance();EnsureVisible();QueueAppearanceSave();
                 if(previousLanguage!=Language||previousLock!=preferences.Locked){RefreshTray();map?.SetLanguage(Language);previousLanguage=Language;previousLock=preferences.Locked;}
                 scrollTarget=SnapScroll(scrollTarget);Invalidate();
-            },ShowLogs,ValidateSettingsHotkeys);
+            },ShowLogs,ValidateSettingsHotkeys,OpenRiftSettings);
             dialog.ShowDialog(this);
         }
         finally{appearanceSave.Stop();ApplyGlobalHotkeys();SaveAppearance();}
@@ -445,7 +447,7 @@ public sealed class OverlayForm : Form
     {
         if(map is null||map.IsDisposed)
         {
-            var window=new PetMapForm(controller,portraits,preferences,SaveAppearance);
+            var window=new PetMapForm(controller,portraits,preferences,SaveAppearance,OpenRiftSettings);
             window.FormClosed+=(_,_)=>{if(ReferenceEquals(map,window))map=null;};map=window;
         }
         if(petId>0)map.FocusPet(petId);
@@ -464,9 +466,11 @@ public sealed class OverlayForm : Form
         using var cursor=CrystalCursor.Draw(true);cursor.Save(Path.Combine(folder,"cursor.png"));
     }
     public void CheckLockedMove(){if(!preferences.Locked)throw new InvalidOperationException("Konum kilidi kapalı.");var before=Location;SendMessage(Handle,0x112,(IntPtr)0xF010,IntPtr.Zero);if(Location!=before)throw new InvalidOperationException("Kilitli pencere hareket etti.");}
+    private void OpenRiftSettings()
+    {using var settings=new RiftSettingsForm(preferences,()=>rift.Region,SaveAppearance,rift.ShowNotice);settings.ShowDialog(Application.OpenForms.OfType<OverlaySettingsForm>().LastOrDefault(f=>f.Visible) is {} activeSettings?activeSettings:map is {IsDisposed:false,Visible:true}?map:this);}
     protected override void Dispose(bool disposing)
     {
-        if(disposing){map?.Dispose();controller.Tracker.ReachedMax-=PlayMaxChime;timer.Dispose();appearanceSave.Dispose();tray?.Dispose();tips.Dispose();chime.Dispose();Icon?.Dispose();foreach(var image in portraits.Values)image.Dispose();foreach(var image in cardPortraits.Values)image.Dispose();crystal.Dispose();brightCrystal.Dispose();}base.Dispose(disposing);
+        if(disposing){rift?.Dispose();map?.Dispose();controller.Tracker.ReachedMax-=PlayMaxChime;timer.Dispose();appearanceSave.Dispose();tray?.Dispose();tips.Dispose();chime.Dispose();Icon?.Dispose();foreach(var image in portraits.Values)image.Dispose();foreach(var image in cardPortraits.Values)image.Dispose();crystal.Dispose();brightCrystal.Dispose();}base.Dispose(disposing);
     }
     [DllImport("user32.dll")]private static extern bool ReleaseCapture();
     [DllImport("user32.dll")]private static extern IntPtr SendMessage(IntPtr window,int message,IntPtr wp,IntPtr lp);

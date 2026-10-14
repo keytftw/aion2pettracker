@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms>
-    <Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><Version>1.1.0</Version>
+    <Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><Version>1.2.1</Version>
     <AssemblyName>A2PetTracker-win-Setup</AssemblyName><Product>Aion 2 Pet Tracker Setup</Product>
     <DefineConstants>$(DefineConstants);SETUP_UI;UI_FONTS</DefineConstants>
     <ApplicationIcon>..\PetTracker.App\Assets\App.ico</ApplicationIcon>
@@ -28,4 +28,3 @@
     <Error Condition="!Exists('$(InstallerPayload)') or !Exists('$(InstallerPayloadHash)')" Text="Publish Setup with the matching Velopack Setup payload and SHA256 metadata. Use tools/Build-Setup.ps1." />
   </Target>
 </Project>
-

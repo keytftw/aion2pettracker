@@ -20,6 +20,13 @@ public sealed class OverlayPreferences
     public int MapWorldId { get; set; } = 1010;
     public bool MapShowAllFarmable { get; set; }
     public bool MapHideUnlocated { get; set; }
+    public bool MapUnlocatedCategory { get; set; }
+    public bool MapAllPetsCategory { get; set; }
+    public bool MapPortraitMarkers { get; set; } = true;
+    public bool RiftAlertsEnabled { get; set; }
+    public bool RiftSoundEnabled { get; set; } = true;
+    public int RiftLeadMinutes { get; set; } = 5;
+    public List<string> RiftDelivered { get; set; } = [];
     public int MapWidth { get; set; } = 1100;
     public int MapHeight { get; set; } = 800;
     public int? MapLeft { get; set; }
@@ -27,6 +34,8 @@ public sealed class OverlayPreferences
     public void Validate()
     {
         OpacityPercent = Math.Clamp(OpacityPercent, 30, 100);
+        RiftLeadMinutes = Math.Clamp(RiftLeadMinutes, 1, 120);
+        RiftDelivered = (RiftDelivered??[]).TakeLast(32).ToList();
         VisibleCards = OverlayHeight.Clamp(VisibleCards);
         Height = OverlayHeight.Pixels(VisibleCards);
         if(!ShortcutKey.IsValid(CompactHotkeyKey,CompactHotkeyModifiers)) {CompactHotkeyKey=0x55;CompactHotkeyModifiers=2;}

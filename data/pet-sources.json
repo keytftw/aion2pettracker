@@ -1,0 +1,4064 @@
+[
+  {
+    "Id": 1001,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/black-dragon",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Daeva's Chest of Might · Opened from this chest",
+      "AION 2 Ultimate Founder's Pack · Opened from this chest",
+      "AION 2 Standard to Ultimate Pack Upgrade · Opened from this chest",
+      "AION 2 Deluxe to Ultimate Pack Upgrade · Opened from this chest"
+    ]
+  },
+  {
+    "Id": 1002,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/krall-laborer",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Krall Armed Soldier · Monster drop, level 21, Verteron",
+      "Krall Sentinel · Monster drop, level 21, Verteron",
+      "Mutated Krall Laborer · Monster drop, level 41, Verteron"
+    ]
+  },
+  {
+    "Id": 1003,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/forest-specter",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Canyon Vine Spirit · Monster drop, level 33, Verteron",
+      "Tainted Vine Specter · Monster drop, level 44, Verteron"
+    ]
+  },
+  {
+    "Id": 1004,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/fossa",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "All Geared Up · Episode quest",
+      "Gathering Essentials · Episode quest",
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Patrolling Fossa · Monster drop, level 25, Verteron",
+      "Daeva Renegade Fossa · Monster drop, level 24, Altgard",
+      "Tamed Beast · Monster drop, level 34, Altgard"
+    ]
+  },
+  {
+    "Id": 1005,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/klaw",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Wandering Klaw · Monster drop, level 19, Verteron",
+      "Abyss Klaw Mutant · Monster drop, level 46, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1006,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/sparkie",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Wild Sparkie · Monster drop, level 18, Verteron",
+      "Meadow Sparkie · Monster drop, level 18, Verteron",
+      "Highland Odyle Sparkie · Monster drop, level 33, Verteron",
+      "Highland Odyle Sparkie · Monster drop, level 32, Verteron"
+    ]
+  },
+  {
+    "Id": 1007,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/potcrab",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Marsh Moss Potcrab · Monster drop, level 14, Verteron",
+      "Flat Potcrab · Monster drop, level 33, Verteron",
+      "Eternal Moss Crab · Monster drop, level 49, Verteron",
+      "Moss Crab · Monster drop, level 32, Altgard"
+    ]
+  },
+  {
+    "Id": 1008,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/baby-odyle-spider",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Coastal Odyle Spider · Monster drop, level 16, Verteron"
+    ]
+  },
+  {
+    "Id": 1009,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/kernon",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1010,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/manduri-fighter",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Crimson Manduri Fighter · Monster drop, level 48, Verteron",
+      "Black Claw Manduri Combatant · Monster drop, level 42, Altgard"
+    ]
+  },
+  {
+    "Id": 1011,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/skyray",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Small Forest Skyray · Monster drop, level 16, Verteron",
+      "Ellun River Falls Skyray · Monster drop, level 18, Verteron",
+      "Tolbas Forest Lake Skyray · Monster drop, level 25, Verteron",
+      "Canyon Skyray · Monster drop, level 33, Verteron"
+    ]
+  },
+  {
+    "Id": 1012,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/fungie",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Red Cap Fungie · Monster drop, level 12, Verteron"
+    ]
+  },
+  {
+    "Id": 1013,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/swarm",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Contaminated Swarm · Monster drop, level 11, Altgard",
+      "Giant Ore Insectoid · Monster drop, level 35, Altgard",
+      "Abyss Swarm · Monster drop, level 45, 100% per kill, Chaotic Lower Reshanta",
+      "Abyss Aberrant Swarn · Monster drop, level 45, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1014,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/drakan-guard-dog",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Drakan Guard Dog · Monster drop, level 43, Verteron",
+      "Nahid Drakan Guard Dog · Monster drop, level 45, Verteron",
+      "Drakan Guard Dog · Monster drop, level 32, Altgard",
+      "Drakan Patrol Armed Beast · Monster drop, level 40, Altgard"
+    ]
+  },
+  {
+    "Id": 1015,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/kailin",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Ellun River Kailin · Monster drop, level 18, Verteron",
+      "Unstable Kailin · Monster drop, level 46, Altgard",
+      "Kailin · Monster drop, level 20, Altgard",
+      "Kailin · Monster drop, level 32, Altgard"
+    ]
+  },
+  {
+    "Id": 1016,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/slink",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Tolbas Slink · Monster drop, level 25, Verteron",
+      "Wetland Slink · Monster drop, level 18, Verteron",
+      "Eternal Slink · Monster drop, level 49, Verteron",
+      "Coastal Slink · Monster drop, level 37, Altgard"
+    ]
+  },
+  {
+    "Id": 1017,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/krall-warshaman",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Krall Warshaman · Monster drop, level 21, Verteron",
+      "Modified Krall Healer · Monster drop, level 41, Verteron"
+    ]
+  },
+  {
+    "Id": 1018,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/varg-berserker",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Varg Berserker · Monster drop, level 32, Altgard",
+      "Chief's Bodyguard · Monster drop, level 42, Altgard"
+    ]
+  },
+  {
+    "Id": 1021,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/aberrant-odyle-spider",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1022,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/crasaur",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Aquascale Crasaur · Monster drop, level 18, Verteron",
+      "Docile Crasaur · Monster drop, level 33, Verteron",
+      "Eternal Crasaur · Monster drop, level 49, Verteron",
+      "Sensitive Crasaur · Monster drop, level 29, Altgard"
+    ]
+  },
+  {
+    "Id": 1025,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/mutated-aberrant-odyle-spider",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Marsh Odyle Spider · Monster drop, level 15, Verteron",
+      "Garden Spider · Monster drop, level 44, Verteron",
+      "Highland Odyle Spider · Monster drop, level 35, Verteron",
+      "Unstable Ashen Spider · Monster drop, level 48, Altgard"
+    ]
+  },
+  {
+    "Id": 1026,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/krall-warrior",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Krall Assault Trooper · Monster drop, level 21, Verteron",
+      "Modified Krall Warrior · Monster drop, level 41, Verteron",
+      "Krall Test Subject · Monster drop, level 43, Verteron"
+    ]
+  },
+  {
+    "Id": 1027,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/withered-agrint",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Withered Canyon Agrint · Monster drop, level 33, Verteron",
+      "Thin Agrint · Monster drop, level 44, Verteron",
+      "Withered Sulfur Agrint · Monster drop, level 46, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1028,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/krao-mutant",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1029,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/klaw-scout",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Consumed Klaw · Monster drop, level 30, Altgard",
+      "Abyss Klaw · Monster drop, level 45, 100% per kill, Chaotic Lower Reshanta",
+      "Abyss Aberrant Klaw · Monster drop, level 45, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1030,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/nagarant-guardian-warrior",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Abyss Nagarant Brawler · Monster drop, level 48, 100% per kill, Chaotic Lower Reshanta",
+      "Abyss Nagarant Warrior · Monster drop, level 48, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1031,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/konutin-worker",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Tolbas Konutin Worker · Monster drop, level 24, Verteron"
+    ]
+  },
+  {
+    "Id": 1032,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/elite-keneire",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1033,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/elite-manduri-fighter",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Wandering Manduri Fighter · Monster drop, level 27, Verteron",
+      "Black Claw Manduri Fighter · Monster drop, level 41, Altgard"
+    ]
+  },
+  {
+    "Id": 1034,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/giant-sparkie",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Splendent Hill Sparkie · Monster drop, level 13, Verteron",
+      "Highland Giant Odyle Sparkie · Monster drop, level 33, Verteron",
+      "Aullaeu Forest Giant Sparkie · Monster drop, level 27, Verteron",
+      "Highland Giant Sparkie · Monster drop, level 30, Verteron"
+    ]
+  },
+  {
+    "Id": 1035,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/skama",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Foul Skama · Monster drop, level 14, Verteron",
+      "Lake Skama · Monster drop, level 18, Verteron",
+      "Drana Mutated Skama · Monster drop, level 41, Verteron"
+    ]
+  },
+  {
+    "Id": 1036,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/lupyllini",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Tail Feather Lupyllini · Monster drop, level 34, Verteron"
+    ]
+  },
+  {
+    "Id": 1037,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/male-crestlich",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Ellun River Crestlich Male · Monster drop, level 18, Verteron",
+      "Highland Crestlich Male · Monster drop, level 33, Verteron"
+    ]
+  },
+  {
+    "Id": 1038,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/airon",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Smallbeak Airon · Monster drop, level 18, Verteron",
+      "Pointbeak Airon · Monster drop, level 18, Verteron",
+      "Hardbeak Airon · Monster drop, level 33, Verteron",
+      "Longbeak Highland Airon · Monster drop, level 34, Verteron"
+    ]
+  },
+  {
+    "Id": 1039,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/crestlich",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Stonebeak Crestlich · Monster drop, level 11, Verteron",
+      "Ellun River Crestlich Female · Monster drop, level 18, Verteron",
+      "Highland Crestlich Female · Monster drop, level 33, Verteron"
+    ]
+  },
+  {
+    "Id": 1040,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/aullaeu-shaman",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Aullaeu Apprentice Shaman · Monster drop, level 27, Verteron"
+    ]
+  },
+  {
+    "Id": 1041,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/cave-bat",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Drana Mutated Bat · Monster drop, level 41, Verteron"
+    ]
+  },
+  {
+    "Id": 1042,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/ursus",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Hardhorn Ursus · Monster drop, level 25, Verteron",
+      "Ridge Ursus · Monster drop, level 27, Verteron",
+      "Ridge Violent Ursus · Monster drop, level 27, Verteron",
+      "Confused Ursus · Monster drop, level 45, Verteron"
+    ]
+  },
+  {
+    "Id": 1043,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/elite-ursus",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1044,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/aultross-s-doppelganger",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1045,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/sylphen",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Highland Sylphen · Monster drop, level 13, Verteron",
+      "Ellun River Sylphen · Monster drop, level 14, Verteron",
+      "Ellun River Sylphen · Monster drop, level 18, Verteron",
+      "Aberrant Sylphen · Monster drop, level 26, Verteron"
+    ]
+  },
+  {
+    "Id": 1046,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/armadon",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "All Geared Up · Episode quest",
+      "Gathering Essentials · Episode quest",
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Red Shell Mole · Monster drop, level 10, Altgard",
+      "Withered Armadon · Monster drop, level 21, Altgard"
+    ]
+  },
+  {
+    "Id": 1047,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/aberrant-armadon",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Splendent Armadon · Monster drop, level 12, Verteron",
+      "Highland Wild Armadon · Monster drop, level 33, Verteron"
+    ]
+  },
+  {
+    "Id": 1048,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/forest-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Marsh Vine Spirit · Monster drop, level 13, Verteron",
+      "Contaminated Vine Spirit · Monster drop, level 18, Verteron",
+      "Ridge Forest Spirit · Monster drop, level 27, Verteron",
+      "Deep Canyon Forest Spirit · Monster drop, level 33, Verteron"
+    ]
+  },
+  {
+    "Id": 1049,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/mutated-forest-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Mutated Vine Bundle · Monster drop, level 36, Verteron",
+      "Contaminated Vine Bundle · Monster drop, level 37, Verteron",
+      "Condensed Specter · Monster drop, level 14, Altgard"
+    ]
+  },
+  {
+    "Id": 1050,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/gravi",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Red Stalk Gravi · Monster drop, level 44, Verteron",
+      "Tolbas Gravi · Monster drop, level 24, Verteron",
+      "Pink Gravi · Monster drop, level 28, Altgard"
+    ]
+  },
+  {
+    "Id": 1051,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/magic-gravi",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Illusion Magic Gravi · Monster drop, level 44, Verteron",
+      "Tolbas Magic Gravi · Monster drop, level 24, Verteron",
+      "Purifying Forest Magic Gravi · Monster drop, level 29, Altgard",
+      "Unstable Gravi · Monster drop, level 46, Altgard"
+    ]
+  },
+  {
+    "Id": 1052,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/large-leaf-gravi",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Ellun River Hill Gravi · Monster drop, level 18, Verteron",
+      "Large Leaf Gravi · Monster drop, level 44, Verteron",
+      "Large Leaf Gravi · Monster drop, level 30, Altgard"
+    ]
+  },
+  {
+    "Id": 1053,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/aberrant-potcrab",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Drana Mutated Potcrab · Monster drop, level 41, Verteron",
+      "Eternal Moss Crab · Monster drop, level 46, Verteron"
+    ]
+  },
+  {
+    "Id": 1054,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/mumu-warrior",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Mumu Watcher · Monster drop, level 32, Altgard",
+      "Gribade Mumu Warrior · Monster drop, level 40, Altgard",
+      "Mumu Watcher · Monster drop, level 41, Altgard"
+    ]
+  },
+  {
+    "Id": 1055,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/grave-rat",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1056,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/drakan-probe",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Drana Processing Maintenance Machine · Monster drop, level 41, Verteron",
+      "Intruder Seeker · Monster drop, level 45, Verteron",
+      "Outpost Probe · Monster drop, level 19, Altgard",
+      "Drakan Probe · Monster drop, level 20, Altgard"
+    ]
+  },
+  {
+    "Id": 1057,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/coradon",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1058,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/black-smoke-murute",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Black Smoke Murute · Monster drop, level 63, 100% per kill"
+    ]
+  },
+  {
+    "Id": 1059,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/giant-bee",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Giant Stripe Bee · Monster drop, level 27, Verteron"
+    ]
+  },
+  {
+    "Id": 1060,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/starturtle",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Coastal Starturtle · Monster drop, level 14, Verteron",
+      "Pond Starturtle · Monster drop, level 39, Verteron",
+      "Eternal Starturtle · Monster drop, level 49, Verteron",
+      "Beach Starturtle · Monster drop, level 32, Altgard"
+    ]
+  },
+  {
+    "Id": 1061,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/slime",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Unruly Slime · Monster drop, level 29, Altgard"
+    ]
+  },
+  {
+    "Id": 1062,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/contaminated-slime",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Marsh Slime · Monster drop, level 13, Verteron",
+      "Contaminated Poison Slime · Monster drop, level 36, Verteron",
+      "Abyss Sulfur Slime · Monster drop, level 46, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1063,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/vigilant-oculazen",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Vigilant Oculazen · Monster drop, level 32, Altgard"
+    ]
+  },
+  {
+    "Id": 1064,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/oculazen",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Labor Manager Oculazen · Monster drop, level 40, Verteron",
+      "Oculazen · Monster drop, level 44, Altgard"
+    ]
+  },
+  {
+    "Id": 1065,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/biruta",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Biruta Wanderer · Monster drop, level 26, Verteron",
+      "Biruta Wanderer · Monster drop, level 17, Altgard"
+    ]
+  },
+  {
+    "Id": 1066,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/papis",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Faded Papis · Monster drop, level 17, Altgard",
+      "Faded Papis · Monster drop, level 21, Altgard",
+      "Faded Papis · Monster drop, level 24, Altgard",
+      "Faded Papis · Monster drop, level 19, Altgard"
+    ]
+  },
+  {
+    "Id": 1067,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/scorpion",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Contaminated Scorpion · Monster drop, level 36, Verteron",
+      "Ore Scorpion · Monster drop, level 35, Altgard"
+    ]
+  },
+  {
+    "Id": 1068,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/krao-test-subject",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1069,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/stone-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Hill Stone Spirit · Monster drop, level 40, Verteron",
+      "Faded Stone Spirit · Monster drop, level 26, Altgard",
+      "Abyss Rock Spirit · Monster drop, level 48, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1071,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/cadaver-insectoid",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Drana Cadaver Insectoid · Monster drop, level 12, Altgard"
+    ]
+  },
+  {
+    "Id": 1072,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/tog",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "All Geared Up · Episode quest",
+      "Gathering Essentials · Episode quest",
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Tog · Monster drop, level 18, Altgard"
+    ]
+  },
+  {
+    "Id": 1073,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/nepenthes",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Tolbas Nepenthes · Monster drop, level 24, Verteron",
+      "Scarlet Highland Nepenthes · Monster drop, level 35, Verteron",
+      "Abyss Nasty Nepenthes · Monster drop, level 46, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1074,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/kuru-worker",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Tolbas Kuru Worker · Monster drop, level 26, Verteron",
+      "Harsh Kuru Tinkerer · Monster drop, level 28, Verteron",
+      "Eternal Kuru Worker · Monster drop, level 50, Verteron",
+      "Kuru Worker · Monster drop, level 50, Altgard"
+    ]
+  },
+  {
+    "Id": 1075,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/kuru-tinkerer",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Tolbas Kuru Tinkerer · Monster drop, level 26, Verteron",
+      "Eternal Kuru Tinkerer · Monster drop, level 50, Verteron",
+      "Kuru Tinkerer · Monster drop, level 50, Altgard"
+    ]
+  },
+  {
+    "Id": 1077,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/harcon",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Enhanced Harcon · Monster drop, level 45, 100% per kill"
+    ]
+  },
+  {
+    "Id": 1078,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/urugugu-brawler",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1079,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/ultimate-wind-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1080,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/sentinel-k-nash",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1081,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/dionae",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1082,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/ultimate-fire-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1083,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/spider",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Abyss Odyle Mutated Insectoid · Monster drop, level 46, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1084,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/kalgolem",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Hard Kalgolem · Monster drop, level 10, Verteron",
+      "Ashen Kalgolem · Monster drop, level 34, Verteron",
+      "Angry Kalgolem · Monster drop, level 29, Altgard",
+      "Root Kalgolem · Monster drop, level 48, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1086,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/fungen",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Red Cap Fungen · Monster drop, level 12, Verteron"
+    ]
+  },
+  {
+    "Id": 1087,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/pino",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Pino Worker · Monster drop, level 27, Verteron",
+      "Pino Laborer · Monster drop, level 27, Verteron"
+    ]
+  },
+  {
+    "Id": 1088,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/pino-worker",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Harsh Pino Worker · Monster drop, level 28, Verteron"
+    ]
+  },
+  {
+    "Id": 1089,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/aberrant-skama",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Yellow-Tailed Skama · Monster drop, level 36, Verteron",
+      "Abyss Sulfur Skama · Monster drop, level 46, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1090,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/ultimate-water-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1091,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/red-spark-ignus",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Red Spark Ignus · Monster drop, level 63, 100% per kill"
+    ]
+  },
+  {
+    "Id": 1092,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/lesser-wind-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Air Spirit · Monster drop, level 33, Verteron",
+      "Eternal Wind Spirit · Monster drop, level 51, Verteron",
+      "Soft Breeze Spirit · Monster drop, level 26, Altgard"
+    ]
+  },
+  {
+    "Id": 1093,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/phantasmal-lakshmi",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Phantasmal Lakshmi · Monster drop, level 45, 100% per kill"
+    ]
+  },
+  {
+    "Id": 1094,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/intermediate-wind-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Wandering Wind Spirit · Monster drop, level 44, Verteron",
+      "Violent Wind Spirit · Monster drop, level 51, Verteron",
+      "Immortal Wind Spirit · Monster drop, level 51, Altgard"
+    ]
+  },
+  {
+    "Id": 1095,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/superior-wind-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Brisk Spirit · Monster drop, level 45, Verteron",
+      "Whirlwind Spirit · Monster drop, level 26, Altgard",
+      "Immortal Wind Spirit Guardian · Monster drop, level 51, Altgard"
+    ]
+  },
+  {
+    "Id": 1096,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/superior-fire-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Hellfire Spirit · Monster drop, level 45, Verteron",
+      "Flame Spirit · Monster drop, level 27, Altgard",
+      "Unstable Superior Fire Spirit · Monster drop, level 48, Altgard",
+      "Immortal Fire Spirit Guardian · Monster drop, level 51, Altgard"
+    ]
+  },
+  {
+    "Id": 1097,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/karnif",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Ferocious Karnif · Monster drop, level 25, Verteron",
+      "Tolbas Karnif · Monster drop, level 24, Verteron",
+      "Ferocious Tolbas Karnif · Monster drop, level 24, Verteron",
+      "Toughmane Highland Karnif · Monster drop, level 32, Verteron"
+    ]
+  },
+  {
+    "Id": 1098,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/modified-karnif",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Scouting Karnif · Monster drop, level 21, Verteron",
+      "Unruly Karnif · Monster drop, level 19, Verteron",
+      "Trained Karnif · Monster drop, level 20, Verteron",
+      "Sensitive Karnif · Monster drop, level 21, Verteron"
+    ]
+  },
+  {
+    "Id": 1099,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/elite-karnif",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1100,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/ultimate-earth-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1101,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/forest-guardian",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Garden Guardian · Monster drop, level 45, Verteron"
+    ]
+  },
+  {
+    "Id": 1102,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/dried-up-forest-guardian",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1103,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/pretor-veil-administrator",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1104,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/manduri-trebuchet-worker",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Hill Manduri · Monster drop, level 39, Verteron",
+      "Crimson Manduri Slinger · Monster drop, level 48, Verteron",
+      "Black Claw Manduri Scout · Monster drop, level 41, Altgard"
+    ]
+  },
+  {
+    "Id": 1105,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/biruta-herbalist",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Biruta Herbalist · Monster drop, level 17, Altgard"
+    ]
+  },
+  {
+    "Id": 1106,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/tayga",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Search Party Tayga · Monster drop, level 40, Altgard",
+      "Guard Troopers Tayga · Monster drop, level 40, Altgard",
+      "Tamed Tayga · Monster drop, level 41, Altgard"
+    ]
+  },
+  {
+    "Id": 1107,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/krao-seal-guardian",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1108,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/enhanced-krall-combatant",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Enhanced Krall Combatant · Monster drop, level 22, Verteron"
+    ]
+  },
+  {
+    "Id": 1109,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/enhanced-krall-sentry",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Enhanced Krall Sentry · Monster drop, level 22, Verteron"
+    ]
+  },
+  {
+    "Id": 1110,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/blue-kalgolem",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Splendent Kalgolem · Monster drop, level 12, Verteron",
+      "Blue Kalgolem · Monster drop, level 36, Altgard",
+      "Abyssal Kalgolem · Monster drop, level 47, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1111,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/swift-lugi",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Pass Shop · Season 1 tab, 10,000 Daeva Pass Shop Coin"
+    ]
+  },
+  {
+    "Id": 1112,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/wandering-merchant-lugi",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Festival Shop · Pets tab, 3,600 Centuryroot Token"
+    ]
+  },
+  {
+    "Id": 1114,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/ashen-spider",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "White Shell Octaside · Monster drop, level 18, Verteron",
+      "Ashen Spider · Monster drop, level 21, Altgard"
+    ]
+  },
+  {
+    "Id": 1115,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/kuru-overseer",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Eternal Kuru Overseer · Monster drop, level 50, Verteron",
+      "Kuru Overseer · Monster drop, level 50, Altgard"
+    ]
+  },
+  {
+    "Id": 1116,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/withered-branch-spider",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Withered Branch Spider · Monster drop, level 13, Altgard",
+      "Withered Branch Spider · Monster drop, level 11, Altgard",
+      "Withered Branch Spider · Monster drop, level 27, Altgard",
+      "Withered Branch Spider · Monster drop, level 33, Altgard"
+    ]
+  },
+  {
+    "Id": 1117,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/unstable-spider",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Aullaeu Forest Odyle Spider · Monster drop, level 30, Verteron",
+      "Crimson Spider · Monster drop, level 48, Verteron",
+      "Flame Rock Spider · Monster drop, level 27, Altgard",
+      "Unstable Poison Blood Spider · Monster drop, level 47, Altgard"
+    ]
+  },
+  {
+    "Id": 1118,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/aberrant-bee",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Black Armor Bee · Monster drop, level 33, Altgard",
+      "Black Pattern Bee · Monster drop, level 18, Verteron",
+      "Stripe Bee · Monster drop, level 27, Verteron",
+      "Black Armor Bee · Monster drop, level 13, Altgard"
+    ]
+  },
+  {
+    "Id": 1119,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/aberrant-coradon",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Aberrant Coradon · Monster drop, level 33, Altgard",
+      "Garden Coradon · Monster drop, level 44, Verteron",
+      "Hill Coradon · Monster drop, level 39, Verteron",
+      "Aberrant Coradon · Monster drop, level 20, Altgard"
+    ]
+  },
+  {
+    "Id": 1120,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/young-kailin",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Ellun River Young Kailin · Monster drop, level 18, Verteron",
+      "Unstable Young Kailin · Monster drop, level 46, Altgard",
+      "Young Kailin · Monster drop, level 20, Altgard",
+      "Young Kailin · Monster drop, level 32, Altgard"
+    ]
+  },
+  {
+    "Id": 1121,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/young-slink",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Young Wetland Slink · Monster drop, level 18, Verteron",
+      "Tolbas Young Slink · Monster drop, level 23, Verteron",
+      "Young Slink · Monster drop, level 20, Altgard",
+      "Young Slink · Monster drop, level 40, Altgard"
+    ]
+  },
+  {
+    "Id": 1122,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/young-tog",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1123,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/young-ursus",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Baby Horn Ursus · Monster drop, level 25, Verteron",
+      "Hill Young Ursus · Monster drop, level 39, Verteron",
+      "Young Ursus · Monster drop, level 32, Altgard",
+      "Young Ursus · Monster drop, level 17, Altgard"
+    ]
+  },
+  {
+    "Id": 1124,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/zaif",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Rock Hill Zaif · Monster drop, level 32, Verteron",
+      "Highland Forest Zaif · Monster drop, level 35, Verteron",
+      "Highland Zaif · Monster drop, level 33, Verteron",
+      "Hill Zaif · Monster drop, level 40, Verteron"
+    ]
+  },
+  {
+    "Id": 1125,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/aberrant-zaif",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Yellow-Maned Zaif · Monster drop, level 27, Verteron",
+      "Golden Zaif · Monster drop, level 40, Altgard"
+    ]
+  },
+  {
+    "Id": 1126,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/aberrant-tog",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Cairn Tog · Monster drop, level 13, Verteron",
+      "Hungry Tog · Monster drop, level 18, Verteron",
+      "Field Tog · Monster drop, level 18, Verteron",
+      "Wild Stripe Tog · Monster drop, level 33, Verteron"
+    ]
+  },
+  {
+    "Id": 1127,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/odyle-stone-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Faded Odyle Spirit · Monster drop, level 46, Altgard"
+    ]
+  },
+  {
+    "Id": 1128,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/drana-slime",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Drana Slime · Monster drop, level 11, Altgard"
+    ]
+  },
+  {
+    "Id": 1129,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/drana-swarm",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Crimson Drana Swarm · Monster drop, level 46, Verteron"
+    ]
+  },
+  {
+    "Id": 1130,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/mutated-cadaver-insectoid",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Ridge Spider · Monster drop, level 27, Verteron"
+    ]
+  },
+  {
+    "Id": 1131,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/drana-spore",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Crimson Mutated Spore · Monster drop, level 47, Verteron"
+    ]
+  },
+  {
+    "Id": 1132,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/ashen-lupyllini",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1133,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/forest-dionae",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1134,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/eternal-coradon",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Eternal Coradon · Monster drop, level 40, Altgard",
+      "Abyss Coradon · Monster drop, level 48, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1135,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/ashen-dionae",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Ashen Dionae · Monster drop, level 21, Altgard"
+    ]
+  },
+  {
+    "Id": 1136,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/rafflesia",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Rafflesia · Monster drop, level 20, Altgard",
+      "Crimson Rafflesia · Monster drop, level 47, Verteron",
+      "Rafflesia · Monster drop, level 14, Altgard",
+      "Unstable Rafflesia · Monster drop, level 46, Altgard"
+    ]
+  },
+  {
+    "Id": 1137,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/mumu-worker",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Mumu Worker · Monster drop, level 32, Altgard",
+      "Escaped Mumu Worker · Monster drop, level 33, Altgard"
+    ]
+  },
+  {
+    "Id": 1138,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/mumu-overseer",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1139,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/swamp-monster",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1140,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/forest-monster",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Tolbas Forest Targon · Monster drop, level 24, Verteron",
+      "Burned Forester · Monster drop, level 21, Altgard"
+    ]
+  },
+  {
+    "Id": 1141,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/marsh-targon",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Marsh Targon · Monster drop, level 14, Verteron"
+    ]
+  },
+  {
+    "Id": 1142,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/distorted-mutant",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Consumed Spirit Guardian · Monster drop, level 30, Altgard"
+    ]
+  },
+  {
+    "Id": 1143,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/mutated-ursus",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Ashen Ursus · Monster drop, level 21, Altgard"
+    ]
+  },
+  {
+    "Id": 1144,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/mutated-forest-guardian",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Mutated Forest Guardian · Monster drop, level 22, Altgard",
+      "Unstable Forest Guardian · Monster drop, level 48, Altgard"
+    ]
+  },
+  {
+    "Id": 1145,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/mutated-insectoid-valka",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1146,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/gatekeeper-pinopi",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1147,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/dratona",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Dratona Tinkerer · Monster drop, level 19, Altgard",
+      "Dratona Supporter · Monster drop, level 20, Altgard",
+      "Dratona · Monster drop, level 32, Altgard",
+      "Scarlet Forest Dratona · Monster drop, level 41"
+    ]
+  },
+  {
+    "Id": 1148,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/drakana-kalgolem",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Crash Site Kalgolem · Monster drop, level 11, Altgard"
+    ]
+  },
+  {
+    "Id": 1153,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/drana-mutant-brute",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Eternal Drana Mutant · Monster drop, level 50, Verteron",
+      "Crimson Drana Mutant · Monster drop, level 47, Verteron",
+      "Drana Mutant · Monster drop, level 50, Altgard"
+    ]
+  },
+  {
+    "Id": 1154,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/faded-mutant-brute",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Faded Mutant Brute · Monster drop, level 35, Altgard"
+    ]
+  },
+  {
+    "Id": 1155,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/superior-water-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Torrent Spirit · Monster drop, level 45, Verteron",
+      "Water Mist Spirit · Monster drop, level 29, Altgard",
+      "Unstable Superior Water Spirit · Monster drop, level 46, Altgard",
+      "Immortal Water Spirit Guardian · Monster drop, level 51, Altgard"
+    ]
+  },
+  {
+    "Id": 1156,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/elite-klaw",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Bodyguard Teegant · Monster drop, level 45, 100% per kill, Verteron"
+    ]
+  },
+  {
+    "Id": 1157,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/cadaver-cleaner",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Ruins Corpse Cleaner · Monster drop, level 24, Altgard",
+      "Ferocious Cadaver Cleaner · Monster drop, level 34, Altgard"
+    ]
+  },
+  {
+    "Id": 1158,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/venomous-insect-sram",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1159,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/parasite-swarm",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Giant Ore Insectoid Adult · Monster drop, level 36, Altgard"
+    ]
+  },
+  {
+    "Id": 1160,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/drana-contaminant",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1161,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/faded-floater",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Faded Floater · Monster drop, level 35, Altgard"
+    ]
+  },
+  {
+    "Id": 1162,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/kerubar",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Eternal Kerubar · Monster drop, level 49, Verteron",
+      "Kerubar · Monster drop, level 49, Altgard"
+    ]
+  },
+  {
+    "Id": 1163,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/basilisk",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Black Ash Basilisk · Monster drop, level 21, Altgard"
+    ]
+  },
+  {
+    "Id": 1164,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/lesser-earth-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Eternal Earth Spirit · Monster drop, level 51, Verteron"
+    ]
+  },
+  {
+    "Id": 1165,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/intermediate-earth-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Wandering Earth Spirit · Monster drop, level 44, Verteron",
+      "Violent Earth Spirit · Monster drop, level 51, Verteron",
+      "Immortal Earth Spirit · Monster drop, level 51, Altgard"
+    ]
+  },
+  {
+    "Id": 1166,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/superior-earth-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Peculiar Rock Spirit · Monster drop, level 45, Verteron",
+      "Corroded Soil Spirit · Monster drop, level 28, Altgard",
+      "Immortal Earth Spirit Guardian · Monster drop, level 51, Altgard"
+    ]
+  },
+  {
+    "Id": 1167,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/flame-stone-guardian-statue",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1168,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/lesser-water-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Water Spirit · Monster drop, level 16, Verteron",
+      "Eternal Water Spirit · Monster drop, level 51, Verteron"
+    ]
+  },
+  {
+    "Id": 1169,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/intermediate-water-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Wandering Water Spirit · Monster drop, level 45, Verteron",
+      "Violent Water Spirit · Monster drop, level 51, Verteron",
+      "Unstable Intermediate Water Spirit · Monster drop, level 46, Altgard",
+      "Immortal Water Spirit · Monster drop, level 51, Altgard"
+    ]
+  },
+  {
+    "Id": 1170,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/kerubian",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Eternal Kerubian · Monster drop, level 49, Verteron",
+      "Kerubian · Monster drop, level 49, Altgard"
+    ]
+  },
+  {
+    "Id": 1171,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/kerubiel",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Eternal Kerubiel · Monster drop, level 49, Verteron",
+      "Kerubiel · Monster drop, level 49, Altgard"
+    ]
+  },
+  {
+    "Id": 1172,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/duduka-worker",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Duduka Worker · Monster drop, level 41, Altgard"
+    ]
+  },
+  {
+    "Id": 1173,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/duduka-trebuchet-worker",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Duduka Slinger · Monster drop, level 42, Altgard"
+    ]
+  },
+  {
+    "Id": 1174,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/drana-predator",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Crimson Drana Predator · Monster drop, level 48, Verteron",
+      "Drana Predator · Monster drop, level 12, Altgard"
+    ]
+  },
+  {
+    "Id": 1175,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/faded-predator",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Faded Predator · Monster drop, level 35, Altgard"
+    ]
+  },
+  {
+    "Id": 1176,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/mudthorn",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Addicted Mudthorn · Monster drop, level 36, Altgard",
+      "Remnant of Subspace · Monster drop, level 44, Altgard"
+    ]
+  },
+  {
+    "Id": 1177,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/ancient-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1178,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/spirit-king-s-bodyguard-warrior",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Old Tree Spirit Warrior · Monster drop, level 49, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1179,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/drana-mutant",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Twisted Mutant · Monster drop, level 10, Altgard"
+    ]
+  },
+  {
+    "Id": 1180,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/faded-mutant",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Faded Mutant · Monster drop, level 35, Altgard"
+    ]
+  },
+  {
+    "Id": 1181,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/brax",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Brax · Monster drop, level 33, Altgard",
+      "Field Brax · Monster drop, level 18, Verteron",
+      "Hungry Brax · Monster drop, level 18, Verteron",
+      "Docile Highland Brax · Monster drop, level 32, Verteron"
+    ]
+  },
+  {
+    "Id": 1182,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/elite-soulless-corpse-gnat",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1183,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/soulless-corpse-gnat",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Soulless Corpse Gnat · Monster drop, level 33, Altgard"
+    ]
+  },
+  {
+    "Id": 1184,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/drakan-watcher",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Processing Facility Drakan Scout · Monster drop, level 42, Verteron",
+      "Drakan Manager · Monster drop, level 32, Altgard",
+      "Drakan Patrol Watcher · Monster drop, level 40, Altgard"
+    ]
+  },
+  {
+    "Id": 1185,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/dratona-tinkerer",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1186,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/poison-blood",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Cursed Poison Blood · Monster drop, level 29, Altgard",
+      "Unstable Poison Blood · Monster drop, level 47, Altgard"
+    ]
+  },
+  {
+    "Id": 1187,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/intermediate-fire-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Violent Fire Spirit · Monster drop, level 51, Verteron",
+      "Unstable Intermediate Fire Spirit · Monster drop, level 48, Altgard",
+      "Immortal Fire Spirit · Monster drop, level 51, Altgard"
+    ]
+  },
+  {
+    "Id": 1188,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/vivel",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Highland Vivel · Monster drop, level 32, Verteron",
+      "Vampire Vivel · Monster drop, level 14, Altgard"
+    ]
+  },
+  {
+    "Id": 1189,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/tamed-zaif",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Marauders Zaif · Monster drop, level 27"
+    ]
+  },
+  {
+    "Id": 1190,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/elite-poisonous-spore-fungen",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1191,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/furious-feruk",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1192,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/silver-blade-rotan",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Abyss Rusty Rotan · Monster drop, level 46, 100% per kill, Chaotic Lower Reshanta",
+      "Abyss Old Blade Rotan · Monster drop, level 46, 100% per kill, Chaotic Lower Reshanta",
+      "Silver Blade Rotan · Monster drop, level 63, 100% per kill"
+    ]
+  },
+  {
+    "Id": 1193,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/addicted-shulak-cart-worker",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Rampaging Shulak Cart Worker · Monster drop, level 36, Altgard"
+    ]
+  },
+  {
+    "Id": 1194,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/guardite",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Uncontrollable Guardite · Monster drop, level 36, Verteron"
+    ]
+  },
+  {
+    "Id": 1195,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/dracuni-herbalist",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Dracuni Processing Laborer · Monster drop, level 41, Verteron",
+      "Poison Blood Gatherer · Monster drop, level 47, Altgard"
+    ]
+  },
+  {
+    "Id": 1196,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/elite-dratona",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1197,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/watcher-guardite",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Contaminated Guardite · Monster drop, level 37, Verteron"
+    ]
+  },
+  {
+    "Id": 1198,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/ashen-basilisk",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1199,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/flame-barghest",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Sanctum of Loathing · Ascension Trial, Extreme"
+    ]
+  },
+  {
+    "Id": 1200,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/naga-elite-priest",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Abyss Naga Dark Mage · Monster drop, level 48, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1201,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/modified-lupyllini",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Lupyllini Test Subject · Monster drop, level 40, Verteron",
+      "Eternal Lupyllini · Monster drop, level 49, Verteron",
+      "Modified Lupyllini · Monster drop, level 49, Altgard"
+    ]
+  },
+  {
+    "Id": 1202,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/decomposed-lupyllini",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Contaminated Highland Lupyllini · Monster drop, level 35, Verteron",
+      "Decomposed Lupyllini · Monster drop, level 10, Altgard",
+      "Decomposed Lupyllini · Monster drop, level 32, Altgard",
+      "Ferocious Lupyllini · Monster drop, level 33, Altgard"
+    ]
+  },
+  {
+    "Id": 1203,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/tamed-karnif",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Fera (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends IV · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Blades Karnif · Monster drop, level 24, Altgard",
+      "Tamed Blades Beast · Monster drop, level 37, Altgard"
+    ]
+  },
+  {
+    "Id": 1204,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/pagati",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Shop · Main menu Shop, 2,000,000 Kina"
+    ]
+  },
+  {
+    "Id": 1206,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/elite-guardite",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Divine Ansas · Monster drop, level 45, 100% per kill, Verteron"
+    ]
+  },
+  {
+    "Id": 1207,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/agrint",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Decaying Agrint · Monster drop, level 18, Verteron",
+      "Old Agrint · Monster drop, level 44, Verteron",
+      "Contaminated Agrint · Monster drop, level 37, Verteron",
+      "Eternal Agrint · Monster drop, level 49, Verteron"
+    ]
+  },
+  {
+    "Id": 1208,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/ashen-agrint",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Unstable Agrint · Monster drop, level 48, Altgard"
+    ]
+  },
+  {
+    "Id": 1209,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/thin-agrint",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Crimson Agrint · Monster drop, level 46, Verteron",
+      "Red Eye Agrint · Monster drop, level 13, Altgard",
+      "Thin Sulfur Agrint · Monster drop, level 47, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1210,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/dry-leaf-agrint",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Forest Agrint · Monster drop, level 25, Verteron"
+    ]
+  },
+  {
+    "Id": 1213,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/lesser-fire-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Eternal Fire Spirit · Monster drop, level 51, Verteron",
+      "Burning Ember Spirit · Monster drop, level 27, Altgard"
+    ]
+  },
+  {
+    "Id": 1214,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/black-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Contaminated Spirit · Monster drop, level 15, Verteron",
+      "Distorted Spirit · Monster drop, level 39, Verteron",
+      "Black Spirit · Monster drop, level 44, Altgard",
+      "Abyss Corrupted Spirit · Monster drop, level 48, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1215,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/predator-saraswati",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Cogni (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends II · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Predator Saraswati · Monster drop, level 45, 100% per kill"
+    ]
+  },
+  {
+    "Id": 1216,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/dark-spirit",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Corrupted Spirit · Monster drop, level 33, Verteron",
+      "Wandering Dark Spirit · Monster drop, level 45, Verteron"
+    ]
+  },
+  {
+    "Id": 1217,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/congealed-drana",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Congealed Drana · Monster drop, level 12, Altgard"
+    ]
+  },
+  {
+    "Id": 1218,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/faded-drana",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Varian (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VII · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Sanctum of Loathing · Ascension Trial, Easy",
+      "Sanctum of Loathing · Ascension Trial, Normal",
+      "Sanctum of Loathing · Ascension Trial, Hard",
+      "Faded Chunk · Monster drop, level 35, Altgard"
+    ]
+  },
+  {
+    "Id": 1219,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/zelophi",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Black Cloud Merchants · Special and Pets tabs",
+      "Pet Chest: Natura (Bound) · Opened from this chest",
+      "Growth Pet Chest (Bound) · Opened from this chest",
+      "My Reliable Friends VI · Achievement",
+      "Nightmare Altar · Ascension Trial, Easy",
+      "Nightmare Altar · Ascension Trial, Normal",
+      "Nightmare Altar · Ascension Trial, Hard",
+      "Nightmare Altar · Ascension Trial, Extreme",
+      "Coastal Zelophi · Monster drop, level 14, Verteron",
+      "Eternal Zelophi · Monster drop, level 49, Verteron",
+      "Zelophi · Monster drop, level 49, Altgard",
+      "Abyss Zelophi · Monster drop, level 46, 100% per kill, Chaotic Lower Reshanta"
+    ]
+  },
+  {
+    "Id": 1240,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/white-bunny",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Shop · Main menu Shop"
+    ]
+  },
+  {
+    "Id": 1278,
+    "Verified": true,
+    "Source": "https://wikily.gg/aion-2/pets/chonky-hamster",
+    "Checked": "2026-10-14",
+    "Facts": [
+      "Shop · Main menu Shop"
+    ]
+  },
+  {
+    "Id": 1299,
+    "Verified": false,
+    "Reason": "Page unavailable"
+  }
+]

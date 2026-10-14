@@ -1,4 +1,4 @@
-﻿# Kaynak ve lisanslar
+# Kaynak ve lisanslar
 
 Bu bağımsız Pet Tracker GPL-3.0 altında sunulur; tam karşılık gelen kaynak workspace/ içindedir. Core, kayıt, WinForms canlı/demo arayüzü, canlı bağlantı yönetimi ve testler bu proje için yazıldı. Referans uygulamanın arayüzü, DPS, Alerts veya boss mantığı alınmadı.
 
@@ -33,3 +33,6 @@ Interactive map assets and coordinates: xCROv/aion2-pet-tracker (GPL-3.0), commi
 Instrument Sans Regular/Bold by The Instrument Sans Project Authors, from https://github.com/Instrument/instrument-sans (revision in src/PetTracker.App/Assets/Fonts/InstrumentSans-source.txt). SIL Open Font License 1.1: licenses/InstrumentSans-OFL.txt.
 
 Bebas Neue Regular V2.000 by Dharma Type, supplied by the user. SIL Open Font License 1.1: licenses/BebasNeue-OFL.txt. Fonts remain under their original licenses and are registered privately for this process only. Coolvetica, Akira Expanded Demo and Brunson are not bundled.
+
+Pet acquisition facts: Wikily AION 2 wiki, https://wikily.gg/aion-2/pets/ , checked 2026-10-14; per-pet source links are included in data/pet-sources.json. Only short factual source records are included. Wiki prose, design and new artwork are not reproduced.
+Spacerift community timetable: Shugo.GG, https://shugo.gg/timers , checked 2026-10-14. Region-ID convention verified against the supplied GPL-3.0 AION 2 Alerts logic reference; our reminder service, clock calculation and notification UI are original implementations.

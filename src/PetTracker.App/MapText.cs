@@ -3,6 +3,9 @@ public static class MapText
 {
     private static readonly Dictionary<string,string[]> Texts=new()
     {
+        ["allPets"]=["Tüm petler","All pets","Alle Pets","Все питомцы","Todos los pets","Tous les pets","Todos os pets","كل الحيوانات","सभी पेट","所有宠物"],
+        ["portraitMarkers"]=["Petleri haritada portre göster","Show pet portraits on map","Pet-Porträts auf Karte anzeigen","Портреты питомцев на карте","Mostrar retratos en el mapa","Afficher les portraits sur la carte","Mostrar retratos no mapa","عرض صور الحيوانات على الخريطة","मानचित्र पर पेट के चित्र दिखाएँ","在地图上显示宠物头像"],
+        ["unlocated"]=["Konumu olmayan petler","Pets without locations","Pets ohne Fundorte","Питомцы без мест","Pets sin ubicaciones","Pets sans lieu","Pets sem locais","حيوانات بلا مواقع","बिना स्थान वाले पेट","无位置的宠物"],
         ["showAll"]=["Tüm farmlanabilir konumları göster","Show all farmable locations","Alle farmbaren Orte anzeigen","Показать все места для фарма","Mostrar todos los lugares de farmeo","Afficher tous les lieux à farmer","Mostrar todos os locais de farm","إظهار جميع مواقع التجميع","सभी फ़ार्म स्थान दिखाएँ","显示所有可收集位置"],
         ["hideUnlocated"]=["Konumu olmayan petleri gizle","Hide pets without locations","Pets ohne Fundorte ausblenden","Скрыть питомцев без мест","Ocultar pets sin ubicaciones","Masquer les pets sans lieu","Ocultar pets sem locais","إخفاء الحيوانات بلا مواقع","बिना स्थान वाले पेट छिपाएँ","隐藏无位置的宠物"],
         ["loadFailed"]=["Harita görseli yüklenemedi.","The map image could not be loaded.","Das Kartenbild konnte nicht geladen werden.","Не удалось загрузить изображение карты.","No se pudo cargar la imagen del mapa.","Impossible de charger l’image de la carte.","Não foi possível carregar a imagem do mapa.","تعذر تحميل صورة الخريطة.","मानचित्र चित्र लोड नहीं हो सका।","无法加载地图图像。"],

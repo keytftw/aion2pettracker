@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -22,6 +22,7 @@
     <Compile Include="..\..\src\PetTracker.Setup\InstallerText.cs" Link="SharedText\InstallerText.cs" />
     <Compile Include="..\..\src\PetTracker.App\MapText.cs" Link="SharedText\MapText.cs" />
     <Content Include="..\..\data\pet-catalog.json" Link="data\pet-catalog.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\..\data\pet-sources.json" Link="data\pet-sources.json" CopyToOutputDirectory="PreserveNewest" />
     <Content Include="..\..\data\maps\spawns.json" Link="data\maps\spawns.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 

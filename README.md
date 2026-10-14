@@ -1,4 +1,4 @@
-# Aion 2 Pet Tracker — 1.1.0
+# Aion 2 Pet Tracker — 1.2.1
 
 A Windows x64 pet-soul tracker for Aion 2 Global, developed by Keyt and licensed under GPL-3.0.
 
@@ -66,7 +66,12 @@ A release includes the public Setup, necessary updater packages/feed and corresp
 
 Only required capture/protocol/catalog components were reused with GPL attribution; this application has its own tracker state and UI. Portrait, font, map and server-data sources and licenses are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [data/PET-SOURCES.md](data/PET-SOURCES.md) and `licenses/`.
 
-### Pet Atlas in 1.1.0
+### Atlas cards and Spacerift reminders (1.2.1)
 
-Pets are grouped by the selected map. In Farmable pets, enable **Show all farmable locations** to display every non-MAX pet location in that region. **Hide pets without locations** removes unlocated pets from the list. Both options are saved between launches. Selecting a pet still animates the map to its locations.
+The region selector includes **Pets without locations**. Clicking an Atlas pet or a map portrait opens its collection card, with known farming locations and short acquisition facts linked to the original wiki page. All 207 catalog pets have cards; 206 have wiki-matched acquisition records. The remaining entry is explicitly unconfirmed. Missing coordinates never imply that a pet cannot be farmed. The aggregate farming map uses circular portraits with black outlines and gold selection borders; nearby markers of the same pet are coalesced at the current zoom.
 
+Open **Spacetime Rift** from Settings or Pet Atlas to enable reminders, change the lead time (default five minutes), toggle the short notification sound, and test both alerts. Notifications appear in a separate small rectangle at the top right for five seconds without activating a window, including while the tracker is hidden or compact. The current server identity selects the supported Global region automatically after a collection snapshot. Unknown identities suppress alerts. Timing follows the community Shugo.GG timetable and timezone daylight-saving rules; an opening alert is scheduled, not a live spawn confirmation. Delivered reminders are saved to avoid repeats across restarts.
+
+### Atlas usability fixes (1.2.1)
+
+Pet detail cards are smaller and stay below the pet carousel, with a scrolling information area. Selecting a specific map shows only pets recorded in that map. Use All pets to browse across regions and optionally hide unlocated pets; the dedicated Pets without locations category remains available. Multi-region pets have a Show on map dropdown that opens the chosen region and animates to its locations. Show pet portraits on map toggles circular portraits and red markers in either farmable or maxed views; the preference is saved.
