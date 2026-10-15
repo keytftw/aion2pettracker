@@ -1,110 +1,181 @@
-# Aion 2 Pet Tracker — 1.2.4
+# Aion 2 Pet Tracker
 
-A Windows x64 pet-soul tracker for Aion 2 Global, developed by Keyt and licensed under GPL-3.0.
+A free, open-source Windows companion for **Aion 2 Global**: track pet souls, explore farming locations and keep an eye on Spacetime Rift openings.
 
-[Download the Windows Setup](https://github.com/keytftw/aion2pettracker/releases/latest/download/A2PetTracker-win-Setup.exe) · [Website and full guide](https://aion2-pet-tracker.lovelymacaw4.chatgpt.site/) · [Support on Patreon](https://www.patreon.com/cw/keytftw)
+[![Latest release](https://img.shields.io/github/v/release/keytftw/aion2pettracker?label=release&color=8b6ed6)](https://github.com/keytftw/aion2pettracker/releases/latest)
+[![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue)](LICENSE)
+[![Platform: Windows x64](https://img.shields.io/badge/platform-Windows%20x64-0078D4)](#installation)
+[![Open source](https://img.shields.io/badge/open%20source-source%20available-3a936e)](https://github.com/keytftw/aion2pettracker)
 
-## Install and start
+**[Download for Windows](https://github.com/keytftw/aion2pettracker/releases/latest/download/A2PetTracker-win-Setup.exe)** · **[Official website](https://keytdev.com/pettracker)** · [Full guide](https://keytdev.com/pettracker/guide.html) · [Releases](https://github.com/keytftw/aion2pettracker/releases/latest)
 
-1. Install [Npcap](https://npcap.com/#download) separately. It is not bundled.
-2. Run `A2PetTracker-win-Setup.exe`. Choose a language, accept the terms, select an installation folder and optionally create a desktop shortcut. The .NET runtime is included.
-3. Open the installed tracker. Startup checks stable GitHub releases and shows download progress for available updates.
-4. Return to Aion 2 Character Select and log in again. The overlay opens after a valid fresh character and collection snapshot.
+**Completely free and ad-free. All features are available to everyone, with no premium features, subscriptions or paywalls.** [Patreon support](https://www.patreon.com/cw/keytftw) is entirely optional and does not unlock features.
 
-Language and terms are configured during installation. Preferences persist; cached counters are reset at every launch and require a fresh game snapshot. Users of earlier portable distributions must run the new Setup once. This release provides Setup only; it does not produce a portable ZIP.
+<p align="center">
+  <img src="docs/images/tracker.png" width="427" alt="Aion 2 Pet Tracker showing two pet soul counters, detected monster names and a Spacetime Rift reminder">
+  <br><sub>The actual desktop interface with demo progress. Screenshots are application renders, not mockups or live-spawn evidence.</sub>
+</p>
 
-## Tracker controls
+> **Independent community project.** Not affiliated with or endorsed by NCSOFT. Passive packet capture is not an anti-cheat exemption: detection, account restrictions or bans remain possible. Read [security and anti-cheat risks](#security-and-anti-cheat-risks) before use.
 
-- Pet portraits, three level stars, within-level soul progress and remaining goals. Lv 0/1/2 goals are 5/25/75; total 105 reaches Lv 3 MAX.
-- Real soul events increment by numeric Pet ID. Attacking a non-MAX target can display its card without increasing souls. Already-MAX pets require manual addition.
-- Searchable Add Pet menu with incomplete/maxed tabs. Pinning fixes a card; unpinning removes only its pin and keeps the card, including after restarting. Delete/Clear removes the card and pin without deleting progress. A later real soul gain can reactivate it.
-- Up/down arrows reorder cards with animation. Pins, manually retained cards and order are scoped to character/server and persist independently of counters.
-- Fixed width; 1–7 visible cards. New cards automatically grow the full window to seven slots, after which scrolling settles at card boundaries. Position lock is separate from height.
-- 85–100% opacity, Always on top, a movable compact box and a separately movable Settings window. Opening the desktop shortcut again restores the running instance rather than starting a new session.
-- Ctrl+P hides/restores; Ctrl+U compacts/expands. Settings can change both shortcuts to Ctrl/Alt/Shift plus a letter, digit or F1–F24. Held keys do not repeatedly toggle; conflicting combinations are rejected.
-- New MAX transitions play a subtle sound. MAX cards remain visible; hover and click CLEAR to remove one.
-- Ten languages: Turkish, English, German, Russian, Spanish, French, Portuguese, Arabic, Hindi and Simplified Chinese. Changes apply immediately and are saved.
+## What it does
 
-## Interactive Pet Atlas
+### Pet collection tracking
 
-Use the gold globe beside Add Pet to open a separate map window, or the globe on a card to focus that pet's locations. Six regions, farmable/maxed filters, search, a draggable carousel, animated focus, map dragging, a zoom slider and mouse-wheel zoom are included. Locations appear as red dots with black outlines. Click a marker to focus it.
+- Follow pet levels, soul progress and remaining goals in a compact desktop overlay. Counts follow **soul gains, not monster kills**.
+- Display pets from observed activity or add them manually. Pin, reorder and remove cards without deleting collection progress.
+- See the detected monster variant beneath a pet name when that information is available; alternative names are not guessed.
+- Keep preferences separate for each character/server. A fresh validated collection is required at startup.
+- Recognize uncertain data: readable gains can continue under a red warning, while a fresh collection reconciles the totals.
 
-Terrain and data are bundled; there is no WebView2 or online map dependency. The source snapshot contains six maps, 200 catalog IDs and coordinates for 160 pets. Missing locations are shown explicitly. These are recorded guides, not live spawn information or player-position tracking. The current bitmap is disposed on region changes; map region, size and position persist.
+### Interactive Pet Atlas
 
-## Data integrity and capture
+- Explore six bundled region maps with recorded in-game farming locations, zoom, pan, search and pet portraits or dots.
+- Combine region and **pet-type filters: Cogni, Fera, Natura, Varian and Special**, plus All types.
+- Browse farmable or MAX pets, including a separate category for pets without recorded coordinates.
+- Open a pet's information card for its portrait, progress, available acquisition sources and wiki link. Use the highlighted **+** beside Close to add it directly to the tracker.
+- Enable **Tracker pets only** to limit the displayed pets and map markers to currently visible tracker cards, together with the other active filters. A red checkbox glow and status label make the filter clear; it becomes unavailable and switches off when the tracker is empty.
+- Show all matching farmable locations together, or focus a pet and choose among its recorded regions.
 
-Full validated collection snapshots, soul events, session activity and UI preferences are separate. New snapshots reconcile counts without losing stable preferences. A gap or reconnect keeps last-known values and marks them uncertain until resynchronization; uncertain values are never displayed as exact. Identical legitimate gains are not deduplicated merely by ID and amount. Shard/crystal messages are not counted as attributable souls.
+Map markers are a reference guide, **not live spawns or player-position tracking**. Missing coordinates do not mean a pet cannot be farmed.
 
-Npcap capture is receive-only and server-to-client. There is no packet injection, replay, game-memory access, DLL injection, game-client modification or gameplay automation. The passive-capture review required no capture-layer optimization. Review the setup terms and game rules; this independent community tool is not publisher approval or a zero-risk guarantee. Terms revision: 2026-10-13 / 1.1.
+### Spacetime Rift timers and alerts
 
-## Development and verification
+- Detect a supported Global server region from the current character identity after synchronization.
+- View that region's daily schedule and UTC offset, with daylight-saving handling.
+- Choose a **1–10 minute** reminder, enable or disable alerts and sound, and preview the notifications. The default reminder is five minutes before opening.
+- Receive a reminder and an opening alert, each held for five seconds: below the visible tracker, or at the top left when it is hidden. Only one notification is shown at a time.
 
-.NET 10 SDK and Windows x64:
+Times follow the [Shugo.GG community timetable](https://shugo.gg/timers); an opening alert is scheduled, not a live spawn confirmation. Unknown server regions suppress automatic alerts.
+
+### Desktop experience
+
+- A dark interface with animated transitions, clear shortcut controls and an illustrated handbook.
+- Automatically grow and shrink with **1–7 visible cards**, with scrolling beyond seven; compact mode stays compact.
+- Adjust opacity from **85–100%**, lock the tracker position, toggle Always on top and move Settings or Rift Settings independently.
+- Use **Ctrl+P** to hide/show and **Ctrl+U** to compact/expand; both shortcuts can be changed in Settings.
+- Install with a localized Windows Setup, an optional desktop shortcut and the included .NET runtime. Installed copies check stable GitHub releases for updates.
+- Choose among Turkish, English, German, Russian, Spanish, French, Portuguese, Arabic, Hindi and Simplified Chinese.
+
+## Screenshots
+
+<table>
+  <tr>
+    <td width="70%" align="center"><b>Pet Atlas: filters, tracked pets and pet details</b><br><a href="docs/images/pet-atlas.png"><img src="docs/images/pet-atlas.png" width="760" alt="Pet Atlas with pet-type filtering, a tracker-only status and a pet detail card with an Add button"></a></td>
+    <td width="30%" align="center"><b>Spacetime Rift settings</b><br><a href="docs/images/rift-settings.png"><img src="docs/images/rift-settings.png" width="420" alt="Rift settings with reminder controls, server region and its daily opening times"></a></td>
+  </tr>
+</table>
+
+These are screenshots rendered by the existing application's offline UI tests with demo data. Click an image to inspect it at full size.
+
+## Installation
+
+**Requirements:** Windows x64, Aion 2 Global and a separately installed copy of Npcap. You do not need the .NET SDK to use the release installer.
+
+1. Install [Npcap from its official website](https://npcap.com/#download). Npcap is **not bundled or installed by this project**; its own license and installation options apply. Capture permissions, including whether elevation is required, depend on your Npcap configuration.
+2. Download **[A2PetTracker-win-Setup.exe](https://github.com/keytftw/aion2pettracker/releases/latest/download/A2PetTracker-win-Setup.exe)** from the latest release. Updater `.nupkg` files are not the installer.
+3. Run Setup, select a language, review the terms, choose an installation folder and optionally add a desktop shortcut.
+4. Open the tracker. With it running, return to **Character Select and log in again** so the game supplies a fresh character identity and collection. The tracker opens after validation.
+5. Attack a supported pet monster or use **+ Add pet**. Open the globe icon for Pet Atlas and the purple Rift icon for its settings.
+
+Each new live session requires a fresh collection; saved counters are not treated as a current authoritative baseline. Users of older portable distributions should run Setup once to use the installed updater. Public releases provide Setup rather than a portable ZIP.
+
+If an update check fails, Retry or Continue current version is available. Relaunching the desktop shortcut restores the running tracker instead of creating a second session.
+
+## How passive capture works
+
+The implementation is available for inspection in [PassiveCapture.cs](src/PetTracker.Capture/PassiveCapture.cs), [GameConnections.cs](src/PetTracker.Capture/GameConnections.cs) and the [capture project](src/PetTracker.Capture).
+
+1. The application looks up supported Aion 2 process names, process IDs/start times and the **Windows TCP connection table** to identify a process-owned IPv4 connection on remote port `13328`. This is connection identification, not access to game-process memory.
+2. **SharpPcap uses the separately installed Npcap driver** to receive traffic from the matching network adapter. The capture device is opened without requesting promiscuous mode.
+3. A filter selects the exact **server-to-client TCP direction**; received packets are checked against that connection again before decoding. If more than one matching game connection exists, capture waits rather than choosing a character arbitrarily.
+4. TCP reassembly and supported protocol decoding produce character identity, collection snapshots, soul events and target/NPC metadata. Soul totals use numeric Pet IDs and validated events; targeting alone adds no souls.
+
+The application does **not** read or write game-process memory, inject DLLs, modify the game client, inject/send/replay game packets, intercept and change traffic, or automate gameplay. It does not bypass anti-cheat. Ordinary HTTPS requests to GitHub for updates are separate from the passive game capture; website and wiki links open in the default browser.
+
+### Data quality and limitations
+
+- Collection snapshots, soul events, session activity and UI preferences are separated. New validated snapshots reconcile real values without losing stable preferences.
+- Stream/frame identity guards against replayed frames; identical Pet ID/amount values alone are not used to discard legitimate gains. Multi-pet AoE/auto-loot batches are validated before application.
+- Reconnects, dropped packets, unsupported messages or protocol changes can make counts uncertain. Last-known values remain visible with a warning; subsequent readable gains can continue when identity and a collection baseline remain available. **Gains inside unreadable or missed messages may still be absent.**
+- Return to Character Select and log in again when safe to obtain a fresh collection. Teleporting is not a guaranteed resynchronization method. Do not risk leaving a timed instance just to clear a warning.
+- The current connection lookup supports the known IPv4/port layout. VPN, IPv6, game patches and adapter permissions can prevent capture from working. Offline tests cannot establish compatibility with every live game build.
+
+### Local data and diagnostics
+
+Character/server identifiers, collection state, preferences and text diagnostics are stored under `%LOCALAPPDATA%\Aion2PetTracker`. Fresh sessions discard cached live totals while retaining stable preferences.
+
+The tracker does not ask for your game password or automatically upload collection state or diagnostic reports to a developer service. It does not write full PCAP captures. **Text logs can include character/server identifiers and bounded hexadecimal snippets of unsupported soul messages**, so review and redact diagnostics before posting them publicly. Automatic bug-email submission is not implemented; sharing a report is manual.
+
+## Security and anti-cheat risks
+
+**There is no official NCSOFT approval and no guarantee of anti-cheat safety, invisibility or freedom from account sanctions.** Passive capture does not establish permission to use a third-party tool. Publisher rules and enforcement can change, and use may result in temporary restrictions or permanent bans.
+
+Precautions in the implementation include connection scoping, server-direction filtering, no game-memory access or packet injection, explicit consent before live use, validation of decoded data and uncertainty warnings. These describe implementation choices, **not an anti-cheat certification or an independent security audit**.
+
+Review the game's current rules and the [in-app terms source](src/PetTracker.App/TermsContent.cs) before use. Do not disable anti-cheat, antivirus or other security protections to run the tracker. If you are unsure whether a tool is permitted, seek clarification from the publisher rather than treating this README as authorization.
+
+Use the [official repository](https://github.com/keytftw/aion2pettracker) and [GitHub releases](https://github.com/keytftw/aion2pettracker/releases) as distribution sources. Release asset details provide SHA-256 digests, and releases include corresponding source archives. A hash or antivirus result alone does not prove a binary is safe; code signing remains a separate distribution task.
+
+## Help and contributions
+
+- **Learn:** [website and full guide](https://keytdev.com/pettracker) · [patch notes](https://keytdev.com/pettracker/patch-notes.html).
+- **Report a problem:** [open a GitHub issue](https://github.com/keytftw/aion2pettracker/issues) with the app version, Windows version, server region, steps to reproduce and expected/actual behavior. Use Settings → Diagnostics if needed, and redact identifying information first.
+- **Contact:** [support@keytdev.com](mailto:support@keytdev.com). Use email for information you do not want in a public issue; do not send passwords or account credentials.
+- **Contribute:** [pull requests](https://github.com/keytftw/aion2pettracker/pulls) for focused fixes, documentation, translations, tests and verified data corrections are welcome. Discuss larger changes in an issue first, preserve attribution and include relevant tests.
+
+### Build from source
+
+Development requires **Windows x64 and the .NET 10 SDK**; the SDK version/roll-forward policy is in [global.json](global.json). From a checkout of this repository:
 
 ```powershell
+git clone https://github.com/keytftw/aion2pettracker.git
+cd aion2pettracker
 dotnet build PetTracker.slnx -c Release -m:1
 dotnet test PetTracker.slnx -c Release --no-build --no-restore -m:1
+```
+
+The [test projects](tests) exercise state reconciliation, identity isolation, batch soul gains, pin/delete retention, installer logic, localization, map data/filtering, camera behavior and elapsed-time animation. Source-based UI tests render demo forms without starting live capture; they do not launch packaged installers or tracker binaries. Passing offline tests is not evidence of anti-cheat approval or guaranteed live accuracy.
+
+<details>
+<summary><b>Developer reference: controls, data and rendering</b></summary>
+
+- Level stages have within-stage goals of **5 / 25 / 75**; 105 total souls reaches Lv 3 MAX. Shard/crystal messages do not provide reliable pet attribution and are not counted as pet souls.
+- A non-MAX attack can display a card without incrementing its counter; MAX pets can be added manually. Unpinning removes only the pin, retaining the card. Delete/CLEAR removes the visible card and its pin, preserving progress. A subsequent real soul gain can reactivate it.
+- Pins, retained cards and saved order are scoped to character/server. Up/down arrows reorder cards. The full tracker fits one to seven card slots, grows and shrinks after additions/removals and scrolls beyond seven. Empty retains one slot. Position lock is separate from sizing.
+- Custom shortcuts accept Ctrl/Alt/Shift with a letter, digit or F1–F24. Conflicting combinations are rejected and held keys do not repeatedly toggle. MAX transitions can play a subtle sound; hover CLEAR removes a MAX card.
+- The catalog contains **207 IDs, including seven Special entries**; this is not a claim that the game displays 207 regular collection pets. The bundled map snapshot associates 200 IDs with six maps and has coordinates for 160 pets. Acquisition records are wiki-matched for 206 catalog entries, with the remaining entry explicitly unconfirmed.
+- Multi-region cards provide a Show on map menu. Region filters exclude pets without coordinates in that region; All pets and Pets without locations retain access to acquisition information. Portrait markers and dots use saved preferences; nearby markers of the same pet are coalesced at the current zoom.
+- Maps/terrain are bundled; no WebView2 or online map dependency is required. The current map bitmap is disposed when regions change. Region, map size and position persist.
+- The separate illustrated handbook has eight pages and can be opened from the tracker, Pet Atlas or Setup's button below its progress bar. Setup's completed-work progress screen remains visible for at least six seconds and never reports completion before installation steps finish.
+- Rift alerts start enabled for new settings; a saved opt-out remains respected. Delivered reminder keys are retained to reduce repeats across restarts. Unsupported server identities suppress automatic alerts.
+- Rendering caches text and portraits, uses elapsed-time easing and lowers timer activity when idle or hidden. Active animation uses an 8 ms timer request, which is not a guarantee of an 8 ms frame interval. Offline seven-card paint measurements have varied by revision and environment: a prior local 96-DPI comparison measured 10.31 → 4.19 ms median and 354,984 → 36,216 allocated bytes/frame. These are historical offline measurements, not in-game FPS guarantees.
+- Manual validation still includes fluidity under game load, installation/update/restart behavior and live collection recovery after data gaps. Development instructions prohibit executing packaged installers or application binaries during local development.
+
+</details>
+
+<details>
+<summary><b>Maintainer reference: release packaging</b></summary>
+
+Install the pinned packaging tool and build the installer:
+
+```powershell
 dotnet tool install vpk --version 1.2.161 --tool-path .tools/vpk
 ./tools/Build-Setup.ps1
 ```
 
-Offline tests cover state reconciliation, identity isolation, pin/delete retention, saved order, installer consent/location, localization, map data/camera and elapsed-time animation easing. Source-based UI tests render demo forms without live capture, check clipping and compact sizing, and measure native timer cadence and seven-card rendering. They never launch the packaged tracker or installer. Current verification: 361 logic tests plus 6 UI tests passed.
+[Build-Setup.ps1](tools/Build-Setup.ps1) publishes the app, checks required data/portraits/maps/licenses, disables portable generation and skips Velopack's app-execution probe. The localized wizard embeds the matching installer payload with a SHA-256 integrity check. Installation runs only after the user's consent and Install action; successful installation writes the installation profile and preferences.
 
-Rendering caches final-size text and portraits. Active animation uses an 8 ms UI timer and elapsed-time easing; idle/hidden windows use lower timer rates. Settings changes apply immediately and are saved after a short debounce. In the local 96-DPI benchmark, seven-card paint median decreased from 10.31 ms to 4.19 ms and allocations/frame from 354,984 to 36,216 bytes. These are offline measurements, not guaranteed in-game FPS.
+For publication, use **Actions → Build and publish updater release → Run workflow**. App and Setup project versions must match and be incremented before a release. The [workflow](.github/workflows/release.yml) builds/tests on Windows, packages the installed Velopack feed and publishes the public Setup, full/delta update packages, feed metadata and corresponding source ZIP. User update checks need no GitHub token. A fresh collection is required after updating.
 
-Manual checks still include gaming-load fluidity, real installation/update/restart behavior and a no-auto-loot session after a data gap. Source instructions prohibit executing installers or packaged application binaries during local development.
+</details>
 
-## Release packaging
+## License and acknowledgements
 
-Actions → **Build and publish updater release** → **Run workflow** builds/tests on Windows and packages the installed Velopack feed. Increment Version in both App and Setup projects before release.
+Distributed under [GNU GPL-3.0](LICENSE). Required capture/protocol/catalog components have attribution; the tracker state and desktop interface are independently implemented. Third-party code, fonts, maps, portraits and server-data sources are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [data/PET-SOURCES.md](data/PET-SOURCES.md) and [licenses/](licenses).
 
-`tools/Build-Setup.ps1` publishes the app, verifies required data/portraits/maps/licenses, disables portable generation and skips Velopack's app-execution probe. Our localized setup wizard embeds the matching installer and a SHA-256 integrity check. It runs installation only after the user explicitly accepts terms and clicks Install. Only successful installation writes consent and preferences.
+Aion 2 names, game artwork and trademarks belong to NCSOFT and their respective owners. Their inclusion does not imply affiliation or endorsement.
 
-A release includes the public Setup, necessary updater packages/feed and corresponding source ZIP. GitHub updates require no token. If GitHub is unavailable, Retry or Continue current version remains available. User preferences remain under `%LOCALAPPDATA%/Aion2PetTracker`; fresh collection data is required after updating. Code signing remains a separate distribution task.
+## Optional support
 
-## Attribution
-
-Only required capture/protocol/catalog components were reused with GPL attribution; this application has its own tracker state and UI. Portrait, font, map and server-data sources and licenses are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [data/PET-SOURCES.md](data/PET-SOURCES.md) and `licenses/`.
-
-### Atlas cards and Spacerift reminders (1.2.1)
-
-The region selector includes **Pets without locations**. Clicking an Atlas pet or a map portrait opens its collection card, with known farming locations and short acquisition facts linked to the original wiki page. All 207 catalog pets have cards; 206 have wiki-matched acquisition records. The remaining entry is explicitly unconfirmed. Missing coordinates never imply that a pet cannot be farmed. The aggregate farming map uses circular portraits with black outlines and gold selection borders; nearby markers of the same pet are coalesced at the current zoom.
-
-Open **Spacetime Rift** from Settings or Pet Atlas to enable reminders, change the lead time (default five minutes), toggle the short notification sound, and test both alerts. Notifications appear in a separate small rectangle at the top right for five seconds without activating a window, including while the tracker is hidden or compact. The current server identity selects the supported Global region automatically after a collection snapshot. Unknown identities suppress alerts. Timing follows the community Shugo.GG timetable and timezone daylight-saving rules; an opening alert is scheduled, not a live spawn confirmation. Delivered reminders are saved to avoid repeats across restarts.
-
-### Atlas usability fixes (1.2.1)
-
-Pet detail cards are smaller and stay below the pet carousel, with a scrolling information area. Selecting a specific map shows only pets recorded in that map. Use All pets to browse across regions and see acquisition details for unlocated pets; the dedicated Pets without locations category remains available. Multi-region pets have a Show on map dropdown that opens the chosen region and animates to its locations. Show pet portraits on map toggles circular portraits and red markers in either farmable or maxed views; the preference is saved.
-
-### Counter integrity
-
-The unlocated-pet hide checkbox has been removed from Pet Atlas. When a soul message is unsupported, character identity is retained and subsequent readable gains continue updating provisional counters. A red footer warns that counts may be inaccurate and asks the player to return to Character Select to resync. A validated collection snapshot replaces provisional totals and clears the warning. Transport gaps still require character identity to be confirmed before attributing gains.
-
-The reported 17-byte type-02 variant remains unverified: candidate pet/amount pairs are diagnostic only, so gains inside that unreadable message may be missing. No raw packet data is recorded. Batch application validates all records before mutation and deduplicates by stream/frame rather than identical pet/amount values.
-
-
-### Setup and quick help (1.2.4)
-
-Setup displays completed-work progress and cannot finish before six seconds or before all installation steps complete. It includes localized appearance, guide and contact information. Pet Atlas has animated custom checkboxes and a separate, movable five-page screenshot handbook in all ten languages. The portrait checkbox controls markers in every map view. Settings and the handbook link to https://keytdev.com/pettracker/ and support@keytdev.com through the default browser/mail client.
-
-Automatic bug submission is deferred until a working mail backend is available. Diagnostics remains available; no report is silently sent. Map rendering reuses marker pens/brushes and ordering, avoids sorting during hover hit testing and idles animation timers when movement completes.
-
-## 1.2.8
-
-- Fixed multi-pet and repeated-entry soul batches from AoE/auto-loot, with whole-frame replay protection and atomic validation. The user verified both affected pets against the game.
-- Expanded the illustrated handbook to eight pages, including farmable pets, regions, acquisition sources and map portraits. Open it from the tracker, Atlas or Setup progress screen.
-- Rift alerts default to enabled; an explicitly saved opt-out remains respected.
-- Uncertain counts keep the red warning while readable gains continue; a validated collection reconciles totals.
-
-## 1.2.9
-
-- Automatically grow and shrink the tracker with visible cards, including Delete/CLEAR. Empty keeps one slot, with a seven-card cap and scrolling beyond seven. Compact mode remains compact.
-- Replace manual height controls with automatic height information in all ten languages.
-- Restrict the full opacity slider to 85–100%; migrate lower saved values to 85%.
-
-## 1.2.11
-
-- Refresh the tracker, shortcut keycaps, hover effects and empty-state glow with cached rendering and idle repaint suppression.
-- Show a single animated Rift notice: attached to the visible tracker, or at the top-left when hidden. Show region-specific server times and a 1–10 minute lead setting.
-- Display only an observed monster variant beneath its pet name; no guessed alternate-name summary. Soul counters remain independent of targeting.
-- Make Settings and Rift Settings movable and modeless, opening beside the tracker. Keep them above tracker and atlas windows.
+If the tracker is useful to you, you can [support Keyt on Patreon](https://www.patreon.com/cw/keytftw). Donations are optional: the application stays **free, ad-free and fully featured**, whether you donate or not.
