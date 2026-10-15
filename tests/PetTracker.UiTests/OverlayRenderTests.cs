@@ -44,7 +44,8 @@ public sealed class OverlayRenderTests(ITestOutputHelper output)
                 {
                     sync.Invoke(form,null);Assert.Equal(count,tracker.VisibleIds.Count());
                     Assert.Equal(OverlayHeight.Fit(count),prefs.VisibleCards);
-                    Assert.Equal((int)(OverlayHeight.Pixels(OverlayHeight.Fit(count))*form.DeviceDpi/96f),form.Height);
+                    var fittedHeight=(int)(OverlayHeight.Pixels(OverlayHeight.Fit(count))*form.DeviceDpi/96f);
+                    Assert.Equal(Math.Min(fittedHeight,Screen.FromControl(form).WorkingArea.Height),form.Height);
                 }
                 Expect(5);
                 var maxTotal=tracker.KnownTotal(1007);tracker.Dismiss(1178);Expect(4);
