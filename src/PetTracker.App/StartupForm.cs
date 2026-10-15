@@ -25,6 +25,9 @@ public sealed class StartupForm : Form
     private CheckBox? consent;
     private PremiumButton? accept,retry;
     private Label? message;
+    private bool synchronizationCompact;
+    private PremiumButton? synchronizationRestore;
+    private readonly Dictionary<Control,bool> synchronizationVisibility=[];
     private bool handedOff,closing,mayClose,resourcesDisposed;
     private double stepStart,lastPump;private double? previewTime;
     private string? failure;
@@ -147,19 +150,50 @@ public sealed class StartupForm : Form
         message.Cursor=Cursors.SizeAll;message.MouseDown+=(_,e)=>{if(e.Button==MouseButtons.Left)BeginDrag(message.PointToScreen(e.Location));};
         retry=new PremiumButton{Location=new(472,527),Size=new(190,37),Text=S("retry"),TextLanguage=language,Cursor=cursor.Pointer};
         var close=new PremiumButton{Location=new(38,527),Size=new(190,37),Text=UiText.Get(language,"close"),TextLanguage=language,Cursor=cursor.Pointer};
+        var compact=new PremiumButton{Location=new(254,527),Size=new(190,37),Text=UiText.Get(language,"compact"),TextLanguage=language,Cursor=cursor.Pointer,AccessibleName=UiText.Get(language,"compact")};
+        compact.Click+=(_,_)=>ToggleSynchronizationCompact();
+        var minimize=new PremiumButton{Location=new(656,12),Size=new(28,28),Text="−",TextSize=17,TextLanguage=language,Cursor=cursor.Pointer,AccessibleName=UiText.Get(language,"minimize")};
+        minimize.Click+=(_,_)=>WindowState=FormWindowState.Minimized;
+        synchronizationRestore=new PremiumButton{Text="→",TextSize=18,TextLanguage=language,Cursor=cursor.Pointer,AccessibleName=UiText.Get(language,"expand"),Visible=false};
+        synchronizationRestore.Click+=(_,_)=>ToggleSynchronizationCompact();
 #if LOCAL_TEST
-        var test=new PremiumButton{Location=new(243,527),Size=new(214,37),Text="Teleport / Collection Test",TextLanguage=language,Cursor=cursor.Pointer};
+        var test=new PremiumButton{Location=new(243,95),Size=new(214,28),Text="Teleport / Collection Test",TextLanguage=language,Cursor=cursor.Pointer};
         test.Click+=(_,_)=>{if(controller is null)return;if(teleportTest is null||teleportTest.IsDisposed){teleportTest=new(controller);teleportTest.Show();}else{teleportTest.Show();teleportTest.Activate();}};
         Controls.Add(test);
 #endif
         close.Click+=(_,_)=>Close();retry.Click+=async(_,_)=>{retry.Enabled=false;try{if(controller is not null)await controller.Stop();if(closing||IsDisposed)return;failure=null;if(controller is null)InitializeController();else controller.Start();}catch(Exception ex){failure=ex.Message;}finally{if(!retry.IsDisposed)retry.Enabled=true;}};
-        Controls.AddRange([message,retry,close]);
+        Controls.AddRange([message,retry,close,compact,minimize,synchronizationRestore]);
         if(!startCapture){retry.Enabled=false;return;}
         try
         {
             InitializeController();
         }
         catch(Exception ex){failure=ex.Message;controller?.Log("Okuma başlatılamadı: "+ex.Message);}
+    }
+    private void ToggleSynchronizationCompact()
+    {
+        if(gate.Stage!=StartupStage.Synchronizing||closing)return;
+        synchronizationCompact=!synchronizationCompact;
+        if(synchronizationCompact)
+        {
+            synchronizationVisibility.Clear();
+            foreach(Control control in Controls)
+                if(control!=synchronizationRestore){synchronizationVisibility[control]=control.Visible||!Visible;control.Visible=false;}
+        }
+        else
+        {
+            foreach(var (control,visible) in synchronizationVisibility)if(!control.IsDisposed)control.Visible=visible;
+            synchronizationVisibility.Clear();
+        }
+        var scale=DeviceDpi/96f;
+        MinimumSize=Size.Empty;MaximumSize=Size.Empty;
+        ClientSize=new((int)Math.Round((synchronizationCompact?460:700)*scale),(int)Math.Round((synchronizationCompact?64:610)*scale));
+        MinimumSize=Size;MaximumSize=Size;
+        if(synchronizationRestore is not null)
+        {synchronizationRestore.Bounds=new((int)(411*scale),(int)(15*scale),(int)(34*scale),(int)(34*scale));synchronizationRestore.Visible=synchronizationCompact;}
+        var area=Screen.FromPoint(Location).WorkingArea;
+        Location=new(Math.Clamp(Left,area.Left,Math.Max(area.Left,area.Right-Width)),Math.Clamp(Top,area.Top,Math.Max(area.Top,area.Bottom-Height)));
+        Invalidate();
     }
     private void InitializeController()
     {
@@ -187,6 +221,15 @@ public sealed class StartupForm : Form
     {
         base.OnPaint(e);var g=e.Graphics;g.ScaleTransform(DeviceDpi/96f,DeviceDpi/96f);g.SmoothingMode=SmoothingMode.AntiAlias;g.TextRenderingHint=System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
         var now=previewTime??clock.Elapsed.TotalSeconds;
+        if(synchronizationCompact&&gate.Stage==StartupStage.Synchronizing)
+        {
+            g.Clear(PremiumTheme.Background);
+            using var edge=new Pen(Color.FromArgb(120,PremiumTheme.Gold));g.DrawRectangle(edge,.5f,.5f,459,63);
+            using var spinner=new Pen(PremiumTheme.Gold,2.2f){StartCap=LineCap.Round,EndCap=LineCap.Round};
+            g.DrawArc(spinner,18,20,24,24,(float)(now*120),250);
+            PremiumTheme.Text(g,StartupText.Get(language,"compactRelog"),new(58,9,338,46),10.5f,PremiumTheme.Ink,language,align:StringAlignment.Center);
+            return;
+        }
         using var background=new LinearGradientBrush(new Rectangle(0,0,700,610),Color.FromArgb(24,21,34),Color.FromArgb(9,15,24),70);g.FillRectangle(background,0,0,700,610);
         // Deterministic floating motes and orbit highlights, no external assets or hooks.
         for(var i=0;i<35;i++)
@@ -272,12 +315,13 @@ public sealed class StartupForm : Form
     {
         gate.FinishIntro(4);SelectLanguage(code);if(accept!.Enabled)throw new InvalidOperationException("Unchecked acceptance enabled");consent!.Checked=true;if(!accept.Enabled)throw new InvalidOperationException("Checked acceptance disabled");consent.Checked=false;if(accept.Enabled)throw new InvalidOperationException("Unchecked acceptance enabled");
     }
-    public void ExportStep(string path,StartupStage stage,string code="en")
+    public void ExportStep(string path,StartupStage stage,string code="en",bool compact=false)
     {
         updateDone=true;
         previewTime=stage==StartupStage.Intro?2.4:4;
         if(stage!=StartupStage.Intro){gate.FinishIntro(4);if(stage is StartupStage.Terms or StartupStage.Synchronizing)SelectLanguage(code);}
         if(stage==StartupStage.Synchronizing){gate.Accept(true);ShowSynchronization(startCapture:false);}
+        if(compact&&stage==StartupStage.Synchronizing)ToggleSynchronizationCompact();
         PremiumDialogMotion.ShowForPreview(this);using var bitmap=new Bitmap(Width,Height);DrawToBitmap(bitmap,ClientRectangle);bitmap.Save(path);Hide();timer.Stop();
     }
     protected override void Dispose(bool disposing)

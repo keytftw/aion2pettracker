@@ -239,7 +239,7 @@ public sealed class OverlayForm : Form
         DrawText(g,identity,new(12,52,168,24),8.8f,PremiumTheme.Gold,FontStyle.Bold,language:"en");
         IconButton(g,new(184,53,18,21),"handbook");IconButton(g,new(204,53,18,21),"map");
         ActionButton(g,new(226,54,84,20),"+ "+T("add"),"add");
-        
+
         using var line=new Pen(Color.FromArgb(48,PremiumTheme.Gold));g.DrawLine(line,10,78,DesignWidth-10,78);
         var saved=g.Save();g.SetClip(new RectangleF(6,HeaderHeight,DesignWidth-12,Math.Max(1,LogicalHeight-HeaderHeight-FooterHeight)));
         if(motion.Rows.Count==0)
@@ -266,7 +266,16 @@ public sealed class OverlayForm : Form
         var status=!controller.LiveMode?T("demo"):exact?T("exact"):controller.Session.IdentityKnown?T("uncertain"):T("snapshot");
         DrawText(g,warning?T("resyncWarning"):status,new(23,footer+3,DesignWidth-40,warning?32:18),warning?7.5f:6.8f,warning?warningColor:exact?PremiumTheme.Ink:PremiumTheme.Gold);
         if(!warning){using var creditRule=new Pen(Color.FromArgb(24,PremiumTheme.Gold));g.DrawLine(creditRule,43,footer+23,DesignWidth-43,footer+23);
-        PremiumTheme.Text(g,"Designed & Developed by Keyt",new(15,footer+24,DesignWidth-30,11),5.9f,Color.FromArgb(149,142,136),"en",align:StringAlignment.Center);}
+        PremiumTheme.Text(g,"Designed & Developed by Keyt",new(73,footer+24,DesignWidth-146,11),5.9f,Color.FromArgb(149,142,136),"en",align:StringAlignment.Center);}
+        PremiumTheme.Text(g,RunningVersion,new(12,footer+(warning?33:24),58,9),5.7f,Color.FromArgb(125,PremiumTheme.Gold),"en");
+    }
+    public static string RunningVersion
+    {
+        get
+        {
+            var version=typeof(OverlayForm).Assembly.GetName().Version;
+            return version is null?"":"v"+version.Major+"."+version.Minor+"."+version.Build;
+        }
     }
     private void DrawCard(Graphics g,CardMotion.Row row,RectangleF box)
     {
