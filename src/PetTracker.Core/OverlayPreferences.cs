@@ -35,7 +35,7 @@ public sealed class OverlayPreferences
     public void Validate()
     {
         OpacityPercent = Math.Clamp(OpacityPercent, MinimumOpacityPercent, MaximumOpacityPercent);
-        RiftLeadMinutes = Math.Clamp(RiftLeadMinutes, 1, 120);
+        RiftLeadMinutes = Math.Clamp(RiftLeadMinutes, 1, 10);
         RiftDelivered = (RiftDelivered??[]).TakeLast(32).ToList();
         VisibleCards = OverlayHeight.Clamp(VisibleCards);
         Height = OverlayHeight.Pixels(VisibleCards);

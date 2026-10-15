@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\rift-emblem.png" LogicalName="Rift.Emblem" />
     <EmbeddedResource Include="Assets\Fonts\*.ttf" LogicalName="Fonts.%(Filename)%(Extension)" />
     <EmbeddedResource Include="Assets\Handbook\*.png" LogicalName="Handbook.%(Filename)%(Extension)" />
     <ProjectReference Include="..\PetTracker.Core\PetTracker.Core.csproj" />
@@ -28,7 +29,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>1.2.10</Version>
+    <Version>1.2.11</Version>
     <AssemblyTitle>Aion 2 Pet Tracker</AssemblyTitle>
     <AssemblyName>A2PetTracker</AssemblyName>
     <Product>Aion 2 Pet Tracker</Product>

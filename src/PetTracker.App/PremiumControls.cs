@@ -94,11 +94,20 @@ public sealed class PremiumButton : Control
     public bool? LockIcon { get; set; }
     [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
     public bool BookIcon {get;set;}
+    [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+    public Color AccentColor {get;set;}=PremiumTheme.Gold;
+    [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+    public string BadgeText {get;set;}="";
+    [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+    public Color BadgeColor {get;set;}=Color.FromArgb(139,222,238);
+    [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+    public Image? LeadingImage {get;set;}
+    private Font? badgeFont;
     public PremiumButton()
     {
         SetStyle(ControlStyles.UserPaint|ControlStyles.AllPaintingInWmPaint|ControlStyles.OptimizedDoubleBuffer,true);
         BackColor=PremiumTheme.Background;ForeColor=PremiumTheme.Gold;Size=new(120,30);TabStop=true;
-        timer.Tick+=(_,_)=>{blend=FrameSmoothing.Approach(blend,hover?1:0,animationClock.Step(),16);Invalidate();if(Math.Abs(blend-(hover?1:0))<.01f)timer.Stop();};
+        timer.Tick+=(_,_)=>{blend=FrameSmoothing.Approach(blend,hover?1:0,animationClock.Step(),12);Invalidate();if(Math.Abs(blend-(hover?1:0))<.01f)timer.Stop();};
     }
     protected override void OnMouseEnter(EventArgs e){base.OnMouseEnter(e);hover=true;timer.Start();}
     protected override void OnMouseLeave(EventArgs e){base.OnMouseLeave(e);hover=false;timer.Start();}
@@ -106,8 +115,8 @@ public sealed class PremiumButton : Control
     protected override void OnPaint(PaintEventArgs e)
     {
         e.Graphics.SmoothingMode=SmoothingMode.AntiAlias;var r=new RectangleF(1,1,Width-2,Height-2);using var p=PremiumTheme.Round(r);
-        using var b=new SolidBrush(Color.FromArgb((int)(22+blend*25),PremiumTheme.Gold));e.Graphics.FillPath(b,p);
-        using var pen=new Pen(Color.FromArgb((int)(75+blend*75),PremiumTheme.Gold));e.Graphics.DrawPath(pen,p);
+        using var b=new SolidBrush(Color.FromArgb((int)(22+blend*25),AccentColor));e.Graphics.FillPath(b,p);
+        using var pen=new Pen(Color.FromArgb((int)(75+blend*75),AccentColor));e.Graphics.DrawPath(pen,p);
         if(BookIcon)
         {
             var s=DeviceDpi/96f;var x=Width/2f;var y=Height/2f;using var book=new Pen(ForeColor,1.4f*s);
@@ -128,9 +137,23 @@ public sealed class PremiumButton : Control
 #else
         if(DpiAwareText)fontSize*=DeviceDpi/96f;
 #endif
-        PremiumTheme.Text(e.Graphics,Text,r,fontSize,ForeColor,TextLanguage,style:FontStyle.Bold,align:StringAlignment.Center);
+        var caption=r;
+        var dpi=DeviceDpi/96f;
+        if(LeadingImage is not null){var side=Height-12*dpi;e.Graphics.DrawImage(LeadingImage,new RectangleF(12*dpi,6*dpi,side,side));caption.X+=side+18*dpi;caption.Width-=side+24*dpi;}
+        if(BadgeText.Length>0)
+        {
+            var badgeWidth=Math.Min(Width*.55f,Math.Max(86*dpi,(BadgeText.Length*8+16)*dpi));
+            var badge=new RectangleF(Width-badgeWidth-13*dpi,7*dpi,badgeWidth,Height-14*dpi);
+            using var path=PremiumTheme.Round(badge,5*dpi);using var tint=new SolidBrush(Color.FromArgb(24,BadgeColor));using var stroke=new Pen(Color.FromArgb(130,BadgeColor));
+            e.Graphics.FillPath(tint,path);e.Graphics.DrawPath(stroke,path);
+            badgeFont??=new Font("Consolas",10*dpi,FontStyle.Bold);
+            using var ink=new SolidBrush(BadgeColor);using var format=new StringFormat{Alignment=StringAlignment.Center,LineAlignment=StringAlignment.Center};e.Graphics.DrawString(BadgeText,badgeFont,ink,badge,format);
+            caption.X=13*dpi;caption.Width=Math.Max(1,badge.X-caption.X-8*dpi);
+        }
+        PremiumTheme.Text(e.Graphics,Text,caption,fontSize,ForeColor,TextLanguage,style:FontStyle.Bold,align:StringAlignment.Center);
     }
-    protected override void Dispose(bool disposing){if(disposing)timer.Dispose();base.Dispose(disposing);}
+    protected override void OnDpiChangedAfterParent(EventArgs e){badgeFont?.Dispose();badgeFont=null;base.OnDpiChangedAfterParent(e);}
+    protected override void Dispose(bool disposing){if(disposing){badgeFont?.Dispose();timer.Dispose();}base.Dispose(disposing);}
 }
 
 public sealed class PremiumSlider : Control
@@ -148,7 +171,7 @@ public sealed class PremiumSlider : Control
     public PremiumSlider()
     {
         SetStyle(ControlStyles.UserPaint|ControlStyles.AllPaintingInWmPaint|ControlStyles.OptimizedDoubleBuffer,true);Size=new(280,34);BackColor=PremiumTheme.Background;TabStop=true;
-        timer.Tick+=(_,_)=>{shown=FrameSmoothing.Approach(shown,value,animationClock.Step(),18,.05f);Invalidate();if(Math.Abs(shown-value)<.05){shown=value;timer.Stop();}};
+        timer.Tick+=(_,_)=>{shown=FrameSmoothing.Approach(shown,value,animationClock.Step(),14,.05f);Invalidate();if(Math.Abs(shown-value)<.05){shown=value;timer.Stop();}};
     }
     private void UpdateValue(int x)=>Value=Minimum+(int)Math.Round(Math.Clamp((x-11f)/Math.Max(1,Width-22),0,1)*(Maximum-Minimum));
     protected override void OnMouseDown(MouseEventArgs e){base.OnMouseDown(e);if(e.Button!=MouseButtons.Left)return;dragging=true;Capture=true;UpdateValue(e.X);}
@@ -185,7 +208,7 @@ internal static class PremiumDialogMotion
         var timer=new System.Windows.Forms.Timer {Interval=8};var time=new System.Diagnostics.Stopwatch();
         form.Opacity=0;
         form.Shown+=(_,_)=>{time.Restart();timer.Start();};
-        timer.Tick+=(_,_)=>{var t=Math.Clamp(time.Elapsed.TotalSeconds/.18,0,1);form.Opacity=1-Math.Pow(1-t,3);if(t>=1)timer.Stop();};
+        timer.Tick+=(_,_)=>{var t=Math.Clamp(time.Elapsed.TotalSeconds/.24,0,1);form.Opacity=1-Math.Pow(1-t,3);if(t>=1)timer.Stop();};
         form.Disposed+=(_,_)=>timer.Dispose();
     }
 }

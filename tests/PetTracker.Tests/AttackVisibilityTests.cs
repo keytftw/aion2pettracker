@@ -15,6 +15,16 @@ public sealed class AttackVisibilityTests
         session.Accept(new CollectionReceived("s",2,[new(1114,2,28)])); return(tracker,session);
     }
     [Fact]
+    public void ObservedMonsterNameIdentityNeverAddsSoulsAndClearsAfterConnectionGap()
+    {
+        var (tracker,session)=Setup();var before=tracker.KnownTotal(1114);
+        session.Accept(new NpcObserved("s",200,2101234));session.Accept(new TargetObserved("other",150,200));
+        Assert.Empty(session.ObservedPetNpcs);
+        session.Accept(new TargetObserved("s",150,200));Assert.Equal(2101234,session.ObservedPetNpcs[1114]);
+        Assert.Equal(before,tracker.KnownTotal(1114));Assert.Empty(tracker.Session.Events);
+        session.Accept(new IntegrityLost("connection gap"));Assert.Empty(session.ObservedPetNpcs);
+    }
+    [Fact]
     public void AlreadyMaxAttackStaysHiddenButExplicitPinWorks()
     {
         var (tracker,session)=Setup();tracker.Synchronize(new(Scope,"s",3,[new(1114,3,0)]));

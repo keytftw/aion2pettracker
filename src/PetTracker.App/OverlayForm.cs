@@ -14,6 +14,7 @@ public sealed class OverlayForm : Form
     private readonly OverlayPreferences preferences;
     private readonly string preferencesPath;
     private readonly Dictionary<int,Image> portraits=[];
+    private PetMonsterNames monsterNames=new();
     private readonly Dictionary<(int Id,int Size),Bitmap> cardPortraits=[];
     private readonly List<string> drawnButtons=[];
     private readonly List<(RectangleF Bounds,string Action,int Id)> hits=[];
@@ -27,6 +28,9 @@ public sealed class OverlayForm : Form
     private readonly AnimationClock animationClock=new();
     private double frameElapsed=1d/60;
     private bool progressAnimating;
+    private bool previousFrameAnimated=true;
+    private bool pendingRepaint;
+    private double lastPaintRequest;
     private int[] visibleIds=[];
     private readonly CrystalCursor crystal=new(),brightCrystal=new(true);
     private readonly MaxChime chime=new();
@@ -34,6 +38,8 @@ public sealed class OverlayForm : Form
     private readonly NotifyIcon tray;
     private readonly ToolTip tips=new();
     private HandbookForm? handbook;
+    private OverlaySettingsForm? settingsWindow;
+    private RiftSettingsForm? riftSettingsWindow;
     private string? handbookLanguage;
     private float scroll,scrollTarget;
     private int wheelDelta;
@@ -48,6 +54,12 @@ public sealed class OverlayForm : Form
     private readonly bool preview;
     private PetMapForm? map;
     private readonly RiftAlertService rift;
+    private readonly RiftBannerTimeline riftBanner=new();
+    private RiftBannerFrame riftFrame;
+    private RiftToast? detachedRift;
+    private int bannerPixels;
+    private int? bannerAnchorTop;
+    private float ContentHeight=>LogicalHeight-bannerPixels/ScaleFactor;
     private float ScaleFactor=>DeviceDpi/96f*4f/3f;
     private float LogicalHeight=>ClientSize.Height/ScaleFactor;
     private double Now=>clock.Elapsed.TotalSeconds;
@@ -59,6 +71,9 @@ public sealed class OverlayForm : Form
     public OverlayForm(bool liveMode=true,string? stateFolder=null,bool preview=false,OverlayController? sharedController=null,string? selectedLanguage=null)
     {
         this.preview=preview;controller=sharedController??new(liveMode,stateFolder);
+        try{monsterNames=PetMonsterNames.Load(Path.Combine(AppContext.BaseDirectory,"data","maps","spawns.json"));}
+        catch(Exception ex)when(ex is IOException or System.Text.Json.JsonException or InvalidOperationException or KeyNotFoundException or FormatException or OverflowException){controller.Log("Canavar adları yüklenemedi: "+ex.Message);}
+        monsterNames.MergeCatalog(controller.Catalog);
         preferencesPath=Path.Combine(controller.Folder,"overlay-preferences.json");preferences=OverlayPreferences.Load(preferencesPath,controller.Log);
         if(selectedLanguage is not null)preferences.Language=selectedLanguage;
         registeredHideKey=preferences.HideHotkeyKey;registeredHideModifiers=preferences.HideHotkeyModifiers;
@@ -77,27 +92,33 @@ public sealed class OverlayForm : Form
         }
         tray=new(){Icon=Icon,Text="Aion 2 Pet Tracker",Visible=!preview};RefreshTray();tray.DoubleClick+=(_,_)=>Restore();
         controller.Tracker.ReachedMax+=PlayMaxChime;
+        _=RiftVisual.Icon((int)Math.Round(48*ScaleFactor));_=RiftVisual.Icon((int)Math.Round(48*DeviceDpi/96f));
         if(preview)controller.LoadPreview();SyncCards();
         timer.Tick+=(_,_)=>
         {
             var now=Now;if(revealing){var t=Math.Clamp((now-revealStart)/.38,0,1);Opacity=Math.Max(.01,preferences.OpacityPercent/100d*(1-Math.Pow(1-t,3)));if(t>=1)revealing=false;}
-            if(!preview&&now-lastPump>=.05){lastPump=now;try{if(controller.Pump())SyncCards();}catch(Exception ex){controller.Log("HATA: "+ex.Message);}}
+            var dataChanged=false;
+            if(!preview&&now-lastPump>=.05){lastPump=now;try{if(controller.Pump()){dataChanged=true;SyncCards();}}catch(Exception ex){controller.Log("HATA: "+ex.Message);}}
             frameElapsed=animationClock.Step();motion.Tick(now);
             scroll=FrameSmoothing.Approach(scroll,scrollTarget,frameElapsed,22,.05f);
-            var animating=revealing||motion.IsAnimating||scroll!=scrollTarget||progressAnimating;
+            AdvanceRiftBanner(now);
+            var emptyGlow=!compactMode&&motion.Rows.Count==0;
+            var animating=revealing||motion.IsAnimating||scroll!=scrollTarget||progressAnimating||riftFrame.Visible||hoveredCard>0||emptyGlow;
             foreach(var row in motion.Rows){var target=hoveredCard==row.Id?1:0;hover[row.Id]=FrameSmoothing.Approach(hover.GetValueOrDefault(row.Id),target,frameElapsed,14);animating|=hover[row.Id]!=target;}
             foreach(var key in drawnButtons){var target=hovered==key?1:0;buttonHover[key]=FrameSmoothing.Approach(buttonHover.GetValueOrDefault(key),target,frameElapsed,16);animating|=buttonHover[key]!=target;}
             var visible=Visible&&WindowState!=FormWindowState.Minimized;
             timer.Interval=visible?(animating?8:32):50;
-            if(visible)Invalidate();
+            pendingRepaint|=animating||previousFrameAnimated||dataChanged;
+            if(visible&&pendingRepaint&&now-lastPaintRequest>=1d/70){Invalidate();lastPaintRequest=now;pendingRepaint=false;}
+            previousFrameAnimated=animating;
         };
         appearanceSave.Tick+=(_,_)=>{appearanceSave.Stop();try{SaveAppearance();}catch(Exception ex){Error(ex);}};
-        rift=new(controller,preferences,SaveAppearance,!preview);
+        rift=new(controller,preferences,SaveAppearance,!preview,ShowRiftBanner);
         timer.Start();
         FormClosing+=async(_,e)=>
         {
             if(allowClose)return;e.Cancel=true;if(closing)return;closing=true;
-            try{timer.Stop();appearanceSave.Stop();map?.Close();await controller.DisposeAsync();SaveAppearance();allowClose=true;BeginInvoke(()=>Close());}
+            try{timer.Stop();appearanceSave.Stop();detachedRift?.Dispose();detachedRift=null;map?.Close();await controller.DisposeAsync();SaveAppearance();allowClose=true;BeginInvoke(()=>Close());}
             catch(Exception ex){closing=false;timer.Start();Error(ex);}
         };
     }
@@ -135,7 +156,7 @@ public sealed class OverlayForm : Form
     private void ApplyCompactSize()
     {
         MinimumSize=Size.Empty;MaximumSize=Size.Empty;
-        ClientSize=new((int)Math.Round(190*ScaleFactor),(int)Math.Round(43*ScaleFactor));
+        ClientSize=new((int)Math.Round(190*ScaleFactor),(int)Math.Round(43*ScaleFactor)+bannerPixels);
         Opacity=preferences.OpacityPercent/100d;TopMost=preferences.AlwaysOnTop;
     }
     private void ToggleCompact()
@@ -160,8 +181,8 @@ public sealed class OverlayForm : Form
         preferences.Validate();
         if(compactMode){ApplyCompactSize();return;}
         var width=(int)Math.Round(FixedWidth*DeviceDpi/96f);
-        MinimumSize=new(width,(int)Math.Round(OverlayHeight.Pixels(1)*DeviceDpi/96f));MaximumSize=new(width,(int)Math.Round(OverlayHeight.Pixels(7)*DeviceDpi/96f));
-        Width=width;Height=(int)(preferences.Height*DeviceDpi/96f);Opacity=preferences.OpacityPercent/100d;TopMost=preferences.AlwaysOnTop;
+        MinimumSize=new(width,(int)Math.Round(OverlayHeight.Pixels(1)*DeviceDpi/96f+bannerPixels));MaximumSize=new(width,(int)Math.Round(OverlayHeight.Pixels(7)*DeviceDpi/96f+bannerPixels));
+        Width=width;Height=(int)(preferences.Height*DeviceDpi/96f)+bannerPixels;Opacity=preferences.OpacityPercent/100d;TopMost=preferences.AlwaysOnTop;
     }
     private void EnsureVisible()
     {
@@ -171,7 +192,7 @@ public sealed class OverlayForm : Form
     private void SaveAppearance()
     {
         if(preview)return;var bounds=WindowState==FormWindowState.Normal?Bounds:RestoreBounds;
-        preferences.Left=bounds.Left;preferences.Top=bounds.Top;preferences.LayoutVersion=4;preferences.Save(preferencesPath);
+        preferences.Left=bounds.Left;preferences.Top=bannerAnchorTop??bounds.Top;preferences.LayoutVersion=4;preferences.Save(preferencesPath);
     }
     private void QueueAppearanceSave(){appearanceSave.Stop();appearanceSave.Start();}
     private bool ValidateSettingsHotkeys(){var result=ApplyGlobalHotkeys();UnregisterGlobalHotkeys();return result;}
@@ -185,6 +206,7 @@ public sealed class OverlayForm : Form
     private void ToggleLock(){preferences.Locked=!preferences.Locked;SaveAppearance();RefreshTray();Invalidate();}
     protected override void WndProc(ref Message m)
     {
+        if(m.Msg==0x231)bannerAnchorTop=null;
         if(m.Msg==0x0312&&preferences is not null)
         {
             if(m.WParam.ToInt32()==0xA201)ToggleVisibility();
@@ -202,7 +224,7 @@ public sealed class OverlayForm : Form
     {if(!preview){revealStart=Now;revealing=true;Opacity=.01;}base.OnShown(e);}
     protected override void OnResize(EventArgs e){base.OnResize(e);Invalidate();}
     private int[] Ids()=>visibleIds;
-    private float Viewport=>Math.Max(1,LogicalHeight-HeaderHeight-FooterHeight-4);
+    private float Viewport=>Math.Max(1,ContentHeight-HeaderHeight-FooterHeight-4);
     private int VisibleCardSlots=>Math.Max(1,(int)Math.Floor((Viewport+.5f)/(CardHeight+CardGap)));
     private float MaximumScroll=>CardScroll.Maximum(Ids().Length,VisibleCardSlots,CardHeight+CardGap);
     private float SnapScroll(float offset)=>CardScroll.Snap(offset,Ids().Length,VisibleCardSlots,CardHeight+CardGap);
@@ -227,7 +249,7 @@ public sealed class OverlayForm : Form
             using var border=new Pen(Color.FromArgb(150,PremiumTheme.Gold),1.2f);g.DrawRectangle(border,.6f,.6f,188.8f,41.8f);
             DrawText(g,"Pet Tracker",new(13,4,128,34),12,PremiumTheme.Gold,FontStyle.Bold,language:"en");
             var button=new RectangleF(151,9,27,25);using var buttonShape=PremiumTheme.Round(button,6);using var buttonFill=new SolidBrush(Color.FromArgb(35,PremiumTheme.Gold));g.FillPath(buttonFill,buttonShape);g.DrawPath(border,buttonShape);
-            using var arrow=new Pen(PremiumTheme.Ink,1.5f);g.DrawLine(arrow,158,23,170,23);g.DrawLine(arrow,170,23,166,19);g.DrawLine(arrow,170,23,166,27);hits.Add((button,"expand",0));return;
+            using var arrow=new Pen(PremiumTheme.Ink,1.5f);g.DrawLine(arrow,158,23,170,23);g.DrawLine(arrow,170,23,166,19);g.DrawLine(arrow,170,23,166,27);hits.Add((button,"expand",0));DrawRiftBanner(g);return;
         }
         using var bg=new LinearGradientBrush(new RectangleF(0,0,DesignWidth,LogicalHeight),Color.FromArgb(20,20,28),Color.FromArgb(10,14,20),90f);g.FillRectangle(bg,0,0,DesignWidth,LogicalHeight);
         using var edge=new Pen(Color.FromArgb(90,PremiumTheme.Gold));g.DrawRectangle(edge,.5f,.5f,DesignWidth-1,LogicalHeight-1);
@@ -236,20 +258,28 @@ public sealed class OverlayForm : Form
         var identity=controller.Tracker.HasCurrent?controller.Tracker.Current.Scope.Character+" · "+serverNames.Name(controller.Tracker.Current.Scope.Server,Language):T("character");
         DrawText(g,"SOUL COLLECTION",new(39,32,180,15),6.8f,PremiumTheme.Muted,language:"en");
         IconButton(g,new(220,13,16,22),"lock",preferences.Locked);IconButton(g,new(239,13,16,22),"compact");IconButton(g,new(258,13,16,22),"settings");IconButton(g,new(277,13,16,22),"minimize");IconButton(g,new(296,13,16,22),"close");
-        DrawText(g,identity,new(12,52,168,24),8.8f,PremiumTheme.Gold,FontStyle.Bold,language:"en");
-        IconButton(g,new(184,53,18,21),"handbook");IconButton(g,new(204,53,18,21),"map");
+        DrawText(g,identity,new(12,52,148,24),8.8f,PremiumTheme.Gold,FontStyle.Bold,language:"en");
+        IconButton(g,new(164,53,18,21),"riftSettings");IconButton(g,new(184,53,18,21),"handbook");IconButton(g,new(204,53,18,21),"map");
         ActionButton(g,new(226,54,84,20),"+ "+T("add"),"add");
 
         using var line=new Pen(Color.FromArgb(48,PremiumTheme.Gold));g.DrawLine(line,10,78,DesignWidth-10,78);
-        var saved=g.Save();g.SetClip(new RectangleF(6,HeaderHeight,DesignWidth-12,Math.Max(1,LogicalHeight-HeaderHeight-FooterHeight)));
+        var saved=g.Save();g.SetClip(new RectangleF(6,HeaderHeight,DesignWidth-12,Math.Max(1,ContentHeight-HeaderHeight-FooterHeight)));
         if(motion.Rows.Count==0)
         {
-            DrawText(g,T("empty"),new(19,HeaderHeight+43,DesignWidth-38,30),10,PremiumTheme.Ink,FontStyle.Bold,StringAlignment.Center);
-            DrawText(g,T("emptyHint"),new(20,HeaderHeight+78,DesignWidth-40,36),8,PremiumTheme.Muted,align:StringAlignment.Center);
+            var box=new RectangleF(26,HeaderHeight+Math.Max(0,(ContentHeight-HeaderHeight-FooterHeight-48)/2),DesignWidth-52,48);
+            var pulse=(float)(.5-.5*Math.Cos(Now*Math.PI*2/3.6));
+            // Cached glyph masks with alpha-only compositing: no live blur or layout animation.
+            foreach(var radius in new[]{3f,1.5f})
+                for(var i=0;i<8;i++)
+                {
+                    var angle=i*Math.PI/4;var halo=box;halo.Offset((float)Math.Cos(angle)*radius,(float)Math.Sin(angle)*radius);
+                    DrawText(g,T("empty"),halo,9,Color.FromArgb((int)(8+pulse*20),PremiumTheme.Gold),FontStyle.Bold,StringAlignment.Center);
+                }
+            DrawText(g,T("empty"),box,9,Color.FromArgb((int)(195+pulse*60),PremiumTheme.Gold),FontStyle.Bold,StringAlignment.Center);
         }
         foreach(var row in motion.Rows.OrderBy(r=>r.Y))
         {
-            var y=HeaderHeight+4+row.Y-scroll;if(y+CardHeight<HeaderHeight||y>LogicalHeight-FooterHeight)continue;
+            var y=HeaderHeight+4+row.Y-scroll;if(y+CardHeight<HeaderHeight||y>ContentHeight-FooterHeight)continue;
             DrawCard(g,row,new(10+row.X,y,DesignWidth-20,CardHeight));
         }
         g.Restore(saved);
@@ -258,7 +288,7 @@ public sealed class OverlayForm : Form
             var h=Math.Max(18,Viewport*Viewport/(Ids().Length*(CardHeight+CardGap)));var y=HeaderHeight+scroll/MaximumScroll*(Viewport-h);
             using var thumb=new SolidBrush(Color.FromArgb(120,PremiumTheme.Gold));g.FillRectangle(thumb,DesignWidth-5,y,2,h);
         }
-        var footer=LogicalHeight-FooterHeight;using var footerBrush=new SolidBrush(PremiumTheme.Background);g.FillRectangle(footerBrush,1,footer,DesignWidth-2,FooterHeight-1);g.DrawLine(line,10,footer,DesignWidth-10,footer);
+        var footer=ContentHeight-FooterHeight;using var footerBrush=new SolidBrush(PremiumTheme.Background);g.FillRectangle(footerBrush,1,footer,DesignWidth-2,FooterHeight-1);g.DrawLine(line,10,footer,DesignWidth-10,footer);
         var exact=controller.Tracker.Quality==DataQuality.Exact&&(!controller.LiveMode||controller.Session.IdentityKnown);
         var warning=!exact;
         var warningColor=Color.FromArgb(255,102,105);
@@ -268,14 +298,13 @@ public sealed class OverlayForm : Form
         if(!warning){using var creditRule=new Pen(Color.FromArgb(24,PremiumTheme.Gold));g.DrawLine(creditRule,43,footer+23,DesignWidth-43,footer+23);
         PremiumTheme.Text(g,"Designed & Developed by Keyt",new(73,footer+24,DesignWidth-146,11),5.9f,Color.FromArgb(149,142,136),"en",align:StringAlignment.Center);}
         PremiumTheme.Text(g,RunningVersion,new(12,footer+(warning?33:24),58,9),5.7f,Color.FromArgb(125,PremiumTheme.Gold),"en");
+        DrawRiftBanner(g);
     }
-    public static string RunningVersion
+    public static string RunningVersion {get;}=ReadRunningVersion();
+    private static string ReadRunningVersion()
     {
-        get
-        {
-            var version=typeof(OverlayForm).Assembly.GetName().Version;
-            return version is null?"":"v"+version.Major+"."+version.Minor+"."+version.Build;
-        }
+        var version=typeof(OverlayForm).Assembly.GetName().Version;
+        return version is null?"":"v"+version.Major+"."+version.Minor+"."+version.Build;
     }
     private void DrawCard(Graphics g,CardMotion.Row row,RectangleF box)
     {
@@ -285,6 +314,15 @@ public sealed class OverlayForm : Form
         using var shape=PremiumTheme.Round(box,6);using var fill=new SolidBrush(Fade(Color.FromArgb((int)(24+hoverValue*23),(int)(26+hoverValue*12),(int)(34+hoverValue*13))));g.FillPath(fill,shape);
         using var border=new Pen(Fade(Color.FromArgb((int)(pinned?105+hoverValue*100:48+hoverValue*155),PremiumTheme.Gold)));g.DrawPath(border,shape);
         if(hoverValue>.01f){using var aura=new Pen(Fade(Color.FromArgb((int)(22*hoverValue),PremiumTheme.Gold)),3);g.DrawPath(aura,shape);using var sheen=new LinearGradientBrush(box,Color.FromArgb((int)(24*hoverValue),PremiumTheme.Gold),Color.Transparent,25);g.FillPath(sheen,shape);}
+        if(hoverValue>.01f)
+        {
+            var stateSweep=g.Save();g.SetClip(shape,CombineMode.Intersect);
+            var x=box.X-45+(float)((Now*.24)%1)*(box.Width+90);
+            using var beam=new LinearGradientBrush(new RectangleF(x,box.Y,45,box.Height),Color.Transparent,Fade(Color.FromArgb((int)(18*hoverValue),RiftVisual.Cyan)),0f);
+            g.FillRectangle(beam,x,box.Y,45,box.Height);
+            using var accent=new Pen(Fade(Color.FromArgb((int)(95*hoverValue),RiftVisual.Cyan)),1);g.DrawLine(accent,box.X+10,box.Y+1,box.Right-10,box.Y+1);
+            g.Restore(stateSweep);
+        }
         var photo=new RectangleF(box.X+21,box.Y+12,34,34);using var photoShape=PremiumTheme.Round(photo,4);
         var pulse=(float)(.5+.5*Math.Sin(Now*1.65+id*.07));
         using var glow=new Pen(Fade(Color.FromArgb((int)(13+pulse*10),PremiumTheme.Gold)),4);g.DrawPath(glow,photoShape);
@@ -303,7 +341,9 @@ public sealed class OverlayForm : Form
             else{using var attributes=new ImageAttributes();var matrix=new ColorMatrix{Matrix33=alpha};attributes.SetColorMatrix(matrix);g.DrawImage(image,Rectangle.Round(photo),0,0,image.Width,image.Height,GraphicsUnit.Pixel,attributes);}
         }
         g.Restore(state);using var photoBorder=new Pen(Fade(Color.FromArgb((int)(75+pulse*16),PremiumTheme.Gold)));g.DrawPath(photoBorder,photoShape);
-        DrawText(g,controller.Catalog.Name(id),new(box.X+60,box.Y+6,133,29),9.2f,Fade(PremiumTheme.Ink),FontStyle.Bold,language:"en");
+        var monster=monsterNames.Caption(id,controller.Session.ObservedPetNpcs.GetValueOrDefault(id));
+        DrawText(g,controller.Catalog.Name(id),new(box.X+60,box.Y+5,133,monster.Length>0?20:29),monster.Length>0?8.8f:9.2f,Fade(PremiumTheme.Ink),FontStyle.Bold,language:"en");
+        if(monster.Length>0)DrawText(g,monster,new(box.X+60,box.Y+25,133,12),6.5f,Fade(RiftVisual.Cyan),language:"en");
         var total=tracker.KnownTotal(id);var progress=total.HasValue?Progress.FromTotal(total.Value):null;
         for(var star=0;star<3;star++)DrawStar(g,new(box.X+66+star*14,box.Y+46),4.7f,progress is not null&&progress.Level>star,alpha,pulse);
         var level=progress is null?"—":"Lv "+progress.Level;
@@ -322,6 +362,7 @@ public sealed class OverlayForm : Form
             using var value=new SolidBrush(Fade(Color.FromArgb(170,PremiumTheme.Gold)));g.FillRectangle(value,bar.X,bar.Y,bar.Width*shown,bar.Height);
         }
         if(!row.Removing)hits.Add((box,progress?.Level==3?"clear":"row",id));
+        if(!row.Removing&&monster.Length>0)hits.Add((new(box.X+60,box.Y+25,133,12),"monsterInfo",id));
         if(progress?.Level==3&&hoverValue>.01f)
         {
             using var clearGlow=new Pen(Fade(Color.FromArgb((int)((10+8*Math.Sin(Now*2))*hoverValue),PremiumTheme.Gold)),3);g.DrawPath(clearGlow,shape);
@@ -350,6 +391,7 @@ public sealed class OverlayForm : Form
         var cx=box.X+box.Width/2;var cy=box.Y+box.Height/2;
         switch(action)
         {
+            case "riftSettings":g.DrawImage(RiftVisual.Icon(24),box);break;
             case "moveUp":g.DrawLines(p,new PointF[]{new(cx-3,cy+2),new(cx,cy-2),new(cx+3,cy+2)});break;
             case "moveDown":g.DrawLines(p,new PointF[]{new(cx-3,cy-2),new(cx,cy+2),new(cx+3,cy-2)});break;
             case "handbook":g.DrawRectangle(p,cx-5,cy-5,10,10);g.DrawLine(p,cx,cy-5,cx,cy+5);g.DrawLine(p,cx-4,cy-2,cx-1,cy-2);g.DrawLine(p,cx+1,cy-2,cx+4,cy-2);break;
@@ -378,7 +420,7 @@ public sealed class OverlayForm : Form
         using var fill=new SolidBrush(Color.FromArgb(25,PremiumTheme.Gold));g.FillPolygon(fill,new PointF[]{new(cx,r.Y+3),new(r.Right-3,cy),new(cx,r.Bottom-3),new(r.X+3,cy)});
         g.DrawLines(p,new PointF[]{new(cx-4,cy+3),new(cx,cy-4),new(cx+4,cy+3)});
     }
-    private (RectangleF Bounds,string Action,int Id) Hit(PointF point)=>hits.LastOrDefault(h=>h.Bounds.Contains(point)&&(compactMode||h.Id==0||point.Y>=HeaderHeight&&point.Y<LogicalHeight-FooterHeight));
+    private (RectangleF Bounds,string Action,int Id) Hit(PointF point)=>hits.LastOrDefault(h=>h.Bounds.Contains(point)&&(compactMode||h.Id==0||point.Y>=HeaderHeight&&point.Y<ContentHeight-FooterHeight));
     protected override void OnMouseMove(MouseEventArgs e)
     {
         base.OnMouseMove(e);var point=new PointF(e.X/ScaleFactor,e.Y/ScaleFactor);
@@ -388,7 +430,7 @@ public sealed class OverlayForm : Form
         {
             timer.Interval=8;
             hovered=next;Cursor=next.Length>0?brightCrystal.Pointer:crystal.Pointer;
-            var tip=hit.Action switch{"moveUp"=>T("moveUp"),"moveDown"=>T("moveDown"),"map"=>MapText.Get(Language,"title"),"handbook"=>HelpText.Get(Language,"handbook"),"lock"=>T(preferences.Locked?"unlock":"lock"),"compact"=>T("compact"),"settings"=>T("settings"),"pin"=>T("pin"),"dismiss"=>T("remove"),"minimize"=>T("minimize"),"close"=>T("close"),"clear"=>"CLEAR · "+T("remove"),"expand"=>T("expand"),_=>""};tips.SetToolTip(this,tip);
+            var tip=hit.Action switch{"moveUp"=>T("moveUp"),"moveDown"=>T("moveDown"),"monsterInfo"=>monsterNames.Details(hit.Id),"map"=>MapText.Get(Language,"title"),"handbook"=>HelpText.Get(Language,"handbook"),"riftSettings"=>"Spacetime Rift","lock"=>T(preferences.Locked?"unlock":"lock"),"compact"=>T("compact"),"settings"=>T("settings"),"pin"=>T("pin"),"dismiss"=>T("remove"),"minimize"=>T("minimize"),"close"=>T("close"),"clear"=>"CLEAR · "+T("remove"),"expand"=>T("expand"),_=>""};tips.SetToolTip(this,tip);
         }
     }
     protected override void OnMouseLeave(EventArgs e){base.OnMouseLeave(e);hoveredCard=-1;hovered="";}
@@ -396,7 +438,7 @@ public sealed class OverlayForm : Form
     protected override async void OnMouseDown(MouseEventArgs e)
     {
         base.OnMouseDown(e);if(e.Button!=MouseButtons.Left||busy)return;var point=new PointF(e.X/ScaleFactor,e.Y/ScaleFactor);
-        if(point.X>DesignWidth-10&&point.Y>=HeaderHeight&&point.Y<LogicalHeight-FooterHeight&&MaximumScroll>0){dragScroll=true;Capture=true;scrollTarget=SnapScroll(Math.Clamp((point.Y-HeaderHeight)/Viewport,0,1)*MaximumScroll);timer.Interval=8;return;}
+        if(point.X>DesignWidth-10&&point.Y>=HeaderHeight&&point.Y<ContentHeight-FooterHeight&&MaximumScroll>0){dragScroll=true;Capture=true;scrollTarget=SnapScroll(Math.Clamp((point.Y-HeaderHeight)/Viewport,0,1)*MaximumScroll);timer.Interval=8;return;}
         var hit=Hit(point);
         try
         {
@@ -406,7 +448,9 @@ public sealed class OverlayForm : Form
                 case "compact":ToggleCompact();break;
                 case "expand":ToggleCompact();break;
                 case "settings":ShowSettings();break;
+                case "riftSettings":OpenRiftSettings();break;
                 case "map":ShowMap(hit.Id);break;
+                case "monsterInfo":ShowMap(hit.Id);break;
                 case "handbook":ShowHandbook();break;
                 case "minimize":WindowState=FormWindowState.Minimized;break;
                 case "close":Close();break;
@@ -425,17 +469,22 @@ public sealed class OverlayForm : Form
     private void ShowSettings()
     {
         if(compactMode)ToggleCompact();
+        if(settingsWindow is {IsDisposed:false}){settingsWindow.Show();settingsWindow.Activate();return;}
         UnregisterGlobalHotkeys();
         try
         {
             var previousLanguage=Language;var previousLock=preferences.Locked;
-            using var dialog=new OverlaySettingsForm(preferences,crystal.Pointer,7,()=>
+            var dialog=new OverlaySettingsForm(preferences,crystal.Pointer,7,()=>
             {
                 ApplyAppearance();EnsureVisible();QueueAppearanceSave();
                 if(previousLanguage!=Language||previousLock!=preferences.Locked){RefreshTray();map?.SetLanguage(Language);previousLanguage=Language;previousLock=preferences.Locked;}
                 scrollTarget=SnapScroll(scrollTarget);Invalidate();
             },ShowLogs,ValidateSettingsHotkeys,OpenRiftSettings);
-            dialog.ShowDialog(this);
+            settingsWindow=dialog;
+            dialog.Activated+=(_,_)=>UnregisterGlobalHotkeys();
+            dialog.Deactivate+=(_,_)=>ApplyGlobalHotkeys();
+            dialog.FormClosed+=(_,_)=>{settingsWindow=null;appearanceSave.Stop();ApplyGlobalHotkeys();SaveAppearance();};
+            PositionBeside(dialog,this);dialog.Show(this);
         }
         finally{appearanceSave.Stop();ApplyGlobalHotkeys();SaveAppearance();}
     }
@@ -464,6 +513,7 @@ public sealed class OverlayForm : Form
         if(map is null||map.IsDisposed)
         {
             var window=new PetMapForm(controller,portraits,preferences,SaveAppearance,OpenRiftSettings);
+            window.Activated+=(_,_)=>RaiseSettings();
             window.FormClosed+=(_,_)=>{if(ReferenceEquals(map,window))map=null;};map=window;
         }
         if(petId>0)map.FocusPet(petId);
@@ -482,11 +532,62 @@ public sealed class OverlayForm : Form
         using var cursor=CrystalCursor.Draw(true);cursor.Save(Path.Combine(folder,"cursor.png"));
     }
     public void CheckLockedMove(){if(!preferences.Locked)throw new InvalidOperationException("Konum kilidi kapalı.");var before=Location;SendMessage(Handle,0x112,(IntPtr)0xF010,IntPtr.Zero);if(Location!=before)throw new InvalidOperationException("Kilitli pencere hareket etti.");}
+    private void ShowRiftBanner(bool opened,int minutes)
+    {if(closing||IsDisposed)return;riftBanner.Enqueue(opened,minutes,Now);AdvanceRiftBanner(Now);timer.Interval=8;Invalidate();}
+    private void AdvanceRiftBanner(double now)
+    {
+        riftFrame=riftBanner.Tick(now);
+        RouteRiftBanner();
+    }
+    private void RouteRiftBanner()
+    {
+        var attached=Visible&&WindowState!=FormWindowState.Minimized;
+        if(!riftFrame.Visible||attached)
+        {detachedRift?.Dispose();detachedRift=null;}
+        else if(detachedRift is null||detachedRift.IsDisposed)
+        {detachedRift=new(()=>riftFrame,Language,Screen.FromControl(this));detachedRift.Show();}
+        var pixels=attached&&riftFrame.Visible?(int)Math.Round(74*riftFrame.Reveal*ScaleFactor):0;
+        if(pixels==bannerPixels)return;
+        if(bannerPixels==0&&pixels>0)bannerAnchorTop=Top;
+        bannerPixels=pixels;ApplyAppearance();EnsureVisible();
+        if(pixels==0&&bannerAnchorTop is {} anchor){Top=anchor;bannerAnchorTop=null;EnsureVisible();}
+        scrollTarget=SnapScroll(scrollTarget);scroll=Math.Clamp(scroll,0,MaximumScroll);
+    }
+    private void DrawRiftBanner(Graphics g)
+    {
+        if(bannerPixels<=0||!riftFrame.Visible)return;
+        var saved=g.Save();var width=compactMode?190:DesignWidth;
+        g.SetClip(new RectangleF(0,ContentHeight,width,bannerPixels/ScaleFactor),CombineMode.Intersect);
+        var box=new RectangleF(7,ContentHeight+5-(1-riftFrame.Reveal)*14,width-14,64);
+        RiftVisual.DrawNotice(g,box,riftFrame,Language,ScaleFactor);g.Restore(saved);
+    }
+    public void ExportRiftPreview(string path,bool opened=false)
+    {
+        riftFrame=new(true,opened,5,1,1,.75f);RouteRiftBanner();ExportPreview(path);
+    }
     private void OpenRiftSettings()
-    {using var settings=new RiftSettingsForm(preferences,()=>rift.Region,SaveAppearance,rift.ShowNotice);settings.ShowDialog(Application.OpenForms.OfType<OverlaySettingsForm>().LastOrDefault(f=>f.Visible) is {} activeSettings?activeSettings:map is {IsDisposed:false,Visible:true}?map:this);}
+    {
+        if(riftSettingsWindow is {IsDisposed:false}){riftSettingsWindow.Show();riftSettingsWindow.Activate();return;}
+        var settings=new RiftSettingsForm(preferences,()=>rift.Region,SaveAppearance,rift.ShowNotice);riftSettingsWindow=settings;
+        settings.FormClosed+=(_,_)=>riftSettingsWindow=null;
+        PositionBeside(settings,settingsWindow is {IsDisposed:false}?settingsWindow:this);settings.Show(settingsWindow is {IsDisposed:false}?settingsWindow:this);
+    }
+    private static void PositionBeside(Form window,Form anchor)
+    {
+        var area=Screen.FromControl(anchor).WorkingArea;window.StartPosition=FormStartPosition.Manual;
+        var x=anchor.Right+8;if(x+window.Width>area.Right)x=anchor.Left-window.Width-8;
+        window.Location=new(Math.Clamp(x,area.Left,Math.Max(area.Left,area.Right-window.Width)),Math.Clamp(anchor.Top,area.Top,Math.Max(area.Top,area.Bottom-window.Height)));
+    }
+    protected override void OnActivated(EventArgs e){base.OnActivated(e);RaiseSettings();}
+    private void RaiseSettings()
+    {
+        foreach(var window in new Form?[]{settingsWindow,riftSettingsWindow})
+            if(window is {IsDisposed:false,Visible:true})SetWindowPos(window.Handle,new IntPtr(-1),0,0,0,0,0x0013);
+    }
+    [DllImport("user32.dll")]private static extern bool SetWindowPos(IntPtr hWnd,IntPtr after,int x,int y,int cx,int cy,uint flags);
     protected override void Dispose(bool disposing)
     {
-        if(disposing){rift?.Dispose();handbook?.Dispose();map?.Dispose();controller.Tracker.ReachedMax-=PlayMaxChime;timer.Dispose();appearanceSave.Dispose();tray?.Dispose();tips.Dispose();chime.Dispose();Icon?.Dispose();foreach(var image in portraits.Values)image.Dispose();foreach(var image in cardPortraits.Values)image.Dispose();crystal.Dispose();brightCrystal.Dispose();}base.Dispose(disposing);
+        if(disposing){settingsWindow?.Dispose();riftSettingsWindow?.Dispose();rift?.Dispose();detachedRift?.Dispose();handbook?.Dispose();map?.Dispose();controller.Tracker.ReachedMax-=PlayMaxChime;timer.Dispose();appearanceSave.Dispose();tray?.Dispose();tips.Dispose();chime.Dispose();Icon?.Dispose();foreach(var image in portraits.Values)image.Dispose();foreach(var image in cardPortraits.Values)image.Dispose();crystal.Dispose();brightCrystal.Dispose();}base.Dispose(disposing);
     }
     [DllImport("user32.dll")]private static extern bool ReleaseCapture();
     [DllImport("user32.dll")]private static extern IntPtr SendMessage(IntPtr window,int message,IntPtr wp,IntPtr lp);

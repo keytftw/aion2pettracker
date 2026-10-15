@@ -36,3 +36,5 @@ Bebas Neue Regular V2.000 by Dharma Type, supplied by the user. SIL Open Font Li
 
 Pet acquisition facts: Wikily AION 2 wiki, https://wikily.gg/aion-2/pets/ , checked 2026-10-14; per-pet source links are included in data/pet-sources.json. Only short factual source records are included. Wiki prose, design and new artwork are not reproduced.
 Spacerift community timetable: Shugo.GG, https://shugo.gg/timers , checked 2026-10-14. Region-ID convention verified against the supplied GPL-3.0 AION 2 Alerts logic reference; our reminder service, clock calculation and notification UI are original implementations.
+
+Rift emblem: derived from the user-supplied AION 2 Spacetime Rift icon. The scenery was removed with imagegen; the game emblem remains the property of its original rights holders. Used as an identifying illustration in this fan tool.

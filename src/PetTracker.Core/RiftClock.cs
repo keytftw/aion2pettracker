@@ -34,6 +34,11 @@ public static class RiftClock
         return result.Order().ToArray();
     }
     public static DateTimeOffset Next(DateTimeOffset now,RiftRegion region)=>Openings(now,region.Zone).First(t=>t>=now);
+    public static string DailyTimes(DateTimeOffset now,RiftRegion region)
+    {
+        var date=TimeZoneInfo.ConvertTime(now,region.Zone).Date;
+        return string.Join(" - ",Openings(now,region.Zone).Select(t=>TimeZoneInfo.ConvertTime(t,region.Zone)).Where(t=>t.Date==date).Select(t=>t.ToString("HH:mm")).Distinct());
+    }
     public static RiftNotice? Poll(DateTimeOffset now,RiftRegion? region,bool enabled,int leadMinutes,ISet<string> delivered)
     {
         if(!enabled||region is null)return null;

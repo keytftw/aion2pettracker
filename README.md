@@ -101,3 +101,10 @@ Automatic bug submission is deferred until a working mail backend is available. 
 - Automatically grow and shrink the tracker with visible cards, including Delete/CLEAR. Empty keeps one slot, with a seven-card cap and scrolling beyond seven. Compact mode remains compact.
 - Replace manual height controls with automatic height information in all ten languages.
 - Restrict the full opacity slider to 85–100%; migrate lower saved values to 85%.
+
+## 1.2.11
+
+- Refresh the tracker, shortcut keycaps, hover effects and empty-state glow with cached rendering and idle repaint suppression.
+- Show a single animated Rift notice: attached to the visible tracker, or at the top-left when hidden. Show region-specific server times and a 1–10 minute lead setting.
+- Display only an observed monster variant beneath its pet name; no guessed alternate-name summary. Soul counters remain independent of targeting.
+- Make Settings and Rift Settings movable and modeless, opening beside the tracker. Keep them above tracker and atlas windows.

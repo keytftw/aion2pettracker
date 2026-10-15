@@ -56,7 +56,7 @@ public sealed class AtlasDetailTests
                 if(output is not null)aggregate.Save(Path.Combine(output,"atlas-portraits.png"));
                 using var rift=new RiftAlertService(tracker.Controller,prefs,()=>{},start:false);
                 using var settings=new RiftSettingsForm(prefs,()=>rift.Region,()=>{},(_,_)=>{});_=settings.Handle;
-                using var toast=new RiftToast("5 minutes left","en");Assert.False(toast.ShowInTaskbar);Assert.True(toast.TopMost);
+                using var toast=new RiftToast(()=>new(true,false,5,1,1,.5f),"en");Assert.False(toast.ShowInTaskbar);Assert.True(toast.TopMost);
                 if(output is not null){toast.Location=new(-5000,-5000);toast.Show();Application.DoEvents();using var notice=new Bitmap(toast.Width,toast.Height);toast.DrawToBitmap(notice,toast.ClientRectangle);notice.Save(Path.Combine(output,"rift-toast.png"));toast.Close();}
                 Assert.False(tracker.Controller.Running);
             }

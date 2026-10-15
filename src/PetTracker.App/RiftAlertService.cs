@@ -8,12 +8,12 @@ public sealed class RiftAlertService : IDisposable
     private readonly System.Windows.Forms.Timer timer=new(){Interval=1000};
     private readonly HashSet<string> delivered;
     private readonly MaxChime chime=new();
-    private RiftToast? toast;
+    private readonly Action<bool,int>? present;
     private bool disposed;
     public RiftRegion? Region=>controller.Tracker.HasCurrent&&controller.Tracker.Current.Snapshot is not null?RiftClock.Region(controller.Tracker.Current.Scope.Server):null;
-    public RiftAlertService(OverlayController controller,OverlayPreferences preferences,Action save,bool start=true)
+    public RiftAlertService(OverlayController controller,OverlayPreferences preferences,Action save,bool start=true,Action<bool,int>? present=null)
     {
-        this.controller=controller;this.preferences=preferences;this.save=save;delivered=new(preferences.RiftDelivered);
+        this.controller=controller;this.preferences=preferences;this.save=save;this.present=present;delivered=new(preferences.RiftDelivered);
         timer.Tick+=(_,_)=>
         {
             try
@@ -28,8 +28,8 @@ public sealed class RiftAlertService : IDisposable
     }
     public void ShowNotice(bool opened,int minutes)
     {
-        toast?.Close();toast=new(RiftText.Get(preferences.Language,opened?"opened":"left",minutes),preferences.Language);
-        toast.Show();if(preferences.RiftSoundEnabled)try{chime.Play();}catch(Exception ex){controller.Log("Spacerift sesi: "+ex.Message);}
+        present?.Invoke(opened,minutes);
+        if(preferences.RiftSoundEnabled)try{chime.Play();}catch(Exception ex){controller.Log("Spacerift sesi: "+ex.Message);}
     }
-    public void Dispose(){if(disposed)return;disposed=true;timer.Dispose();toast?.Dispose();chime.Dispose();}
+    public void Dispose(){if(disposed)return;disposed=true;timer.Dispose();chime.Dispose();}
 }

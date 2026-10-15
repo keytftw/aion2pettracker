@@ -13,6 +13,8 @@ public sealed class LiveSession(Tracker tracker, Action<string> log, PetCatalog?
     private readonly List<LiveMessage> pending = [];
     private readonly Dictionary<uint, int> npcs = [];
     private readonly HashSet<uint> ownTargets = [];
+    private readonly Dictionary<int,int> observedPetNpcs=[];
+    public IReadOnlyDictionary<int,int> ObservedPetNpcs=>observedPetNpcs;
     public bool IdentityKnown => identity is not null;
     public long CollectionsReceived {get;private set;}
     public long CollectionsApplied {get;private set;}
@@ -97,11 +99,11 @@ public sealed class LiveSession(Tracker tracker, Action<string> log, PetCatalog?
                 npcs.Remove(gone.ActorId); ownTargets.Remove(gone.ActorId); return;
         }
     }
-    private void ClearScene() { npcs.Clear(); ownTargets.Clear(); }
+    private void ClearScene() { npcs.Clear(); ownTargets.Clear(); observedPetNpcs.Clear(); }
     private void TrackTarget(uint target)
     {
         if (identity is not null && catalog is not null && npcs.TryGetValue(target, out var npc) && catalog.PetByNpc.TryGetValue(npc, out var id))
-            tracker.ObservePetAttack(id);
+        {observedPetNpcs[id]=npc;tracker.ObservePetAttack(id);}
     }
     private void Apply(LiveMessage message)
     {

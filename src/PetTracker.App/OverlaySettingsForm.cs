@@ -33,16 +33,16 @@ public sealed class OverlaySettingsForm : Form
         var languageLabel=new PremiumLabel { Location=new(19,269),Size=new(303,24),AutoSize=false };
         var languages=new PremiumButton { Location=new(18,299),Size=new(305,29),Cursor=cursor };
         languageButton=languages;
-        var support=new PremiumButton { Location=new(18,339),Size=new(305,31),Cursor=cursor };
+        var support=new PremiumButton { Size=new(305,31),Cursor=cursor,AccentColor=RiftVisual.Coral,ForeColor=RiftVisual.Coral };
         support.Click+=(_,_)=>
         {
             try{using var browser=System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://www.patreon.com/cw/keytftw"){UseShellExecute=true});}
             catch(System.ComponentModel.Win32Exception){MessageBox.Show(this,UiText.Get(preferences.Language,"browserFailed"),"Aion 2 Pet Tracker",MessageBoxButtons.OK,MessageBoxIcon.Information);}
         };
-        hideHotkeyButton=new PremiumButton{Location=new(18,382),Size=new(305,34),Cursor=cursor};
-        compactHotkeyButton=new PremiumButton{Location=new(18,423),Size=new(305,34),Cursor=cursor};
-        var diagnostic=new PremiumButton { Location=new(18,470),Size=new(145,29),Cursor=cursor };
-        var done=new PremiumButton { Location=new(177,470),Size=new(146,29),Cursor=cursor };
+        hideHotkeyButton=new PremiumButton{Location=new(18,342),Size=new(305,44),Cursor=cursor,AccentColor=RiftVisual.Cyan,ForeColor=RiftVisual.Cyan};
+        compactHotkeyButton=new PremiumButton{Location=new(18,394),Size=new(305,44),Cursor=cursor,AccentColor=RiftVisual.Coral,ForeColor=RiftVisual.Coral,BadgeColor=RiftVisual.Coral};
+        var diagnostic=new PremiumButton { Location=new(18,453),Size=new(145,29),Cursor=cursor };
+        var done=new PremiumButton { Location=new(177,453),Size=new(146,29),Cursor=cursor };
         hideHotkeyButton.Click+=(_,_)=>StartHotkeyCapture(true);
         compactHotkeyButton.Click+=(_,_)=>StartHotkeyCapture(false);
         // The settings form owns this reusable menu. Closed fires inside WinForms' click
@@ -57,7 +57,7 @@ public sealed class OverlaySettingsForm : Form
         diagnostic.Click+=(_,_)=>logs();
         done.Click+=(_,_)=>Close();
         var close=new PremiumButton { Text="×",Location=new(302,12),Size=new(22,23),Cursor=cursor };close.Click+=(_,_)=>Close();
-        var credit=new PremiumLabel { Text="Designed & Developed by Keyt",ForeColor=PremiumTheme.Muted,Font=new(UiText.FontFamily("en"),7),Location=new(19,512),Size=new(305,15),TextAlign=ContentAlignment.MiddleCenter };
+        var credit=new PremiumLabel { Text="Designed & Developed by Keyt",ForeColor=PremiumTheme.Muted,Font=new(UiText.FontFamily("en"),7),Location=new(19,496),Size=new(305,15),TextAlign=ContentAlignment.MiddleCenter };
         foreach(var label in new[]{title,opacityLabel,opacityValue,heightLabel,heightValue,languageLabel,credit})
         {label.Cursor=Cursors.SizeAll;label.MouseDown+=(_,e)=>{if(e.Button==MouseButtons.Left)BeginDrag(label.PointToScreen(e.Location));};}
         foreach(var button in new[]{languages,support,diagnostic,done,hideHotkeyButton,compactHotkeyButton}){button.TextSize=10;button.DpiAwareText=true;}
@@ -77,12 +77,13 @@ public sealed class OverlaySettingsForm : Form
         top.CheckedChanged+=(_,_)=>{preferences.AlwaysOnTop=top.Checked;changed();};locked.CheckedChanged+=(_,_)=>{preferences.Locked=locked.Checked;changed();};
         if(riftSettings is not null)
         {
-            ClientSize=new(340,585);diagnostic.Top+=42;done.Top+=42;credit.Top+=42;
-            var rift=new PremiumButton{Text="Spacetime Rift",Location=new(18,470),Size=new(305,31),Cursor=cursor,TextSize=10,DpiAwareText=true};
+            ClientSize=new(340,585);diagnostic.Top+=53;done.Top+=53;credit.Top+=53;
+            var rift=new PremiumButton{Text="Spacetime Rift",Location=new(18,450),Size=new(305,43),Cursor=cursor,TextSize=11,DpiAwareText=true,AccentColor=RiftVisual.Violet,ForeColor=RiftVisual.Violet,LeadingImage=RiftVisual.Icon(48)};
             rift.Click+=(_,_)=>riftSettings();Controls.Add(rift);
         }
         Controls.AddRange([title,opacityLabel,opacityValue,opacity,heightLabel,heightValue,height,top,locked,languageLabel,languages,support,hideHotkeyButton,compactHotkeyButton,diagnostic,done,close,credit]);RefreshStrings();PremiumDialogMotion.Attach(this);
-        var linkTop=credit.Bottom+10;
+        support.Location=new(18,credit.Bottom+10);
+        var linkTop=support.Bottom+9;
         var guideLink=new PremiumButton{Text="keytdev.com/pettracker",AccessibleName=HelpText.Get(preferences.Language,"guide"),Location=new(18,linkTop),Size=new(305,29),DpiAwareText=true,TextSize=10};
         var contactLink=new PremiumButton{Text=AppLinks.Email,AccessibleName=HelpText.Get(preferences.Language,"contact"),Location=new(18,linkTop+36),Size=new(305,29),DpiAwareText=true,TextSize=10};
         guideLink.Click+=(_,_)=>AppLinks.Open(this,AppLinks.Guide,preferences.Language);
@@ -98,8 +99,11 @@ public sealed class OverlaySettingsForm : Form
     private void RefreshHotkeyLabels()
     {
         var lang=preferences.Language;
-        hideHotkeyButton.Text=(capturingHide?UiText.Get(lang,"pressKey"):UiText.Get(lang,"hideHotkey")+" · "+Chord(preferences.HideHotkeyModifiers,preferences.HideHotkeyKey));
-        compactHotkeyButton.Text=(!capturingHide&&captureCompact?UiText.Get(lang,"pressKey"):UiText.Get(lang,"compactHotkey")+" · "+Chord(preferences.CompactHotkeyModifiers,preferences.CompactHotkeyKey));
+        hideHotkeyButton.Text=(capturingHide?UiText.Get(lang,"pressKey"):UiText.Get(lang,"hideHotkey"));
+        compactHotkeyButton.Text=(!capturingHide&&captureCompact?UiText.Get(lang,"pressKey"):UiText.Get(lang,"compactHotkey"));
+        hideHotkeyButton.BadgeText=capturingHide?"…":Chord(preferences.HideHotkeyModifiers,preferences.HideHotkeyKey);
+        compactHotkeyButton.BadgeText=!capturingHide&&captureCompact?"…":Chord(preferences.CompactHotkeyModifiers,preferences.CompactHotkeyKey);
+        hideHotkeyButton.AccessibleName=hideHotkeyButton.Text+" "+hideHotkeyButton.BadgeText;compactHotkeyButton.AccessibleName=compactHotkeyButton.Text+" "+compactHotkeyButton.BadgeText;
         hideHotkeyButton.TextLanguage=compactHotkeyButton.TextLanguage=lang;
         hideHotkeyButton.Invalidate();compactHotkeyButton.Invalidate();
     }
