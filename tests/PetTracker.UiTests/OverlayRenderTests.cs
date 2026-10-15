@@ -11,6 +11,62 @@ namespace PetTracker.UiTests;
 public sealed class OverlayRenderTests(ITestOutputHelper output)
 {
     [Fact]
+    public void OpacitySliderUsesItsWholeTrackFor85To100Percent()
+    {
+        OnSta(()=>
+        {
+            var preferences=new OverlayPreferences();var changes=0;
+            using var settings=new OverlaySettingsForm(preferences,Cursors.Default,7,()=>changes++,()=>{});
+            var slider=Assert.Single(settings.Controls.OfType<PremiumSlider>());
+            Assert.Equal(85,slider.Minimum);Assert.Equal(100,slider.Maximum);
+            var update=typeof(PremiumSlider).GetMethod("UpdateValue",BindingFlags.Instance|BindingFlags.NonPublic)!;
+            update.Invoke(slider,[0]);Assert.Equal(85,preferences.OpacityPercent);
+            update.Invoke(slider,[slider.Width/2]);Assert.InRange(preferences.OpacityPercent,92,93);
+            update.Invoke(slider,[slider.Width]);Assert.Equal(100,preferences.OpacityPercent);
+            Assert.Equal(3,changes);
+        });
+    }
+
+    [Fact]
+    public void HeightShrinksAfterClearAndGrowsForManualOrSoulCardsWithoutChangingCounters()
+    {
+        OnSta(()=>
+        {
+            var folder=Path.Combine(Path.GetTempPath(),"A2AutoHeight-"+Guid.NewGuid());Directory.CreateDirectory(folder);
+            try
+            {
+                new OverlayPreferences{VisibleCards=7,Locked=true}.Save(Path.Combine(folder,"overlay-preferences.json"));
+                using var form=new OverlayForm(false,folder,preview:true);_=form.Handle;
+                var tracker=form.Controller.Tracker;
+                var sync=typeof(OverlayForm).GetMethod("SyncCards",BindingFlags.Instance|BindingFlags.NonPublic)!;
+                var prefs=(OverlayPreferences)typeof(OverlayForm).GetField("preferences",BindingFlags.Instance|BindingFlags.NonPublic)!.GetValue(form)!;
+                void Expect(int count)
+                {
+                    sync.Invoke(form,null);Assert.Equal(count,tracker.VisibleIds.Count());
+                    Assert.Equal(OverlayHeight.Fit(count),prefs.VisibleCards);
+                    Assert.Equal((int)(OverlayHeight.Pixels(OverlayHeight.Fit(count))*form.DeviceDpi/96f),form.Height);
+                }
+                Expect(5);
+                var maxTotal=tracker.KnownTotal(1007);tracker.Dismiss(1178);Expect(4);
+                tracker.Dismiss(1007);Expect(3);Assert.Equal(maxTotal,tracker.KnownTotal(1007));
+                foreach(var id in tracker.VisibleIds.ToArray())tracker.Dismiss(id);Expect(0);
+                tracker.Pin(1124,true);Expect(1);tracker.Dismiss(1124);Expect(0);
+                tracker.Gain(new(tracker.Current.Scope,"demo",1,1114,1));Expect(1);
+                foreach(var id in form.Controller.Catalog.Pets.Keys.Take(9))tracker.Pin(id,true);Expect(tracker.VisibleIds.Count());Assert.Equal(7,prefs.VisibleCards);
+                typeof(OverlayForm).GetField("scroll",BindingFlags.Instance|BindingFlags.NonPublic)!.SetValue(form,142f);
+                typeof(OverlayForm).GetMethod("ToggleCompact",BindingFlags.Instance|BindingFlags.NonPublic)!.Invoke(form,null);
+                var compact=form.Size;
+                foreach(var id in tracker.VisibleIds.ToArray())tracker.Dismiss(id);sync.Invoke(form,null);
+                Assert.Equal(compact,form.Size);Assert.Equal(1,prefs.VisibleCards);
+                Assert.Equal(0f,(float)typeof(OverlayForm).GetField("scroll",BindingFlags.Instance|BindingFlags.NonPublic)!.GetValue(form)!);
+                typeof(OverlayForm).GetMethod("ToggleCompact",BindingFlags.Instance|BindingFlags.NonPublic)!.Invoke(form,null);Expect(0);
+                Assert.False(form.Controller.Running);
+            }
+            finally{Directory.Delete(folder,true);}
+        });
+    }
+
+    [Fact]
     public void TrackerAndSetupOpenAndReuseIllustratedHandbook()
     {
         OnSta(()=>

@@ -24,10 +24,10 @@ public sealed class OverlaySettingsForm : Form
         var title=new PremiumLabel { Location=new(18,9),Size=new(268,31),AutoSize=false,ForeColor=PremiumTheme.Gold,Font=new(UiText.FontFamily(preferences.Language),13,FontStyle.Bold) };
         var opacityLabel=new PremiumLabel { Location=new(19,55),Size=new(226,24),AutoSize=false };
         var opacityValue=new PremiumLabel { Location=new(252,55),Size=new(70,24),AutoSize=false,TextAlign=ContentAlignment.MiddleRight,ForeColor=PremiumTheme.Gold,Text=preferences.OpacityPercent+"%" };
-        var opacity=new PremiumSlider { Location=new(14,79),Size=new(308,34),Value=preferences.OpacityPercent,Cursor=cursor };
+        var opacity=new PremiumSlider { Minimum=PetTracker.Core.OverlayPreferences.MinimumOpacityPercent,Maximum=PetTracker.Core.OverlayPreferences.MaximumOpacityPercent,Location=new(14,79),Size=new(308,34),Value=preferences.OpacityPercent,Cursor=cursor };
         var heightLabel=new PremiumLabel { Location=new(19,122),Size=new(226,24),AutoSize=false };
-        var heightValue=new PremiumLabel { Location=new(252,122),Size=new(70,24),AutoSize=false,TextAlign=ContentAlignment.MiddleRight,ForeColor=PremiumTheme.Gold,Text=preferences.VisibleCards.ToString() };
-        var height=new PremiumSlider { Minimum=1,Maximum=7,Location=new(14,146),Size=new(308,34),Value=preferences.VisibleCards,Cursor=cursor };
+        var heightValue=new PremiumLabel { Location=new(252,122),Size=new(70,24),AutoSize=false,TextAlign=ContentAlignment.MiddleRight,ForeColor=PremiumTheme.Gold,Text="1–7" };
+        var height=new PremiumLabel { Location=new(19,150),Size=new(303,34),AutoSize=false,ForeColor=PremiumTheme.Muted };
         var top=new PremiumToggle { Location=new(18,190),Size=new(305,29),Checked=preferences.AlwaysOnTop,Cursor=cursor };
         var locked=new PremiumToggle { Location=new(18,225),Size=new(305,29),Checked=preferences.Locked,Cursor=cursor };
         var languageLabel=new PremiumLabel { Location=new(19,269),Size=new(303,24),AutoSize=false };
@@ -67,13 +67,13 @@ public sealed class OverlaySettingsForm : Form
             foreach(var label in new[]{title,opacityLabel,opacityValue,heightLabel,heightValue,languageLabel})label.TextLanguage=lang;
             title.Font=new(UiText.FontFamily(lang),13,FontStyle.Bold);
             title.Text=UiText.Get(lang,"settings");opacityLabel.Text=UiText.Get(lang,"opacity");heightLabel.Text=UiText.Get(lang,"visibleCards");
+            height.TextLanguage=lang;height.Text=HelpText.Get(lang,"autoHeight");
             top.Text=UiText.Get(lang,"top");locked.Text=UiText.Get(lang,"lock");languageLabel.Text=UiText.Get(lang,"language");
             diagnostic.Text=UiText.Get(lang,"logs");done.Text=UiText.Get(lang,"done");RefreshHotkeyLabels();diagnostic.TextLanguage=lang;done.TextLanguage=lang;top.TextLanguage=lang;locked.TextLanguage=lang;Invalidate();
             languages.Text=UiText.Languages.First(l=>l.Code==lang).Name+"  ▾";languages.TextLanguage=lang;
             support.Text=UiText.Get(lang,"support");support.TextLanguage=lang;
         }
         opacity.ValueChanged+=(_,_)=>{preferences.OpacityPercent=opacity.Value;opacityValue.Text=opacity.Value+"%";changed();};
-        height.ValueChanged+=(_,_)=>{preferences.VisibleCards=height.Value;heightValue.Text=height.Value.ToString();changed();};
         top.CheckedChanged+=(_,_)=>{preferences.AlwaysOnTop=top.Checked;changed();};locked.CheckedChanged+=(_,_)=>{preferences.Locked=locked.Checked;changed();};
         if(riftSettings is not null)
         {

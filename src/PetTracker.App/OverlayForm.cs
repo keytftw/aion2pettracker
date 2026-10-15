@@ -37,7 +37,6 @@ public sealed class OverlayForm : Form
     private string? handbookLanguage;
     private float scroll,scrollTarget;
     private int wheelDelta;
-    private HashSet<int> lastVisible=[];
     private double lastPump;
     private double revealStart;private bool revealing;
     private int hoveredCard=-1;
@@ -157,6 +156,7 @@ public sealed class OverlayForm : Form
     }
     private void ApplyAppearance()
     {
+        preferences.VisibleCards=OverlayHeight.Fit(visibleIds.Length);
         preferences.Validate();
         if(compactMode){ApplyCompactSize();return;}
         var width=(int)Math.Round(FixedWidth*DeviceDpi/96f);
@@ -193,14 +193,9 @@ public sealed class OverlayForm : Form
         }
         if(m.Msg==0x112&&compactMode&&(m.WParam.ToInt64()&0xFFF0)==0xF000)return;
         if(m.Msg==0x112&&preferences is not null&&preferences.Locked&&(m.WParam.ToInt64()&0xFFF0)==0xF010)return;
-        if(m.Msg==0x20&&crystal is not null){var pointer=PointToClient(MousePosition);Cursor.Current=pointer.Y>=ClientSize.Height-18&&!compactMode?Cursors.SizeNS:hovered.Length>0?brightCrystal.Pointer:crystal.Pointer;m.Result=(IntPtr)1;return;}
+        if(m.Msg==0x20&&crystal is not null){Cursor.Current=hovered.Length>0?brightCrystal.Pointer:crystal.Pointer;m.Result=(IntPtr)1;return;}
         base.WndProc(ref m);
-        if(m.Msg==0x84&&m.Result.ToInt32()==1&&!compactMode)
-        {
-            var packed=m.LParam.ToInt64();var point=PointToClient(new(unchecked((short)(packed&0xffff)),unchecked((short)((packed>>16)&0xffff))));
-            if(point.Y>=ClientSize.Height-18)m.Result=(IntPtr)15;
-        }
-        if(m.Msg==0x232&&preferences is not null){try{if(!compactMode){preferences.VisibleCards=OverlayHeight.CardsFromPixels((int)Math.Round(Height/(DeviceDpi/96f)));ApplyAppearance();}EnsureVisible();SaveAppearance();}catch(Exception ex){Error(ex);}}
+        if(m.Msg==0x232&&preferences is not null){try{if(!compactMode)ApplyAppearance();EnsureVisible();SaveAppearance();}catch(Exception ex){Error(ex);}}
     }
     protected override void OnDpiChanged(DpiChangedEventArgs e){base.OnDpiChanged(e);if(compactMode)ApplyCompactSize();else ApplyAppearance();EnsureVisible();}
     protected override void OnShown(EventArgs e)
@@ -216,13 +211,11 @@ public sealed class OverlayForm : Form
         var ids=controller.Tracker.HasCurrent?controller.Tracker.VisibleIds.ToArray():[];
         var orderChanged=!visibleIds.SequenceEqual(ids);
         visibleIds=ids;
-        if(ids.Any(id=>!lastVisible.Contains(id)))
-        {
-            var slots=OverlayHeight.Grow(preferences.VisibleCards,ids.Length);
-            if(slots!=preferences.VisibleCards){preferences.VisibleCards=slots;ApplyAppearance();EnsureVisible();SaveAppearance();}
-        }
-        if(orderChanged){lastVisible=ids.ToHashSet();motion.Sync(ids,Now);timer.Interval=8;}
+        var slots=OverlayHeight.Fit(ids.Length);
+        if(slots!=preferences.VisibleCards){preferences.VisibleCards=slots;ApplyAppearance();EnsureVisible();SaveAppearance();}
+        if(orderChanged){motion.Sync(ids,Now);timer.Interval=8;}
         scrollTarget=SnapScroll(scrollTarget);
+        scroll=Math.Clamp(scroll,0,MaximumScroll);
     }
     protected override void OnMouseWheel(MouseEventArgs e){base.OnMouseWheel(e);wheelDelta+=e.Delta;var steps=wheelDelta/120;wheelDelta%=120;scrollTarget=SnapScroll(scrollTarget-steps*(CardHeight+CardGap));timer.Interval=8;}
     protected override void OnPaint(PaintEventArgs e)
@@ -272,7 +265,6 @@ public sealed class OverlayForm : Form
         using var dot=new SolidBrush(warning?warningColor:exact?Color.FromArgb(139,192,154):PremiumTheme.Gold);g.FillEllipse(dot,12,footer+11,4,4);
         var status=!controller.LiveMode?T("demo"):exact?T("exact"):controller.Session.IdentityKnown?T("uncertain"):T("snapshot");
         DrawText(g,warning?T("resyncWarning"):status,new(23,footer+3,DesignWidth-40,warning?32:18),warning?7.5f:6.8f,warning?warningColor:exact?PremiumTheme.Ink:PremiumTheme.Gold);
-        using(var grip=new Pen(Color.FromArgb(hovered=="resize"?210:110,PremiumTheme.Gold),1.4f)){var gx=DesignWidth/2f;g.DrawLine(grip,gx-12,LogicalHeight-4,gx+12,LogicalHeight-4);g.DrawLine(grip,gx-7,LogicalHeight-7,gx+7,LogicalHeight-7);}
         if(!warning){using var creditRule=new Pen(Color.FromArgb(24,PremiumTheme.Gold));g.DrawLine(creditRule,43,footer+23,DesignWidth-43,footer+23);
         PremiumTheme.Text(g,"Designed & Developed by Keyt",new(15,footer+24,DesignWidth-30,11),5.9f,Color.FromArgb(149,142,136),"en",align:StringAlignment.Center);}
     }
@@ -382,7 +374,6 @@ public sealed class OverlayForm : Form
     {
         base.OnMouseMove(e);var point=new PointF(e.X/ScaleFactor,e.Y/ScaleFactor);
         if(dragScroll){scrollTarget=SnapScroll(Math.Clamp((point.Y-HeaderHeight)/Viewport,0,1)*MaximumScroll);return;}
-        if(!compactMode&&e.Y>=ClientSize.Height-18){hoveredCard=-1;hovered="resize";Cursor=Cursors.SizeNS;tips.SetToolTip(this,StartupText.Get(Language,"resize"));return;}
         var hit=Hit(point);hoveredCard=hit.Id>0?hit.Id:-1;var next=hit.Action is null or "disabled"?"":hit.Action+hit.Id;
         if(next!=hovered)
         {

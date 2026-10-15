@@ -54,13 +54,13 @@ static class Program
                 using var demo = new OverlayForm(false, Path.Combine(folder, "Demo"), preview:true);
                 live.CreateControl(); demo.CreateControl();
                 var initialWidth = live.Width; live.Width += 100;
-                if (live.Width != initialWidth || live.Height < 220 || live.Width != (int)Math.Round(OverlayForm.FixedWidth*live.DeviceDpi/96f) || !live.TopMost || live.Opacity < .3 || live.Opacity > 1) throw new InvalidOperationException("Overlay genişlik/yükseklik/üstte kalma/saydamlık kontrolü başarısız");
+                if (live.Width != initialWidth || live.Height < 220 || live.Width != (int)Math.Round(OverlayForm.FixedWidth*live.DeviceDpi/96f) || !live.TopMost || live.Opacity < .85 || live.Opacity > 1) throw new InvalidOperationException("Overlay genişlik/yükseklik/üstte kalma/saydamlık kontrolü başarısız");
                 live.Height += 60;
                 if (live.Width != initialWidth) throw new InvalidOperationException("Yükseklik değişimi genişliği etkiledi");
                 var lockedFolder=Path.Combine(folder,"Locked"); Directory.CreateDirectory(lockedFolder);
                 File.WriteAllText(Path.Combine(lockedFolder,"overlay-preferences.json"),"{\"Locked\":true,\"OpacityPercent\":20,\"Height\":610}");
                 using var locked=new OverlayForm(true,lockedFolder);
-                if (!locked.PositionLocked || Math.Abs(locked.Opacity-.3)>.001) throw new InvalidOperationException("Kilit/saydamlık alt sınırı başarısız");
+                if (!locked.PositionLocked || Math.Abs(locked.Opacity-.85)>.001) throw new InvalidOperationException("Kilit/saydamlık alt sınırı başarısız");
                 locked.CheckLockedMove();
                 if(!UiText.Complete||!StartupText.Complete||!TermsContent.Complete||UiText.Languages.Length!=10)throw new InvalidOperationException("Dil sözlüğü eksik.");
                 foreach(var (code,_) in UiText.Languages)

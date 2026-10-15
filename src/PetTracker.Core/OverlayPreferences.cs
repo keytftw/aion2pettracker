@@ -4,6 +4,7 @@ namespace PetTracker.Core;
 
 public sealed class OverlayPreferences
 {
+    public const int MinimumOpacityPercent=85,MaximumOpacityPercent=100;
     public int OpacityPercent { get; set; } = 100;
     public bool Locked { get; set; }
     public bool AlwaysOnTop { get; set; } = true;
@@ -33,7 +34,7 @@ public sealed class OverlayPreferences
     public int? MapTop { get; set; }
     public void Validate()
     {
-        OpacityPercent = Math.Clamp(OpacityPercent, 30, 100);
+        OpacityPercent = Math.Clamp(OpacityPercent, MinimumOpacityPercent, MaximumOpacityPercent);
         RiftLeadMinutes = Math.Clamp(RiftLeadMinutes, 1, 120);
         RiftDelivered = (RiftDelivered??[]).TakeLast(32).ToList();
         VisibleCards = OverlayHeight.Clamp(VisibleCards);

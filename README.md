@@ -20,7 +20,7 @@ Language and terms are configured during installation. Preferences persist; cach
 - Searchable Add Pet menu with incomplete/maxed tabs. Pinning fixes a card; unpinning removes only its pin and keeps the card, including after restarting. Delete/Clear removes the card and pin without deleting progress. A later real soul gain can reactivate it.
 - Up/down arrows reorder cards with animation. Pins, manually retained cards and order are scoped to character/server and persist independently of counters.
 - Fixed width; 1–7 visible cards. New cards automatically grow the full window to seven slots, after which scrolling settles at card boundaries. Position lock is separate from height.
-- 30–100% opacity, Always on top, a movable compact box and a separately movable Settings window. Opening the desktop shortcut again restores the running instance rather than starting a new session.
+- 85–100% opacity, Always on top, a movable compact box and a separately movable Settings window. Opening the desktop shortcut again restores the running instance rather than starting a new session.
 - Ctrl+P hides/restores; Ctrl+U compacts/expands. Settings can change both shortcuts to Ctrl/Alt/Shift plus a letter, digit or F1–F24. Held keys do not repeatedly toggle; conflicting combinations are rejected.
 - New MAX transitions play a subtle sound. MAX cards remain visible; hover and click CLEAR to remove one.
 - Ten languages: Turkish, English, German, Russian, Spanish, French, Portuguese, Arabic, Hindi and Simplified Chinese. Changes apply immediately and are saved.
@@ -95,3 +95,9 @@ Automatic bug submission is deferred until a working mail backend is available. 
 - Expanded the illustrated handbook to eight pages, including farmable pets, regions, acquisition sources and map portraits. Open it from the tracker, Atlas or Setup progress screen.
 - Rift alerts default to enabled; an explicitly saved opt-out remains respected.
 - Uncertain counts keep the red warning while readable gains continue; a validated collection reconciles totals.
+
+## 1.2.9
+
+- Automatically grow and shrink the tracker with visible cards, including Delete/CLEAR. Empty keeps one slot, with a seven-card cap and scrolling beyond seven. Compact mode remains compact.
+- Replace manual height controls with automatic height information in all ten languages.
+- Restrict the full opacity slider to 85–100%; migrate lower saved values to 85%.

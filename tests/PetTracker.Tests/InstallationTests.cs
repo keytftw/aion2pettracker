@@ -34,7 +34,7 @@ public sealed class InstallationTests
         {
             var preferences=new OverlayPreferences{Language="ru",OpacityPercent=65,VisibleCards=5,Locked=true,AlwaysOnTop=false,Left=350,Top=180};preferences.Save(settingsPath);
             new InstallationProfile("ru","v1",DateTimeOffset.UtcNow).Save(receiptPath);
-            var saved=OverlayPreferences.Load(settingsPath,_=>{});Assert.Equal("ru",saved.Language);Assert.Equal(65,saved.OpacityPercent);Assert.Equal(OverlayHeight.Pixels(5),saved.Height);Assert.Equal(5,saved.VisibleCards);Assert.True(saved.Locked);Assert.False(saved.AlwaysOnTop);Assert.Equal(350,saved.Left);
+            var saved=OverlayPreferences.Load(settingsPath,_=>{});Assert.Equal("ru",saved.Language);Assert.Equal(85,saved.OpacityPercent);Assert.Equal(OverlayHeight.Pixels(5),saved.Height);Assert.Equal(5,saved.VisibleCards);Assert.True(saved.Locked);Assert.False(saved.AlwaysOnTop);Assert.Equal(350,saved.Left);
             saved.Language="es";saved.Save(settingsPath);Assert.Equal("es",OverlayPreferences.Load(settingsPath,_=>{}).Language);Assert.True(InstallationProfile.Load(receiptPath)!.IsValid);
             // On startup preferences take precedence over the original installation language.
             var gate=new StartupGate();gate.ConfigureInstallation(OverlayPreferences.Load(settingsPath,_=>{}).Language);Assert.Equal("es",gate.Language);
