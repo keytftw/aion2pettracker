@@ -28,6 +28,7 @@ public sealed class AtlasDetailTests
                 map.ClientSize=new(760,550);map.StartPosition=FormStartPosition.Manual;map.Location=new(-5000,-5000);map.Show();Application.DoEvents();
                 Assert.True(map.ClientRectangle.Contains(card.Bounds));
                 Assert.True(card.Top>Field<PetMapCarousel>(map,"carousel").Bottom);
+                Assert.True(card.Bottom<=Field<PremiumButton>(map,"focus").Top);
                 Assert.False(card.Bounds.IntersectsWith(Field<PremiumButton>(map,"next").Bounds));
                 var nextButton=Field<PremiumButton>(map,"next");Assert.Same(nextButton,map.GetChildAtPoint(new(nextButton.Left+nextButton.Width/2,nextButton.Top+nextButton.Height/2)));
                 Assert.Equal(0,map.Controls.GetChildIndex(card));

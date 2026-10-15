@@ -53,7 +53,7 @@ public sealed class PetMapForm : Form
         if(!data.Worlds.ContainsKey(worldId))worldId=data.Worlds.Keys.First();
         AutoScaleMode=AutoScaleMode.None;FormBorderStyle=FormBorderStyle.None;DoubleBuffered=true;StartPosition=FormStartPosition.Manual;
         BackColor=PremiumTheme.Background;ForeColor=PremiumTheme.Ink;ShowInTaskbar=true;TopMost=preferences.AlwaysOnTop;Cursor=pointer.Pointer;Icon=AppBrand.CreateIcon();
-        ClientSize=new((int)(preferences.MapWidth*DpiFactor),(int)(preferences.MapHeight*DpiFactor));MinimumSize=new((int)(760*DpiFactor),(int)(550*DpiFactor));
+        ClientSize=new((int)(preferences.MapWidth*DpiFactor),(int)(preferences.MapHeight*DpiFactor));MinimumSize=new((int)(760*DpiFactor),(int)(586*DpiFactor));
         var area=Screen.PrimaryScreen!.WorkingArea;
         Location=new(preferences.MapLeft??area.Left+(area.Width-Width)/2,preferences.MapTop??area.Top+(area.Height-Height)/2);EnsureVisible();
         carousel=new(images,id=>controller.Tracker.HasCurrent?controller.Tracker.KnownTotal(id):null){Cursor=pointer.Pointer};
@@ -275,7 +275,7 @@ public sealed class PetMapForm : Form
         using var grip=new Pen(PremiumTheme.Gold);g.DrawLine(grip,width-12,height-4,width-4,height-12);g.DrawLine(grip,width-18,height-4,width-4,height-18);
     }
     protected override void OnResize(EventArgs e){base.OnResize(e);LayoutChrome();canvas.SetActive(WindowState!=FormWindowState.Minimized);}
-    protected override void OnDpiChanged(DpiChangedEventArgs e){base.OnDpiChanged(e);MinimumSize=new((int)(760*DpiFactor),(int)(550*DpiFactor));LayoutChrome();EnsureVisible();}
+    protected override void OnDpiChanged(DpiChangedEventArgs e){base.OnDpiChanged(e);MinimumSize=new((int)(760*DpiFactor),(int)(586*DpiFactor));LayoutChrome();EnsureVisible();}
     protected override void OnMouseDown(MouseEventArgs e){base.OnMouseDown(e);worldMenu?.Hide();genusMenu?.Hide();if(e.Button==MouseButtons.Left&&e.Y<60*DpiFactor){ReleaseCapture();SendMessage(Handle,0xA1,(IntPtr)2,IntPtr.Zero);}}
     protected override bool ProcessCmdKey(ref Message message,Keys key){if(key==Keys.Escape){if(petWorldMenu?.Visible==true)petWorldMenu.Hide();else if(genusMenu.Visible)genusMenu.Hide();else if(worldMenu.Visible)worldMenu.Hide();else if(detailCard is not null)HidePetCard();else Close();return true;}return base.ProcessCmdKey(ref message,key);}
     protected override void WndProc(ref Message message)

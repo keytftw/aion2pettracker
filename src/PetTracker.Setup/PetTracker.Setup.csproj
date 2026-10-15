@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms>
-    <Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><Version>1.2.12</Version>
+    <Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><Version>1.2.13</Version>
     <AssemblyName>A2PetTracker-win-Setup</AssemblyName><Product>Aion 2 Pet Tracker Setup</Product>
     <DefineConstants>$(DefineConstants);SETUP_UI;UI_FONTS</DefineConstants>
     <ApplicationIcon>..\PetTracker.App\Assets\App.ico</ApplicationIcon>
