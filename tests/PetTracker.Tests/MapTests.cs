@@ -14,6 +14,29 @@ public class MapTests
       "1124":[{"npc":11,"name":"Same creature name","level":20,"worlds":[{"world":1010,"area":"Third","points":[[50,50]]}]}],
       "1001":[]}}
     """;
+    [Fact] public void GenusFilterCombinesWithRegionSearchMaxedAndAggregateMarkers()
+    {
+        var data=MapData.Parse(Synthetic);
+        var catalog=new PetCatalog([new(1114,"A","Cogni"),new(1124,"B","Natura"),new(1001,"Unknown","Cogni")]);
+        Assert.Equal(1114,Assert.Single(MapPetQuery.Filter(catalog,data,1010,"",false,false,_=>0,"Cogni")).Id);
+        Assert.Empty(MapPetQuery.Filter(catalog,data,1110,"",false,false,_=>0,"Natura"));
+        Assert.Empty(MapPetQuery.Filter(catalog,data,1010,"B",false,false,_=>0,"Cogni"));
+        Assert.Equal(1001,Assert.Single(MapPetQuery.Filter(catalog,data,0,"",false,false,_=>0,"Cogni")).Id);
+        Assert.Equal(1114,Assert.Single(MapPetQuery.Filter(catalog,data,-1,"",true,false,id=>id==1114?105:0,"Cogni")).Id);
+        Assert.Equal(1124,Assert.Single(MapPetQuery.FarmableLocations(catalog,data,1010,_=>0,"Natura")).PetId);
+        Assert.Empty(MapPetQuery.FarmableLocations(catalog,data,1010,id=>id==1124?105:0,"Natura"));
+        Assert.Equal(3,MapPetQuery.Filter(catalog,data,-1,"",false,false,_=>0).Length);
+    }
+    [Fact] public void TrackerOnlyUsesExplicitVisibleIdsAndNeverFallsBackToAllPets()
+    {
+        var data=MapData.Parse(Synthetic);var catalog=new PetCatalog([new(1114,"A","Cogni"),new(1124,"B","Natura"),new(1001,"Unknown","Cogni")]);
+        Assert.Empty(MapPetQuery.Filter(catalog,data,-1,"",false,false,_=>0,trackedIds:new HashSet<int>()));
+        Assert.Equal(1124,Assert.Single(MapPetQuery.Filter(catalog,data,-1,"",false,false,_=>0,trackedIds:new HashSet<int>{1124})).Id);
+        Assert.Empty(MapPetQuery.Filter(catalog,data,-1,"",false,false,_=>0,"Cogni",new HashSet<int>{1124}));
+        Assert.Empty(MapPetQuery.TrackedLocations(data,1010,[]));
+        Assert.Equal(2,MapPetQuery.TrackedLocations(data,1010,[1114,1114,999999]).Length);
+        Assert.All(MapPetQuery.TrackedLocations(data,1110,[1114,1124]),p=>Assert.Equal(1114,p.PetId));
+    }
     [Fact] public void SourceProjectionUsesSectorBoundsAndCorrectYDirection()
     {
         var data=MapData.Parse(Synthetic);var points=data.Locations(1114,1010);

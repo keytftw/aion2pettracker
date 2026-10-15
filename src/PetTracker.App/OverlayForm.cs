@@ -513,6 +513,7 @@ public sealed class OverlayForm : Form
         if(map is null||map.IsDisposed)
         {
             var window=new PetMapForm(controller,portraits,preferences,SaveAppearance,OpenRiftSettings);
+            window.PetAdded+=_=>{SyncCards();Invalidate();};
             window.Activated+=(_,_)=>RaiseSettings();
             window.FormClosed+=(_,_)=>{if(ReferenceEquals(map,window))map=null;};map=window;
         }

@@ -23,6 +23,8 @@ public sealed class OverlayPreferences
     public bool MapHideUnlocated { get; set; }
     public bool MapUnlocatedCategory { get; set; }
     public bool MapAllPetsCategory { get; set; }
+    public string MapGenus { get; set; } = "";
+    public bool MapTrackerOnly { get; set; }
     public bool MapPortraitMarkers { get; set; } = true;
     public bool RiftAlertsEnabled { get; set; } = true;
     public bool RiftSoundEnabled { get; set; } = true;
@@ -34,6 +36,7 @@ public sealed class OverlayPreferences
     public int? MapTop { get; set; }
     public void Validate()
     {
+        MapGenus ??= "";
         OpacityPercent = Math.Clamp(OpacityPercent, MinimumOpacityPercent, MaximumOpacityPercent);
         RiftLeadMinutes = Math.Clamp(RiftLeadMinutes, 1, 10);
         RiftDelivered = (RiftDelivered??[]).TakeLast(32).ToList();

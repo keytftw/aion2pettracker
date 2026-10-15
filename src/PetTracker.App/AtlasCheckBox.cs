@@ -8,6 +8,8 @@ public sealed class AtlasCheckBox : CheckBox
     private readonly AnimationClock clock=new();
     private float position;
     private bool hovered;
+    [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+    public bool WarningAccent {get;set;}
     public AtlasCheckBox(string language)
     {
         this.language=language;
@@ -18,9 +20,11 @@ public sealed class AtlasCheckBox : CheckBox
     {
         var g=e.Graphics;g.Clear(BackColor);var scale=DeviceDpi/96f;g.ScaleTransform(scale,scale);g.SmoothingMode=SmoothingMode.AntiAlias;
         var y=(Height/scale-18)/2;var box=new RectangleF(3,y,18,18);
-        var t=Enabled?position:0;var a=PremiumTheme.Background;var b=PremiumTheme.Gold;
+        var t=Enabled?position:0;var a=PremiumTheme.Background;var b=WarningAccent?Color.FromArgb(255,83,103):PremiumTheme.Gold;
+        if(WarningAccent&&t>0)
+            for(var radius=4;radius>=1;radius--){using var glow=new Pen(Color.FromArgb((int)(t*(22+radius*5)),b),radius*2);using var ring=PremiumTheme.Round(box,5);g.DrawPath(glow,ring);}
         using var path=PremiumTheme.Round(box,5);using var fill=new SolidBrush(Color.FromArgb((int)(a.R+(b.R-a.R)*t),(int)(a.G+(b.G-a.G)*t),(int)(a.B+(b.B-a.B)*t)));
-        using var edge=new Pen(Enabled?PremiumTheme.Gold:PremiumTheme.Muted);g.FillPath(fill,path);g.DrawPath(edge,path);
+        using var edge=new Pen(Enabled?b:PremiumTheme.Muted);g.FillPath(fill,path);g.DrawPath(edge,path);
         if(position>0){using var check=new Pen(Color.FromArgb((int)(255*position),Enabled?PremiumTheme.Background:PremiumTheme.Muted),2f){StartCap=LineCap.Round,EndCap=LineCap.Round};g.DrawLines(check,new PointF[]{new(7,y+9),new(11,y+13),new(17,y+6)});}
         if(Focused||hovered){using var halo=new Pen(Color.FromArgb(65,PremiumTheme.Gold));using var ring=PremiumTheme.Round(new(1,y-2,22,22),6);g.DrawPath(halo,ring);}
         PremiumTheme.Text(g,Text,new(31,0,Width/scale-33,Height/scale),Font.Size,Enabled?ForeColor:PremiumTheme.Muted,language);
