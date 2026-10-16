@@ -30,10 +30,11 @@ public sealed class PetGuideUiTests
                     using var atlas=new PetMapForm(tracker.Controller,portraits,prefs,()=>{});atlas.Location=new(-5000,-5000);atlas.Show();Application.DoEvents();
                     foreach(var width in new[]{760,1100,1500})
                     {
-                        atlas.ClientSize=new(width,800);Application.DoEvents();
+                        // Windows may clamp oversized windows on headless CI desktops; use a real supported viewport.
+                        atlas.ClientSize=new(Math.Min(width,Screen.FromControl(atlas).WorkingArea.Width),Math.Min(800,Screen.FromControl(atlas).WorkingArea.Height));Application.DoEvents();
                         var options=new Control[]{Field<CheckBox>(atlas,"showAll"),Field<CheckBox>(atlas,"portraitMarkers"),Field<CheckBox>(atlas,"trackerOnly"),Field<CheckBox>(atlas,"exclusiveOnly"),Field<PremiumButton>(atlas,"discoveryButton")};
                         foreach(var a in options){Assert.True(atlas.ClientRectangle.Contains(a.Bounds));foreach(var b in options.Where(b=>b!=a))Assert.False(a.Bounds.IntersectsWith(b.Bounds));}
-                        Assert.Equal(atlas.ClientSize.Width-30,options[^1].Right);
+                        Assert.Equal((int)Math.Round(atlas.ClientSize.Width-30*atlas.DeviceDpi/96f),options[^1].Right);
                     }
                     var data=Field<MapData>(atlas,"data");var sources=PetSources.Load(Path.Combine(AppContext.BaseDirectory,"data/pet-sources.json"));var matches=Field<PetDefinition[]>(atlas,"matches");Assert.NotEmpty(matches);
                     Assert.All(matches,p=>Assert.True(PetGuideQuery.IsExclusive(data,p.Id,1010,sources.Get(p.Id))));
