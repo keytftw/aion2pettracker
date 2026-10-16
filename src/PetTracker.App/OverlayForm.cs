@@ -107,9 +107,9 @@ public sealed class OverlayForm : Form
             foreach(var row in motion.Rows){var target=hoveredCard==row.Id?1:0;hover[row.Id]=FrameSmoothing.Approach(hover.GetValueOrDefault(row.Id),target,frameElapsed,14);animating|=hover[row.Id]!=target;}
             foreach(var key in drawnButtons){var target=hovered==key?1:0;buttonHover[key]=FrameSmoothing.Approach(buttonHover.GetValueOrDefault(key),target,frameElapsed,16);animating|=buttonHover[key]!=target;}
             var visible=Visible&&WindowState!=FormWindowState.Minimized;
-            timer.Interval=visible?(animating?8:32):50;
+            timer.Interval=visible?(animating?16:32):50;
             pendingRepaint|=animating||previousFrameAnimated||dataChanged;
-            if(visible&&pendingRepaint&&now-lastPaintRequest>=1d/70){Invalidate();lastPaintRequest=now;pendingRepaint=false;}
+            if(visible&&pendingRepaint&&now-lastPaintRequest>=1d/60){Invalidate();lastPaintRequest=now;pendingRepaint=false;}
             previousFrameAnimated=animating;
         };
         appearanceSave.Tick+=(_,_)=>{appearanceSave.Stop();try{SaveAppearance();}catch(Exception ex){Error(ex);}};
@@ -534,7 +534,7 @@ public sealed class OverlayForm : Form
     }
     public void CheckLockedMove(){if(!preferences.Locked)throw new InvalidOperationException("Konum kilidi kapalı.");var before=Location;SendMessage(Handle,0x112,(IntPtr)0xF010,IntPtr.Zero);if(Location!=before)throw new InvalidOperationException("Kilitli pencere hareket etti.");}
     private void ShowRiftBanner(bool opened,int minutes)
-    {if(closing||IsDisposed)return;riftBanner.Enqueue(opened,minutes,Now);AdvanceRiftBanner(Now);timer.Interval=8;Invalidate();}
+    {if(closing||IsDisposed)return;riftBanner.Enqueue(opened,minutes,Now);AdvanceRiftBanner(Now);timer.Interval=16;Invalidate();}
     private void AdvanceRiftBanner(double now)
     {
         riftFrame=riftBanner.Tick(now);

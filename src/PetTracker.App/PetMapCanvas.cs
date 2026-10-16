@@ -103,6 +103,8 @@ public sealed class PetMapCanvas : Control
         using var markerFill=new SolidBrush(Color.FromArgb(239,49,53));using var hoverFill=new SolidBrush(Color.FromArgb(255,78,75));
         using var outline=new Pen(Color.Black,2*DpiScale);using var selectedOutline=new Pen(PremiumTheme.Gold,2*DpiScale);
         using var markerGlow=new SolidBrush(Color.FromArgb(36,239,49,53));using var hoverGlow=new SolidBrush(Color.FromArgb(80,239,49,53));
+        var age=Now-focusStart;var pulse=(float)((Math.Max(0,age)*.8)%1);
+        using var ripple=new Pen(Color.FromArgb((int)(70*(1-pulse)),Color.FromArgb(239,49,53)),1.5f*DpiScale);
         foreach(var marker in paintMarkers)
         {
             var point=camera.ToScreen(marker.Point);var x=(float)point.X;var y=(float)point.Y;if(x<-20||y<-20||x>Width+20||y>Height+20)continue;
@@ -119,7 +121,7 @@ public sealed class PetMapCanvas : Control
                 continue;
             }
             var radius=(marker==hovered?7f:5.5f)*DpiScale;
-            if(Now-focusStart<2.8){var pulse=(float)(((Now-focusStart)*.8)%1);using var ripple=new Pen(Color.FromArgb((int)(70*(1-pulse)),Color.FromArgb(239,49,53)),1.5f*DpiScale);var r=(9+14*pulse)*DpiScale;g.DrawEllipse(ripple,x-r,y-r,r*2,r*2);}
+            if(age<2.8){var r=(9+14*pulse)*DpiScale;g.DrawEllipse(ripple,x-r,y-r,r*2,r*2);}
             g.FillEllipse(marker==hovered?hoverGlow:markerGlow,x-radius-3*DpiScale,y-radius-3*DpiScale,2*(radius+3*DpiScale),2*(radius+3*DpiScale));
             g.FillEllipse(marker==hovered?hoverFill:markerFill,x-radius,y-radius,radius*2,radius*2);
             g.DrawEllipse(outline,x-radius,y-radius,radius*2,radius*2);

@@ -36,6 +36,8 @@ A free, open-source Windows companion for **Aion 2 Global**: track pet souls, ex
 - Open a pet's information card for its portrait, progress, available acquisition sources and wiki link. Use the highlighted **+** beside Close to add it directly to the tracker.
 - Enable **Tracker pets only** to limit the displayed pets and map markers to currently visible tracker cards, together with the other active filters. A red checkbox glow and status label make the filter clear; it becomes unavailable and switches off when the tracker is empty.
 - Show all matching farmable locations together, or focus a pet and choose among its recorded regions.
+- Enable **Map-exclusive pets** to combine the selected region, pet type and tracker filters while excluding pets with recorded farming locations in other regions. This uses the bundled location snapshot, not a guarantee of global exclusivity.
+- Open the **Pet Discovery Guide** with the book beside this filter: browse single-map pets by map, type and farmable/MAX status, or inspect special sources, known boss identities and suggested acquisition sources. Every row opens a pet card with the same tracker Add action. Source suggestions are not measured fastest routes or guaranteed drops.
 
 Map markers are a reference guide, **not live spawns or player-position tracking**. Missing coordinates do not mean a pet cannot be farmed.
 
@@ -67,6 +69,8 @@ Times follow the [Shugo.GG community timetable](https://shugo.gg/timers); an ope
 </table>
 
 These are screenshots rendered by the existing application's offline UI tests with demo data. Click an image to inspect it at full size.
+
+<p align="center"><b>Pet Discovery Guide: single-map farming and acquisition sources</b><br><img src="docs/images/pet-discovery.png" width="900" alt="Pet Discovery Guide with region, type and farmable filters and a selectable pet detail card"></p>
 
 ## Installation
 

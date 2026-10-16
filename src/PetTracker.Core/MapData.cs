@@ -15,11 +15,17 @@ public sealed class MapData
     public DateOnly SnapshotDate { get; }
     public IReadOnlyDictionary<int,MapWorld> Worlds { get; }
     private readonly Dictionary<int,MapLocation[]> locations;
+    private readonly Dictionary<(int Pet,int World),IReadOnlyList<MapLocation>> byWorld;
+    private readonly Dictionary<int,IReadOnlyList<int>> petWorlds;
     public int IgnoredPoints { get; }
     private MapData(DateOnly date,Dictionary<int,MapWorld> worlds,Dictionary<int,MapLocation[]> locations,int ignored)
-    {SnapshotDate=date;Worlds=worlds;this.locations=locations;IgnoredPoints=ignored;}
-    public IReadOnlyList<MapLocation> Locations(int petId,int worldId)=>locations.GetValueOrDefault(petId,[]).Where(point=>point.WorldId==worldId).ToArray();
-    public IReadOnlyList<int> WorldsForPet(int petId)=>locations.GetValueOrDefault(petId,[]).Select(point=>point.WorldId).Distinct().ToArray();
+    {
+        SnapshotDate=date;Worlds=worlds;this.locations=locations;IgnoredPoints=ignored;
+        byWorld=locations.Values.SelectMany(p=>p).GroupBy(p=>(p.PetId,p.WorldId)).ToDictionary(g=>g.Key,g=>(IReadOnlyList<MapLocation>)Array.AsReadOnly(g.ToArray()));
+        petWorlds=locations.ToDictionary(p=>p.Key,p=>(IReadOnlyList<int>)Array.AsReadOnly(p.Value.Select(v=>v.WorldId).Distinct().ToArray()));
+    }
+    public IReadOnlyList<MapLocation> Locations(int petId,int worldId)=>byWorld.GetValueOrDefault((petId,worldId),Array.Empty<MapLocation>());
+    public IReadOnlyList<int> WorldsForPet(int petId)=>petWorlds.GetValueOrDefault(petId,Array.Empty<int>());
     public int? BestWorld(int petId,int preferred)
     {
         var groups=locations.GetValueOrDefault(petId,[]).GroupBy(point=>point.WorldId).ToArray();

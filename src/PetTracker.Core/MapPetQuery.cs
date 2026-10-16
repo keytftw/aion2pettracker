@@ -2,9 +2,10 @@ namespace PetTracker.Core;
 
 public static class MapPetQuery
 {
-    public static PetDefinition[] Filter(PetCatalog catalog,MapData data,int worldId,string query,bool maxed,bool hideUnlocated,Func<int,long?> total,string genus="",IReadOnlySet<int>? trackedIds=null)
+    public static PetDefinition[] Filter(PetCatalog catalog,MapData data,int worldId,string query,bool maxed,bool hideUnlocated,Func<int,long?> total,string genus="",IReadOnlySet<int>? trackedIds=null,bool exclusive=false,PetSources? sources=null)
         =>PetPickerQuery.Filter(catalog,query,maxed,total)
             .Where(pet=>trackedIds is null||trackedIds.Contains(pet.Id))
+            .Where(pet=>!exclusive||PetGuideQuery.IsExclusive(data,pet.Id,worldId,sources?.Get(pet.Id)))
             .Where(pet=>string.IsNullOrEmpty(genus)||string.Equals(pet.Genus,genus,StringComparison.OrdinalIgnoreCase))
             .Where(pet=>worldId<0?(!hideUnlocated||data.WorldsForPet(pet.Id).Count>0):worldId==0?data.WorldsForPet(pet.Id).Count==0:data.Locations(pet.Id,worldId).Count>0)
             .OrderBy(pet=>data.WorldsForPet(pet.Id).Count==0).ThenBy(pet=>pet.Name).ToArray();

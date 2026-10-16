@@ -25,6 +25,7 @@ public sealed class OverlayPreferences
     public bool MapAllPetsCategory { get; set; }
     public string MapGenus { get; set; } = "";
     public bool MapTrackerOnly { get; set; }
+    public bool MapExclusiveOnly { get; set; }
     public bool MapPortraitMarkers { get; set; } = true;
     public bool RiftAlertsEnabled { get; set; } = true;
     public bool RiftSoundEnabled { get; set; } = true;

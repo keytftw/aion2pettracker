@@ -9,7 +9,8 @@
       "AION 2 Ultimate Founder's Pack · Opened from this chest",
       "AION 2 Standard to Ultimate Pack Upgrade · Opened from this chest",
       "AION 2 Deluxe to Ultimate Pack Upgrade · Opened from this chest"
-    ]
+    ],
+    "Kind": "shop"
   },
   {
     "Id": 1002,
@@ -169,7 +170,11 @@
       "Sanctum of Loathing · Ascension Trial, Normal",
       "Sanctum of Loathing · Ascension Trial, Hard",
       "Sanctum of Loathing · Ascension Trial, Extreme"
-    ]
+    ],
+    "Kind": "worldBoss",
+    "Context": "Kernon of the West · Verteron",
+    "ContextSource": "https://wikily.gg/aion-2/bosses/kernon-of-the-west",
+    "ContextWorld": 1010
   },
   {
     "Id": 1010,
@@ -1469,7 +1474,11 @@
       "Sanctum of Loathing · Ascension Trial, Normal",
       "Sanctum of Loathing · Ascension Trial, Hard",
       "Sanctum of Loathing · Ascension Trial, Extreme"
-    ]
+    ],
+    "Kind": "worldBoss",
+    "Context": "Sentinel K’nash · Verteron",
+    "ContextSource": "https://wikily.gg/aion-2/bosses/sentinel-k-nash",
+    "ContextWorld": 1010
   },
   {
     "Id": 1081,
@@ -2058,7 +2067,8 @@
     "Checked": "2026-10-14",
     "Facts": [
       "Pass Shop · Season 1 tab, 10,000 Daeva Pass Shop Coin"
-    ]
+    ],
+    "Kind": "shop"
   },
   {
     "Id": 1112,
@@ -2067,7 +2077,8 @@
     "Checked": "2026-10-14",
     "Facts": [
       "Festival Shop · Pets tab, 3,600 Centuryroot Token"
-    ]
+    ],
+    "Kind": "shop"
   },
   {
     "Id": 1114,
@@ -2727,7 +2738,11 @@
       "Sanctum of Loathing · Ascension Trial, Normal",
       "Sanctum of Loathing · Ascension Trial, Hard",
       "Sanctum of Loathing · Ascension Trial, Extreme"
-    ]
+    ],
+    "Kind": "dungeonBoss",
+    "Context": "Gatekeeper Pinopi · Nightmare / Root Cellar",
+    "ContextSource": "https://wikily.gg/aion-2/dungeons/nightmare",
+    "ContextWorld": null
   },
   {
     "Id": 1147,
@@ -3547,7 +3562,11 @@
       "Sanctum of Loathing · Ascension Trial, Normal",
       "Sanctum of Loathing · Ascension Trial, Hard",
       "Sanctum of Loathing · Ascension Trial, Extreme"
-    ]
+    ],
+    "Kind": "dungeonBoss",
+    "Context": "Furious Feruk · Nightmare / Dranactus Underkeep",
+    "ContextSource": "https://wikily.gg/aion-2/dungeons/nightmare",
+    "ContextWorld": null
   },
   {
     "Id": 1192,
@@ -3796,7 +3815,8 @@
     "Checked": "2026-10-14",
     "Facts": [
       "Shop · Main menu Shop, 2,000,000 Kina"
-    ]
+    ],
+    "Kind": "shop"
   },
   {
     "Id": 1206,
@@ -4045,7 +4065,8 @@
     "Checked": "2026-10-14",
     "Facts": [
       "Shop · Main menu Shop"
-    ]
+    ],
+    "Kind": "shop"
   },
   {
     "Id": 1278,
@@ -4054,7 +4075,8 @@
     "Checked": "2026-10-14",
     "Facts": [
       "Shop · Main menu Shop"
-    ]
+    ],
+    "Kind": "shop"
   },
   {
     "Id": 1299,

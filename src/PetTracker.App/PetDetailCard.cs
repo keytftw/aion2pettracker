@@ -46,6 +46,7 @@ public sealed class PetDetailCard : Panel
             label.Tag=text;sources.Controls.Add(label);
         }
         Row(pet.Genus+" · "+progress,PremiumTheme.Gold);Row(status,PremiumTheme.Ink);
+        if(info?.Context is {} context){Row(MapText.Get(language,info.Kind!)+" · "+context,accent);Row(MapText.Get(language,"routeNote"),PremiumTheme.Muted);}
         Row(PetCardText.Get(language,"sources"),PremiumTheme.Gold);
         if(mapped)
         {

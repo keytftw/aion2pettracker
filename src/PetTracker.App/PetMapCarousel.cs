@@ -6,7 +6,7 @@ public sealed class PetMapCarousel : Control
     private readonly IReadOnlyDictionary<int,Image> images;
     private PetDefinition[] pets=[];
     private readonly Func<int,long?> total;
-    private readonly System.Windows.Forms.Timer animation=new(){Interval=8};
+    private readonly System.Windows.Forms.Timer animation=new(){Interval=16};
     private readonly AnimationClock animationClock=new();
     private float offset,target;
     private int selected,hover=-1;
@@ -68,7 +68,9 @@ public sealed class PetMapCarousel : Control
             var x=index*Stride-offset;if(x>Width)break;var pet=pets[index];var isSelected=pet.Id==selected;
             var rect=new RectangleF(x+2*DpiFactor,2*DpiFactor,Stride-9*DpiFactor,Height-12*DpiFactor);using var path=PremiumTheme.Round(rect,7*DpiFactor);
             using var fill=new SolidBrush(isSelected?Color.FromArgb(43,36,36):index==hover?Color.FromArgb(32,31,39):PremiumTheme.Panel);g.FillPath(fill,path);
-            using var border=new Pen(Color.FromArgb(isSelected?190:index==hover?115:45,PremiumTheme.Gold),DpiFactor);g.DrawPath(border,path);
+            var accent=pet.Genus switch{"Cogni"=>Color.FromArgb(128,200,229),"Natura"=>Color.FromArgb(133,211,167),"Fera"=>Color.FromArgb(225,178,114),"Varian"=>Color.FromArgb(188,156,231),_=>PremiumTheme.Gold};
+            using var stripe=new SolidBrush(Color.FromArgb(isSelected?210:105,accent));g.FillRectangle(stripe,rect.X+12*DpiFactor,rect.Bottom-3*DpiFactor,rect.Width-24*DpiFactor,DpiFactor);
+            using var border=new Pen(Color.FromArgb(isSelected?190:index==hover?115:45,accent),DpiFactor);g.DrawPath(border,path);
             if(images.TryGetValue(pet.Id,out var image))g.DrawImage(image,new RectangleF(x+10*DpiFactor,13*DpiFactor,33*DpiFactor,33*DpiFactor));
             PremiumTheme.Text(g,pet.Name,new(x+50*DpiFactor,8*DpiFactor,Stride-64*DpiFactor,36*DpiFactor),10.2f*DpiFactor,PremiumTheme.Ink,"en",FontStyle.Bold);
             var known=total(pet.Id);var progress=known.HasValue?Progress.FromTotal(known.Value):null;
