@@ -278,6 +278,8 @@ public sealed class PetMapForm : Form
         exclusiveOnly.Bounds=Scaled(new(groupX,152+row*36,exclusiveWidth,32));discoveryButton.Bounds=Scaled(new(width-62,152+row*36,32,32));
         filterOffset=row*36;var offset=FilterOffset;
         var minimumHeight=(int)((550+offset)*DpiFactor);if(MinimumSize.Height!=minimumHeight)MinimumSize=new((int)(760*DpiFactor),minimumHeight);
+        // WinForms can resize recursively while applying minimum bounds. Discard stale geometry.
+        if(Math.Abs(ClientSize.Width/DpiFactor-width)>.5f||Math.Abs(ClientSize.Height/DpiFactor-height)>.5f){LayoutChrome();return;}
         previous.Bounds=Scaled(new(22,192+offset,26,74));next.Bounds=Scaled(new(width-48,192+offset,26,74));carousel.Bounds=Scaled(new(57,189+offset,width-114,82));
         selectionLabel.Bounds=Scaled(new(23,279+offset,width-46,27));canvas.Bounds=Scaled(new(22,315+offset,width-44,Math.Max(100,height-405-offset)));
         var footer=height-73;minus.Bounds=Scaled(new(width-365,footer,29,29));zoom.Bounds=Scaled(new(width-325,footer,185,29));plus.Bounds=Scaled(new(width-127,footer,29,29));zoomLabel.Bounds=Scaled(new(width-86,footer+4,64,24));
